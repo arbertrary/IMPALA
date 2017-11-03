@@ -22,7 +22,6 @@ dirpath = 'testfiles'
 # remove formatting tags
 # overwrite file
 
-
 def clean_subtitle_file(subs_filename):
     subs_path = os.path.join(dirpath, subs_filename)
     with open(subs_path, 'r', encoding='utf-8') as f:
@@ -89,57 +88,44 @@ def check_subtitle_file(subs_filename):
                 # print(dt2.time())
                 # print('Duration: ' + str(dt2 - dt1))
 
-# extract dialogue
+def extract_subdialogue(subs_filename):
+    subs_path = os.path.join(dirpath, subs_filename)
+    with open(subs_path) as f:
+        text = f.read()
+
+        paragraphs = text.split(os.linesep + os.linesep)
+        dialogue = []
+
+        for p in paragraphs:
+            s = p.split(os.linesep)
             i = 2
             while(i < len(s)):
-                dialogue = dialogue + ' ' + s[i]
+                dialogue.append(s[i])
                 i += 1
 
-    tokenize_dialogue(dialogue)
-
+    return dialogue
 
 # Tokenize dialogue for frequency analysis/comparison with dialogue from
 # moviescript
-def tokenize_dialogue(dialogue):
+def tokenize_dialogue(subs_filename):
+    dialogue = extract_dialogue(subs_filename)
+    dialogue = '\n'.join(dialogue)
+
     dialogue = dialogue.translate(str.maketrans('', '', string.punctuation))
 
     stop = set(stopwords.words('english'))
     dialogue_tokens = word_tokenize(dialogue)
     dialogue_tokens = set([i for i in dialogue_tokens if i not in stop])
-    # dialogue_tokens = set(dialogue_tokens)
 
-    # found = 0
-    # not_found = 0
-    # with open(os.path.join(dirpath,'Star-Wars-A-New-Hope.txt')) as f:
-    #     text = f.read()
-    #     text = text.lower()
-    #     text = word_tokenize(text)
-    #     text = set([i for i in text if i not in stop])
-    #
-    #
-    #
-    #     for word in dialogue_tokens:
-    #         if word.lower() in text:
-    #             found += 1
-    #         else:
-    #             not_found +=1
-    # print('found:')
-    # print(found)
-    # print('Not found:')
-    # print(not_found)
+    return dialogue_tokens
 
 
-    #print(dialogue_tokens)
-
-
-# def extract_dialogue_timecodes()
-
-
-def main():
-    # check_subtitle_file('BladeRunnerSubtitles.srt')
-    #check_subtitle_file('testfile.txt')
-    check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
-    # check_subtitle_file('AmericanPsychoSubtitles.srt')
-
-if __name__ == '__main__':
-    main()
+# def main():
+#     # check_subtitle_file('BladeRunnerSubtitles.srt')
+#     #check_subtitle_file('testfile.txt')
+#     #check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
+#     # check_subtitle_file('AmericanPsychoSubtitles.srt')
+#
+#     print(tokenize_dialogue("AmericanPsychoSubtitles.srt"))
+# if __name__ == '__main__':
+#     main()
