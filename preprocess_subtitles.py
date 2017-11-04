@@ -108,14 +108,14 @@ def extract_subdialogue(subs_filename):
 # Tokenize dialogue for frequency analysis/comparison with dialogue from
 # moviescript
 def tokenize_dialogue(subs_filename):
-    dialogue = extract_dialogue(subs_filename)
+    dialogue = extract_subdialogue(subs_filename)
     dialogue = '\n'.join(dialogue)
 
     dialogue = dialogue.translate(str.maketrans('', '', string.punctuation))
 
-    stop = set(stopwords.words('english'))
+    stop = stopwords.words('english')
     dialogue_tokens = word_tokenize(dialogue)
-    dialogue_tokens = set([i for i in dialogue_tokens if i not in stop])
+    dialogue_tokens = [i for i in dialogue_tokens if i not in stop]
 
     return dialogue_tokens
 

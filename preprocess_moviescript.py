@@ -2,9 +2,10 @@ import textwrap
 import os
 import re
 from nltk import word_tokenize
+from nltk.corpus import stopwords
+
 
 from preprocess_subtitles import extract_subdialogue
-
 
 dirpath = 'testfiles'
 
@@ -82,13 +83,58 @@ def separate_scenes(movie_filename):
 def extract_moviedialogue(movie_filename):
     scenelist = separate_scenes(movie_filename)
 
+    dialogue = []
+
+    for scene in scenelist:
+        lines = scene.split(os.linesep)
+
+        del lines[0]
+
+        i = 1
+        while (i < len(lines)):
+            if(lines[i].strip().isupper()):
+                while(i+1 < len(lines) and lines[i+1].strip()):
+                    if(re.search('[(|)]', lines[i+1].strip())):
+                        i+=1
+                    else:
+                        dialogue.append(lines[i+1].strip())
+                        i+=1
+
+                i +=1
+            else:
+                i+=1
+
+    #print('\n'.join(dialogue))
+
+    return(dialogue)
+
+
 
 
 
 # compare the dialogue of a subtitle file to the dialogue of a movie script
 # how similar are they? is the movie script "correct"
 def compare_script_subtitles(movie_filename, subs_filename):
-    subs_dialogue = extract_dialogue(subs_filename)
+    subs_dialogue = extract_subdialogue(subs_filename)
+    movie_dialogue = extract_moviedialogue(movie_filename)
+
+
+    subs_tokens = word_tokenize(' '.join(subs_dialogue))
+
+    movie_tokens = word_tokenize(' '.join(movie_dialogue))
+
+
+    found = 0
+    not_found = 0
+    for token in subs_tokens:
+        if(token in movie_tokens):
+            found += 1
+        else:
+            not_found +=1
+    print("Found: " +str(found))
+
+    print("Not Found: " + str(not_found))
+
 
 
 
@@ -98,11 +144,12 @@ def compare_script_subtitles(movie_filename, subs_filename):
 
 
 def main():
-    compare_script_subtitles('testmovie.txt', 'testsubs.txt')
+    #compare_script_subtitles("testmovie.txt", "testsubs.txt")
+    compare_script_subtitles("American-Psycho.txt", "AmericanPsychoSubtitles.srt")
+    #compare_script_subtitles("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
     #clean_moviescript('Star-Wars-A-New-Hope.txt')
     #clean_moviescript('American-Psycho.txt')
-    #test = nltk.word_tokenize(open('testfiles/Star-Wars-A-New-Hope.txt').read())
-    #print(set(test))
+
 
 
 if __name__ == '__main__':
