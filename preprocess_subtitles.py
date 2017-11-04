@@ -100,7 +100,7 @@ def extract_subdialogue(subs_filename):
             s = p.split(os.linesep)
             i = 2
             while(i < len(s)):
-                dialogue.append(s[i])
+                dialogue.append(s[i].lower())
                 i += 1
 
     return dialogue
@@ -120,12 +120,12 @@ def tokenize_dialogue(subs_filename):
     return dialogue_tokens
 
 
-# def main():
-#     # check_subtitle_file('BladeRunnerSubtitles.srt')
-#     #check_subtitle_file('testfile.txt')
-#     #check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
-#     # check_subtitle_file('AmericanPsychoSubtitles.srt')
-#
-#     print(tokenize_dialogue("AmericanPsychoSubtitles.srt"))
-# if __name__ == '__main__':
-#     main()
+def main():
+    # check_subtitle_file('BladeRunnerSubtitles.srt')
+    #check_subtitle_file('testfile.txt')
+    #check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
+    # check_subtitle_file('AmericanPsychoSubtitles.srt')
+
+    print(tokenize_dialogue("AmericanPsychoSubtitles.srt"))
+if __name__ == '__main__':
+    main()

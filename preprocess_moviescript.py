@@ -1,6 +1,7 @@
 import textwrap
 import os
 import re
+import string
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 
@@ -88,8 +89,6 @@ def extract_moviedialogue(movie_filename):
     for scene in scenelist:
         lines = scene.split(os.linesep)
 
-        del lines[0]
-
         i = 1
         while (i < len(lines)):
             if(lines[i].strip().isupper()):
@@ -97,14 +96,13 @@ def extract_moviedialogue(movie_filename):
                     if(re.search('[(|)]', lines[i+1].strip())):
                         i+=1
                     else:
-                        dialogue.append(lines[i+1].strip())
+                        dialogue.append(lines[i+1].strip().lower())
                         i+=1
 
                 i +=1
             else:
-                i+=1
+                i +=1
 
-    #print('\n'.join(dialogue))
 
     return(dialogue)
 
@@ -118,9 +116,7 @@ def compare_script_subtitles(movie_filename, subs_filename):
     subs_dialogue = extract_subdialogue(subs_filename)
     movie_dialogue = extract_moviedialogue(movie_filename)
 
-
     subs_tokens = word_tokenize(' '.join(subs_dialogue))
-
     movie_tokens = word_tokenize(' '.join(movie_dialogue))
 
 
@@ -137,18 +133,34 @@ def compare_script_subtitles(movie_filename, subs_filename):
 
 
 
+# Nur zum Testen: Häufigkeit der vorkommenden Wörter zählen
+def word_frequency(movie_filename, subs_filename):
+    frequency = {}
 
+    movie_dialogue = ' '.join(extract_moviedialogue(movie_filename))
+    # subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
+
+    match_pattern = re.findall(r'\b[a-z]{3,15}\b', movie_dialogue)
+
+    for word in match_pattern:
+        count = frequency.get(word, 0)
+        frequency[word] = count +1
+
+    frequency_list = frequency.keys()
+
+    for words in frequency_list:
+        if(frequency[words] > 5):
+            print(words, frequency[words])
 
 
 
 
 
 def main():
+    word_frequency("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
     #compare_script_subtitles("testmovie.txt", "testsubs.txt")
-    compare_script_subtitles("American-Psycho.txt", "AmericanPsychoSubtitles.srt")
-    #compare_script_subtitles("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
-    #clean_moviescript('Star-Wars-A-New-Hope.txt')
-    #clean_moviescript('American-Psycho.txt')
+    #compare_script_subtitles("American-Psycho.txt", "AmericanPsychoSubtitles.srt")
+    # compare_script_subtitles("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
 
 
 
