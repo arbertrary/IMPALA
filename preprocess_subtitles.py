@@ -88,6 +88,9 @@ def check_subtitle_file(subs_filename):
                 # print(dt2.time())
                 # print('Duration: ' + str(dt2 - dt1))
 
+
+# sollte ich dialog als list der lines extrahieren oder als string?
+# ich wandle ja eh wieder in strings um fürs tokenizen
 def extract_subdialogue(subs_filename):
     subs_path = os.path.join(dirpath, subs_filename)
     with open(subs_path) as f:

@@ -2,9 +2,10 @@ import textwrap
 import os
 import re
 import string
-from nltk import word_tokenize
+import difflib
+from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
-
+from fuzzywuzzy import fuzz
 
 from preprocess_subtitles import extract_subdialogue
 
@@ -81,6 +82,8 @@ def separate_scenes(movie_filename):
 
 
 # extracts all dialogue from a moviescript and ignores metatext
+# sollte ich dialog als list der lines extrahieren oder als string?
+# ich wandle ja eh wieder in strings um fürs tokenizen
 def extract_moviedialogue(movie_filename):
     scenelist = separate_scenes(movie_filename)
 
@@ -154,10 +157,38 @@ def word_frequency(movie_filename, subs_filename):
 
 
 
+def find_closest_sentences(movie_filename, subs_filename):
+    subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
+    subs_dialogue = sent_tokenize(subs_dialogue)
+
+    movie_dialogue = ' '.join(extract_moviedialogue(movie_filename))
+    movie_dialogue = sent_tokenize(movie_dialogue)
+
+    print(len(subs_dialogue))
+
+    count = 0
+    for sentS in subs_dialogue:
+        for sentM in movie_dialogue:
+            ratio = fuzz.ratio(sentS, sentM)
+#best between 88 and 89
+            if(ratio > 88):
+                count += 1
+
+                print(sentM)
+                print(sentS)
+                print(ratio)
+                #print("\n")
+
+        else:
+            continue
+    print(count)
+
 
 
 def main():
-    word_frequency("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
+    # find_closest_sentences("testmovie.txt", "testsubs.txt")
+    find_closest_sentences("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
+    # word_frequency("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
     #compare_script_subtitles("testmovie.txt", "testsubs.txt")
     #compare_script_subtitles("American-Psycho.txt", "AmericanPsychoSubtitles.srt")
     # compare_script_subtitles("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
