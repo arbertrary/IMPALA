@@ -13,9 +13,12 @@ dirpath = 'imsdbScripts'
 # removed scripts that
 # a) don't use EXT/INT or EXTERIOR/INTERIOR to separate scenes
 # b) have some html tags remaining
-#
-# 30.10.: 953 remaining
+
+# 30.10.17: 953 remaining
 # (removed scripts that don't contain information about author and script at the end)
+
+# 6.11.17: 908 remaining
+# (removed more scripts that don't use EXT./INT. etc to separate scenes)
 
 def check_all_moviescripts(directory):
     incorrect_scripts = []
@@ -25,7 +28,7 @@ def check_all_moviescripts(directory):
             text = m.read()
 
             check1 = re.search(
-                '(INT[.:]{0,1} |EXT[.:]{0,1} |INTERIOR[.:]{0,1} |EXTERIOR[.:]{0,1} )',
+                '(INT[.:] |EXT[.:] |INTERIOR[.:] |EXTERIOR[.:] )',
                 text)
             check2 = re.search('<[^<]+?>', text)
 
@@ -39,7 +42,8 @@ def check_all_moviescripts(directory):
 
     # testset = set(incorrect_scripts)
     for f in incorrect_scripts:
-        # os.remove(os.path.join(dirpath, f))
+        #print(f)
+        #os.remove(os.path.join(dirpath, f))
 
 
 # Checks if there is a paragraph at the end of the file
@@ -62,7 +66,7 @@ def check_movieinfo_at_end_of_file(directory):
                 end.append(filename)
 
 
-    for f in end:
+    # for f in end:
         # os.remove(os.path.join(dirpath, f))
 
     print(end)
@@ -107,8 +111,8 @@ def get_all_genres(directory):
 
 
 def main():
-    get_all_genres('imsdbScripts')
-    # check_all_moviescripts('imsdbScripts')
+    #get_all_genres('imsdbScripts')
+    check_all_moviescripts('imsdbScripts')
     #check_information_at_end_of_file('imsdbScripts')
 
 

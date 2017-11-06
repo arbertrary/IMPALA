@@ -2,7 +2,6 @@ import textwrap
 import os
 import re
 import string
-import difflib
 from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 from fuzzywuzzy import fuzz
@@ -187,8 +186,8 @@ def find_closest_sentences(movie_filename, subs_filename):
 
 def main():
     # find_closest_sentences("testmovie.txt", "testsubs.txt")
-    find_closest_sentences("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
-    # word_frequency("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
+    #find_closest_sentences("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
+    word_frequency("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
     #compare_script_subtitles("testmovie.txt", "testsubs.txt")
     #compare_script_subtitles("American-Psycho.txt", "AmericanPsychoSubtitles.srt")
     # compare_script_subtitles("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
