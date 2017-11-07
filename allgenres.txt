@@ -7,7 +7,6 @@
 15-Minutes:Action,Crime,Thriller
 17-Again:Comedy,Drama,Romance
 187:Drama
-2001-A-Space-Odyssey:Adventure,Sci-Fi
 2012:Action,Adventure,Drama,Sci-Fi,Thriller
 30-Minutes-or-Less:Action,Adventure,Comedy
 42:Drama
@@ -27,7 +26,6 @@ Adventures-of-Buckaroo-Banzai-Across-the-Eighth-Dimension,-The:Adventure,Comedy,
 Affliction:Drama
 After-School-Specia:Comedy
 After.Life:Drama,Horror,Thriller
-Agnes-of-God:Drama,Mystery
 Airplane-2-The-Sequel:Comedy,Sci-Fi
 Airplane:Comedy,Romance
 Ali:Drama
@@ -35,7 +33,6 @@ Alien-3:Action,Drama,Horror,Sci-Fi,Thriller
 Alien-Nation:Crime,Drama,Sci-Fi
 Alien-Resurrection:Action,Horror,Sci-Fi,Thriller
 Alien-vs.-Predator:Action,Horror,Sci-Fi,Thriller
-Alien:Action,Horror,Sci-Fi,Thriller
 Aliens:Action,Horror,Sci-Fi,Thriller
 All-About-Steve:Comedy
 All-the-King's-Men:Drama
@@ -60,7 +57,6 @@ An-Education:Drama
 Analyze-Tha:Comedy,Crime
 Analyze-This:Comedy,Crime
 Angel-Eyes:Drama,Romance
-Angels-&-Demons:Drama,Mystery,Thriller
 Anna-Karenina:Drama
 Annie-Ha:Comedy,Romance
 Anniversary-Party,-The:Drama
@@ -73,7 +69,6 @@ Arbitrage:Drama,Thriller
 Argo:Drama,Thriller
 Armageddon:Action,Sci-Fi,Thriller
 Army-of-Darkness:Adventure,Fantasy,Action,Comedy,Horror
-Arsenic-and-Old-Lace:Comedy,Crime
 Arthur:Comedy
 Artist,-The:Romance,Comedy,Drama
 As-Good-As-It-Gets:Comedy,Drama,Romance
@@ -121,7 +116,6 @@ Best-Exotic-Marigold-Hotel,-The:Comedy,Drama
 Big-Blue,-The:Drama,Romance
 Big-Eyes:Crime,Drama
 Big-Fis:Drama,Fantasy,Comedy,Adventure
-Big-Lebowski,-The:Comedy,Mystery,Thriller
 Big-White,-The:Comedy,Crime,Drama
 Birdman:Comedy,Drama,Romance
 Birds,-The:Drama,Horror,Thriller,Romance
@@ -149,7 +143,6 @@ Book-of-Eli,-The:Action,Adventure,Drama,Sci-Fi,Thriller,Western
 Boondock-Saints,-The:Crime,Drama,Thriller
 Boondock-Saints-2-All-Saints-Day:Action,Crime,Drama,Thriller
 Bound:Crime,Drama,Thriller
-Bounty-Hunter,-The:Action,Comedy,Crime,Romance
 Bourne-Identity,-The:Action,Thriller,Mystery,Drama,Adventure
 Bourne-Supremacy,-The:Adventure,Mystery,Thriller,Action,Drama
 Bourne-Ultimatum,-The:Action,Adventure,Mystery,Thriller
@@ -180,7 +173,6 @@ Case-39:Horror,Mystery,Thriller
 Casino:Crime
 Cast-Away:Adventure,Drama
 Catwoman:Action,Crime
-Cecil-B.-Demented:Comedy,Crime,Thriller
 Cedar-Rapids:Comedy
 Celeste-&-Jesse-Forever:Comedy,Drama,Romance
 Cell,-The:Horror,Sci-Fi,Thriller
@@ -210,7 +202,6 @@ Cold-Mountain:Drama,War,Romance
 Collatera:Action,Crime,Thriller
 Collateral-Damage:Action,Thriller
 Colombiana:Action,Crime,Drama
-Color-of-Nig:Mystery,Romance,Thriller
 Commando:Action,Thriller
 Conan-the-Barbarian:Action,Adventure,Fantasy
 Confessions-of-a-Dangerous-Mind:Crime,Drama
@@ -239,7 +230,6 @@ Damned-United,-The:Drama
 Dances-with-Wolves:Adventure,Drama,Western
 Dark-City:Mystery,Sci-Fi,Thriller
 Dark-Knight-Rises,-The:Action,Crime,Thriller
-Dark-Star:Comedy,Sci-Fi,Thriller
 Darkman:Action,Crime,Sci-Fi,Thriller
 Date-Nig:Comedy,Crime,Romance
 Dave-Barry's-Complete-Guide-to-Guys:Comedy
@@ -267,7 +257,6 @@ Die-Hard:Action,Thriller
 Diner:Comedy,Drama
 Distinguished-Gentleman,-The:Comedy
 Disturbia:Thriller
-Django-Unchained:Adventure,Drama,Western
 Dog-Day-Afternoon:Comedy,Drama,Thriller
 Dogma:Comedy,Fantasy,Adventure
 Doors,-The:Biography,Drama,Music
@@ -277,7 +266,6 @@ Drive-Angry:Action,Crime,Fantasy
 Drive:Action,Crime,Drama
 Drop-Dead-Gorgeous:Comedy
 Dry-White-Season,-A:Drama,Thriller
-Duck-Soup:Comedy,Family,Musical
 Dumb-and-Dumber:Adventure,Comedy
 Dune:Action,Adventure,Sci-Fi,Fantasy
 E.T:Family,Sci-Fi,Adventure,Fantasy
@@ -329,7 +317,6 @@ Four-Rooms:Comedy,Drama
 Foxcatcher:Drama
 Fracture:Crime,Drama,Thriller
 Frances:Drama
-Frankenstein:Drama,Fantasy,Horror,Romance,Sci-Fi
 Frankenweenie:Animation,Comedy,Family
 Freaked:Comedy,Sci-Fi
 Freddy-vs.-Jason:Action,Fantasy,Horror,Thriller
@@ -348,7 +335,6 @@ Fugitive,-The:Action,Adventure,Mystery,Thriller
 Funny-People:Comedy,Drama
 G.I.-Jane:Action,Drama
 G.I.-Joe-The-Rise-of-Cobra:Action,Adventure,Sci-Fi,Thriller
-Game,-The:Mystery,Thriller
 Game-6:Comedy,Drama
 Gamer:Action,Sci-Fi,Thriller
 Gandhi:Drama
@@ -364,7 +350,6 @@ Ghos:Romance,Thriller,Drama,Fantasy
 Ghost-Rider:Action,Fantasy,Thriller
 Ghost-Ship:Action,Adventure,Horror,Thriller,Sci-Fi
 Ghost-World:Comedy,Drama
-Ghost-and-the-Darkness,-The:Action,Adventure,Drama,Thriller
 Ghostbusters-2:Sci-Fi,Comedy,Action,Adventure
 Ghostbusters:Sci-Fi,Fantasy,Comedy
 Ginger-Snaps:Drama,Horror,Thriller
@@ -381,8 +366,6 @@ Graduate,-The:Comedy,Drama,Romance
 Gran-Torino:Crime,Drama
 Grand-Hote:Drama,Romance
 Grand-Theft-Parsons:Drama,Comedy
-Grapes-of-Wrath,-The:Drama
-Gravity:Sci-Fi,Thriller
 Green-Mile,-The:Drama,Fantasy
 Gremlins-2:Comedy,Fantasy,Horror,Sci-Fi
 Gremlins:Comedy,Fantasy,Horror
@@ -396,7 +379,6 @@ Hancock:Action,Comedy,Crime,Drama,Fantasy,Thriller
 Hangover,-The:Comedy,Crime,Mystery,Thriller
 Hanna:Action,Crime,Mystery
 Hanniba:Horror,Thriller
-Happy-Fee:Animation,Comedy,Family
 Hard-Rain:Action,Crime,Thriller,Drama
 Hard-to-Ki:Action,Romance
 Harold-and-Kumar-Go-to-White-Castle:Adventure,Comedy
@@ -429,7 +411,6 @@ Hollow-Man:Horror,Sci-Fi,Thriller
 Honeydripper:Drama,Musical
 Horrible-Bosses:Comedy,Crime
 Horse-Whisperer,-The:Drama,Romance
-Hospital,-The:Comedy,Drama
 Hostage:Action,Crime,Drama,Thriller
 Hot-Tub-Time-Machine:Comedy,Sci-Fi
 Hotel-Rwanda:Drama,Thriller,War
@@ -457,8 +438,6 @@ Indiana-Jones-IV:Action,Adventure
 Indiana-Jones-and-the-Last-Crusade:Action,Adventure
 Indiana-Jones-and-the-Raiders-of-the-Lost-Ark:Action,Adventure
 Indiana-Jones-and-the-Temple-of-Doo:Action,Adventure
-Informant,-The:Comedy,Drama,Thriller
-Inglourious-Basterds:Action,Adventure,War
 Insider,-The:Drama,Thriller
 Insidious:Horror,Thriller
 Insomnia:Crime,Drama,Thriller
@@ -474,9 +453,7 @@ Iron-Lady,-The:Drama
 Island,-The:Action,Drama,Sci-Fi,Thriller
 It's-Complicated:Comedy,Romance
 It's-a-Wonderful-Life:Drama,Family,Fantasy,Romance
-It-Happened-One-Nig:Romance,Comedy
 Italian-Job,-The:Adventure,Action,Crime,Thriller
-JFK:Crime,Drama,Mystery,Thriller
 Jacket,-The:Thriller,Drama,Fantasy
 Jackie-Brown:Comedy,Crime
 Jacob's-Ladder:Drama,Thriller
@@ -492,7 +469,6 @@ Jimmy-and-Judy:Action
 Judge-Dredd:Action,Crime,Sci-Fi
 Juno:Comedy,Drama,Romance
 Jurassic-Park-The-Lost-World:Action,Adventure,Horror,Sci-Fi,Thriller
-Jurassic-Park:Action,Adventure,Horror,Sci-Fi,Thriller
 Kalifornia:Crime,Thriller
 Kate-&-Leopold:Romance,Fantasy,Comedy
 Kids-Are-All-Right,-The:Comedy,Drama
@@ -526,7 +502,6 @@ Last-Tango-in-Paris:Drama,Romance
 Last-of-the-Mohicans,-The:Adventure,Romance,War
 Law-Abiding-Citizen:Crime,Drama,Thriller
 Legally-Blonde:Comedy
-Legend:Fantasy,Adventure,Romance
 Legion:Action,Fantasy,Horror,Thriller
 Les-Miserables:Drama,Musical,Romance
 Leviathan:Horror,Sci-Fi,Thriller
@@ -569,7 +544,6 @@ Man-Who-Wasn't-There,-The:Comedy,Drama,Crime
 Man-in-the-Iron-Mask:Action,Adventure,Drama
 Man-on-the-Moon:Comedy,Drama
 Manchurian-Candidate,-The:Thriller,Mystery,Sci-Fi
-Manhattan-Murder-Mystery:Comedy,Crime,Mystery
 Margare:Drama
 Margin-Ca:Drama,Thriller
 Margot-at-the-Wedding:Comedy,Drama
@@ -596,12 +570,10 @@ Midnight-Express:Crime,Drama,Thriller
 Midnight-in-Paris:Comedy,Fantasy,Romance
 Mighty-Morphin-Power-Rangers-The-Movie:Family,Action
 Milk:Drama
-Miller's-Crossing:Crime,Drama,Thriller
 Mimic:Horror,Sci-Fi,Thriller
 Mini's-First-Time:Comedy,Crime,Drama
 Miracle-Worker,-The:Drama
 Mirrors:Horror,Mystery,Thriller
-Misery:Drama,Horror,Thriller
 Mission-Impossible-II:Action,Adventure,Mystery,Thriller
 Mission-Impossible:Action,Adventure,Thriller
 Mission-to-Mars:Drama,Sci-Fi,Thriller,Adventure
@@ -620,9 +592,7 @@ Mulholland-Drive:Drama,Horror,Mystery,Romance,Thriller
 Mumford:Comedy,Drama
 Mummy,-The:Adventure,Action,Fantasy,Horror
 Music-of-the-Hear:Drama
-Mute-Witness:Horror,Thriller
 My-Best-Friend's-Wedding:Comedy,Romance
-My-Gir:Comedy,Drama,Family,Romance
 My-Mother-Dreams-the-Satan's-Disciples-in-New-York:Short
 My-Week-with-Marilyn:Drama
 Nashville:Drama,Musical
@@ -639,7 +609,6 @@ Nightmare-on-Elm-Street-The-Final-Chapter:Comedy,Horror,Mystery
 Nine:Drama,Musical,Romance
 Nines,-The:Drama,Horror,Mystery,Thriller
 Ninja-Assassin:Action,Crime,Drama,Thriller
-Ninotchka:Comedy,Romance
 No-Country-for-Old-Men:Crime,Drama,Thriller
 No-Strings-Attached:Comedy,Romance
 Notting-Hi:Comedy,Romance,Drama
@@ -649,7 +618,6 @@ Observe-and-Repor:Comedy,Crime,Drama
 Obsessed:Drama,Thriller
 Ocean's-Eleven:Comedy,Thriller,Crime
 Ocean's-Twelve:Comedy,Crime,Thriller
-Office-Space:Comedy
 One-Flew-Over-the-Cuckoo's-Nes:Drama
 Only-God-Forgives:Crime,Drama,Thriller
 Ordinary-People:Drama
@@ -675,7 +643,6 @@ Philadelphia:Drama
 Phone-Boo:Thriller
 Pi:Sci-Fi,Thriller
 Pianist,-The:Biography,Drama,Music,War
-Piano,-The:Drama,Romance
 Pineapple-Express:Comedy,Crime,Thriller
 Pirates-of-the-Caribbean:Action,Adventure,Comedy
 Pitch-Black:Horror,Sci-Fi,Thriller
@@ -686,7 +653,6 @@ Postman,-The:Action,Adventure,Drama,Sci-Fi
 Power-of-One,-The:Drama
 Precious:Drama
 Predator:Action,Horror,Sci-Fi,Thriller
-Pretty-Woman-(final-script):Comedy,Romance
 Pretty-Woman:Comedy,Romance
 Pride-and-Prejudice:Drama,Romance
 Pries:Action,Horror,Sci-Fi
@@ -754,14 +720,12 @@ Searchers,-The:Drama,Western
 Semi-Pro:Comedy
 Sense-and-Sensibility:Drama,Comedy,Romance
 Serenity:Action,Adventure,Sci-Fi,Thriller
-Serial-Mo:Comedy,Crime,Horror
 Sessions,-The:Drama,Romance
 Sex-and-the-City:Comedy,Drama,Romance
 Sexual-Life:Comedy,Drama
 Shakespeare-in-Love:Drama,Romance,Comedy
 Shallow-Grave:Comedy,Crime,Drama,Thriller
 Shame:Drama
-Shawshank-Redemption,-The:Drama
 She's-Out-of-My-League:Comedy,Romance
 Sherlock-Holmes:Action,Adventure,Crime,Mystery,Thriller
 Shifty:Thriller
@@ -769,7 +733,6 @@ Shining,-The:Horror,Thriller
 Shipping-News,-The:Drama,Romance
 Shivers:Horror,Sci-Fi
 Shrek-the-Third:Animation,Adventure,Comedy
-Shrek:Animation,Adventure,Comedy,Family,Fantasy,Romance
 Sideways:Adventure,Comedy,Drama
 Siege,-The:Action,Thriller,Drama
 Signs:Drama,Horror,Sci-Fi,Thriller
@@ -777,9 +740,7 @@ Silence-of-the-Lambs:Crime,Drama,Horror,Thriller
 Silver-Bulle:Horror
 Silver-Linings-Playbook:Comedy,Drama,Romance
 Simone:Comedy,Drama,Sci-Fi
-Single-White-Female:Drama,Thriller
 Sister-Ac:Comedy,Crime,Musical
-Six-Degrees-of-Separation:Comedy,Drama,Mystery
 Sleepless-in-Seattle:Comedy,Romance,Drama
 Sleepy-Hollow:Horror,Mystery
 Sling-Blade:Drama
@@ -809,16 +770,13 @@ Star-Trek-Nemesis:Action,Adventure,Drama,Sci-Fi,Thriller
 Star-Trek:Action,Adventure,Sci-Fi
 Star-Wars-A-New-Hope:Action,Adventure,Fantasy,Sci-Fi
 Star-Wars-Attack-of-the-Clones:Sci-Fi,Adventure,Action,Fantasy
-Star-Wars-Return-of-the-Jedi:Fantasy,Sci-Fi,Action,Adventure
 Star-Wars-Revenge-of-the-Si:Sci-Fi,Adventure,Action,Fantasy
 Star-Wars-The-Empire-Strikes-Back:Action,Adventure,Fantasy,Sci-Fi
 Star-Wars-The-Force-Awakens:Action,Adventure,Fantasy
 Star-Wars-The-Phantom-Menace:Sci-Fi,Adventure,Action,Fantasy
 Starman:Adventure,Drama,Romance,Sci-Fi
-Starship-Troopers:Sci-Fi,Action
 State-and-Main:Comedy
 Station-Wes:Western
-Stir-of-Echoes:Thriller,Horror,Mystery
 Storytelling:Comedy,Drama
 Strange-Days:Crime,Thriller,Sci-Fi,Mystery,Action,Drama
 Strangers-on-a-Train:Drama,Film-Noir,Thriller
@@ -872,7 +830,6 @@ Tin-Men:Comedy,Drama
 Tinker-Tailor-Soldier-Spy:Drama,Mystery,Thriller
 Titanic:Drama,Romance
 To-Sleep-with-Anger:Drama
-Tombstone:Action,Drama,Western
 Tomorrow-Never-Dies:Action,Adventure,Thriller
 Total-Reca:Action,Adventure,Sci-Fi,Thriller
 Tourist,-The:Action,Drama,Thriller
@@ -880,7 +837,6 @@ Traffic:Crime,Drama,Thriller
 Training-Day:Action,Drama,Thriller
 Trainspotting:Drama
 Transformers-The-Movie:Action,Animation,Family,Sci-Fi
-True-Gri:Adventure,Drama,Western
 True-Lies:Action,Adventure,Comedy,Romance,Thriller
 Truman-Show,-The:Comedy,Drama,Fantasy,Sci-Fi
 Twilig:Drama,Fantasy,Romance,Thriller
@@ -900,7 +856,6 @@ Valkyrie:Drama,Thriller,War
 Vanilla-Sky:Mystery,Romance,Sci-Fi,Thriller
 Verdict,-The:Drama
 Very-Bad-Things:Comedy,Thriller
-Virtuosity:Action,Sci-Fi,Thriller
 Visitor,-The:Crime,Drama,Romance
 Wag-the-Dog:Comedy
 Walk-to-Remember,-A:Drama,Romance

@@ -13,7 +13,7 @@ from nltk.corpus import stopwords
 
 import string
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 dirpath = 'testfiles'
 
@@ -42,7 +42,7 @@ def clean_subtitle_file(subs_filename):
 # check if linecounter is continuous
 # check if timecode has correct format
 
-# TODO: extract timecodes and dialogues
+# TODO: extract timecodes
 def check_subtitle_file(subs_filename):
     subs_path = os.path.join(dirpath, subs_filename)
     clean_subtitle_file(subs_filename)
@@ -55,13 +55,13 @@ def check_subtitle_file(subs_filename):
     with open(subs_path) as f:
         text = f.read()
 
-        paragraphs = text.split(os.linesep + os.linesep)
+        subtitlelist = text.split(os.linesep + os.linesep)
         dialogue = ''
 
-        for p in paragraphs:
-            s = p.split(os.linesep)
-            if(countpattern.fullmatch(s[0])):
-                if(int(s[0]) == linecounter):
+        for p in subtitlelist:
+            sub = p.split(os.linesep)
+            if(countpattern.fullmatch(sub[0])):
+                if(int(sub[0]) == linecounter):
                     linecounter += 1
                 else:
                     print(p)
@@ -72,41 +72,80 @@ def check_subtitle_file(subs_filename):
                 raise ValueError(
                     "Inputfile not in correct format!\n Subtitle counter contains error!")
 
-            if(not timepattern.fullmatch(s[1])):
-                print(s[1])
+            if(not timepattern.fullmatch(sub[1])):
+                print(sub[1])
                 raise ValueError(
                     "Inputfile not in correct format!\n Timepattern contains error!")
-            else:
-# Format timecodes to datetime objects
-# Calculate timedelta between beginning and end of subtitle
-                m = timepattern.match(s[1])
-                #
-                # dt1 = datetime.strptime(m.group(1), '%H:%M:%S,%f')
-                # dt2 = datetime.strptime(m.group(2), '%H:%M:%S,%f')
-                #
-                # print(dt1.time())
-                # print(dt2.time())
-                # print('Duration: ' + str(dt2 - dt1))
 
+    return subtitlelist
 
 # sollte ich dialog als list der lines extrahieren oder als string?
 # ich wandle ja eh wieder in strings um fürs tokenizen
 def extract_subdialogue(subs_filename):
-    subs_path = os.path.join(dirpath, subs_filename)
-    with open(subs_path) as f:
-        text = f.read()
+    # subs_path = os.path.join(dirpath, subs_filename)
+    # with open(subs_path) as f:
+    #     text = f.read()
+    #
+    #     paragraphs = text.split(os.linesep + os.linesep)
+    subtitlelist = check_subtitle_file(subs_filename)
+    dialogue = []
 
-        paragraphs = text.split(os.linesep + os.linesep)
-        dialogue = []
+    for p in subtitlelist:
+        sub = p.split(os.linesep)
 
-        for p in paragraphs:
-            s = p.split(os.linesep)
-            i = 2
-            while(i < len(s)):
-                dialogue.append(s[i].lower())
-                i += 1
+        for i in sub[2:]:
+            dialogue.append(i.lower())
+
+        # dialogue += s[2:]
+
+
 
     return dialogue
+
+# Plan: Unterteile die subtitle in gleichmäßige Zeitabschnitte für besseres/aussagekräftigeres plotten
+def separate_subs_by_time(subs_filename, duration):
+    scenelength = timedelta(minutes=duration)
+
+    timepattern = re.compile(
+        "(\d{2}:\d{2}:\d{2},\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2},\d{3})")
+
+    subtitlelist = check_subtitle_file(subs_filename)
+
+    end = subtitlelist[-1]
+    m = timepattern.match(end.split(os.linesep)[1])
+    pseudomovielength = datetime.strptime(m.group(2), '%H:%M:%S,%f').time()
+
+    print(end)
+    print(pseudomovielength)
+
+#Mist, der Ansatz mit scenelength und temp runterzählen macht ja an sich wenig Sinn, weil's ja nicht durchgehend Dialog im Film ist
+    # temp = scenelength
+    # timesep_list = []
+    # dialogue = ''
+    # for p in subtitlelist:
+    #     sub = p.split(os.linesep)
+    #
+    #     m = timepattern.match(sub[1])
+    #
+    #     starttime = datetime.strptime(m.group(1), '%H:%M:%S,%f')
+    #     endtime = datetime.strptime(m.group(2), '%H:%M:%S,%f')
+    #
+    #     d = endtime-starttime
+    #     s = ' '.join(sub[2:])
+    #     temp = temp -d
+    #     if(temp > timedelta(microseconds=0)):
+    #         dialogue +=s
+    #     else:
+    #         temp = scenelength
+    #         timesep_list.append(dialogue)
+    #         dialogue = ''
+    #
+    # print(len(timesep_list))
+
+
+
+
+
 
 # Tokenize dialogue for frequency analysis/comparison with dialogue from
 # moviescript
@@ -124,11 +163,12 @@ def tokenize_dialogue(subs_filename):
 
 
 def main():
+    # print(extract_subdialogue("testsubs.txt"))
+    separate_subs_by_time("Star-Wars-A-New-HopeSubtitles.srt",2)
+
     # check_subtitle_file('BladeRunnerSubtitles.srt')
-    #check_subtitle_file('testfile.txt')
     #check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
     # check_subtitle_file('AmericanPsychoSubtitles.srt')
 
-    print(tokenize_dialogue("AmericanPsychoSubtitles.srt"))
 if __name__ == '__main__':
     main()

@@ -42,7 +42,7 @@ def check_all_moviescripts(directory):
 
     # testset = set(incorrect_scripts)
     for f in incorrect_scripts:
-        #print(f)
+        print(f)
         #os.remove(os.path.join(dirpath, f))
 
 
@@ -104,15 +104,15 @@ def get_all_genres(directory):
 
 
     allgenres = sorted(allgenres)
-    # f.write(("\n".join(allgenres)).strip())
+    f.write(("\n".join(allgenres)).strip())
     f.close()
 
 
 
 
 def main():
-    #get_all_genres('imsdbScripts')
-    check_all_moviescripts('imsdbScripts')
+    get_all_genres('imsdbScripts')
+    #check_all_moviescripts('imsdbScripts')
     #check_information_at_end_of_file('imsdbScripts')
 
 

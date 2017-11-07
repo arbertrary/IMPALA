@@ -1,24 +1,37 @@
 import matplotlib.pyplot as plt
-from preprocess_moviescript import separate_scenes
+from preprocess_moviescript import separate_scenes, extract_moviedialogue
 from preprocess_subtitles import extract_subdialogue
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
 
-def subdialogue_sentiment(subs_filename):
+
+def dialogue_sentiment(subs_filename, movie_filename):
     subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
     subs_dialogue = tokenize.sent_tokenize(subs_dialogue)
 
+    movie_dialogue = ' '.join(extract_moviedialogue(movie_filename))
+    movie_dialogue = tokenize.sent_tokenize(movie_dialogue)
+
     sid = SentimentIntensityAnalyzer()
-    compounds = []
+    compounds1 = []
     for sent in subs_dialogue:
         ss = sid.polarity_scores(sent)
-        compounds.append(ss.get('compound'))
+        compounds1.append(ss.get('compound'))
 
-    plt.subplot(212)
-    plt.plot(compounds)
-    plt.xlabel("Sentences in Subtitledialogue")
+    compounds2 = []
+    for sent in movie_dialogue:
+        ss = sid.polarity_scores(sent)
+        compounds2.append(ss.get('compound'))
+
+    plt.subplot(211)
+    plt.plot(compounds1)
+    plt.xlabel("Sentences in Subtitle Dialogue")
     plt.ylabel("Compound of sentence")
 
+    plt.subplot(212)
+    plt.plot(compounds2)
+    plt.xlabel("Sentences in Movie Dialogue")
+    plt.ylabel("Compound of sentence")
 
 
 
@@ -59,16 +72,14 @@ def scenesentiment(movie_filename):
     plt.xlabel("Scenes " + movie_filename)
 
 def main():
-    # plt.subplot(211)
-    # scenesentiment("Star-Wars-A-New-Hope.txt")
-    # subdialogue_sentiment("Star-Wars-A-New-HopeSubtitles.srt")
-    plt.subplot(311)
-    scenesentiment("Friday-the-13.txt")
-    plt.subplot(312)
-    scenesentiment("Warrior.txt")
-    # subdialogue_sentiment("WarriorSubtitles.srt")
-    plt.subplot(313)
-    scenesentiment("Cars-2.txt")
+    # plt.subplot(311)
+    # scenesentiment("Friday-the-13.txt")
+    # plt.subplot(312)
+    # scenesentiment("Warrior.txt")
+    # plt.subplot(313)
+    # scenesentiment("Cars-2.txt")
+
+    dialogue_sentiment("Star-Wars-A-New-HopeSubtitles.srt", "Star-Wars-A-New-Hope.txt")
     plt.show()
 
 if __name__ == '__main__':
