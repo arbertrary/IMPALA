@@ -34,17 +34,16 @@ def dialogue_sentiment(subs_filename, movie_filename):
     plt.ylabel("Compound of sentence")
 
 
-
 def scenesentiment(movie_filename):
-    #scenelist = separate_scenes('Star-Wars-A-New-Hope.txt')
+    # scenelist = separate_scenes('Star-Wars-A-New-Hope.txt')
     scenelist = separate_scenes(movie_filename)
-    #print(scenelist)
+    # print(scenelist)
     # scenelist = separate_scenes("testmovie.txt")
     compounds = []
 
     for scene in scenelist:
         scene = ' '.join([line.strip() for line in scene.split('\n')])
-        #print(scene)
+        # print(scene)
         sentences = tokenize.sent_tokenize(scene)
 
         sid = SentimentIntensityAnalyzer()
@@ -53,23 +52,24 @@ def scenesentiment(movie_filename):
             ss = sid.polarity_scores(s)
             test.append(ss.get('compound'))
 
-        avg = sum(test)/len(test)
+        avg = sum(test) / len(test)
         # if(avg > 0.2):
         #     print(scene)
         compounds.append(avg)
-        #print(avg)
+        # print(avg)
 
-    fullavg = sum(compounds)/len(compounds)
+    fullavg = sum(compounds) / len(compounds)
     # print(fullavg)
 
-    #plt.figure(1)
-    #plt.subplot(211)
-    plt.ylim(-0.5,0.5)
+    # plt.figure(1)
+    # plt.subplot(211)
+    plt.ylim(-0.5, 0.5)
     plt.plot(compounds)
     plt.axhline(y=0, color='k')
     plt.text(0, 0.4, "Total avg compound: " + str("%.3f" % fullavg))
     plt.ylabel("Avg compound of scenes")
     plt.xlabel("Scenes " + movie_filename)
+
 
 def main():
     # plt.subplot(311)
@@ -79,7 +79,9 @@ def main():
     # plt.subplot(313)
     # scenesentiment("Cars-2.txt")
 
-    dialogue_sentiment("Star-Wars-A-New-HopeSubtitles.srt", "Star-Wars-A-New-Hope.txt")
+    dialogue_sentiment(
+        "Star-Wars-A-New-HopeSubtitles.srt",
+        "Star-Wars-A-New-Hope.txt")
     plt.show()
 
 if __name__ == '__main__':

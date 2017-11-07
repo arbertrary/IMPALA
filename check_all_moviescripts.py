@@ -20,6 +20,7 @@ dirpath = 'imsdbScripts'
 # 6.11.17: 908 remaining
 # (removed more scripts that don't use EXT./INT. etc to separate scenes)
 
+
 def check_all_moviescripts(directory):
     incorrect_scripts = []
     for filename in os.listdir(directory):
@@ -43,7 +44,7 @@ def check_all_moviescripts(directory):
     # testset = set(incorrect_scripts)
     for f in incorrect_scripts:
         print(f)
-        #os.remove(os.path.join(dirpath, f))
+        # os.remove(os.path.join(dirpath, f))
 
 
 # Checks if there is a paragraph at the end of the file
@@ -65,7 +66,6 @@ def check_movieinfo_at_end_of_file(directory):
             if(not ('writers' in movieinfo.lower() and 'Genres : ' in movieinfo)):
                 end.append(filename)
 
-
     # for f in end:
         # os.remove(os.path.join(dirpath, f))
 
@@ -73,6 +73,8 @@ def check_movieinfo_at_end_of_file(directory):
     print(len(end))
 
 # Extracts genres from all moviescripts and writes them to new file
+
+
 def get_all_genres(directory):
     f = open("allgenres.txt", 'w+')
 
@@ -81,8 +83,8 @@ def get_all_genres(directory):
         path = os.path.join(directory, filename)
         with open(path, 'r', encoding='utf-8') as m:
             text = m.read()
-            text = text.replace('\xa0',' ')
-            #print(text)
+            text = text.replace('\xa0', ' ')
+            # print(text)
             text = text.strip()
 
             text = text.split('\n\n')
@@ -99,21 +101,18 @@ def get_all_genres(directory):
                     genres = word_tokenize(genres)
                     genres = ','.join(genres)
 
-            moviedata = re.sub('.txt','', filename) + ':' + genres
+            moviedata = re.sub('.txt', '', filename) + ':' + genres
             allgenres.append(moviedata)
-
 
     allgenres = sorted(allgenres)
     f.write(("\n".join(allgenres)).strip())
     f.close()
 
 
-
-
 def main():
     get_all_genres('imsdbScripts')
-    #check_all_moviescripts('imsdbScripts')
-    #check_information_at_end_of_file('imsdbScripts')
+    # check_all_moviescripts('imsdbScripts')
+    # check_information_at_end_of_file('imsdbScripts')
 
 
 if __name__ == '__main__':

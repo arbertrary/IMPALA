@@ -22,6 +22,7 @@ dirpath = 'testfiles'
 # remove formatting tags
 # overwrite file
 
+
 def clean_subtitle_file(subs_filename):
     subs_path = os.path.join(dirpath, subs_filename)
     with open(subs_path, 'r', encoding='utf-8') as f:
@@ -81,6 +82,8 @@ def check_subtitle_file(subs_filename):
 
 # sollte ich dialog als list der lines extrahieren oder als string?
 # ich wandle ja eh wieder in strings um fürs tokenizen
+
+
 def extract_subdialogue(subs_filename):
     # subs_path = os.path.join(dirpath, subs_filename)
     # with open(subs_path) as f:
@@ -98,11 +101,12 @@ def extract_subdialogue(subs_filename):
 
         # dialogue += s[2:]
 
-
-
     return dialogue
 
-# Plan: Unterteile die subtitle in gleichmäßige Zeitabschnitte für besseres/aussagekräftigeres plotten
+# Plan: Unterteile die subtitle in gleichmäßige Zeitabschnitte für
+# besseres/aussagekräftigeres plotten
+
+
 def separate_subs_by_time(subs_filename, duration):
     scenelength = timedelta(minutes=duration)
 
@@ -118,7 +122,7 @@ def separate_subs_by_time(subs_filename, duration):
     print(end)
     print(pseudomovielength)
 
-#Mist, der Ansatz mit scenelength und temp runterzählen macht ja an sich wenig Sinn, weil's ja nicht durchgehend Dialog im Film ist
+# Mist, der Ansatz mit scenelength und temp runterzählen macht ja an sich wenig Sinn, weil's ja nicht durchgehend Dialog im Film ist
     # temp = scenelength
     # timesep_list = []
     # dialogue = ''
@@ -143,10 +147,6 @@ def separate_subs_by_time(subs_filename, duration):
     # print(len(timesep_list))
 
 
-
-
-
-
 # Tokenize dialogue for frequency analysis/comparison with dialogue from
 # moviescript
 def tokenize_dialogue(subs_filename):
@@ -164,10 +164,10 @@ def tokenize_dialogue(subs_filename):
 
 def main():
     # print(extract_subdialogue("testsubs.txt"))
-    separate_subs_by_time("Star-Wars-A-New-HopeSubtitles.srt",2)
+    separate_subs_by_time("Star-Wars-A-New-HopeSubtitles.srt", 2)
 
     # check_subtitle_file('BladeRunnerSubtitles.srt')
-    #check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
+    # check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
     # check_subtitle_file('AmericanPsychoSubtitles.srt')
 
 if __name__ == '__main__':

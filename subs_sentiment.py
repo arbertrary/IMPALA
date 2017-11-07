@@ -4,6 +4,7 @@ from preprocess_subtitles import extract_subdialogue
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
 
+
 def subdialogue_sentiment(subs_filename):
     subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
     subs_dialogue = tokenize.sent_tokenize(subs_dialogue)
