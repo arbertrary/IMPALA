@@ -15,7 +15,9 @@ import string
 
 from datetime import datetime, timedelta
 
-dirpath = 'testfiles'
+curDir = os.path.dirname(__file__)
+parentDir = os.path.abspath(os.path.join(curDir, os.pardir))
+dataDir = 'testfiles'
 
 # encode/decode
 # strip every line
@@ -24,7 +26,10 @@ dirpath = 'testfiles'
 
 
 def clean_subtitle_file(subs_filename):
-    subs_path = os.path.join(dirpath, subs_filename)
+    textDataDir = os.path.join(parentDir, dataDir)
+    subs_path = os.path.join(textDataDir, subs_filename)
+
+
     with open(subs_path, 'r', encoding='utf-8') as f:
         data = f.readlines()
         data = [line.strip() for line in data]
@@ -45,7 +50,9 @@ def clean_subtitle_file(subs_filename):
 
 # TODO: extract timecodes
 def check_subtitle_file(subs_filename):
-    subs_path = os.path.join(dirpath, subs_filename)
+    textDataDir = os.path.join(parentDir, dataDir)
+    subs_path = os.path.join(textDataDir, subs_filename)
+
     clean_subtitle_file(subs_filename)
 
     countpattern = re.compile("\d+")

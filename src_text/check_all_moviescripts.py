@@ -1,11 +1,13 @@
-
 import os
 import re
 import random
 import string
 from nltk import word_tokenize
 
-dirpath = 'imsdbScripts'
+
+curDir = os.path.dirname(__file__)
+parentDir = os.path.abspath(os.path.join(curDir, os.pardir))
+dataDir = 'imsdbScripts'
 
 # removes movie scripts
 # 1121 scripts at the beginning
@@ -67,7 +69,7 @@ def check_movieinfo_at_end_of_file(directory):
                 end.append(filename)
 
     # for f in end:
-        # os.remove(os.path.join(dirpath, f))
+        # os.remove(os.path.join(directory, f))
 
     print(end)
     print(len(end))
@@ -76,7 +78,7 @@ def check_movieinfo_at_end_of_file(directory):
 
 
 def get_all_genres(directory):
-    f = open("allgenres.txt", 'w+')
+    f = open(os.path.join(parentDir, "allgenres2.txt"), 'w+')
 
     allgenres = []
     for filename in os.listdir(directory):
@@ -110,7 +112,10 @@ def get_all_genres(directory):
 
 
 def main():
-    get_all_genres('imsdbScripts')
+    # check_movieinfo_at_end_of_file(os.path.join(parentDir, dataDir))
+
+
+    #get_all_genres(os.path.join(parentDir, dataDir))
     # check_all_moviescripts('imsdbScripts')
     # check_information_at_end_of_file('imsdbScripts')
 

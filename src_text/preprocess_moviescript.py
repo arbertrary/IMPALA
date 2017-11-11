@@ -3,11 +3,14 @@ import os
 import re
 
 
-dirpath = 'testfiles'
+curDir = os.path.dirname(__file__)
+parentDir = os.path.abspath(os.path.join(curDir, os.pardir))
+dataDir = 'testfiles'
 
 
 def clean_moviescript(movie_filename):
-    movie_path = os.path.join(dirpath, movie_filename)
+    textDataDir = os.path.join(parentDir, dataDir)
+    movie_path = os.path.join(textDataDir, movie_filename)
 
     with open(movie_path, 'r', encoding='utf-8') as m:
         text = m.read()
@@ -51,7 +54,8 @@ def clean_moviescript(movie_filename):
 # separates the scenes of a movie script by splitting at "Scene introductions"
 # e.g. INT. or EXT.
 def separate_scenes(movie_filename):
-    movie_path = os.path.join(dirpath, movie_filename)
+    textDataDir = os.path.join(parentDir, dataDir)
+    movie_path = os.path.join(textDataDir, movie_filename)
 
     with open(movie_path, 'r', encoding='utf-8') as m:
         text = m.read()
@@ -101,6 +105,7 @@ def extract_moviedialogue(movie_filename):
 
 def main():
     print(extract_moviedialogue("testmovie.txt"))
+
 
 
 if __name__ == '__main__':
