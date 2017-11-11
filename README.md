@@ -1,1 +1,1 @@
-Preprocessing der Movie Scripts und Subtitles usw
+IMPALA: **I**dentifying **M**ovie **P**lot events by **A**na<b>L</b>ysing sentiment and **A**udio
