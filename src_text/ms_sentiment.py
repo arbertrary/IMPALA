@@ -72,16 +72,16 @@ def scenesentiment(movie_filename):
 
 
 def main():
-    # plt.subplot(311)
-    # scenesentiment("Friday-the-13.txt")
-    # plt.subplot(312)
-    # scenesentiment("Warrior.txt")
-    # plt.subplot(313)
-    # scenesentiment("Cars-2.txt")
+    plt.subplot(311)
+    scenesentiment("Scream.txt")
+    plt.subplot(312)
+    scenesentiment("Pitch-Black.txt")
+    plt.subplot(313)
+    scenesentiment("Mummy,-The.txt")
 
-    dialogue_sentiment(
-        "Star-Wars-A-New-HopeSubtitles.srt",
-        "Star-Wars-A-New-Hope.txt")
+    # dialogue_sentiment(
+    #     "Star-Wars-A-New-HopeSubtitles.srt",
+    #     "Star-Wars-A-New-Hope.txt")
     plt.show()
 
 if __name__ == '__main__':
