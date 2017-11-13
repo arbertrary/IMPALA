@@ -1,4 +1,5 @@
 import re
+import nwalign3 as nw
 
 from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
@@ -79,13 +80,18 @@ def main():
     # find_closest_sentences("testmovie.txt", "testsubs.txt")
     # find_closest_sentences("Star-Wars-A-New-Hope.txt",
     # "Star-Wars-A-New-HopeSubtitles.srt")
-    word_frequency(
-        "Star-Wars-A-New-Hope.txt",
-        "Star-Wars-A-New-HopeSubtitles.srt")
+    # word_frequency(
+    #     "Star-Wars-A-New-Hope.txt",
+    #     "Star-Wars-A-New-HopeSubtitles.srt")
     # compare_script_subtitles("testmovie.txt", "testsubs.txt")
     # compare_script_subtitles("American-Psycho.txt", "AmericanPsychoSubtitles.srt")
     # compare_script_subtitles("Star-Wars-A-New-Hope.txt",
     # "Star-Wars-A-New-HopeSubtitles.srt")
+    test = nw.global_align("est", "testlul")
+    print(test)
+
+    print(nw.score_alignment('TESTLULL', 'TESTLULL', gap_open=-5, gap_extend=-2, matrix='PAM250'))
+    # print(nw.score_alignment('CEELECANTH', '-PELICAN--', gap_open=-5, gap_extend=-2, matrix='PAM250'))
 
 
 if __name__ == '__main__':
