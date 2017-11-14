@@ -1,3 +1,5 @@
+"""Comparing movie scripts and subtitle file.
+Upcoming: annotating movie scripts with timecodes from subtitles """
 import re
 import nwalign3 as nw
 
@@ -8,9 +10,10 @@ from preprocess_subtitles import extract_subdialogue
 from preprocess_moviescript import extract_moviedialogue
 
 
-# compare the dialogue of a subtitle file to the dialogue of a movie script
-# how similar are they? is the movie script "correct"
 def compare_script_subtitles(movie_filename, subs_filename):
+    '''
+    compare the dialogue of a subtitle file to the dialogue of a movie script
+    '''
     subs_dialogue = extract_subdialogue(subs_filename)
     movie_dialogue = extract_moviedialogue(movie_filename)
 
@@ -20,7 +23,7 @@ def compare_script_subtitles(movie_filename, subs_filename):
     found = 0
     not_found = 0
     for token in subs_tokens:
-        if(token in movie_tokens):
+        if token in movie_tokens:
             found += 1
         else:
             not_found += 1
@@ -29,8 +32,9 @@ def compare_script_subtitles(movie_filename, subs_filename):
     print("Not Found: " + str(not_found))
 
 
-# Nur zum Testen: Häufigkeit der vorkommenden Wörter zählen
 def word_frequency(movie_filename, subs_filename):
+    """Nur zum Testen: Häufigkeit der vorkommenden Wörter zählen"""
+
     frequency = {}
 
     movie_dialogue = ' '.join(extract_moviedialogue(movie_filename))
@@ -45,11 +49,12 @@ def word_frequency(movie_filename, subs_filename):
     frequency_list = frequency.keys()
 
     for words in frequency_list:
-        if(frequency[words] > 5):
+        if frequency[words] > 5:
             print(words, frequency[words])
 
 
 def find_closest_sentences(movie_filename, subs_filename):
+    """Find closest matching sentences"""
     subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
     subs_dialogue = sent_tokenize(subs_dialogue)
 
@@ -59,24 +64,25 @@ def find_closest_sentences(movie_filename, subs_filename):
     print(len(subs_dialogue))
 
     count = 0
-    for sentS in subs_dialogue:
-        for sentM in movie_dialogue:
-            ratio = fuzz.ratio(sentS, sentM)
+    for subsent in subs_dialogue:
+        for moviesent in movie_dialogue:
+            ratio = fuzz.ratio(subsent, moviesent)
 # best between 88 and 89
-            if(ratio > 88):
+            if ratio > 88:
                 count += 1
 
-                print(sentM)
-                print(sentS)
+                print(moviesent)
+                print(subsent)
                 print(ratio)
                 # print("\n")
 
-        else:
-            continue
+            else:
+                continue
     print(count)
 
 
 def main():
+    """main function"""
     # find_closest_sentences("testmovie.txt", "testsubs.txt")
     # find_closest_sentences("Star-Wars-A-New-Hope.txt",
     # "Star-Wars-A-New-HopeSubtitles.srt")
@@ -91,7 +97,8 @@ def main():
     print(test)
 
     print(nw.score_alignment('TESTLULL', 'TESTLULL', gap_open=-5, gap_extend=-2, matrix='PAM250'))
-    # print(nw.score_alignment('CEELECANTH', '-PELICAN--', gap_open=-5, gap_extend=-2, matrix='PAM250'))
+    # print(nw.score_alignment('CEELECANTH', '-PELICAN--', gap_open=-5,
+    # gap_extend=-2, matrix='PAM250'))
 
 
 if __name__ == '__main__':

@@ -1,19 +1,21 @@
-import textwrap
+"""Preprocessing movie scripts"""
+
 import os
 import re
 
 
-curDir = os.path.dirname(__file__)
-parentDir = os.path.abspath(os.path.join(curDir, os.pardir))
-dataDir = 'testfiles'
+CURDIR = os.path.dirname(__file__)
+PARDIR = os.path.abspath(os.path.join(CURDIR, os.pardir))
+DATADIR = 'testfiles'
 
 
 def clean_moviescript(movie_filename):
-    textDataDir = os.path.join(parentDir, dataDir)
-    movie_path = os.path.join(textDataDir, movie_filename)
+    """doesn't do that much atm because other functions do all the stuff now"""
+    textdata_dir = os.path.join(PARDIR, DATADIR)
+    movie_path = os.path.join(textdata_dir, movie_filename)
 
-    with open(movie_path, 'r', encoding='utf-8') as m:
-        text = m.read()
+    with open(movie_path, 'r', encoding='utf-8') as movie:
+        text = movie.read()
         text = text.strip()
 
         # text = re.sub('\n+', '', text)
@@ -41,7 +43,7 @@ def clean_moviescript(movie_filename):
 
         i = 1
         scenelist = []
-        while (i < len(text)):
+        while i < len(text):
             # print(text[i] + text[i + 1])
             scenelist.append(text[i] + text[i + 1])
 
@@ -51,14 +53,14 @@ def clean_moviescript(movie_filename):
             print(scene)
 
 
-# separates the scenes of a movie script by splitting at "Scene introductions"
-# e.g. INT. or EXT.
+#
 def separate_scenes(movie_filename):
-    textDataDir = os.path.join(parentDir, dataDir)
-    movie_path = os.path.join(textDataDir, movie_filename)
+    """Separates the scenes of a movie script by splitting at scenes e.g. at INT. or EXT."""
+    textdata_dir = os.path.join(PARDIR, DATADIR)
+    movie_path = os.path.join(textdata_dir, movie_filename)
 
-    with open(movie_path, 'r', encoding='utf-8') as m:
-        text = m.read()
+    with open(movie_path, 'r', encoding='utf-8') as movie:
+        text = movie.read()
         text = text.strip()
 
         text = re.split(
@@ -67,7 +69,7 @@ def separate_scenes(movie_filename):
 
         i = 1
         scenelist = []
-        while (i < len(text)):
+        while i < len(text):
             # print(text[i] + text[i + 1])
             scenelist.append(text[i] + text[i + 1])
 
@@ -75,10 +77,10 @@ def separate_scenes(movie_filename):
     return scenelist
 
 
-# extracts all dialogue from a moviescript and ignores metatext
 # sollte ich dialog als list der lines extrahieren oder als string?
 # ich wandle ja eh wieder in strings um fürs tokenizen
 def extract_moviedialogue(movie_filename):
+    """extracts all dialogue from a moviescript and ignores metatext"""
     scenelist = separate_scenes(movie_filename)
 
     dialogue = []
@@ -87,10 +89,10 @@ def extract_moviedialogue(movie_filename):
         lines = scene.split(os.linesep)
 
         i = 1
-        while (i < len(lines)):
-            if(lines[i].strip().isupper()):
-                while(i + 1 < len(lines) and lines[i + 1].strip()):
-                    if(re.search('[(|)]', lines[i + 1].strip())):
+        while i < len(lines):
+            if lines[i].strip().isupper():
+                while i + 1 < len(lines) and lines[i + 1].strip():
+                    if re.search('[(|)]', lines[i + 1].strip()):
                         i += 1
                     else:
                         dialogue.append(lines[i + 1].strip().lower())
@@ -100,12 +102,12 @@ def extract_moviedialogue(movie_filename):
             else:
                 i += 1
 
-    return(dialogue)
+    return dialogue
 
 
 def main():
+    """Die main halt"""
     print(extract_moviedialogue("testmovie.txt"))
-
 
 
 if __name__ == '__main__':

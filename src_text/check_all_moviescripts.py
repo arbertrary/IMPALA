@@ -1,13 +1,15 @@
+'''
+Check and clean all movie scripts in directory
+'''
+
 import os
 import re
-import random
-import string
 from nltk import word_tokenize
 
 
-curDir = os.path.dirname(__file__)
-parentDir = os.path.abspath(os.path.join(curDir, os.pardir))
-dataDir = 'imsdbScripts'
+CURDIR = os.path.dirname(__file__)
+PARDIR = os.path.abspath(os.path.join(CURDIR, os.pardir))
+DATADIR = 'imsdbScripts'
 
 # removes movie scripts
 # 1121 scripts at the beginning
@@ -24,6 +26,7 @@ dataDir = 'imsdbScripts'
 
 
 def check_all_moviescripts(directory):
+    """Checks moviescripts in directory and deletes incorrect ones"""
     incorrect_scripts = []
     for filename in os.listdir(directory):
         path = os.path.join(directory, filename)
@@ -35,10 +38,10 @@ def check_all_moviescripts(directory):
                 text)
             check2 = re.search('<[^<]+?>', text)
 
-            if(not check1):
+            if not check1:
                 incorrect_scripts.append(filename)
                 # raise ValueError('Inputfile not in correct format!')
-            if(check2):
+            if check2:
                 incorrect_scripts.append(filename)
     print(incorrect_scripts)
     print(len(incorrect_scripts))
@@ -49,13 +52,8 @@ def check_all_moviescripts(directory):
         # os.remove(os.path.join(dirpath, f))
 
 
-# Checks if there is a paragraph at the end of the file
-# that contains writers and genre
-# e.g.
-# Star Wars: A New Hope
-# Writers :   George Lucas
-# Genres :   Action  Adventure  Fantasy  Sci-Fi
 def check_movieinfo_at_end_of_file(directory):
+    """Checks if there is a paragraph at the end of the file that contains writers and genre"""
     end = []
     for filename in os.listdir(directory):
         path = os.path.join(directory, filename)
@@ -65,7 +63,7 @@ def check_movieinfo_at_end_of_file(directory):
 
             text = text.split('\n\n')
             movieinfo = text[-1]
-            if(not ('writers' in movieinfo.lower() and 'Genres : ' in movieinfo)):
+            if not ('writers' in movieinfo.lower() and 'Genres : ' in movieinfo):
                 end.append(filename)
 
     # for f in end:
@@ -74,11 +72,10 @@ def check_movieinfo_at_end_of_file(directory):
     print(end)
     print(len(end))
 
-# Extracts genres from all moviescripts and writes them to new file
-
 
 def get_all_genres(directory):
-    f = open(os.path.join(parentDir, "allgenres2.txt"), 'w+')
+    """Extracts genres from all moviescripts and writes them to new file"""
+    f = open(os.path.join(PARDIR, "allgenres2.txt"), 'w+')
 
     allgenres = []
     for filename in os.listdir(directory):
@@ -112,10 +109,11 @@ def get_all_genres(directory):
 
 
 def main():
+    """ist halt die main, wofür will pylint da einen docstring"""
+    print("Hello")
     # check_movieinfo_at_end_of_file(os.path.join(parentDir, dataDir))
 
-
-    #get_all_genres(os.path.join(parentDir, dataDir))
+    # get_all_genres(os.path.join(parentDir, dataDir))
     # check_all_moviescripts('imsdbScripts')
     # check_information_at_end_of_file('imsdbScripts')
 

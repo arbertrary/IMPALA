@@ -1,3 +1,5 @@
+"""Sentiment analysis on movie scripts """
+
 import matplotlib.pyplot as plt
 from preprocess_moviescript import separate_scenes, extract_moviedialogue
 from preprocess_subtitles import extract_subdialogue
@@ -6,6 +8,7 @@ from nltk import tokenize
 
 
 def dialogue_sentiment(subs_filename, movie_filename):
+    """Calculate sentiment of extracted dialogue from movie and subtitle + plot"""
     subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
     subs_dialogue = tokenize.sent_tokenize(subs_dialogue)
 
@@ -15,13 +18,13 @@ def dialogue_sentiment(subs_filename, movie_filename):
     sid = SentimentIntensityAnalyzer()
     compounds1 = []
     for sent in subs_dialogue:
-        ss = sid.polarity_scores(sent)
-        compounds1.append(ss.get('compound'))
+        score = sid.polarity_scores(sent)
+        compounds1.append(score.get('compound'))
 
     compounds2 = []
     for sent in movie_dialogue:
-        ss = sid.polarity_scores(sent)
-        compounds2.append(ss.get('compound'))
+        score = sid.polarity_scores(sent)
+        compounds2.append(score.get('compound'))
 
     plt.subplot(211)
     plt.plot(compounds1)
@@ -35,6 +38,7 @@ def dialogue_sentiment(subs_filename, movie_filename):
 
 
 def scenesentiment(movie_filename):
+    """Calculate sentiment of scenes in the moviescript"""
     # scenelist = separate_scenes('Star-Wars-A-New-Hope.txt')
     scenelist = separate_scenes(movie_filename)
     # print(scenelist)
@@ -48,9 +52,9 @@ def scenesentiment(movie_filename):
 
         sid = SentimentIntensityAnalyzer()
         test = []
-        for s in sentences:
-            ss = sid.polarity_scores(s)
-            test.append(ss.get('compound'))
+        for sent in sentences:
+            score = sid.polarity_scores(sent)
+            test.append(score.get('compound'))
 
         avg = sum(test) / len(test)
         # if(avg > 0.2):
@@ -72,6 +76,7 @@ def scenesentiment(movie_filename):
 
 
 def main():
+    """Main function"""
     plt.subplot(311)
     scenesentiment("Scream.txt")
     plt.subplot(312)
