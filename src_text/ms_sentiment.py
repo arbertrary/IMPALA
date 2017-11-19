@@ -5,6 +5,7 @@ from preprocess_moviescript import separate_scenes, extract_moviedialogue
 from preprocess_subtitles import extract_subdialogue
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
+from textblob import TextBlob
 
 
 def dialogue_sentiment(subs_filename, movie_filename):
@@ -18,13 +19,24 @@ def dialogue_sentiment(subs_filename, movie_filename):
     sid = SentimentIntensityAnalyzer()
     compounds1 = []
     for sent in subs_dialogue:
+# nltk VADER
         score = sid.polarity_scores(sent)
         compounds1.append(score.get('compound'))
+#TextBlob
+        # sentiment = TextBlob(sent)
+        # score = sentiment.sentiment.polarity
+        # compounds1.append(score)
 
     compounds2 = []
     for sent in movie_dialogue:
+# nltk VADER
         score = sid.polarity_scores(sent)
         compounds2.append(score.get('compound'))
+
+# TextBlob
+        # sentiment = TextBlob(sent)
+        # score = sentiment.sentiment.polarity
+        # compounds2.append(score)
 
     plt.subplot(211)
     plt.plot(compounds1)
@@ -53,8 +65,14 @@ def scenesentiment(movie_filename):
         sid = SentimentIntensityAnalyzer()
         test = []
         for sent in sentences:
-            score = sid.polarity_scores(sent)
-            test.append(score.get('compound'))
+#TextBlob
+            sentiment = TextBlob(sent)
+            score = sentiment.sentiment.polarity
+            test.append(score)
+
+#nltk VADER
+            # score = sid.polarity_scores(sent)
+            # test.append(score.get('compound'))
 
         avg = sum(test) / len(test)
         # if(avg > 0.2):
@@ -77,16 +95,16 @@ def scenesentiment(movie_filename):
 
 def main():
     """Main function"""
-    plt.subplot(311)
-    scenesentiment("Scream.txt")
-    plt.subplot(312)
-    scenesentiment("Pitch-Black.txt")
-    plt.subplot(313)
-    scenesentiment("Mummy,-The.txt")
+    # plt.subplot(311)
+    # scenesentiment("Scream.txt")
+    # plt.subplot(312)
+    # scenesentiment("Pitch-Black.txt")
+    # plt.subplot(313)
+    # scenesentiment("Mummy,-The.txt")
 
-    # dialogue_sentiment(
-    #     "Star-Wars-A-New-HopeSubtitles.srt",
-    #     "Star-Wars-A-New-Hope.txt")
+    dialogue_sentiment(
+        "Star-Wars-A-New-HopeSubtitles.srt",
+        "Star-Wars-A-New-Hope.txt")
     plt.show()
 
 if __name__ == '__main__':
