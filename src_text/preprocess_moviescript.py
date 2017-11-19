@@ -53,7 +53,6 @@ def clean_moviescript(movie_filename):
             print(scene)
 
 
-#
 def separate_scenes(movie_filename):
     """Separates the scenes of a movie script by splitting at scenes e.g. at INT. or EXT."""
     textdata_dir = os.path.join(PARDIR, DATADIR)
@@ -79,6 +78,7 @@ def separate_scenes(movie_filename):
 
 # sollte ich dialog als list der lines extrahieren oder als string?
 # ich wandle ja eh wieder in strings um fürs tokenizen
+# TODO: Beim Extrahieren irgendeine Referenz auf die zugehörige Szene mitnehmen
 def extract_moviedialogue(movie_filename):
     """extracts all dialogue from a moviescript and ignores metatext"""
     scenelist = separate_scenes(movie_filename)

@@ -63,22 +63,47 @@ def find_closest_sentences(movie_filename, subs_filename):
 
     print(len(subs_dialogue))
 
+    done1 =[]
+    done2 = []
     count = 0
     for subsent in subs_dialogue:
         for moviesent in movie_dialogue:
-            ratio = fuzz.ratio(subsent, moviesent)
-# best between 88 and 89
-            if ratio > 88:
-                count += 1
+            if moviesent not in done2 and subsent not in done1:
+                ratio = fuzz.ratio(subsent, moviesent)
+    # best between 88 and 89
+                if ratio > 70:
+                    done1.append(subsent)
+                    done2.append(moviesent)
+                    count += 1
 
-                print(moviesent)
-                print(subsent)
-                print(ratio)
-                # print("\n")
+                    print(moviesent)
+                    print(subsent)
+                    print(ratio)
+                    # print("\n")
 
-            else:
-                continue
+                else:
+                    continue
     print(count)
+
+def test_needleman(movie_filename, subs_filename):
+    """testing nwalign3"""
+
+    subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
+    subs_dialogue = word_tokenize(subs_dialogue)
+
+    movie_dialogue = ' '.join(extract_moviedialogue(movie_filename))
+    movie_dialogue = word_tokenize(movie_dialogue)
+
+    for subsent in subs_dialogue:
+        for moviesent in movie_dialogue:
+            test = nw.global_align(subsent, moviesent)
+
+
+            score = nw.score_alignment(test[0].upper(), test[1].upper(), gap_open=-10, gap_extend=-5, matrix='PAM250')
+            if score > 10:
+                print(test[0])
+                print(test[1])
+                print(score)
 
 
 def main():
@@ -86,19 +111,27 @@ def main():
     # find_closest_sentences("testmovie.txt", "testsubs.txt")
     # find_closest_sentences("Star-Wars-A-New-Hope.txt",
     # "Star-Wars-A-New-HopeSubtitles.srt")
+    find_closest_sentences("American-Psycho.txt", "AmericanPsychoSubtitles.srt")
+
+
+
     # word_frequency(
     #     "Star-Wars-A-New-Hope.txt",
     #     "Star-Wars-A-New-HopeSubtitles.srt")
     # compare_script_subtitles("testmovie.txt", "testsubs.txt")
-    # compare_script_subtitles("American-Psycho.txt", "AmericanPsychoSubtitles.srt")
     # compare_script_subtitles("Star-Wars-A-New-Hope.txt",
     # "Star-Wars-A-New-HopeSubtitles.srt")
-    test = nw.global_align("est", "testlul")
-    print(test)
+    #test = nw.global_align("est", "testlul")
 
-    print(nw.score_alignment('TESTLULL', 'TESTLULL', gap_open=-5, gap_extend=-2, matrix='PAM250'))
+    # print(test[0].upper())
+    # print(test[1])
+
+    #print(nw.score_alignment(test[0].upper(), test[1].upper(), gap_open=-5, gap_extend=-2, matrix='PAM250'))
     # print(nw.score_alignment('CEELECANTH', '-PELICAN--', gap_open=-5,
     # gap_extend=-2, matrix='PAM250'))
+
+    # test_needleman("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
+    # test_needleman("testmovie.txt", "testsubs.txt")
 
 
 if __name__ == '__main__':

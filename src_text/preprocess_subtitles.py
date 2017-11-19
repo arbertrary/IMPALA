@@ -84,7 +84,7 @@ def check_subtitle_file(subs_filename):
 # sollte ich dialog als list der lines extrahieren oder als string?
 # ich wandle ja eh wieder in strings um fürs tokenizen
 
-
+# TODO: Beim Extrahieren die timecodes mitnehmen zum wiederverwenden
 def extract_subdialogue(subs_filename):
     """Extracts only dialogue from subtitle files"""
     # subs_path = os.path.join(dirpath, subs_filename)
