@@ -2,16 +2,16 @@
 
 import os
 import re
+from typing import List, Tuple
+
+CUR_DIR = os.path.dirname(__file__)
+PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
+DATA_DIR = 'testfiles'
 
 
-CURDIR = os.path.dirname(__file__)
-PARDIR = os.path.abspath(os.path.join(CURDIR, os.pardir))
-DATADIR = 'testfiles'
-
-
-def clean_moviescript(movie_filename):
+def clean_moviescript(movie_filename: str):
     """doesn't do that much atm because other functions do all the stuff now"""
-    textdata_dir = os.path.join(PARDIR, DATADIR)
+    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
     movie_path = os.path.join(textdata_dir, movie_filename)
 
     with open(movie_path, 'r', encoding='utf-8') as movie:
@@ -31,7 +31,7 @@ def clean_moviescript(movie_filename):
         # print(test)
 
 
-# Eigentlich wurden die ja schon alle aussortiert in check_all_moviescripts
+        # Eigentlich wurden die ja schon alle aussortiert in check_all_moviescripts
         # test = re.search(
         #     '(INT[.:]{0,1} |EXT[.:]{0,1} |INTERIOR[.:]{0,1} |EXTERIOR[.:]{0,1} )',
         #     text)
@@ -53,9 +53,9 @@ def clean_moviescript(movie_filename):
             print(scene)
 
 
-def separate_scenes(movie_filename):
+def separate_scenes(movie_filename: str):# -> List[Tuple[str, str]]:
     """Separates the scenes of a movie script by splitting at scenes e.g. at INT. or EXT."""
-    textdata_dir = os.path.join(PARDIR, DATADIR)
+    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
     movie_path = os.path.join(textdata_dir, movie_filename)
 
     with open(movie_path, 'r', encoding='utf-8') as movie:
@@ -63,13 +63,17 @@ def separate_scenes(movie_filename):
         text = text.strip()
 
         text = re.split(
-            '(INT[.:]{0,1} |EXT[.:]{0,1} |INTERIOR[.:]{0,1} |EXTERIOR[.:]{0,1} )',
+            '((?:INT[.:]? |EXT[.:]? |INTERIOR[.:]? |EXTERIOR[.:]? )[^\n]+\n)',
             text)
+        # print('\nSCENESPLIT '.join(text))
 
         i = 1
         scenelist = []
         while i < len(text):
             # print(text[i] + text[i + 1])
+            # scenetuple = (text[i], text[i + 1])
+            # scenelist.append(scenetuple)
+            # print(tuple)
             scenelist.append(text[i] + text[i + 1])
 
             i += 2
@@ -79,7 +83,7 @@ def separate_scenes(movie_filename):
 # sollte ich dialog als list der lines extrahieren oder als string?
 # ich wandle ja eh wieder in strings um fürs tokenizen
 # TODO: Beim Extrahieren irgendeine Referenz auf die zugehörige Szene mitnehmen
-def extract_moviedialogue(movie_filename):
+def extract_moviedialogue(movie_filename: str):
     """extracts all dialogue from a moviescript and ignores metatext"""
     scenelist = separate_scenes(movie_filename)
 
@@ -106,8 +110,9 @@ def extract_moviedialogue(movie_filename):
 
 
 def main():
-    """Die main halt"""
-    print(extract_moviedialogue("testmovie.txt"))
+    """main"""
+    # print(extract_moviedialogue("testmovie.txt"))
+    separate_scenes("testmovie.txt")
 
 
 if __name__ == '__main__':

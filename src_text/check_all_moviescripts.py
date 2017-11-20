@@ -7,9 +7,9 @@ import re
 from nltk import word_tokenize
 
 
-CURDIR = os.path.dirname(__file__)
-PARDIR = os.path.abspath(os.path.join(CURDIR, os.pardir))
-DATADIR = 'imsdbScripts'
+CUR_DIR = os.path.dirname(__file__)
+PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
+DATA_DIR = 'imsdbScripts'
 
 # removes movie scripts
 # 1121 scripts at the beginning
@@ -25,7 +25,7 @@ DATADIR = 'imsdbScripts'
 # (removed more scripts that don't use EXT./INT. etc to separate scenes)
 
 
-def check_all_moviescripts(directory):
+def check_all_moviescripts(directory: str):
     """Checks moviescripts in directory and deletes incorrect ones"""
     incorrect_scripts = []
     for filename in os.listdir(directory):
@@ -52,7 +52,7 @@ def check_all_moviescripts(directory):
         # os.remove(os.path.join(dirpath, f))
 
 
-def check_movieinfo_at_end_of_file(directory):
+def check_movieinfo_at_end_of_file(directory: str):
     """Checks if there is a paragraph at the end of the file that contains writers and genre"""
     end = []
     for filename in os.listdir(directory):
@@ -73,9 +73,9 @@ def check_movieinfo_at_end_of_file(directory):
     print(len(end))
 
 
-def get_all_genres(directory):
+def get_all_genres(directory: str):
     """Extracts genres from all moviescripts and writes them to new file"""
-    f = open(os.path.join(PARDIR, "allgenres2.txt"), 'w+')
+    f = open(os.path.join(PAR_DIR, "allgenres2.txt"), 'w+')
 
     allgenres = []
     for filename in os.listdir(directory):

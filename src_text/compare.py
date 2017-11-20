@@ -1,5 +1,5 @@
 """Comparing movie scripts and subtitle file.
-Upcoming: annotating movie scripts with timecodes from subtitles """
+Upcoming: annotating movie scripts with time codes from subtitles """
 import re
 import nwalign3 as nw
 
@@ -10,10 +10,8 @@ from preprocess_subtitles import extract_subdialogue
 from preprocess_moviescript import extract_moviedialogue
 
 
-def compare_script_subtitles(movie_filename, subs_filename):
-    '''
-    compare the dialogue of a subtitle file to the dialogue of a movie script
-    '''
+def compare_script_subtitles(movie_filename: str, subs_filename: str):
+    """compare the dialogue of a subtitle file to the dialogue of a movie script"""
     subs_dialogue = extract_subdialogue(subs_filename)
     movie_dialogue = extract_moviedialogue(movie_filename)
 
@@ -32,7 +30,7 @@ def compare_script_subtitles(movie_filename, subs_filename):
     print("Not Found: " + str(not_found))
 
 
-def word_frequency(movie_filename, subs_filename):
+def word_frequency(movie_filename: str, subs_filename: str):
     """Nur zum Testen: Häufigkeit der vorkommenden Wörter zählen"""
 
     frequency = {}
@@ -53,7 +51,7 @@ def word_frequency(movie_filename, subs_filename):
             print(words, frequency[words])
 
 
-def find_closest_sentences(movie_filename, subs_filename):
+def find_closest_sentences(movie_filename: str, subs_filename: str):
     """Find closest matching sentences"""
     subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
     subs_dialogue = sent_tokenize(subs_dialogue)
@@ -85,7 +83,8 @@ def find_closest_sentences(movie_filename, subs_filename):
                     continue
     print(count)
 
-def test_needleman(movie_filename, subs_filename):
+
+def test_needleman(movie_filename: str, subs_filename: str):
     """testing nwalign3"""
 
     subs_dialogue = ' '.join(extract_subdialogue(subs_filename))

@@ -14,14 +14,14 @@ from datetime import datetime, timedelta
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 
-CURDIR = os.path.dirname(__file__)
-PARDIR = os.path.abspath(os.path.join(CURDIR, os.pardir))
-DATADIR = 'testfiles'
+CUR_DIR = os.path.dirname(__file__)
+PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
+DATA_DIR = 'testfiles'
 
 
 def clean_subtitle_file(subs_filename):
     """encode/decode, strip every line, remove formatting tags, overwrite file"""
-    textdata_dir = os.path.join(PARDIR, DATADIR)
+    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
     subs_path = os.path.join(textdata_dir, subs_filename)
 
     with open(subs_path, 'r', encoding='utf-8') as f:
@@ -45,7 +45,7 @@ def check_subtitle_file(subs_filename):
     check if linecounter is continuous
     check if timecode has correct format
     """
-    textdata_dir = os.path.join(PARDIR, DATADIR)
+    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
     subs_path = os.path.join(textdata_dir, subs_filename)
 
     clean_subtitle_file(subs_filename)
