@@ -53,7 +53,7 @@ def clean_moviescript(movie_filename: str):
             print(scene)
 
 
-def separate_scenes(movie_filename: str):# -> List[Tuple[str, str]]:
+def separate_scenes(movie_filename: str):
     """Separates the scenes of a movie script by splitting at scenes e.g. at INT. or EXT."""
     textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
     movie_path = os.path.join(textdata_dir, movie_filename)
@@ -71,10 +71,32 @@ def separate_scenes(movie_filename: str):# -> List[Tuple[str, str]]:
         scenelist = []
         while i < len(text):
             # print(text[i] + text[i + 1])
-            # scenetuple = (text[i], text[i + 1])
-            # scenelist.append(scenetuple)
-            # print(tuple)
             scenelist.append(text[i] + text[i + 1])
+
+            i += 2
+    return scenelist
+
+
+def scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
+    """Currently does the same as separate_scenes but returns tuples of (scene header, scene text)."""
+    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
+    movie_path = os.path.join(textdata_dir, movie_filename)
+
+    with open(movie_path, 'r', encoding='utf-8') as movie:
+        text = movie.read()
+        text = text.strip()
+
+        text = re.split(
+            '((?:INT[.:]? |EXT[.:]? |INTERIOR[.:]? |EXTERIOR[.:]? )[^\n]+\n)',
+            text)
+        # print('\nSCENESPLIT '.join(text))
+
+        i = 1
+        scenelist = []
+        while i < len(text):
+            scenetuple = (text[i], text[i + 1])
+            scenelist.append(scenetuple)
+
 
             i += 2
     return scenelist
@@ -96,7 +118,7 @@ def extract_moviedialogue(movie_filename: str):
         while i < len(lines):
             if lines[i].strip().isupper():
                 while i + 1 < len(lines) and lines[i + 1].strip():
-                    if re.search('[(|)]', lines[i + 1].strip()):
+                    if re.search(r'[(|)]', lines[i + 1].strip()):
                         i += 1
                     else:
                         dialogue.append(lines[i + 1].strip().lower())
@@ -112,7 +134,9 @@ def extract_moviedialogue(movie_filename: str):
 def main():
     """main"""
     # print(extract_moviedialogue("testmovie.txt"))
-    separate_scenes("testmovie.txt")
+    test = separate_scenes("testmovie.txt")
+
+    print("\n".join(extract_moviedialogue("testmovie.txt")))
 
 
 if __name__ == '__main__':
