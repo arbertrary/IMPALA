@@ -5,6 +5,7 @@ Check and clean all movie scripts in directory
 import os
 import re
 from nltk import word_tokenize
+from preprocess_moviescript import scene_tuples
 
 
 CUR_DIR = os.path.dirname(__file__)
@@ -116,6 +117,24 @@ def main():
     # get_all_genres(os.path.join(parentDir, dataDir))
     # check_all_moviescripts('imsdbScripts')
     # check_information_at_end_of_file('imsdbScripts')
+
+    # testing if scene_tuples correctly extracts only scene headers
+    directory = os.path.join(PAR_DIR, DATA_DIR)
+    f = open(os.path.join(PAR_DIR, "scenetuplestest.txt"), 'w+')
+
+    test = []
+    for filename in os.listdir(directory):
+        # print(filename)
+        test2 = scene_tuples(filename)
+        for t in test2:
+            test.append("\t\t"+filename)
+            if t[0].islower():
+                raise ValueError("SCENE HEADER NOT CORRECT!")
+            else:
+                test.append(t[0])
+            # print(t[0])
+    f.write("\n".join(test).strip())
+    f.close()
 
 
 if __name__ == '__main__':

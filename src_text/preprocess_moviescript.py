@@ -6,8 +6,8 @@ from typing import List, Tuple
 
 CUR_DIR = os.path.dirname(__file__)
 PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
-DATA_DIR = 'testfiles'
-
+# DATA_DIR = "imsdbScripts"
+DATA_DIR = "testfiles"
 
 def clean_moviescript(movie_filename: str):
     """doesn't do that much atm because other functions do all the stuff now"""
@@ -77,6 +77,7 @@ def separate_scenes(movie_filename: str):
     return scenelist
 
 
+#TODO: check if scene_tuples actually extracts all scenes
 def scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
     """Currently does the same as separate_scenes but returns tuples of (scene header, scene text)."""
     textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
