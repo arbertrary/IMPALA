@@ -1,5 +1,6 @@
 """Sentiment analysis on movie scripts """
 
+import numpy as np
 import matplotlib.pyplot as plt
 from preprocess_moviescript import separate_scenes, extract_moviedialogue
 from preprocess_subtitles import extract_subdialogue
@@ -29,12 +30,16 @@ def dialogue_sentiment(subs_filename: str, movie_filename: str):
         score1 = blob.sentiment.polarity
         textblob_scores.append(score1)
 
-
         # nltk VADER
+        # Idea: ignore neutral sentences
+        # How to keep range of x-axis?
         score2 = sid.polarity_scores(sentence).get('compound')
-        vader_scores.append(score2)
+        if score2 <= -0.5 or score2 >= 0.5:
+            vader_scores.append(score2)
+        # else:
+        #     vader_scores.append(0)
 
-        #AFINN
+        # AFINN
         score3 = afinn.score(sentence)
         afinn_scores.append(score3)
 
@@ -55,40 +60,44 @@ def dialogue_sentiment(subs_filename: str, movie_filename: str):
         score3 = afinn.score(sentence)
         afinn_mscores.append(score3)
 
-
     # x = range(0, len(textblob_scores))
     # xnew = np.linspace(0, len(textblob_scores), 300)
     # test = spline(x,textblob_scores,xnew)
 
 
-
     plt.subplot(321)
     # plt.plot(xnew, test)
     plt.plot(textblob_scores)
+    plt.axhline(y=0, color='k')
     plt.xlabel("Sentences in Subtitle Dialogue")
     plt.ylabel("TextBlob")
 
     plt.subplot(322)
     plt.plot(textblob_mscores)
+    plt.axhline(y=0, color='k')
     plt.xlabel("Sentences in Movie Dialogue")
     plt.ylabel("TextBlob")
 
     plt.subplot(323)
+    plt.axhline(y=0, color='k')
     plt.plot(vader_scores)
     plt.xlabel("Sentences in Subtitle Dialogue")
     plt.ylabel("VADER")
 
     plt.subplot(324)
+    plt.axhline(y=0, color='k')
     plt.plot(vader_mscores)
     plt.xlabel("Sentences in Movie Dialogue")
     plt.ylabel("VADER")
 
     plt.subplot(325)
+    plt.axhline(y=0, color='k')
     plt.plot(afinn_scores)
     plt.xlabel("Sentences in Subtitle Dialogue")
     plt.ylabel("AFINN")
 
     plt.subplot(326)
+    plt.axhline(y=0, color='k')
     plt.plot(afinn_mscores)
     plt.xlabel("Sentences in Movie Dialogue")
     plt.ylabel("AFINN")
@@ -109,7 +118,6 @@ def scenesentiment(movie_filename: str):
         # print(scene)
         sentences = tokenize.sent_tokenize(scene)
 
-
         test = []
 
         for sentence in sentences:
@@ -122,7 +130,6 @@ def scenesentiment(movie_filename: str):
 
             # afinn
             score = afinn.score(sentence)
-
 
             test.append(score)
 
@@ -156,7 +163,6 @@ def main():
         "Star-Wars-A-New-HopeSubtitles.srt",
         "Star-Wars-A-New-Hope.txt")
     plt.show()
-
 
 
 if __name__ == '__main__':
