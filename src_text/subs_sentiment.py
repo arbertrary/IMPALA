@@ -1,31 +1,38 @@
 """Sentiment analysis of subtitle files"""
 import matplotlib.pyplot as plt
-
-from preprocess_subtitles import extract_subdialogue
+import matplotlib
+from preprocess_subtitles import get_dialogue_with_time
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
+from textblob import TextBlob
+# from afinn import Afinn
 
 
 def subdialogue_sentiment(subs_filename):
     """Analyse dialogue from subtitles"""
-    subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
-    subs_dialogue = tokenize.sent_tokenize(subs_dialogue)
+    subtitles = get_dialogue_with_time(subs_filename)
 
-    sid = SentimentIntensityAnalyzer()
-    compounds = []
-    for sent in subs_dialogue:
-        score = sid.polarity_scores(sent)
-        compounds.append(score.get('compound'))
+    x = []
+    scores = []
 
-    plt.plot(compounds)
-    plt.xlabel("Sentences in Subtitledialogue")
-    plt.ylabel("Compound of sentence")
+    for s in subtitles:
+
+        blob = TextBlob(s[1])
+        score = blob.sentiment.polarity
+
+        if score != 0.0:
+            x.append(s[0])
+            scores.append(score)
+
+    x = matplotlib.dates.date2num(x)
+
+    plt.plot_date(x,scores)
     plt.show()
 
 
 def main():
     """main function"""
-    subdialogue_sentiment('testsubs.txt')
+    subdialogue_sentiment("Star-Wars-A-New-HopeSubtitles.srt")
 
 
 if __name__ == '__main__':

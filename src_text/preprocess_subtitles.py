@@ -106,6 +106,32 @@ def extract_subdialogue(subs_filename):
     return dialogue
 
 
+def get_dialogue_with_time(subs_filename):
+    """Extracts dialogue with timecode as tuple of (timecode, text)"""
+
+    subtitlelist = check_subtitle_file(subs_filename)
+    subtitles = []
+    timepattern = re.compile(
+        r"(\d{2}:\d{2}:\d{2},\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2},\d{3})")
+
+    for paragraph in subtitlelist:
+
+        dialogue = []
+        sub = paragraph.split(os.linesep)
+        m = timepattern.match(sub[1])
+
+        starttime = datetime.strptime(m.group(1), '%H:%M:%S,%f')#.time()
+
+        for i in sub[2:]:
+            # irgendwie ist das ja mega dumm, das erst von str in list und dann
+            # wieder in einen string umzuwandeln, aber wie bekomme ich sonst das
+            # leerzeichen zwischen die Sätze?
+            dialogue.append(i)
+
+        sub_tuple = (starttime, " ".join(dialogue))
+        subtitles.append(sub_tuple)
+    return subtitles
+
 def separate_subs_by_time(subs_filename, duration):
     """Separates subtitles into periods based on timecodes/duration"""
     # scenelength = timedelta(minutes=duration)
@@ -165,7 +191,8 @@ def tokenize_dialogue(subs_filename):
 def main():
     """Die main halt"""
     # print(extract_subdialogue("testsubs.txt"))
-    separate_subs_by_time("Star-Wars-A-New-HopeSubtitles.srt", 2)
+    #separate_subs_by_time("Star-Wars-A-New-HopeSubtitles.srt", 2)
+    print(get_dialogue_with_time("testsubs.txt"))
 
     # check_subtitle_file('BladeRunnerSubtitles.srt')
     # check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
