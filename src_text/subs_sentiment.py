@@ -1,11 +1,11 @@
 """Sentiment analysis of subtitle files"""
 import matplotlib.pyplot as plt
-import matplotlib
+from matplotlib import dates
 from preprocess_subtitles import get_dialogue_with_time
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
 from textblob import TextBlob
-# from afinn import Afinn
+from afinn import Afinn
 
 
 def subdialogue_sentiment(subs_filename):
@@ -15,18 +15,34 @@ def subdialogue_sentiment(subs_filename):
     x = []
     scores = []
 
-    for s in subtitles:
+    sid = SentimentIntensityAnalyzer()
+    afinn = Afinn()
 
+    for s in subtitles:
+        #Textblob
         blob = TextBlob(s[1])
         score = blob.sentiment.polarity
-
         if score != 0.0:
             x.append(s[0])
             scores.append(score)
 
-    x = matplotlib.dates.date2num(x)
+        #VADER
+       # score = sid.polarity_scores(s[1]).get('compound')
+        #if score != 0:
+         #   x.append(s[0])
+          #  scores.append(score)
 
-    plt.plot_date(x,scores)
+        #Afinn
+       # score = afinn.score(s[1])
+        #if score !=0:
+         #   x.append(s[0])
+          #  scores.append(score)
+
+
+
+    x = dates.date2num(x)
+
+    plt.plot_date(x, scores)
     plt.show()
 
 
