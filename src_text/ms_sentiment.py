@@ -2,7 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from pp_moviescript import separate_scenes, extract_moviedialogue
+from pp_moviescript import extract_moviedialogue, get_scene_tuples
 from pp_subtitles import extract_subdialogue
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
@@ -64,7 +64,6 @@ def dialogue_sentiment(subs_filename: str, movie_filename: str):
     # xnew = np.linspace(0, len(textblob_scores), 300)
     # test = spline(x,textblob_scores,xnew)
 
-
     plt.subplot(321)
     # plt.plot(xnew, test)
     plt.plot(textblob_scores)
@@ -105,36 +104,34 @@ def dialogue_sentiment(subs_filename: str, movie_filename: str):
 
 def scenesentiment(movie_filename: str):
     """Calculate sentiment of scenes in the moviescript"""
-    scenelist = separate_scenes(movie_filename)
-
+    scenelist = get_scene_tuples(movie_filename)
     scorelist = []
 
     sid = SentimentIntensityAnalyzer()
     afinn = Afinn()
     for scene in scenelist:
-        # cuml = 0.0
-
-        scene = ' '.join([line.strip() for line in scene.split('\n')])
-        # print(scene)
+        scene = ' '.join([line.strip() for line in scene[1].split('\n')])
         sentences = tokenize.sent_tokenize(scene)
 
-        test = []
+        # sentiment = TextBlob(scene[1])
+        # score = sentiment.sentiment.polarity
+        # scorelist.append(score)
 
+        test = []
         for sentence in sentences:
             # TextBlob
-            # sentiment = TextBlob(sentence)
-            # score = sentiment.sentiment.polarity
+            sentiment = TextBlob(sentence)
+            score = sentiment.sentiment.polarity
 
             # nltk VADER
             # score = sid.polarity_scores(sentence).get('compound')
 
             # afinn
-            score = afinn.score(sentence)
+            # score = afinn.score(sentence)
 
             test.append(score)
 
         avg = sum(test) / len(test)
-        # cuml = cuml + avg
 
         scorelist.append(avg)
 
@@ -151,17 +148,17 @@ def scenesentiment(movie_filename: str):
 def main():
     """Main function"""
 
-    # plt.subplot(311)
-    # scenesentiment("Scream.txt")
-    # plt.subplot(312)
-    # scenesentiment("Pitch-Black.txt")
-    # plt.subplot(313)
-    # scenesentiment("Cars-2.txt")
+    plt.subplot(311)
+    scenesentiment("Scream.txt")
+    plt.subplot(312)
+    scenesentiment("Pitch-Black.txt")
+    plt.subplot(313)
+    scenesentiment("Cars-2.txt")
 
     # dialogue_sentiment('AmericanPsychoSubtitles.srt', 'American-Psycho.txt')
-    dialogue_sentiment(
-        "Star-Wars-A-New-HopeSubtitles.srt",
-        "Star-Wars-A-New-Hope.txt")
+    # dialogue_sentiment(
+    # "Star-Wars-A-New-HopeSubtitles.srt",
+    # "Star-Wars-A-New-Hope.txt")
     plt.show()
 
 
