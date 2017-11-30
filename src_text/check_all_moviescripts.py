@@ -5,7 +5,7 @@ Check and clean all movie scripts in directory
 import os
 import re
 from nltk import word_tokenize
-from preprocess_moviescript import scene_tuples
+from pp_moviescript import scene_tuples
 
 
 CUR_DIR = os.path.dirname(__file__)

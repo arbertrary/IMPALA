@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import librosa
 import librosa.display
 
-
 CUR_DIR = os.path.dirname(__file__)
 PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
 DATA_DIR = "testfiles"
@@ -14,7 +13,6 @@ audio_path = os.path.join(PAR_DIR, DATA_DIR, "selfiefromhell.mp3")
 
 def rms_energy(audiofile):
     y, sr = librosa.load(audiofile)
-
 
     S = librosa.magphase(librosa.stft(y, window=np.ones, center=False))[0]
     rms = librosa.feature.rmse(S=S)
@@ -40,4 +38,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

@@ -6,8 +6,8 @@ import nwalign3 as nw
 from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 from fuzzywuzzy import fuzz
-from preprocess_subtitles import extract_subdialogue
-from preprocess_moviescript import extract_moviedialogue
+from pp_subtitles import extract_subdialogue
+from pp_moviescript import extract_moviedialogue
 
 
 def compare_script_subtitles(movie_filename: str, subs_filename: str):

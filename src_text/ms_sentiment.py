@@ -2,8 +2,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from preprocess_moviescript import separate_scenes, extract_moviedialogue
-from preprocess_subtitles import extract_subdialogue
+from pp_moviescript import separate_scenes, extract_moviedialogue
+from pp_subtitles import extract_subdialogue
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
 from textblob import TextBlob

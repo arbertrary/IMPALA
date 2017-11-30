@@ -6,7 +6,6 @@ from typing import List, Tuple
 
 CUR_DIR = os.path.dirname(__file__)
 PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
-# DATA_DIR = "imsdbScripts"
 DATA_DIR = "testfiles"
 
 def clean_moviescript(movie_filename: str):

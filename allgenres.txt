@@ -126,7 +126,6 @@ bound:Crime,Drama,Thriller
 boyhood:Drama
 braveheart:Drama,War,Action
 breakdown:Action,Thriller
-breaking-away:Comedy,Drama
 brick:Drama,Mystery
 bridesmaids:Comedy
 bringing-out-the-dead:Drama
@@ -505,8 +504,8 @@ o-brother-where-art-thou:Adventure,Comedy,Crime
 oblivion:Action,Adventure,Sci-Fi
 observe-and-report:Comedy,Crime,Drama
 obsessed:Drama,Thriller
-ocean's-eleven:Comedy,Thriller,Crime
-ocean's-twelve:Comedy,Crime,Thriller
+oceans-eleven:Comedy,Thriller,Crime
+oceans-twelve:Comedy,Crime,Thriller
 one-flew-over-the-cuckoo's-nest:Drama
 only-god-forgives:Crime,Drama,Thriller
 ordinary-people:Drama

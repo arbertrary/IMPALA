@@ -5,7 +5,6 @@
 - Checks correctness of format of subtitles (downloaded as .srt files from subscene.com)
 """
 
-
 import re
 import os
 import string
@@ -81,6 +80,7 @@ def check_subtitle_file(subs_filename):
 
     return subtitlelist
 
+
 # sollte ich dialog als list der lines extrahieren oder als string?
 # ich wandle ja eh wieder in strings um fürs tokenizen
 
@@ -120,7 +120,7 @@ def get_dialogue_with_time(subs_filename):
         sub = paragraph.split(os.linesep)
         m = timepattern.match(sub[1])
 
-        starttime = datetime.strptime(m.group(1), '%H:%M:%S,%f')#.time()
+        starttime = datetime.strptime(m.group(1), '%H:%M:%S,%f')  # .time()
 
         for i in sub[2:]:
             # irgendwie ist das ja mega dumm, das erst von str in list und dann
@@ -131,6 +131,7 @@ def get_dialogue_with_time(subs_filename):
         sub_tuple = (starttime, " ".join(dialogue))
         subtitles.append(sub_tuple)
     return subtitles
+
 
 def separate_subs_by_time(subs_filename, duration):
     """Separates subtitles into periods based on timecodes/duration"""
@@ -148,30 +149,31 @@ def separate_subs_by_time(subs_filename, duration):
     print(end)
     print(pseudomovielength)
 
+
 # Der Ansatz mit scenelength und temp runterzählen macht ja an sich wenig Sinn,
 # weil's ja nicht durchgehend Dialog im Film ist
-    # temp = scenelength
-    # timesep_list = []
-    # dialogue = ''
-    # for p in subtitlelist:
-    #     sub = p.split(os.linesep)
-    #
-    #     m = timepattern.match(sub[1])
-    #
-    #     starttime = datetime.strptime(m.group(1), '%H:%M:%S,%f')
-    #     endtime = datetime.strptime(m.group(2), '%H:%M:%S,%f')
-    #
-    #     d = endtime-starttime
-    #     s = ' '.join(sub[2:])
-    #     temp = temp -d
-    #     if(temp > timedelta(microseconds=0)):
-    #         dialogue +=s
-    #     else:
-    #         temp = scenelength
-    #         timesep_list.append(dialogue)
-    #         dialogue = ''
-    #
-    # print(len(timesep_list))
+# temp = scenelength
+# timesep_list = []
+# dialogue = ''
+# for p in subtitlelist:
+#     sub = p.split(os.linesep)
+#
+#     m = timepattern.match(sub[1])
+#
+#     starttime = datetime.strptime(m.group(1), '%H:%M:%S,%f')
+#     endtime = datetime.strptime(m.group(2), '%H:%M:%S,%f')
+#
+#     d = endtime-starttime
+#     s = ' '.join(sub[2:])
+#     temp = temp -d
+#     if(temp > timedelta(microseconds=0)):
+#         dialogue +=s
+#     else:
+#         temp = scenelength
+#         timesep_list.append(dialogue)
+#         dialogue = ''
+#
+# print(len(timesep_list))
 
 
 def tokenize_dialogue(subs_filename):
@@ -191,12 +193,13 @@ def tokenize_dialogue(subs_filename):
 def main():
     """Die main halt"""
     # print(extract_subdialogue("testsubs.txt"))
-    #separate_subs_by_time("Star-Wars-A-New-HopeSubtitles.srt", 2)
+    # separate_subs_by_time("Star-Wars-A-New-HopeSubtitles.srt", 2)
     print(get_dialogue_with_time("testsubs.txt"))
 
     # check_subtitle_file('BladeRunnerSubtitles.srt')
     # check_subtitle_file('Star-Wars-A-New-HopeSubtitles.srt')#, 'Star-Wars-A-New-Hope.txt')
     # check_subtitle_file('AmericanPsychoSubtitles.srt')
+
 
 if __name__ == '__main__':
     main()

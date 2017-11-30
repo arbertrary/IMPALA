@@ -1,7 +1,7 @@
 """Sentiment analysis of subtitle files"""
 import matplotlib.pyplot as plt
 from matplotlib import dates
-from preprocess_subtitles import get_dialogue_with_time
+from pp_subtitles import get_dialogue_with_time
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
 from textblob import TextBlob
