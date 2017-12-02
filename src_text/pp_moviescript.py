@@ -31,7 +31,7 @@ def get_scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
         text = text.strip()
 
         text = re.split(
-            r"((?:INT[.:]? |EXT[.:]? |INTERIOR[.:]? |EXTERIOR[.:]? )[^\n]+\n)",
+            r"\b((?:INT[.:]? |EXT[.:]? |INTERIOR[.:]? |EXTERIOR[.:]? )[^\n]+\n)",
             text)
         scenelist = [("MOVIEBEGINNING", text[0])]
 
@@ -77,77 +77,83 @@ def extract_moviedialogue(movie_filename: str) -> List[str]:
     return dialogue
 
 
-def extract_moviedialogue_2(movie_filename: str) -> List[Tuple[str, str]]:
+def parse_moviescript(movie_filename: str):
     """ """
     root = ET.Element("movie")
-
     scenelist = get_scene_tuples(movie_filename)
 
-    char_pattern = re.compile(r"([ |\t]*[^-][^<>a-z\s\n][^<>a-z:!\?\n]+[^<>a-z\(!\?:\n][ \t]?)\n{1}(?!\n)")
-    temp = []
+    char_pattern = re.compile(r"([ |\t]*\b[^(-][^<>(a-z\s\n][^<>a-z:!?\n]+[^<>a-z(!?:\n][ \t]?\n{1})(?!\n)")
 
     for index, scene in enumerate(scenelist):
-        sc = ET.SubElement(root, "scene")
-        ET.SubElement(sc, "sceneheader", id=str(index)).text = scene[0]
+        scene_id = "s" + str(index)
+        sc = ET.SubElement(root, "scene", id=scene_id)
+        ET.SubElement(sc, "sceneheader").text = scene[0].strip()
 
+        # From start to first scene = Beginning
         if scene[0] == "MOVIEBEGINNING":
-            sc = ET.SubElement(root, "beginning").text = scene[1]
+            # ET.SubElement(root, "beginning").text = scene[1]
             continue
+        # remove the movie info (at end of file) and put it into own xml tree element
+        if index == len(scenelist) - 1:
+            text = scene[1].split('\n\n')
+            movieinfo = re.sub(r"\xa0|User Comments", "", text[-1]).strip()
+            scene_text = re.sub(text[-1], "", scene[1])
+            scene = (scene[0], scene_text)
 
         lines = scene[1].split(os.linesep)
+
         i = 1
+        m = 1
+        d = 1
         metatext = ""
         while i < len(lines):
-            if re.match(char_pattern, lines[i] + "\n"):
-                dialogue = ""
-                temp.append(("meta:", metatext))
-                ET.SubElement(sc, "meta").text = metatext
+            meta_id = scene_id + "m" + str(m)
+            dialogue_id = scene_id + "d" + str(d)
 
-                metatext = ""
-
-                character = lines[i]
+            if re.fullmatch(char_pattern, lines[i] + "\n"):
+                if metatext.strip():
+                    ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
+                character = lines[i].strip()
                 char = ET.SubElement(sc, "char", name=character)
 
-                while i + 1 < len(lines) and lines[i + 1].strip():
-                    # ignore meta text below speaker name e.g. (speaks slowly):
-                    if re.search(r'[(|)]', lines[i + 1].strip()):
-                        metatext = lines[i + 1]
-                        i += 1
-                    else:
-                        dialogue += " " + lines[i + 1].strip()
-                        i += 1
-                temp.append(("dialogue:", dialogue))
-                ET.SubElement(char, "dialogue").text = dialogue
+                dialogue = ""
+                d += 1
+                metatext = ""
+                m += 1
 
+                # Richtig hässlich hardcoded für eine einzelne leerzeile nach Character name
+                # TODO: Sinnvoller machen!
+                if not lines[i + 1].strip():
+                    i += 1
+
+                while i + 1 < len(lines) and lines[i + 1].strip() and not re.fullmatch(char_pattern,
+                                                                                       lines[i + 1] + "\n"):
+                    dialogue = (dialogue + " " + lines[i + 1].strip()).strip()
+                    i += 1
+
+                ET.SubElement(char, "dialogue", id=dialogue_id).text = dialogue
                 i += 1
 
             else:
-                metatext += " " + lines[i].strip()
+                metatext = (metatext + " " + lines[i].strip()).strip()
                 i += 1
 
+        if metatext.strip():
+            ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
+
+    ET.SubElement(root, "info").text = movieinfo
     xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
     with open("filename.xml", "w") as f:
         f.write(xmlstr)
 
-    return temp
-
 
 def main():
     """main"""
-    # root = ET.Element("movie")
-    # scene = ET.SubElement(root, "scene")
-    # ET.SubElement(scene, "sceneheader", id="1").text = "e"
-    # ET.SubElement(scene, "metatext", name="metatext").text = "This is some metatext"
-    # ET.SubElement(scene, "dialogue", name="dialogue").text = "This is some dialogue"
-    # xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
-    # with open("filename.xml", "w") as f:
-    #     f.write(xmlstr)
 
-    # extract_moviedialogue_2("Cars-2.txt")
-    get_scene_tuples("testmovie.txt")
+    # get_scene_tuples("testmovie.txt")
 
-    # for e in extract_moviedialogue_2("testmovie.txt"):
-    #     print(e)
+    parse_moviescript("testmovie.txt")
+    #   parse_moviescript("American-Psycho.txt")
 
 
 if __name__ == '__main__':

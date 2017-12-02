@@ -59,14 +59,17 @@ STAR WARS
                Another blast shakes them as they struggle along their way.
 
                                      THREEPIO
+				(talking slowly)
                          Did you hear that? They've shut down 
                          the main reactor. We'll be destroyed 
                          for sure. This is madness!
+
 
                Rebel troopers rush past the robots and take up positions in 
                the main passageway. They aim their weapons toward the door.
 
                                      THREEPIO
+					(KEEPING PACE)
                          We're doomed!
 
                The little R2 unit makes a series of electronic sounds that 
