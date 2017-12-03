@@ -5,7 +5,7 @@ Check and clean all movie scripts in directory
 import os
 import re
 from nltk import word_tokenize
-from pp_moviescript import scene_tuples
+from parse_moviescript import scene_tuples
 
 
 CUR_DIR = os.path.dirname(__file__)
@@ -26,7 +26,7 @@ DATA_DIR = 'imsdbScripts'
 # (removed more scripts that don't use EXT./INT. etc to separate scenes)
 
 
-def check_all_moviescripts(directory: str):
+def check_all(directory: str):
     """Checks moviescripts in directory and deletes incorrect ones"""
     incorrect_scripts = []
     for filename in os.listdir(directory):

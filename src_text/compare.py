@@ -1,13 +1,12 @@
 """Comparing movie scripts and subtitle file.
 Upcoming: annotating movie scripts with time codes from subtitles """
 import re
-import nwalign3 as nw
 
 from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 from fuzzywuzzy import fuzz
 from pp_subtitles import extract_subdialogue
-from pp_moviescript import extract_moviedialogue
+from parse_moviescript import extract_moviedialogue
 
 
 def compare_script_subtitles(movie_filename: str, subs_filename: str):

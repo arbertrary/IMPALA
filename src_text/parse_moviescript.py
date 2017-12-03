@@ -11,15 +11,6 @@ PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
 DATA_DIR = "testfiles"
 
 
-def clean_moviescript(movie_filename: str):
-    """doesn't do that much atm because other functions do all the stuff now"""
-    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
-    movie_path = os.path.join(textdata_dir, movie_filename)
-
-    with open(movie_path, 'r', encoding='utf-8') as movie:
-        text = movie.readlines()
-
-
 # TODO: check if scene_tuples actually extracts all scenes
 def get_scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
     """Separates movie script into scenes; returns tuples of (scene header, scene text)."""
@@ -31,7 +22,7 @@ def get_scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
         text = text.strip()
 
         text = re.split(
-            r"\b((?:INT[.:]? |EXT[.:]? |INTERIOR[.:]? |EXTERIOR[.:]? )[^\n]+\n)",
+            r"\b((?:INT[.: ]?\b|EXT[.: ]?\b|INTERIOR[.: ]?\b|EXTERIOR[.: ]?\“)[^\n]+\n)",
             text)
         scenelist = [("MOVIEBEGINNING", text[0])]
 
@@ -44,45 +35,20 @@ def get_scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
     return scenelist
 
 
-# sollte ich dialog als list der lines extrahieren oder als string?
-# ich wandle ja eh wieder in strings um fürs tokenizen
-# TODO: Beim Extrahieren irgendeine Referenz auf die zugehörige Szene mitnehmen
-def extract_moviedialogue(movie_filename: str) -> List[str]:
-    """extracts all dialogue from a movie script and ignores meta text"""
-    scenelist = get_scene_tuples(movie_filename)
-
-    char_pattern = re.compile(r"([ |\t]*[^-][^<>a-z\s\n][^<>a-z:!\?\n]+[^<>a-z\(!\?:\n][ \t]?)\n{1}(?!\n)")
-
-    dialogue = []
-    for scene in scenelist:
-        lines = scene[1].split(os.linesep)
-
-        i = 1
-        while i < len(lines):
-            if lines[i].strip().isupper():
-                character = lines[i]
-                while i + 1 < len(lines) and lines[i + 1].strip():
-                    # ignore meta text below speaker name like (speaks slowly):
-                    if re.search(r'[(|)]', lines[i + 1].strip()):
-                        metatext = lines[i + 1]
-                        i += 1
-                    else:
-                        dialogue.append(lines[i + 1].strip())  # .lower())
-                        i += 1
-
-                i += 1
-            else:
-                i += 1
-
-    return dialogue
-
-
-def parse_moviescript(movie_filename: str):
-    """ """
+def moviescript_to_xml(movie_filename: str):
+    """Parses movie scripts in fountain plain text format to xml"""
     root = ET.Element("movie")
     scenelist = get_scene_tuples(movie_filename)
 
-    char_pattern = re.compile(r"([ |\t]*\b[^(-][^<>(a-z\s\n][^<>a-z:!?\n]+[^<>a-z(!?:\n][ \t]?\n{1})(?!\n)")
+    char_pattern = re.compile(r"([ |\t]*\b[^(-]?[^<>(a-z\s\n][^<>a-z:!?\n]+[^<>a-z(!?:\n][ \t]?\n{1})(?!\n)")
+
+    # remove the movie info (at end of file) and put it into own xml tree element
+    temp = scenelist[-1]
+    text = temp[1].split('\n\n')
+    movieinfo = re.sub(r"\xa0|User Comments", "", text[-1]).strip()
+    scene_text = re.sub(text[-1], "", temp[1])
+    scenelist[-1] = (temp[0], scene_text)
+    ET.SubElement(root, "info").text = movieinfo
 
     for index, scene in enumerate(scenelist):
         scene_id = "s" + str(index)
@@ -93,12 +59,6 @@ def parse_moviescript(movie_filename: str):
         if scene[0] == "MOVIEBEGINNING":
             # ET.SubElement(root, "beginning").text = scene[1]
             continue
-        # remove the movie info (at end of file) and put it into own xml tree element
-        if index == len(scenelist) - 1:
-            text = scene[1].split('\n\n')
-            movieinfo = re.sub(r"\xa0|User Comments", "", text[-1]).strip()
-            scene_text = re.sub(text[-1], "", scene[1])
-            scene = (scene[0], scene_text)
 
         lines = scene[1].split(os.linesep)
 
@@ -123,8 +83,12 @@ def parse_moviescript(movie_filename: str):
 
                 # Richtig hässlich hardcoded für eine einzelne leerzeile nach Character name
                 # TODO: Sinnvoller machen!
-                if not lines[i + 1].strip():
-                    i += 1
+                try:
+                    if not lines[i + 1].strip():
+                        i += 1
+                except IndexError:
+                    print(movie_filename)
+                    print(lines[i])
 
                 while i + 1 < len(lines) and lines[i + 1].strip() and not re.fullmatch(char_pattern,
                                                                                        lines[i + 1] + "\n"):
@@ -141,9 +105,8 @@ def parse_moviescript(movie_filename: str):
         if metatext.strip():
             ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
 
-    ET.SubElement(root, "info").text = movieinfo
     xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
-    with open("filename.xml", "w") as f:
+    with open("filename.xml", "w", encoding="UTF-8") as f:
         f.write(xmlstr)
 
 
@@ -152,8 +115,12 @@ def main():
 
     # get_scene_tuples("testmovie.txt")
 
-    parse_moviescript("testmovie.txt")
-    #   parse_moviescript("American-Psycho.txt")
+    # moviescript_to_xml("testmovie.txt")
+    # moviescript_to_xml("Mummy,-The.txt")
+    moviescript_to_xml("Pitch-Black.txt")
+    # moviescript_to_xml("Scream.txt")
+    # moviescript_to_xml("Warrior.txt")
+    # moviescript_to_xml("American-Psycho.txt")
 
 
 if __name__ == '__main__':
