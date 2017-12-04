@@ -7,7 +7,7 @@ from typing import List, Tuple
 from xml.dom import minidom
 
 CUR_DIR = os.path.dirname(__file__)
-PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
+PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir,os.pardir))
 DATA_DIR = "testfiles"
 
 
@@ -40,7 +40,7 @@ def moviescript_to_xml(movie_filename: str):
     root = ET.Element("movie")
     scenelist = get_scene_tuples(movie_filename)
 
-    char_pattern = re.compile(r"([ |\t]*\b[^(-]?[^<>(a-z\s\n][^<>a-z:!?\n]+[^<>a-z(!?:\n][ \t]?\n{1})(?!\n)")
+    char_pattern = re.compile(r"([ |\t]*\b[^(\-\d][^<>a-z\s\n][^<>a-z:!?\n]*[^<>a-z!?:\n][ \t]?\n{1})(?!\n)")
 
     # remove the movie info (at end of file) and put it into own xml tree element
     temp = scenelist[-1]
@@ -74,7 +74,7 @@ def moviescript_to_xml(movie_filename: str):
                 if metatext.strip():
                     ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
                 character = lines[i].strip()
-                char = ET.SubElement(sc, "char", name=character)
+                # char = ET.SubElement(sc, "char", name=character)
 
                 dialogue = ""
                 d += 1
@@ -95,7 +95,12 @@ def moviescript_to_xml(movie_filename: str):
                     dialogue = (dialogue + " " + lines[i + 1].strip()).strip()
                     i += 1
 
-                ET.SubElement(char, "dialogue", id=dialogue_id).text = dialogue
+                # Falls dialog an dieser stelle leer ist -> das gefundene war kein Charakter sondern eine Zeile in Großbuchstaben
+                if dialogue.strip():
+                    char = ET.SubElement(sc, "char", name=character)
+                    ET.SubElement(char, "dialogue", id=dialogue_id).text = dialogue
+                else:
+                    metatext = (metatext + " " + character.strip())
                 i += 1
 
             else:
@@ -114,10 +119,9 @@ def main():
     """main"""
 
     # get_scene_tuples("testmovie.txt")
-
-    # moviescript_to_xml("testmovie.txt")
+    #moviescript_to_xml("testmovie.txt")
     # moviescript_to_xml("Mummy,-The.txt")
-    moviescript_to_xml("Pitch-Black.txt")
+    # moviescript_to_xml("Pitch-Black.txt")
     # moviescript_to_xml("Scream.txt")
     # moviescript_to_xml("Warrior.txt")
     # moviescript_to_xml("American-Psycho.txt")

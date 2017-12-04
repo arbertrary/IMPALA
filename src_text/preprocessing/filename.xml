@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<movie>
+   <info>Star Wars: A New Hope
+Writers : George Lucas
+Genres : ActionAdventureFantasySci-Fi</info>
+   <scene id="s0">
+      <sceneheader>MOVIEBEGINNING</sceneheader>
+   </scene>
+   <scene id="s1">
+      <sceneheader>INT. REBEL BLOCKADE RUNNER - MAIN PASSAGEWAY</sceneheader>
+      <meta id="s1m1">An explosion rocks the ship as two robots, Artoo-Detoo (R2- D2) and See-Threepio (C-3PO) struggle to make their way through the shaking, bouncing passageway. Both robots are old and battered. Artoo is a short, claw-armed tripod. His face is a mass of computer lights surrounding a radar eye. Threepio, on the other hand, is a tall, slender robot of human proportions. He has a gleaming bronze-like metallic surface of an Art Deco design. Another blast shakes them as they struggle along their way.</meta>
+      <char name="THREEPIO">
+         <dialogue id="s1d1">(talking slowly) Did you hear that? They've shut down the main reactor. We'll be destroyed for sure. This is madness!</dialogue>
+      </char>
+      <meta id="s1m2">Rebel troopers rush past the robots and take up positions in the main passageway. They aim their weapons toward the door.</meta>
+      <char name="THREEPIO">
+         <dialogue id="s1d2">(KEEPING PACE) We're doomed!</dialogue>
+      </char>
+      <meta id="s1m3">The little R2 unit makes a series of electronic sounds that only another robot could understand.</meta>
+      <char name="THREEPIO">
+         <dialogue id="s1d3">There'll be no escape for the Princess this time.</dialogue>
+      </char>
+      <meta id="s1m4">Artoo continues making beeping sounds. Tension mounts as loud metallic latches clank and the scream of heavy equipment are heard moving around the outside hull of the ship.</meta>
+      <char name="THREEPIO">
+         <dialogue id="s1d4">What's that?</dialogue>
+      </char>
+   </scene>
+   <scene id="s2">
+      <sceneheader>EXT. SPACECRAFT IN SPACE</sceneheader>
+      <meta id="s2m1">The Imperial craft has easily overtaken the Rebel Blockade Runner. The smaller Rebel ship is being drawn into the underside dock of the giant Imperial starship.</meta>
+   </scene>
+   <scene id="s3">
+      <sceneheader>INT. REBEL BLOCKADE RUNNER</sceneheader>
+      <meta id="s3m1">The nervous Rebel troopers aim their weapons. Suddenly a tremendous blast opens up a hole in the main passageway and a score of fearsome armored spacesuited stormtroopers make their way into the smoke-filled corridor. In a few minutes the entire passageway is ablaze with laserfire. The deadly bolts ricochet in wild random patterns creating huge explosions. Stormtroopers scatter and duck behind storage lockers. Laserbolts hit several Rebel soldiers who scream and stagger through the smoke, holding shattered arms and faces. An explosion hits near the robots.</meta>
+      <char name="THREEPIO">
+         <dialogue id="s3d1">I should have known better than to trust the logic of a half-sized thermocapsulary dehousing assister...</dialogue>
+      </char>
+      <meta id="s3m2">Artoo counters with an angry rebuttal as the battle rages around the two hapless robots.</meta>
+   </scene>
+</movie>

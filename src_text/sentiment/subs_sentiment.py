@@ -48,7 +48,7 @@ def subdialogue_sentiment(subs_filename):
 
 def main():
     """main function"""
-    subdialogue_sentiment("Star-Wars-A-New-HopeSubtitles.srt")
+    subdialogue_sentiment("star-wars-4.srt")
 
 
 if __name__ == '__main__':
