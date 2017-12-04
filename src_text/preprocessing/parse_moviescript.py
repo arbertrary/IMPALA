@@ -39,7 +39,8 @@ def moviescript_to_xml(movie_filename: str):
     root = ET.Element("movie")
     scenelist = get_scene_tuples(movie_filename)
 
-    char_pattern = re.compile(r"([ |\t]*\b[^(\-\d][^<>a-z\s\n][^<>a-z:!?\n]*[^<>a-z!?:\n][ \t]?\n{1})(?!\n)")
+    # char_pattern = re.compile(r"([ |\t]*\b[^(\-\d][^<>a-z\s\n][^<>a-z:!?\n]*[^<>a-z!?:.\n][ |\t]?\n)(?!\n)")
+    char_pattern = re.compile(r"[\s]*\b[^a-z!?<>]+[^a-z!.?<>]$")  # (?!\n)
 
     # remove the movie info (at end of file) and put it into own xml tree element
     temp = scenelist[-1]
@@ -69,7 +70,7 @@ def moviescript_to_xml(movie_filename: str):
             meta_id = scene_id + "m" + str(m)
             dialogue_id = scene_id + "d" + str(d)
 
-            if re.fullmatch(char_pattern, lines[i] + "\n"):
+            if re.fullmatch(char_pattern, lines[i].strip()):
                 if metatext.strip():
                     ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
                 character = lines[i].strip()
@@ -81,16 +82,17 @@ def moviescript_to_xml(movie_filename: str):
                 m += 1
 
                 # Richtig hässlich hardcoded für eine einzelne leerzeile nach Character name
-                # TODO: Sinnvoller machen!
-                try:
-                    if not lines[i + 1].strip():
-                        i += 1
-                except IndexError:
-                    print(movie_filename)
-                    print(lines[i])
+                # TODO: Sinnvoller machen! Oder rauslassen; eig nur nötig falls eine leerzeile nach dem charakter kommt
+
+                # try:
+                #     if not lines[i + 1].strip():
+                #         i += 1
+                # except IndexError:
+                #     print(movie_filename)
+                #     print(lines[i])
 
                 while i + 1 < len(lines) and lines[i + 1].strip() and not re.fullmatch(char_pattern,
-                                                                                       lines[i + 1] + "\n"):
+                                                                                       lines[i + 1].strip()):
                     dialogue = (dialogue + " " + lines[i + 1].strip()).strip()
                     i += 1
 
@@ -118,12 +120,12 @@ def main():
     """main"""
 
     # get_scene_tuples("testmovie.txt")
-    #moviescript_to_xml("testmovie.txt")
+    # moviescript_to_xml("testmovie.txt")
     # moviescript_to_xml("Mummy,-The.txt")
     # moviescript_to_xml("Pitch-Black.txt")
     # moviescript_to_xml("Scream.txt")
     # moviescript_to_xml("Warrior.txt")
-    # moviescript_to_xml("American-Psycho.txt")
+    moviescript_to_xml("American-Psycho.txt")
 
 
 if __name__ == '__main__':

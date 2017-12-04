@@ -1,6 +1,7 @@
 import csv
 import os
 import re
+from nltk import word_tokenize
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir))
 DATA_DIR = os.path.join(PAR_DIR, "lexicons")
@@ -91,14 +92,32 @@ def sentiwordnet_dict():
 
 
 def main():
-    test = ImpalaSent()
-    print(test.score("able"))
+    # test = ImpalaSent()
+    # test = ImpalaSent("SentiWordNet")
+    test = ImpalaSent("NRC")
 
-    test2 = ImpalaSent("SentiWordNet")
-    print(test2.score("able"))
+    with open("Pitch-Black.txt") as movie:
+        text = movie.read()
+        text = word_tokenize(text)
 
-    test3 = ImpalaSent("NRC")
-    print(test3.score("able"))
+        i = 0
+        j = 0
+        for word in text:
+            try:
+                print(test.score(word.lower()))
+                i += 1
+            except KeyError:
+                j += 1
+                continue
+        print(i, j)
+
+    # test2 = ImpalaSent("SentiWordNet")
+    # print(test2.score("run"))
+    #
+    # test3 = ImpalaSent("NRC")
+    # print(test3.score("test"))
+
+
 
 
 

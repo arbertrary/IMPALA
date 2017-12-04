@@ -38,7 +38,7 @@ STAR WARS
                     restore freedom to the galaxy...
 
                The awesome yellow planet of Tatooine emerges from a total 
-               eclipse, her two moons glowing against the darkness. A tiny 
+               Eclipse, her two moons glowing against the darkness. A tiny 
                silver spacecraft, a Rebel Blockade Runner firing lasers 
                from the back of the ship, races through space. It is pursed 
                by a giant Imperial Stardestroyer. Hundreds of deadly 
@@ -55,6 +55,9 @@ STAR WARS
                Threepio, on the other hand, is a tall, slender robot of 
                human proportions. He has a gleaming bronze-like metallic 
                surface of an Art Deco design.
+               THIS IS ANOTHER TEST LINE.
+               The awesome yellow planet of Tatooine emerges from a total 
+               THIS IS A TEST LINE
 
                Another blast shakes them as they struggle along their way.
 
@@ -75,7 +78,7 @@ STAR WARS
                The little R2 unit makes a series of electronic sounds that 
                only another robot could understand.
 
-                                     THREEPIO
+                                     THREEPIO (O.V.)
                          There'll be no escape for the Princess 
                          this time.
 
