@@ -13,8 +13,7 @@ from datetime import datetime, timedelta
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 
-CUR_DIR = os.path.dirname(__file__)
-PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir, os.pardir))
+PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = 'testfiles'
 
 

@@ -1,16 +1,15 @@
-'''
+"""
 Check and clean all movie scripts in directory
-'''
+"""
 
 import os
 import re
 from nltk import word_tokenize
 from parse_moviescript import scene_tuples
 
-
-CUR_DIR = os.path.dirname(__file__)
-PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
+PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = 'imsdbScripts'
+
 
 # removes movie scripts
 # 1121 scripts at the beginning
@@ -68,7 +67,7 @@ def check_movieinfo_at_end_of_file(directory: str):
                 end.append(filename)
 
     # for f in end:
-        # os.remove(os.path.join(directory, f))
+    # os.remove(os.path.join(directory, f))
 
     print(end)
     print(len(end))
@@ -127,7 +126,7 @@ def main():
         # print(filename)
         test2 = scene_tuples(filename)
         for t in test2:
-            test.append("\t\t"+filename)
+            test.append("\t\t" + filename)
             if t[0].islower():
                 raise ValueError("SCENE HEADER NOT CORRECT!")
             else:

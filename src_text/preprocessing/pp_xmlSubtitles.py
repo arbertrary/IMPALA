@@ -5,8 +5,7 @@ import xml.etree.ElementTree as ET
 import string
 from datetime import datetime
 
-CUR_DIR = os.path.dirname(__file__)
-PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
+PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir))
 DATA_DIR = "testfiles"
 
 

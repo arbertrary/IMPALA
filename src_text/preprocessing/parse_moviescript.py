@@ -6,8 +6,7 @@ import xml.etree.cElementTree as ET
 from typing import List, Tuple
 from xml.dom import minidom
 
-CUR_DIR = os.path.dirname(__file__)
-PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir,os.pardir))
+PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"
 
 
