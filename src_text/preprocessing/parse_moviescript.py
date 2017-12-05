@@ -8,16 +8,21 @@ from xml.dom import minidom
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"
+DATA_DIR2 = "moviescripts_to_test"
 
 
 # TODO: check if scene_tuples actually extracts all scenes
 def get_scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
     """Separates movie script into scenes; returns tuples of (scene header, scene text)."""
     textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
+    # textdata_dir = os.path.join(PAR_DIR, DATA_DIR2)
+
     movie_path = os.path.join(textdata_dir, movie_filename)
 
     with open(movie_path, 'r', encoding='utf-8') as movie:
         text = movie.read()
+
+        text = re.sub(r"FADE IN[.:]?|FADE TO[.:]?|CUT TO[.:]?|DISSOLVE TO[.:]?|FADE OUT[.:]?|FADE TO BLACK[.:]?\(?CONTINUED\)?", "", text)
         text = text.strip()
 
         text = re.split(
@@ -40,7 +45,9 @@ def moviescript_to_xml(movie_filename: str):
     scenelist = get_scene_tuples(movie_filename)
 
     # char_pattern = re.compile(r"([ |\t]*\b[^(\-\d][^<>a-z\s\n][^<>a-z:!?\n]*[^<>a-z!?:.\n][ |\t]?\n)(?!\n)")
-    char_pattern = re.compile(r"[\s]*\b[^a-z!?<>]+[^a-z!.?<>]$")  # (?!\n)
+    #char_pattern = re.compile(r"[\s]*\b[^a-z!?<>]+[^a-z!.?<>]$")  # (?!\n)
+    char_pattern = re.compile(r"\b[^a-z!?<>]*[^a-z!.?<>]+$")  # (?!\n)
+
 
     # remove the movie info (at end of file) and put it into own xml tree element
     temp = scenelist[-1]
@@ -84,12 +91,13 @@ def moviescript_to_xml(movie_filename: str):
                 # Richtig hässlich hardcoded für eine einzelne leerzeile nach Character name
                 # TODO: Sinnvoller machen! Oder rauslassen; eig nur nötig falls eine leerzeile nach dem charakter kommt
 
-                # try:
-                #     if not lines[i + 1].strip():
-                #         i += 1
-                # except IndexError:
-                #     print(movie_filename)
-                #     print(lines[i])
+                try:
+                    if not lines[i + 1].strip():
+                        i += 1
+                except IndexError:
+                    pass
+                    # print(movie_filename)
+                    # print(lines[i])
 
                 while i + 1 < len(lines) and lines[i + 1].strip() and not re.fullmatch(char_pattern,
                                                                                        lines[i + 1].strip()):
@@ -108,25 +116,20 @@ def moviescript_to_xml(movie_filename: str):
                 metatext = (metatext + " " + lines[i].strip()).strip()
                 i += 1
 
-        if metatext.strip():
+        if metatext.strip() and meta_id:
             ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
 
     xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
     with open("filename.xml", "w", encoding="UTF-8") as f:
         f.write(xmlstr)
+    # print(xmlstr)
 
 
 def main():
     """main"""
 
     # get_scene_tuples("testmovie.txt")
-    # moviescript_to_xml("testmovie.txt")
-    # moviescript_to_xml("Mummy,-The.txt")
-    # moviescript_to_xml("Pitch-Black.txt")
-    # moviescript_to_xml("Scream.txt")
-    # moviescript_to_xml("Warrior.txt")
-    moviescript_to_xml("American-Psycho.txt")
-
+    moviescript_to_xml("star-wars-4.txt")
 
 if __name__ == '__main__':
     main()
