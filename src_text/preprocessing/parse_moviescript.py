@@ -122,7 +122,10 @@ def moviescript_to_xml(movie_filename: str):
             ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
 
     xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
-    with open("filename.xml", "w", encoding="UTF-8") as f:
+    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
+
+    path = os.path.join(textdata_dir, "scream.xml")
+    with open(path, "w", encoding="UTF-8") as f:
         f.write(xmlstr)
     # print(xmlstr)
 
@@ -131,7 +134,7 @@ def main():
     """main"""
 
     # get_scene_tuples("testmovie.txt")
-    moviescript_to_xml("star-wars-4.txt")
+    moviescript_to_xml("scream.txt")
 
 if __name__ == '__main__':
     main()

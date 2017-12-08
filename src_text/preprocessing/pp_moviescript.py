@@ -45,7 +45,7 @@ def get_moviedialogue(movie_filename: str) -> List[Tuple[str, str]]:
 
     # for d in dialogue_tuples:
     #     print(d)
-
+    dialogue_tuples = sorted(dialogue_tuples, key=lambda x: x[0])
     return dialogue_tuples
 
 

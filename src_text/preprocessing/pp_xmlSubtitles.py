@@ -49,6 +49,7 @@ def get_subtitles(movie_filename: str) -> List[Tuple[str, str]]:
     #         i += 1
     #     else:
     #         break
+    subdialogue = sorted(subdialogue, key=lambda x: x[0])
     return subdialogue
 
 

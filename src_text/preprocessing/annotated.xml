@@ -68,7 +68,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s3d1" name="THREEPIO">I should have known better than to trust the logic of a half-sized thermocapsulary dehousing assister...</dialogue>
       <meta id="s3m2">Artoo counters with an angry rebuttal as the battle rages around the two hapless robots.</meta>
    </scene>
-   <scene id="s4" timecode="01:02:48">
+   <scene id="s4">
       <meta id="s4m1">A death-white wasteland stretches from horizon to horizon. The tremendous heat of two huge twin suns settle on a lone figure, Luke Skywalker, a farm boy with heroic aspirations who looks much younger than his eighteen years. His shaggy hair and baggy tunic give him the air of a simple but lovable lad with a prize-winning smile. A light wind whips at him as he adjusts several valves on a large battered moisture vaporator which sticks out of the desert floor much like an oil pipe with valves. He is aided by a beatup tread-robot with six claw arms. The little robot appears to be barely functioning and moves with jerky motions. A bright sparkle in the morning sky catches Luke's eye and he instinctively grabs a pair of electrobinoculars from his utility belt. He stands transfixed for a few moments studying the heavens, then dashed toward his dented, crudely repaired Landspeeder (an auto-like transport that travels a few feet above the ground on a magnetic-field). He motions for the tiny robot to follow him.</meta>
       <dialogue id="s4d1" name="LUKE">Hurry up! Come with me! What are you waiting for?! Get in gear!</dialogue>
       <meta id="s4m2">The robot scoots around in a tight circle, stops short, and smoke begins to pour out of every joint. Luke throws his arms up in disgust. Exasperated, the young farm boy jumps into his Landspeeder leaving the smoldering robot to hum madly.</meta>
@@ -79,7 +79,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
    <scene id="s6">
       <meta id="s6m1">A woman's hand puts a card into an opening in Artoo's dome. Artoo makes beeping sounds.</meta>
    </scene>
-   <scene id="s7" timecode="00:22:47">
+   <scene id="s7" timecode="00:04:44">
       <meta id="s7m1">Threepio stands in a hallway, somewhat bewildered. Artoo is nowhere in sight. The pitiful screams of the doomed Rebel soldiers can be heard in the distance.</meta>
       <dialogue id="s7d1" name="THREEPIO">Artoo! Artoo-Detoo, where are you?</dialogue>
       <meta id="s7m2">A familiar clanking sound attacks Threepio's attention and he spots little Artoo at the end of the hallway in a smoke- filled alcove. A beautiful young girl (about sixteen years old) stands in front of Artoo. Surreal and out of place, dreamlike and half hidden in the smoke, she finishes adjusting something on Artoo's computer face, then watches as the little robot joins his companion.</meta>
@@ -103,7 +103,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s8d6" name="VADER">Commander, tear this ship apart until you've found those plans and bring me the Ambassador. I want her alive!</dialogue>
       <meta id="s8m7">The stormtroopers scurry into the subhallways.</meta>
    </scene>
-   <scene id="s9" timecode="00:05:51">
+   <scene id="s9" timecode="00:32:40">
       <meta id="s9m1">The lovely young girl huddles in a small alcove as the stormtroopers search through the ship. She is Princess Leia Organa, a member of the Alderaan Senate. The fear in her eyes slowly gives way to anger as the muted crushing sounds of the approaching stormtroopers grow louder. One of the troopers spots her.</meta>
       <dialogue id="s9d1" name="TROOPER">There she is! Set for stun!</dialogue>
       <meta id="s9m2">Leia steps from her hiding place and blasts a trooper with her laser pistol. She starts to run but is felled by a paralyzing ray. The troopers inspect her inert body.</meta>
@@ -183,7 +183,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
    <scene id="s17">
       <meta id="s17m1">The Imperial Stardestroyer comes over the surface of the planet Tatooine.</meta>
    </scene>
-   <scene id="s18" timecode="00:08:39">
+   <scene id="s18" timecode="00:08:51">
       <meta id="s18m1">Jundland, or "No Man's Land", where the rugged desert mesas meet the foreboding dune sea. The two helpless astro-droids kick up clouds of sand as they leave the lifepod and clumsily work their way across the desert wasteland. The lifepod in the distance rests half buried in the sand.</meta>
       <dialogue id="s18d1" name="THREEPIO">How did I get into this mess? I really don't know how. We seem to be made to suffer. It's our lot in life.</dialogue>
       <meta id="s18m2">Artoo answers with beeping sounds.</meta>
@@ -206,7 +206,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s18d10" name="THREEPIO">No more adventures. I'm not going that way.</dialogue>
       <meta id="s18m11">Artoo beeps to himself as he makes his way toward the distant mountains.</meta>
    </scene>
-   <scene id="s19" timecode="00:10:17">
+   <scene id="s19" timecode="00:10:16">
       <meta id="s19m1">Threepio, hot and tired, struggles up over the ridge of a dune; only to find more dunes, which seem to go on for endless miles.  He looks back in the direction of the now distant rock mesas.</meta>
       <dialogue id="s19d1" name="THREEPIO">That malfunctioning little twerp. This is all his fault! He tricked me into going this way, but he'll do no better.</dialogue>
       <meta id="s19m2">In a huff of anger and frustration, Threepio knocks the sand from his joints. His plight seems hopeless, when a glint of reflected light in the distance reveals an object moving towards him.</meta>
@@ -286,7 +286,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s28m4">Artoo responds, making beeping sounds.</meta>
       <dialogue id="s28d4" name="THREEPIO">Don't shoot! Don't shoot! Will this never end?</dialogue>
    </scene>
-   <scene id="s29" timecode="00:17:28">
+   <scene id="s29" timecode="00:17:27">
       <meta id="s29m1">The Jawas mutter gibberish as they busily line up their battered captives, including Artoo and Threepio, in front of the enormous Sandcrawler, which is parked beside a small homestead consisting of three large holes in the ground surrounded by several tall moisture vaporators and one small adobe block house. The Jawas scurry around fussing over the robots, straightening them up or brushing some dust from a dented metallic elbow. The shrouded little creatures smell horribly, attracting small insects to the dark areas when their mouths and nostrils should be. Out of the shadows of a dingy side-building limps Owen Lars, a large burly man in his mid-fifties. His reddish eyes are sunken in a dust-covered face. As the farmer carefully inspects each robot, he is closely followed by his slump- shouldered nephew, Luke Skywalker. One of the vile little Jawas walks ahead of the farmer spouting an animated sales pitch in a queer, unintelligible language. A voice calls out from one of the huge holes that form the homestead. Luke goes over to the edge and sees his Aunt Beru standing in the main courtyard.</meta>
       <dialogue id="s29d1" name="BERU">Luke, tell Owen that if he gets a translator to be sure it speaks Bocce.</dialogue>
       <dialogue id="s29d2" name="LUKE">It looks like we don't have much of a choice but I'll remind him.</dialogue>
@@ -321,7 +321,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s29d26" name="LUKE">Okay, let's go.</dialogue>
       <dialogue id="s29d27" name="THREEPIO">(to Artoo) Now, don't you forget this! Why I should stick my neck out for you is quite beyond my capacity!</dialogue>
    </scene>
-   <scene id="s30" timecode="00:20:58">
+   <scene id="s30" timecode="00:20:15">
       <meta id="s30m1">The garage is cluttered and worn, but a friendly peaceful atmosphere permeates the low grey chamber. Threepio lowers himself into a large tub filled with warm oil. Near the battered Landspeeder little Artoo rests on a large battery with a cord to his face.</meta>
       <dialogue id="s30d1" name="THREEPIO">Thank the maker! This oil bath is going to feel so good. I've got such a bad case of dust contamination, I can barely move!</dialogue>
       <meta id="s30m2">Artoo beeps a muffled reply. Luke seems to be lost in thought as he runs his hand over the damaged fin of a small two-man Skyhopper spaceship resting in a low hangar off the garage. Finally Luke's frustrations get the better of him and he slams a wrench across the workbench.</meta>
@@ -427,7 +427,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
    <scene id="s32">
       <meta id="s32m1">The giant twin suns of Tatooine slowly disappear behind a distant dune range. Luke stands watching them for a few moments, then reluctantly enters the doomed entrance to the homestead.</meta>
    </scene>
-   <scene id="s33" timecode="00:35:40">
+   <scene id="s33" timecode="00:24:56">
       <meta id="s33m1">Luke enters the garage to discover the robots nowhere in sight. He takes a small control box from his utility belt similar to the one the Jawas were carrying. He activates the box, which creates a low hum, and Threepio, letting out a short yell, pops up from behind the Skyhopper spaceship.</meta>
       <dialogue id="s33d1" name="LUKE">What are you doing hiding there?</dialogue>
       <meta id="s33m2">Threepio stumbles forward, but Artoo is still nowhere in sight.</meta>
@@ -498,7 +498,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s42d1" name="LUKE">There are two Banthas down there but I don't see any... wait a second, they're Sandpeople all right. I can see one of them now.</dialogue>
       <meta id="s42m2">Luke watches the distant Tusken Raider through his electrobinoculars. Suddenly something huge moves in front of his field of view. Before Luke or Threepio can react, a large, gruesome Tusken Raider looms over them. Threepio is startled and backs away, right off the side if the cliff. He can be heard for several moments as he clangs, bangs and rattles down the side of the mountain. The towering creature brings down his curved, double-pointed gaderffii -- the dreaded axe blade that has struck terror in the heart of the local settlers. But Luke manages to block the blow with his laser rifle, which is smashed to pieces. The terrified farm boy scrambles backward until he is forced to the edge of a deep crevice. The sinister Raider stands over him with his weapon raised and lets out a horrible shrieking laugh.</meta>
    </scene>
-   <scene id="s43" timecode="00:32:29">
+   <scene id="s43" timecode="00:29:26">
       <meta id="s43m1">Artoo forces himself into the shadows of a small alcove in the rocks as the vicious Sandpeople walk past carrying the inert Luke Skywalker, who is dropped in a heap before the speeder.  The Sandpeople ransack the speeder, throwing parts and supplies in all directions. Suddenly they stop. Then everything is quiet for a few moments. A great howling moan is heard echoing throughout the canyon which sends the Sandpeople fleeing in terror. Artoo moves even tighter into the shadows as the slight swishing sound that frightened off the Sandpeople grows even closer, until a shabby old desert-rat-of-a-man appears and leans over Luke. His ancient leathery face, cracked and weathered by exotic climates is set off by dark, penetrating eyes and a scraggly white beard. Ben Kenobi squints his eyes as he scrutinizes the unconscious farm boy. Artoo makes a slight sound and Ben turns and looks right at him.</meta>
       <dialogue id="s43d1" name="BEN">Hello there! Come here my little friend. Don't be afraid.</dialogue>
       <meta id="s43m2">Artoo waddles over to were Luke lies crumpled in a heap and begins to whistle and beep his concern. Ben puts his hand on Luke's forehead and he begins to come around.</meta>
@@ -531,7 +531,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s44m5">Luke and Ben help the battered robot to his feet. Little Artoo watches from the top of the pit. Ben glances around suspiciously. Sensing something, he stands up and sniffs the air.</meta>
       <dialogue id="s44d5" name="BEN">Quickly, son... they're on the move.</dialogue>
    </scene>
-   <scene id="s45" timecode="00:33:02">
+   <scene id="s45" timecode="00:33:03">
       <meta id="s45m1">The small, spartan hovel is cluttered with desert junk but still manages to radiate an air of time-worn comfort and security. Luke is in one corner repairing Threepio's arm, as old Ben sits thinking.</meta>
       <dialogue id="s45d1" name="LUKE">No, my father didn't fight in the wars. He was a navigator on a spice freighter.</dialogue>
       <dialogue id="s45d2" name="BEN">That's what your uncle told you. He didn't hold with your father's ideals. Thought he should have stayed here and not gotten involved.</dialogue>
@@ -662,7 +662,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s56d6" name="LUKE">I'm ready for anything.</dialogue>
       <dialogue id="s56d7" name="THREEPIO">Come along, Artoo.</dialogue>
    </scene>
-   <scene id="s57" timecode="00:46:00">
+   <scene id="s57" timecode="00:44:05">
       <meta id="s57m1">The young adventurer and his two mechanical servants follow Ben Kenobi into the smoke-filled cantina. The murky, moldy den is filled with a startling array of weird and exotic alien creatures and monsters at the long metallic bar. At first the sight is horrifying. One-eyed, thousand-eyed, slimy, furry, scaly, tentacled, and clawed creatures huddle over drinks. Ben moves to an empty spot at the bar near a group of repulsive but human scum. A huge, rough-looking Bartender stops Luke and the robots.</meta>
       <dialogue id="s57d1" name="BARTENDER">We don't serve their kind here!</dialogue>
       <meta id="s57m2">Luke still recovering from the shock of seeing so many outlandish creatures, doesn't quite catch the bartender's drift.</meta>
@@ -868,7 +868,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
    <scene id="s83">
       <meta id="s83m1">Alderaan looms behind the Death Star battlestation.</meta>
    </scene>
-   <scene id="s84" timecode="00:55:24">
+   <scene id="s84" timecode="00:55:22">
       <meta id="s84m1">Admiral Motti enters the quiet control room and bows before Governor Tarkin, who stands before the huge wall screen displaying a small green planet.</meta>
       <dialogue id="s84d1" name="MOTTI">We've entered the Alderaan system.</dialogue>
       <meta id="s84m2">Vader and two stormtroopers enter with Princess Leia. Her hands are bound.</meta>
@@ -891,11 +891,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s84d15" name="TARKIN">You're far too trusting. Dantooine is too remote to make an effective demonstration. But don't worry. We will deal with your Rebel friends soon enough.</dialogue>
       <dialogue id="s84d16" name="LEIA">No!</dialogue>
    </scene>
-   <scene id="s85" timecode="00:56:10">
+   <scene id="s85">
       <dialogue id="s85d1" name="VADER">Commence primary ignition.</dialogue>
       <meta id="s85m2">A button is pressed which switches on a panel of lights. A hooded Imperial soldier reaches overhead and pulls a lever. Another lever is pulled. Vader reaches for still another lever and a bank of lights on a panel and wall light up. A huge beam of light emanates from within a cone-shaped area and converges into a single laser beam out toward Alderaan. The small green planet of Alderaan is blown into space dust.</meta>
    </scene>
-   <scene id="s86" timecode="00:58:14">
+   <scene id="s86" timecode="00:58:18">
       <meta id="s86m1">Ben watches Luke practice the lightsaber with a small "seeker" robot. Ben suddenly turns away and sits down. He falters, seems almost faint.</meta>
       <dialogue id="s86d1" name="LUKE">Are you all right? What's wrong?</dialogue>
       <dialogue id="s86d2" name="BEN">I felt a great disturbance in the Force... as if millions of voices suddenly cried out in terror and were suddenly silenced. I fear something terrible has happened.</dialogue>
@@ -943,7 +943,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s86d30" name="LUKE">You know, I did feel something. I could almost see the remote.</dialogue>
       <dialogue id="s86d31" name="BEN">That's good. You have taken your first step into a larger world.</dialogue>
    </scene>
-   <scene id="s87" timecode="01:01:07">
+   <scene id="s87" timecode="01:00:04">
       <meta id="s87m1">Imperial Officer Cass stands before Governor Tarkin and the evil Dark Lord Darth Vader.</meta>
       <dialogue id="s87d1" name="TARKIN">Yes.</dialogue>
       <dialogue id="s87d2" name="OFFICER CASS">Our scout ships have reached Dantooine. They found the remains of a Rebel base, but they estimate that it has been deserted for some time. They are now conducting an extensive search of the surrounding systems.</dialogue>
@@ -954,7 +954,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
    <scene id="s88">
       <meta id="s88m1">The pirateship is just coming out of hyperspace; a strange surreal light show surrounds the ship.</meta>
    </scene>
-   <scene id="s89" timecode="01:01:31">
+   <scene id="s89" timecode="01:01:33">
       <dialogue id="s89d1" name="HAN">Stand by, Chewie, here we go. Cut in the sublight engines.</dialogue>
       <meta id="s89m2">Han pulls back on a control lever. Outside the cockpit window stars begin streaking past, seem to decrease in speed, then stop. Suddenly the starship begins to shudder and violently shake about. Asteroids begin to race toward them, battering the sides of the ship.</meta>
       <dialogue id="s89d2" name="HAN">What the...? Aw, we've come out of hyperspace into a meteor shower. Some kind of asteroid collision. It's not on any of the charts.</dialogue>
@@ -1032,7 +1032,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s100m1">A line of stormtroopers march toward the pirateship in readiness to board it, while other troopers stand with weapons ready to fire.</meta>
       <dialogue id="s100d1" name="OFFICER">Close all outboard shields! Close all outboard shields!</dialogue>
    </scene>
-   <scene id="s101" timecode="01:03:07">
+   <scene id="s101" timecode="01:04:27">
       <meta id="s101m1">Tarkin pushes a button and responds to the intercom buzz.</meta>
       <dialogue id="s101d1" name="TARKIN">Yes.</dialogue>
       <dialogue id="s101d2" name="VOICE">(over intercom) We've captured a freighter entering the remains of the Alderaan system. It's markings match those of a ship that blasted its way out of Mos Eisley.</dialogue>
@@ -1066,7 +1066,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s104d2" name="HAN'S VOICE">Hey down there, could you give us a hand with this?</dialogue>
       <meta id="s104m3">The stormtroopers enter the ship and a quick round of gunfire is heard.</meta>
    </scene>
-   <scene id="s105" timecode="01:07:35">
+   <scene id="s105" timecode="01:05:53">
       <meta id="s105m1">In a very small command office near the entrance to the pirateship, a Gantry Officer looks out his window and notices the guards are missing. He speaks into the comlink.</meta>
       <dialogue id="s105d1" name="GANTRY OFFICER">TX-four-one-two. Why aren't you at your post? TX-four-one-two, do you copy?</dialogue>
       <meta id="s105m2">A stormtrooper comes down the ramp of the pirateship and waves to the gantry officer, pointing to his ear indicating his comlink is not working. The gantry officer shakes his head in disgust and heads for the door, giving his aide an annoyed look.</meta>
@@ -1244,7 +1244,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s114d9" name="HAN">Wonderful girl! Either I'm going to kill her or I'm beginning to like her. Get in there!</dialogue>
       <meta id="s114m10">Luke ducks laserfire as he jumps into the darkness. Han fires off a couple of quick blasts creating a smokey cover, then slides into the chute himself and is gone.</meta>
    </scene>
-   <scene id="s115" timecode="01:15:30">
+   <scene id="s115" timecode="01:11:38">
       <meta id="s115m1">Han tumbles into the large room filled with garbage and muck. Luke is already stumbling around looking for an exit. He finds a small hatchway and struggles to get it open. It won't budge.</meta>
       <dialogue id="s115d1" name="HAN">(sarcastically) Oh! The garbage chute was a really wonderful idea. What an incredible smell you've discovered! Let's get out of here! Get away from there...</dialogue>
       <dialogue id="s115d2" name="LUKE">No! wait!</dialogue>
@@ -1389,7 +1389,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s131d5" name="SECOND TROOPER">What was that?</dialogue>
       <dialogue id="s131d6" name="FIRST TROOPER">Oh, it's nothing. Don't worry about it.</dialogue>
    </scene>
-   <scene id="s132" timecode="01:23:25">
+   <scene id="s132" timecode="01:16:52">
       <meta id="s132m1">Luke, Han, Chewbacca, and Leia run down an empty hallway and stop before a bay window overlooking the pirateship. Troopers are milling about the ship. Luke takes out his pocket comlink.</meta>
       <dialogue id="s132d1" name="HAN">(looking at his ship) There she is.</dialogue>
       <dialogue id="s132d2" name="LUKE">See-Threepio, do you copy?</dialogue>
@@ -1756,7 +1756,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s204m8">Luke turns and sees Han wink at him. Luke lifts his hand in a small wave and then goes off. Han turns to Chewie who growls at his captain,</meta>
       <dialogue id="s204d8" name="HAN">What're you lookin' at? I know what I'm doing.</dialogue>
    </scene>
-   <scene id="s205" timecode="01:38:58">
+   <scene id="s205" timecode="01:36:57">
       <meta id="s205m1">Luke, Leia, and Dodonna meet under a huge space fighter.</meta>
       <dialogue id="s205d1" name="LEIA">What's wrong?</dialogue>
       <dialogue id="s205d2" name="LUKE">Oh, it's Han! I don't know, I really thought he'd change his mind.</dialogue>
@@ -1909,7 +1909,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
    <scene id="s240">
       <meta id="s240m1">Luke's ship emerges from the fireball, with the leading edges of his wings slightly scorched.</meta>
    </scene>
-   <scene id="s241">
+   <scene id="s241" timecode="00:56:34">
       <dialogue id="s241d1" name="BIGGS">Are you all right?</dialogue>
    </scene>
    <scene id="s242" timecode="01:42:09">
@@ -2004,7 +2004,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s267m1">There is a shot from Luke's X-wing of the TIE ship exploding in a mass of flames.</meta>
       <dialogue id="s267d1" name="LUKE">Got him!</dialogue>
    </scene>
-   <scene id="s268" timecode="01:43:50">
+   <scene id="s268" timecode="01:23:19">
       <meta id="s268m1">Darth Vader strides purposefully down a Death Star corridor, flanked by Imperial stormtroopers.</meta>
       <dialogue id="s268d1" name="VADER">Several fighters have broken off from the main group. Come with me!</dialogue>
    </scene>
@@ -2063,7 +2063,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
    <scene id="s283">
       <meta id="s283m1">Wedge moves his X-wing in rapidly.</meta>
    </scene>
-   <scene id="s284">
+   <scene id="s284" timecode="00:25:21">
       <meta id="s284m1">Luke reacts frantically.</meta>
       <dialogue id="s284d1" name="LUKE">Blast it! Wedge where are you?</dialogue>
    </scene>
@@ -2639,7 +2639,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s448m1">Leia and the others stare intently at the projected screen, while Threepio watches the Princess. Lights representing the Death Star and targets glow brightly.</meta>
       <dialogue id="s448d1" name="MASSASSI INTERCOM VOICE">The Death Star has cleared the planet. The Death Star has cleared the planet.</dialogue>
    </scene>
-   <scene id="s449" timecode="01:51:20">
+   <scene id="s449" timecode="01:14:28">
       <meta id="s449m1">Tarkin glares at the projected target screen.</meta>
       <dialogue id="s449d1" name="DEATH STAR INTERCOM VOICE">Rebel base, in range.</dialogue>
       <dialogue id="s449d2" name="TARKIN">You may fire when ready.</dialogue>
@@ -2745,7 +2745,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
    <scene id="s478">
       <meta id="s478m1">The Rebel ships race toward the fourth moon of Yavin.</meta>
    </scene>
-   <scene id="s479" timecode="01:53:00">
+   <scene id="s479" timecode="01:42:16">
       <meta id="s479m1">Luke climbs out of his starship fighter and is cheered by a throng of ground crew and pilots. Luke climbs down the ladder as they all welcome him with laughter, cheers, and shouting. Princess Leia rushes toward him.</meta>
       <dialogue id="s479d1" name="LEIA">Luke! Luke! Luke!</dialogue>
       <meta id="s479m2">She throws her arms around Luke and hugs him as they dance around in a circle. Solo runs in toward Luke and they embrace one another, slapping each other on the back.</meta>
