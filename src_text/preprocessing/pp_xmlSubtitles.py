@@ -34,13 +34,21 @@ def get_subtitles(movie_filename: str) -> List[Tuple[str, str]]:
                 if word.endswith("'"):
                     dialogue += word
                 else:
-                    if word not in string.punctuation:
+                    if word in string.punctuation:
+                        dialogue = dialogue.strip() + word + " "
+                    else:
                         dialogue = dialogue + word + " "
 
         sent_tuple = (time, dialogue.strip())
         subdialogue.append(sent_tuple)
 
-        print(time, dialogue.strip())
+    # i=1
+    # for d in subdialogue:
+    #     if i<20:
+    #         print(time, d[1].strip())
+    #         i += 1
+    #     else:
+    #         break
     return subdialogue
 
 
