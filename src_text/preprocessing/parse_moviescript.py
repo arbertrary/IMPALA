@@ -1,4 +1,4 @@
-"""Preprocessing movie scripts"""
+"""Parsing moviescript from plain text/fountain format to xml """
 
 import os
 import re
@@ -59,13 +59,14 @@ def moviescript_to_xml(movie_filename: str):
 
     for index, scene in enumerate(scenelist):
         scene_id = "s" + str(index)
-        sc = ET.SubElement(root, "scene", id=scene_id)
-        ET.SubElement(sc, "sceneheader").text = scene[0].strip()
+        # ET.SubElement(sc, "sceneheader").text = scene[0].strip()
 
         # From start to first scene = Beginning
         if scene[0] == "MOVIEBEGINNING":
-            # ET.SubElement(root, "beginning").text = scene[1]
+            ET.SubElement(root, "beginning").text = scene[1]
             continue
+        else:
+            sc = ET.SubElement(root, "scene", id=scene_id)
 
         lines = scene[1].split(os.linesep)
 
@@ -106,8 +107,9 @@ def moviescript_to_xml(movie_filename: str):
 
                 # Falls dialog an dieser stelle leer ist -> das gefundene war kein Charakter sondern eine Zeile in Großbuchstaben
                 if dialogue.strip():
-                    char = ET.SubElement(sc, "char", name=character)
-                    ET.SubElement(char, "dialogue", id=dialogue_id).text = dialogue
+                    # char = ET.SubElement(sc, "char", name=character)
+                    # ET.SubElement(char, "dialogue", id=dialogue_id).text = dialogue
+                    char = ET.SubElement(sc, "dialogue", name=character, id=dialogue_id).text = dialogue
                 else:
                     metatext = (metatext + " " + character.strip())
                 i += 1
