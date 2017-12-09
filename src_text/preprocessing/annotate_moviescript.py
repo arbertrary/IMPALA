@@ -26,32 +26,38 @@ def get_scene_timecodes(movie_filename: str, subs_filename: str) -> Dict[str, Li
     done1 =[]
     done2 = []
     count = 0
-    for subsent in subs_dialogue:
-        for moviesent in movie_dialogue:
-            if moviesent[1] not in done2 and subsent[1] not in done1:
-                ratio = fuzz.ratio(subsent[1].lower(), moviesent[1].lower())
-    # best between 88 and 89
-                if ratio > 90:
-                    done1.append(subsent[1])
-                    done2.append(moviesent[1])
-                    count += 1
+    for i, subsent in enumerate(subs_dialogue):
+        for j, moviesent in enumerate(movie_dialogue):
+            if j < (i-200):
+                continue
+            elif j > (i+200):
+                break
+            else:
+                if moviesent[1] not in done2 and subsent[1] not in done1:
+                    ratio = fuzz.ratio(subsent[1].lower(), moviesent[1].lower())
+        # best between 88 and 89
+                    if ratio > 80:
+                        done1.append(subsent[1])
+                        done2.append(moviesent[1])
+                        count += 1
 
-                    # time = subsent[0]
-                    time = datetime.strptime(subsent[0], '%H:%M:%S,%f')#.time()
+                        # time = subsent[0]
+                        time = datetime.strptime(subsent[0], '%H:%M:%S,%f')#.time()
 
-                    sceneID = moviesent[0]
-                    if sceneID in scene_times:
-                        scene_times[sceneID].append(time)
+                        sceneID = moviesent[0]
+                        if sceneID in scene_times:
+                            scene_times[sceneID].append(time)
+                        else:
+                            scene_times[sceneID] = [time]
+
+                        print(i, j)
+                        print(moviesent[1])
+                        print(subsent[1])
+                        print(ratio)
+                        # print("\n")
+
                     else:
-                        scene_times[sceneID] = [time]
-
-                    # print(moviesent[1])
-                    # print(subsent[1])
-                    # print(ratio)
-                    # print("\n")
-
-                else:
-                    continue
+                        continue
 
     # print("sentences in subs: ", len(subs_dialogue))
     # print("sentences in movie: ", len(movie_dialogue))
