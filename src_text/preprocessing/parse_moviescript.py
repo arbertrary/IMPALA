@@ -67,6 +67,7 @@ def moviescript_to_xml(movie_filename: str):
             continue
         else:
             sc = ET.SubElement(root, "scene", id=scene_id)
+            header = ET.SubElement(sc, "sceneheader").text = scene[0].strip()
 
         lines = scene[1].split(os.linesep)
 
@@ -134,7 +135,7 @@ def main():
     """main"""
 
     # get_scene_tuples("testmovie.txt")
-    moviescript_to_xml("scream.txt")
+    moviescript_to_xml("star-wars-4.txt")
 
 if __name__ == '__main__':
     main()

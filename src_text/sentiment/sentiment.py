@@ -23,7 +23,7 @@ class ImpalaSent:
             raise ValueError("Not a valid method!")
 
     def score(self, word: str):
-        return self.lexicon[word]
+        return self.lexicon.get(word)
 
 
 def warriner_dict():
@@ -94,28 +94,14 @@ def sentiwordnet_dict():
 def main():
     # test = ImpalaSent()
     # test = ImpalaSent("SentiWordNet")
-    test = ImpalaSent("NRC")
+    test = ImpalaSent()
+    print(test.score("happy"))
 
-    with open("Pitch-Black.txt") as movie:
-        text = movie.read()
-        text = word_tokenize(text)
+    test2 = ImpalaSent("SentiWordNet")
+    print(test2.score("happy"))
 
-        i = 0
-        j = 0
-        for word in text:
-            try:
-                print(test.score(word.lower()))
-                i += 1
-            except KeyError:
-                j += 1
-                continue
-        print(i, j)
-
-    # test2 = ImpalaSent("SentiWordNet")
-    # print(test2.score("run"))
-    #
-    # test3 = ImpalaSent("NRC")
-    # print(test3.score("test"))
+    test3 = ImpalaSent("NRC")
+    print(test3.score("happy"))
 
 
 

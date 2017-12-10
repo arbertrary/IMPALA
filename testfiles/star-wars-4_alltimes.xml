@@ -61,27 +61,27 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s1m4">Artoo continues making beeping sounds. Tension mounts as loud metallic latches clank and the scream of heavy equipment are heard moving around the outside hull of the ship.</meta>
       <dialogue id="s1d4" name="THREEPIO">What's that?</dialogue>
    </scene>
-   <scene id="s2">
+   <scene id="s2" timecode="00:02:51">
       <sceneheader>EXT. SPACECRAFT IN SPACE</sceneheader>
       <meta id="s2m1">The Imperial craft has easily overtaken the Rebel Blockade Runner. The smaller Rebel ship is being drawn into the underside dock of the giant Imperial starship.</meta>
    </scene>
-   <scene id="s3">
+   <scene id="s3" timecode="00:03:14">
       <sceneheader>INT. REBEL BLOCKADE RUNNER</sceneheader>
       <meta id="s3m1">The nervous Rebel troopers aim their weapons. Suddenly a tremendous blast opens up a hole in the main passageway and a score of fearsome armored spacesuited stormtroopers make their way into the smoke-filled corridor. In a few minutes the entire passageway is ablaze with laserfire. The deadly bolts ricochet in wild random patterns creating huge explosions. Stormtroopers scatter and duck behind storage lockers. Laserbolts hit several Rebel soldiers who scream and stagger through the smoke, holding shattered arms and faces. An explosion hits near the robots.</meta>
       <dialogue id="s3d1" name="THREEPIO">I should have known better than to trust the logic of a half-sized thermocapsulary dehousing assister...</dialogue>
       <meta id="s3m2">Artoo counters with an angry rebuttal as the battle rages around the two hapless robots.</meta>
    </scene>
-   <scene id="s4">
+   <scene id="s4" timecode="00:03:36">
       <sceneheader>EXT. TATOOINE - DESERT WASTELAND - DAY</sceneheader>
       <meta id="s4m1">A death-white wasteland stretches from horizon to horizon. The tremendous heat of two huge twin suns settle on a lone figure, Luke Skywalker, a farm boy with heroic aspirations who looks much younger than his eighteen years. His shaggy hair and baggy tunic give him the air of a simple but lovable lad with a prize-winning smile. A light wind whips at him as he adjusts several valves on a large battered moisture vaporator which sticks out of the desert floor much like an oil pipe with valves. He is aided by a beatup tread-robot with six claw arms. The little robot appears to be barely functioning and moves with jerky motions. A bright sparkle in the morning sky catches Luke's eye and he instinctively grabs a pair of electrobinoculars from his utility belt. He stands transfixed for a few moments studying the heavens, then dashed toward his dented, crudely repaired Landspeeder (an auto-like transport that travels a few feet above the ground on a magnetic-field). He motions for the tiny robot to follow him.</meta>
       <dialogue id="s4d1" name="LUKE">Hurry up! Come with me! What are you waiting for?! Get in gear!</dialogue>
       <meta id="s4m2">The robot scoots around in a tight circle, stops short, and smoke begins to pour out of every joint. Luke throws his arms up in disgust. Exasperated, the young farm boy jumps into his Landspeeder leaving the smoldering robot to hum madly.</meta>
    </scene>
-   <scene id="s5">
+   <scene id="s5" timecode="00:03:59">
       <sceneheader>INT. REBEL BLOCKADE RUNNER - MAIN HALLWAY</sceneheader>
       <meta id="s5m1">The awesome, seven-foot-tall Dark Lord of the Sith makes his way into the blinding light of the main passageway. This is Darth Vader, right hand of the Emperor. His face is obscured by his flowing black robes and grotesque breath mask, which stands out next to the fascist white armored suits of the Imperial stormtroopers. Everyone instinctively backs away from the imposing warrior and a deathly quiet sweeps through the Rebel troops. Several of the Rebel troops break and run in a frenzied panic.</meta>
    </scene>
-   <scene id="s6">
+   <scene id="s6" timecode="00:04:21">
       <sceneheader>INT. REBEL BLOCKADE RUNNER</sceneheader>
       <meta id="s6m1">A woman's hand puts a card into an opening in Artoo's dome. Artoo makes beeping sounds.</meta>
    </scene>
@@ -142,12 +142,12 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s12m2">Artoo beeps an assuring response.</meta>
       <dialogue id="s12d2" name="THREEPIO">Are you sure this things safe?</dialogue>
    </scene>
-   <scene id="s13">
+   <scene id="s13" timecode="00:06:50">
       <sceneheader>EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY</sceneheader>
       <meta id="s13m1">Heat waves radiate from the dozen or so bleached white buildings. Luke pilots his Landspeeder through the dusty empty street of the tiny settlement. An old woman runs to get out of the way of the speeding vehicle, shaking her fist at Luke as he flies past.</meta>
       <dialogue id="s13d1" name="WOMAN">I've told you kids to slow down!</dialogue>
    </scene>
-   <scene id="s14">
+   <scene id="s14" timecode="00:07:03">
       <sceneheader>INT. POWER STATION - DAY</sceneheader>
       <meta id="s14m1">Luke bursts into the power station, waking The Fixer, a rugged mechanic and Camie, a sexy, disheveled girl who has been asleep in his lap. They grumbled as he races through the office, yelling wildly.</meta>
       <dialogue id="s14d1" name="FIXER">Did I hear a young noise blast through here?</dialogue>
@@ -164,7 +164,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s14d8" name="LUKE">I almost forgot. There's a battle going on! Right here in our system. Come and look!</dialogue>
       <dialogue id="s14d9" name="DEAK">Not again! Forget it.</dialogue>
    </scene>
-   <scene id="s15">
+   <scene id="s15" timecode="00:07:16">
       <sceneheader>EXT. TATOOINE - ANCHORHEAD - SETTLEMENT - POWER STATION -</sceneheader>
       <meta id="s15m1">The group stumbles out into the stifling desert sun. Camie and The Fixer complain and are forced to shade their eyes. Luke has his binoculars out scanning the heavens.</meta>
       <dialogue id="s15d1" name="LUKE">There they are!</dialogue>
@@ -196,7 +196,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s16d10" name="VADER">She must have hidden the plans in the escape pod. Send a detachment down to retrieve them. See to it personally, Commander. There'll be no one to stop us this time.</dialogue>
       <dialogue id="s16d11" name="COMMANDER">Yes, sir.</dialogue>
    </scene>
-   <scene id="s17">
+   <scene id="s17" timecode="00:08:04">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s17m1">The Imperial Stardestroyer comes over the surface of the planet Tatooine.</meta>
    </scene>
@@ -233,7 +233,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s19m3">The bronze android waves frantically and yells at the approaching transport.</meta>
       <dialogue id="s19d3" name="THREEPIO">Over here! Help! Please, help!</dialogue>
    </scene>
-   <scene id="s20">
+   <scene id="s20" timecode="00:11:01">
       <sceneheader>EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY</sceneheader>
       <meta id="s20m1">Luke and Biggs are walking and drinking a malt brew. Fixer and the others can be heard working inside.</meta>
       <dialogue id="s20d1" name="LUKE">(Very animated) ...so I cut off my power, shut down the afterburners and came in low on Deak's trail. I was so close I thought I was going to fry my instruments. As it was I busted up the Skyhopper pretty bad. Uncle Owen was pretty upset. He grounded me for the rest of the season. You should have been there... it was fantastic.</dialogue>
@@ -270,15 +270,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s20d28" name="BIGGS">So long, Luke.</dialogue>
       <meta id="s20m29">Biggs turns away from his old friend and heads towards the power station.</meta>
    </scene>
-   <scene id="s21">
+   <scene id="s21" timecode="00:11:45">
       <sceneheader>EXT. TATOOINE - ROCK CANYON - SUNSET</sceneheader>
       <meta id="s21m1">The gargantuan rock formations are shrouded in a strange foreboding mist and the onimous sounds of unearthly creatures fill the air. Artoo moves cautiously through the creepy rock canyon, inadvertently making a loud clicking noise as he goes. He hears a distant, hard, metallic sound and stops for a moment. Convinced he is alone, he continues on his way. In the distance, a pebble tumbles down the steep canyon wall and a small dark figure darts into the shadows. A little further up the canyon a slight flicker of light reveals a pair of eyes in the dark recesses only a few feet from the narrow path. The unsuspecting robot waddles along the rugged trail until suddenly, out of nowhere, a powerful magnetic ray shoots out of the rocks and engulfs him in an eerie glow. He manages one short electronic squeak before he topples over onto his back. His bright computer lights flicker off, then on, then off again. Out of the rocks scurry three Jawas, no taller than Artoo. They holster strange and complex weapons as they cautiously approach the robot. They wear grubby cloaks and their faces are shrouded so only their glowing eyes can be seen. They hiss and make odd guttural sounds as they heave the heavy robot onto their shoulders and carry him off down the trail.</meta>
    </scene>
-   <scene id="s22">
+   <scene id="s22" timecode="00:12:29">
       <sceneheader>EXT. TATOOINE - ROCK CANYON - SANDCRAWLER - SUNSET</sceneheader>
       <meta id="s22m1">The eight Jawas carry Artoo out of the canyon to a huge tank- like vehicle the size of a four-story house. They weld a small disk on the side of Artoo and then put him under a large tube on the side of the vehicle and the little robot is sucked into the giant machine. The filthy little Jawas scurry like rats up small ladders and enter the main cabin of the behemoth transport.</meta>
    </scene>
-   <scene id="s23">
+   <scene id="s23" timecode="00:13:13">
       <sceneheader>INT. SANDCRAWLER - HOLD AREA</sceneheader>
       <meta id="s23m1">It is dim inside the hold area of the Sandcrawler. Artoo switches on a small floodlight on his forehead and stumbles around the scrap heap. The narrow beam swings across rusty metal rocket parts and an array of grotesquely twisted and maimed astro-robots. He lets out a pathetic electronic whimper and stumbles off toward what appears to be a door at the end of the chamber.</meta>
    </scene>
@@ -288,7 +288,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s24d1" name="THREEPIO">Artoo-Detoo! It's you! It's you!</dialogue>
       <meta id="s24m2">A battered Threepio scrambles up to Artoo and embraces him.</meta>
    </scene>
-   <scene id="s25">
+   <scene id="s25" timecode="00:14:15">
       <sceneheader>EXT. TATOOINE - ROCK CANYON - SANDCRAWLER - SUNSET</sceneheader>
       <meta id="s25m1">The enormous Sandcrawler lumbers off toward the magnificent twin suns, which are slowly setting over a distant mountain ridge.</meta>
    </scene>
@@ -299,7 +299,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s26m2">A second trooper picks a small bit of metal out of the sand and gives it to the first trooper.</meta>
       <dialogue id="s26d2" name="SECOND TROOPER">Look, sir -- droids.</dialogue>
    </scene>
-   <scene id="s27">
+   <scene id="s27" timecode="00:14:53">
       <sceneheader>EXT. TATOOINE - DUNES</sceneheader>
       <meta id="s27m1">The Sandcrawler moves slowly down a great sand dune.</meta>
    </scene>
@@ -455,7 +455,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s31d22" name="AUNT BERU">Luke's just not a farmer, Owen. He has too much of his father in him.</dialogue>
       <dialogue id="s31d23" name="OWEN">That's what I'm afraid of.</dialogue>
    </scene>
-   <scene id="s32">
+   <scene id="s32" timecode="00:24:06">
       <sceneheader>EXT. TATOOINE - LARS HOMESTEAD</sceneheader>
       <meta id="s32m1">The giant twin suns of Tatooine slowly disappear behind a distant dune range. Luke stands watching them for a few moments, then reluctantly enters the doomed entrance to the homestead.</meta>
    </scene>
@@ -482,7 +482,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s34d7" name="LUKE">You know that little droid is going to cause me a lot of trouble.</dialogue>
       <dialogue id="s34d8" name="THREEPIO">Oh, he excels at that, sir.</dialogue>
    </scene>
-   <scene id="s35">
+   <scene id="s35" timecode="00:25:46">
       <sceneheader>INT. LARS HOMESTEAD - PLAZA</sceneheader>
       <meta id="s35m1">Morning slowly creeps into the sparse but sparkling oasis of the open courtyard. The idyll is broken be the yelling of Uncle Owen, his voice echoing throughout the homestead.</meta>
       <dialogue id="s35d1" name="OWEN">Luke? Luke? Luke? Where could he be loafing now!</dialogue>
@@ -496,7 +496,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s36d4" name="AUNT BERU">I think so.</dialogue>
       <dialogue id="s36d5" name="OWEN">Well, he'd better have those units in the south range repaired be midday or there'll be hell to pay!</dialogue>
    </scene>
-   <scene id="s37">
+   <scene id="s37" timecode="00:26:13">
       <sceneheader>EXT. TATOOINE - DESERT WASTELAND - LUKE'S SPEEDER - DAY</sceneheader>
       <meta id="s37m1">The rock and sand of the desert floor are a blur as Threepio pilots the sleek Landspeeder gracefully across the vast wasteland.</meta>
    </scene>
@@ -511,11 +511,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s38d5" name="THREEPIO">Deactivate! Well, on the other hand if you hadn't removed his restraining bolt...</dialogue>
       <dialogue id="s38d6" name="LUKE">Wait, there's something dead ahead on the scanner. It looks like our droid... hit the accelerator.</dialogue>
    </scene>
-   <scene id="s39">
+   <scene id="s39" timecode="00:26:32">
       <sceneheader>EXT. TATOOINE - ROCK MESA - DUNE SEA - COASTLINE - DAY</sceneheader>
       <meta id="s39m1">From high on a rock mesa, the tiny Landspeeder can be seen gliding across the desert floor. Suddenly in the foreground two weather-beaten Sandpeople shrouded in their grimy desert cloaks peer over the edge of the rock mesa. One of the marginally human creatures raises a long ominous laser rifle and points it at the speeder but the second creature grabs the gun before it can be fired. The Sandpeople, or Tusken Raiders as they're sometimes called, speak in a coarse barbaric language as they get into an animated argument. The second Tusken Raider seems to get in the final word and the nomads scurry over the rocky terrain.</meta>
    </scene>
-   <scene id="s40">
+   <scene id="s40" timecode="00:26:46">
       <sceneheader>EXT. TATOOINE - ROCK MESA - CANYON</sceneheader>
       <meta id="s40m1">The Tusken Raider approaches two large Banthas standing tied to a rock. The monstrous, bear-like creatures are as large as elephants, with huge red eyes, tremendous looped horns, and long, furry, dinosaur-like tails. The Tusken Raiders mount saddles strapped to the huge creatures' shaggy backs and ride off down the rugged bluff.</meta>
    </scene>
@@ -616,7 +616,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s45d28" name="LUKE">Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going.</dialogue>
       <dialogue id="s45d29" name="BEN">You must do what you feel is right, of course.</dialogue>
    </scene>
-   <scene id="s46">
+   <scene id="s46" timecode="00:34:32">
       <sceneheader>EXT. SPACE.</sceneheader>
       <meta id="s46m1">An Imperial Stardestroyer heads toward the evil planet-like battle station: the Death Star!</meta>
    </scene>
@@ -657,7 +657,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s48d7" name="BEN">Wait, Luke! It's too dangerous.</dialogue>
       <meta id="s48m8">Luke races off leaving Ben and the two robots alone with the burning Sandcrawler.</meta>
    </scene>
-   <scene id="s49">
+   <scene id="s49" timecode="00:37:58">
       <sceneheader>EXT. TATOOINE - WASTELAND</sceneheader>
       <meta id="s49m1">Luke races across the wasteland in his battered Landspeeder.</meta>
    </scene>
@@ -667,7 +667,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s50d1" name="LUKE">Uncle Owen! Aunt Beru! Uncle Owen!</dialogue>
       <meta id="s50m2">Luke stumbles around in a daze looking for his aunt and uncle. Suddenly he comes upon their smoldering remains. He is stunned, and cannot speak. Hate replaces fear and a new resolve comes over him.</meta>
    </scene>
-   <scene id="s51">
+   <scene id="s51" timecode="00:38:49">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s51m1">Imperial TIE fighter races toward the Death Star.</meta>
    </scene>
@@ -803,7 +803,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s61m13">Suddenly the slimy alien disappears in a blinding flash of light. Han pulls his smoking gun from beneath the table as the other patron look on in bemused amazement. Han gets up and starts out of the cantina, flipping the bartender some coins as he leaves.</meta>
       <dialogue id="s61d13" name="HAN">Sorry about the mess.</dialogue>
    </scene>
-   <scene id="s62">
+   <scene id="s62" timecode="00:48:32">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s62m1">Several TIE fighters approach the Death Star.</meta>
    </scene>
@@ -853,7 +853,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s66d11" name="JABBA">(to his men) Put your blasters away. Han, my boy, I'm only doing this because you're the best and I need you. So, for an extra, say twenty percent I'll give you a little more time... but this is it. If you disappoint me again, I'll put a price on your head so large you won't be able to go near a civilized system for the rest of your short life.</dialogue>
       <dialogue id="s66d12" name="HAN">Jabba, I'll pay you because it's my pleasure.</dialogue>
    </scene>
-   <scene id="s67">
+   <scene id="s67" timecode="00:51:26">
       <sceneheader>EXT. DOCKING PORT ENTRY - ALLEYWAY</sceneheader>
       <meta id="s67m1">Chewbacca waits restlessly at the entrance to Docking Bay 94.  Ben, Luke, and the robots make their way up the street. Chewbacca jabbers excitedly and signals for them to hurry. The darkly clad creature has followed them from the speeder lot.  He stops in a nearby doorway and speaks into a small transmitter.</meta>
    </scene>
@@ -867,7 +867,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s68d3" name="HAN">We're a little rushed, so if you'll hurry aboard we'll get out of here.</dialogue>
       <meta id="s68m4">The group rushes up the gang plank, passing a grinning Han Solo.</meta>
    </scene>
-   <scene id="s69">
+   <scene id="s69" timecode="00:52:18">
       <sceneheader>INT. MILLENNIUM FALCON</sceneheader>
       <meta id="s69m1">Chewbacca settles into the pilot's chair and starts the mighty engines of the starship.</meta>
    </scene>
@@ -897,15 +897,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s73m2">The group straps in for take off.</meta>
       <dialogue id="s73d2" name="THREEPIO">Oh, my. I'd forgotten how much I hate space travel.</dialogue>
    </scene>
-   <scene id="s74">
+   <scene id="s74" timecode="00:53:01">
       <sceneheader>EXT. TATOOINE - MOS EISLEY - STREETS</sceneheader>
       <meta id="s74m1">The half-dozen stormtroopers at a check point hear the general alarm and look to the sky as the huge starship rises above the dingy slum dwellings and quickly disappears into the morning sky.</meta>
    </scene>
-   <scene id="s75">
+   <scene id="s75" timecode="00:53:07">
       <sceneheader>INT. MILLENNIUM FALCON - COCKPIT</sceneheader>
       <meta id="s75m1">Han climbs into the pilot's chair next to Chewbacca, who chatters away as he points to something on the radar scope.</meta>
    </scene>
-   <scene id="s76">
+   <scene id="s76" timecode="00:53:13">
       <sceneheader>EXT. SPACE - PLANET TATOOINE</sceneheader>
       <meta id="s76m1">The Corellian pirateship zooms from Tatooine into space.</meta>
    </scene>
@@ -914,7 +914,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s77m1">Han frantically types information into the ship's computer. Little Artoo appears momentarily at the cockpit doorway, makes a few beeping remarks, then scurries away.</meta>
       <dialogue id="s77d1" name="HAN">It looks like an Imperial cruiser. Our passengers must be hotter than I thought. Try and hold them off. Angle the deflector shield while I make the calculations for the jump to light speed.</dialogue>
    </scene>
-   <scene id="s78">
+   <scene id="s78" timecode="00:53:29">
       <sceneheader>EXT. SPACE - PLANET TATOOINE</sceneheader>
       <meta id="s78m1">The Millennium Falcon pirateship races away from the yellow planet, Tatooine. It is followed by two huge Imperial stardestroyers.</meta>
    </scene>
@@ -925,7 +925,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s79d2" name="LUKE">Why don't you outrun them? I thought you said this thing was fast.</dialogue>
       <dialogue id="s79d3" name="HAN">Watch your mouth, kid, or you're going to find yourself floating home. We'll be safe enough once we make the jump to hyperspace. Besides, I know a few maneuvers. We'll lose them!</dialogue>
    </scene>
-   <scene id="s80">
+   <scene id="s80" timecode="00:53:49">
       <sceneheader>EXT. SPACE - PLANET TATOOINE</sceneheader>
       <meta id="s80m1">Imperial cruisers fire at the pirateship.</meta>
    </scene>
@@ -943,11 +943,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s81d7" name="HAN">We're losing our deflector shield. Go strap yourself in, I'm going to make the jump to light speed.</dialogue>
       <meta id="s81m8">The galaxy brightens and they move faster, almost as if crashing a barrier. Stars become streaks as the pirateship makes the jump to hyperspace.</meta>
    </scene>
-   <scene id="s82">
+   <scene id="s82" timecode="00:54:27">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s82m1">The Millennium Falcon zooms into infinity in less than a second.</meta>
    </scene>
-   <scene id="s83">
+   <scene id="s83" timecode="00:54:55">
       <sceneheader>EXT. DEATH STAR</sceneheader>
       <meta id="s83m1">Alderaan looms behind the Death Star battlestation.</meta>
    </scene>
@@ -1038,7 +1038,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s87d4" name="VADER">I told you she would never consciously betray the Rebellion.</dialogue>
       <dialogue id="s87d5" name="TARKIN">Terminate her... immediately!</dialogue>
    </scene>
-   <scene id="s88">
+   <scene id="s88" timecode="01:01:18">
       <sceneheader>EXT. HYPERSPACE</sceneheader>
       <meta id="s88m1">The pirateship is just coming out of hyperspace; a strange surreal light show surrounds the ship.</meta>
    </scene>
@@ -1065,7 +1065,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s89d14" name="BEN">No. It's a short range fighter.</dialogue>
       <dialogue id="s89d15" name="HAN">There aren't any bases around here. Where did it come from?</dialogue>
    </scene>
-   <scene id="s90">
+   <scene id="s90" timecode="01:01:16">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s90m1">The fighter races past the Corellian pirateship.</meta>
    </scene>
@@ -1076,7 +1076,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s91d3" name="BEN">It'd be as well to let it go. It's too far out of range.</dialogue>
       <dialogue id="s91d4" name="HAN">Not for long...</dialogue>
    </scene>
-   <scene id="s92">
+   <scene id="s92" timecode="01:01:10">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s92m1">The pirateship zooms over the camera and away into the vastness of space after the Imperial TIE fighter.</meta>
    </scene>
@@ -1087,7 +1087,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s93d2" name="LUKE">It must have gotten lost, been part of a convoy or something.</dialogue>
       <dialogue id="s93d3" name="HAN">Well, he ain't going to be around long enough to tell anyone about us.</dialogue>
    </scene>
-   <scene id="s94">
+   <scene id="s94" timecode="01:01:32">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s94m1">The TIE fighter is losing ground to the larger pirateship as they race toward camera and disappear over head.</meta>
    </scene>
@@ -1109,11 +1109,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s95m11">Ben Kenobi puts a hand on his shoulder.</meta>
       <dialogue id="s95d11" name="BEN">You can't win. But there are alternatives to fighting.</dialogue>
    </scene>
-   <scene id="s96">
+   <scene id="s96" timecode="01:02:07">
       <sceneheader>INT. MILLENNIUM FALCON - DEATH STAR</sceneheader>
       <meta id="s96m1">As the battered pirate starship is towed closer to the awesome metal moon, the immense size of the massive battle station becomes staggering. Running along the equator of the gigantic sphere is a mile-high band of huge docking ports into which the helpless pirateship is dragged.</meta>
    </scene>
-   <scene id="s97">
+   <scene id="s97" timecode="01:02:27">
       <sceneheader>EXT. DEATH STAR - HUGE PORT DOORS</sceneheader>
       <meta id="s97m1">The helpless Millennium Falcon is pulled past a docking port control room and huge laser turret cannons.</meta>
       <dialogue id="s97d1" name="VOICE OVER DEATH STAR INTERCOM">Clear Bay twenty-three-seven. We are opening the magnetic field.</dialogue>
@@ -1123,11 +1123,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s98m1">The pirateship is pulled in through port doors of the Death Star, coming to rest in a huge hangar. Thirty stormtroopers stand at attention in a central assembly area.</meta>
       <dialogue id="s98d1" name="OFFICER">To you stations! (to another officer) Come with me.</dialogue>
    </scene>
-   <scene id="s99">
+   <scene id="s99" timecode="01:02:53">
       <sceneheader>INT. DEATH STAR - HALLWAY</sceneheader>
       <meta id="s99m1">Stormtroopers run to their posts.</meta>
    </scene>
-   <scene id="s100">
+   <scene id="s100" timecode="01:02:59">
       <sceneheader>INT. DEATH STAR - HANGAR 2037</sceneheader>
       <meta id="s100m1">A line of stormtroopers march toward the pirateship in readiness to board it, while other troopers stand with weapons ready to fire.</meta>
       <dialogue id="s100d1" name="OFFICER">Close all outboard shields! Close all outboard shields!</dialogue>
@@ -1255,7 +1255,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s106d1" name="LUKE">I can't see a thing in this helmet.</dialogue>
       <meta id="s106m2">A bureaucrat races to get aboard also, but is signaled away by Han. The door to the pod-like vehicle slides closed and the elevator car takes off through a vacuum tube.</meta>
    </scene>
-   <scene id="s107">
+   <scene id="s107" timecode="01:10:18">
       <sceneheader>INT. DEATH STAR - MAIN HALLWAY</sceneheader>
       <meta id="s107m1">Several Imperial officers walk through the wide main passageway. They pass several stormtroopers and a robot similar to Threepio but with an insect face. At the far end of the hallway, a passing flash of Ben Kenobi appears, then disappears down a small hallway. His appearance is so fleeting that it is hard to tell if he is real or just an illusion. No one in the hallway seems to notice him.</meta>
    </scene>
@@ -1441,7 +1441,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s120m2">Artoo frantically beeps something to See-Threepio.</meta>
       <dialogue id="s120d2" name="THREEPIO">Use the comlink? Oh, my! I forgot I turned it off!</dialogue>
    </scene>
-   <scene id="s121">
+   <scene id="s121" timecode="01:20:15">
       <sceneheader>INT. DEATH STAR - GARBAGE ROOM</sceneheader>
       <meta id="s121m1">Meanwhile, Luke is lying on his side, trying to keep his head above the rising ooze. Luke's comlink begins to buzz and he rips it off his belt.</meta>
    </scene>
@@ -1450,7 +1450,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s122m1">Muffled sounds of Luke's voice over the comlink can be heard, but not distinctly.</meta>
       <dialogue id="s122d1" name="THREEPIO">Are you there, sir?</dialogue>
    </scene>
-   <scene id="s123">
+   <scene id="s123" timecode="01:20:22">
       <sceneheader>INT. DEATH STAR - GARBAGE ROOM</sceneheader>
       <dialogue id="s123d1" name="LUKE">Threepio!</dialogue>
    </scene>
@@ -1478,11 +1478,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s127m2">Luke moves to the pressure sensitive hatch, looking for a number.</meta>
       <dialogue id="s127d2" name="LUKE">Hey... hey, open the pressure maintenance hatch on unit number... where are we?</dialogue>
    </scene>
-   <scene id="s128">
+   <scene id="s128" timecode="01:21:26">
       <sceneheader>INT. DEATH STAR - MAIN FORWARD BAY - SERVICE PANEL</sceneheader>
       <dialogue id="s128d1" name="HAN">(over comlink) Three-two-six-eight-two-seven.</dialogue>
    </scene>
-   <scene id="s129">
+   <scene id="s129" timecode="01:21:49">
       <sceneheader>INT. DEATH STAR - TRACTOR BEAM - POWER GENERATOR TRENCH</sceneheader>
       <meta id="s129m1">Ben enters a humming service trench that powers the huge tractor beam. The trench seems to be a hundred miles deep. The clacking sound of huge switching devices can be heard. The old Jedi edges his his way along a narrow ledge leading to a control panel that connects two large cables. He carefully makes several adjustments in the computer terminal, and several lights on the board go from red to blue.</meta>
    </scene>
@@ -1540,15 +1540,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s132d11" name="LUKE">What good will it do us if he gets himself killed? Come on!</dialogue>
       <meta id="s132m12">Luke is furious but doesn't have time to think about it for muted alarms begin to go off down on the hangar deck. Luke and Leia start off toward the starship hangar.</meta>
    </scene>
-   <scene id="s133">
+   <scene id="s133" timecode="01:23:40">
       <sceneheader>INT. DEATH STAR - SUBHALLWAY</sceneheader>
       <meta id="s133m1">Han chases the stormtroopers down a long subhallway. He is yelling and brandishing his laser pistol. The troops reach a dead end and are forced to turn and fight. Han stops a few feet from them and assumes a defensive position. The troops begin to raise their laser guns. Soon all ten troopers are moving into an attack position in front of the lone starpirate. Han's determined look begins to fade as the troops begin to advance. Solo jumps backward as they fire at him.</meta>
    </scene>
-   <scene id="s134">
+   <scene id="s134" timecode="01:23:56">
       <sceneheader>INT. DEATH STAR - SUBHALLWAY</sceneheader>
       <meta id="s134m1">Chewbacca runs down the subhallway in a last-ditch attempt to save his bold captain. Suddenly he hears the firing of laser guns and yelling. Around the corner shoots Han, pirate extraordinaire, running for his life, followed by a host of furious stormtroopers. Chewbacca turns and starts running the other way also.</meta>
    </scene>
-   <scene id="s135">
+   <scene id="s135" timecode="01:24:12">
       <sceneheader>INT. DEATH STAR - SUBHALLWAY</sceneheader>
       <meta id="s135m1">Luke fires his laser pistol wildly as he and Leia rush down a narrow subhallway, chased by several stormtroopers. They quickly reach the end of the subhallway and race through an open hatchway.</meta>
    </scene>
@@ -1572,11 +1572,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s136d9" name="LEIA">For luck!</dialogue>
       <meta id="s136m10">Luke pushes off and they swing across the treacherous abyss to the corresponding hatchway on the opposite side. Just as Luke and Leia reach the far side of the canyon, the stormtroopers break through the hatch and begin to fire at the escaping duo. Luke returns the fire before ducking into the tiny subhallway.</meta>
    </scene>
-   <scene id="s137">
+   <scene id="s137" timecode="01:24:55">
       <sceneheader>INT. DEATH STAR - NARROW PASSAGEWAY</sceneheader>
       <meta id="s137m1">Ben hides in the shadows of the narrow passageway as several stormtroopers rush past him in the main hallway. He checks to make sure they're gone, then runs down the hallway in the opposite direction. Darth Vader appears at the far end of the hallway and starts after the old Jedi.</meta>
    </scene>
-   <scene id="s138">
+   <scene id="s138" timecode="01:25:22">
       <sceneheader>INT. DEATH STAR - MAIN FORWARD BAY</sceneheader>
       <meta id="s138m1">Threepio looks around at the troops milling about the pirateship entry ramp.</meta>
       <dialogue id="s138d1" name="THREEPIO">Where could they be?</dialogue>
@@ -1611,7 +1611,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s141d4" name="LUKE">Is the ship all right?</dialogue>
       <dialogue id="s141d5" name="HAN">Seems okay, if we can get to it. Just hope the old man got the tractor beam out of commission.</dialogue>
    </scene>
-   <scene id="s142">
+   <scene id="s142" timecode="01:27:46">
       <sceneheader>INT. DEATH STAR - HALLWAY</sceneheader>
       <meta id="s142m1">Vader and Ben Kenobi continue their powerful duel. As they hit their lightsabers together, lightning flashes on impact. Troopers look on in interest as the old Jedi and Dark Lord of The Sith fight. Suddenly Luke spots the battle from his group's vantage point.</meta>
       <dialogue id="s142d1" name="LUKE">Look!</dialogue>
@@ -1643,11 +1643,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s145d1" name="HAN">I hope the old man got that tractor beam out if commission, or this is going to be a real short trip. Okay, hit it!</dialogue>
       <meta id="s145m2">Chewbacca growls in agreement.</meta>
    </scene>
-   <scene id="s146">
+   <scene id="s146" timecode="01:29:05">
       <sceneheader>EXT. MILLENNIUM FALCON</sceneheader>
       <meta id="s146m1">The Millennium Falcon powers away from the Death Star docking bay, makes a spectacular turn and disappears into the vastness of space.</meta>
    </scene>
-   <scene id="s147">
+   <scene id="s147" timecode="01:29:17">
       <sceneheader>INT. MILLENNIUM FALCON - CENTRAL HOLD AREA</sceneheader>
       <meta id="s147m1">Luke, saddened by the loss of Obi-Wan Kenobi, stares off blankly as the robots look on. Leia puts a blanket around him protectively, and Luke turns and looks up at her. She sits down beside him.</meta>
    </scene>
@@ -1665,15 +1665,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s149m3">Han rushes into the hold area where Luke is sitting with the princess.</meta>
       <dialogue id="s149d3" name="HAN">(to Luke) Come on, buddy, we're not out of this yet!</dialogue>
    </scene>
-   <scene id="s150">
+   <scene id="s150" timecode="01:29:50">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORTS - COCKPIT</sceneheader>
       <meta id="s150m1">Solo climbs into his attack position in the topside gunport.</meta>
    </scene>
-   <scene id="s151">
+   <scene id="s151" timecode="01:29:56">
       <sceneheader>INT. MILLENNIUM FALCON - HOLD AREA</sceneheader>
       <meta id="s151m1">Luke gets up and moves out toward the gunports as Leia heads for the cockpit.</meta>
    </scene>
-   <scene id="s152">
+   <scene id="s152" timecode="01:30:02">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORTS - COCKPIT</sceneheader>
       <meta id="s152m1">Luke climbs down the ladder into the gunport cockpit, settling into one of the two main laser cannons mounted in large rotating turrets on either side of the ship.</meta>
    </scene>
@@ -1682,44 +1682,44 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s153m1">Han adjusts his headset as he sits before the controls of his laser cannon, then speaks into the attached microphone.</meta>
       <dialogue id="s153d1" name="HAN">(to Luke) You in, kid? Okay, stay sharp!</dialogue>
    </scene>
-   <scene id="s154">
+   <scene id="s154" timecode="01:30:10">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORTS - COCKPIT</sceneheader>
       <meta id="s154m1">Chewbacca and Princess Leia search the heavens for attacking TIE fighters. The Wookiee pulls back on the speed controls as the ship bounces slightly.</meta>
    </scene>
-   <scene id="s155">
+   <scene id="s155" timecode="01:30:13">
       <sceneheader>INT. MILLENNIUM FALCON - SOLO'S GUNPORT - COCKPIT</sceneheader>
       <meta id="s155m1">Computer graphic readouts form on Solo's target screen, as Han reaches for controls.</meta>
    </scene>
-   <scene id="s156">
+   <scene id="s156" timecode="01:30:16">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORT - COCKPIT</sceneheader>
       <meta id="s156m1">Luke sits in readiness for the attack, his hand on the laser cannon's control button.</meta>
    </scene>
-   <scene id="s157">
+   <scene id="s157" timecode="01:30:19">
       <sceneheader>INT. MILLENNIUM FALCON - COCKPIT.</sceneheader>
       <meta id="s157m1">Chewbacca spots the enemy ships and barks.</meta>
       <dialogue id="s157d1" name="LEIA">(into intercom) Here they come!</dialogue>
    </scene>
-   <scene id="s158">
+   <scene id="s158" timecode="01:30:22">
       <sceneheader>INT. MILLENNIUM FALCON - COCKPIT - POV (POINT OF VIEW) -</sceneheader>
       <meta id="s158m1">The Imperial TIE fighters move towards the Millennium Falcon, one each veering off to the left and right of the pirateship.</meta>
    </scene>
-   <scene id="s159">
+   <scene id="s159" timecode="01:30:24">
       <sceneheader>INT. TIE FIGHTER - COCKPIT</sceneheader>
       <meta id="s159m1">The stars whip past behind the Imperial pilot as he adjusts his maneuvering joy stick.</meta>
    </scene>
-   <scene id="s160">
+   <scene id="s160" timecode="01:30:27">
       <sceneheader>EXT. MILLENNIUM FALCON - IN SPACE</sceneheader>
       <meta id="s160m1">The TIE fighter races past the Falcon, firing laser beams as it passes.</meta>
    </scene>
-   <scene id="s161">
+   <scene id="s161" timecode="01:30:30">
       <sceneheader>INT. MILLENNIUM FALCON - HOLD AREA</sceneheader>
       <meta id="s161m1">Threepio is seated in the hold area, next to Artoo-Detoo. The pirateship bounces and vibrates as the power goes out in the room and then comes back on.</meta>
    </scene>
-   <scene id="s162">
+   <scene id="s162" timecode="01:30:33">
       <sceneheader>INT. MILLENNIUM FALCON - COCKPIT - GUNPORTS</sceneheader>
       <meta id="s162m1">A TIE fighter maneuvers in front of Han, who follows it and fires at it with the laser cannon. Luke does likewise, as the fighter streaks into view. The ship has suffered a minor hit, and bounces slightly.</meta>
    </scene>
-   <scene id="s163">
+   <scene id="s163" timecode="01:30:36">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s163m1">Two TIE fighters dive down toward the pirateship.</meta>
    </scene>
@@ -1728,23 +1728,23 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s164m1">Luke fires at an unseen fighter.</meta>
       <dialogue id="s164d1" name="LUKE">They're coming in too fast!</dialogue>
    </scene>
-   <scene id="s165">
+   <scene id="s165" timecode="01:30:40">
       <sceneheader>EXT. SPACE - MILLENNIUM FALCON/TIE FIGHTERS</sceneheader>
       <meta id="s165m1">Pan with pirateship as two TIE fighters charge through the background. Laserbolts streak from all the craft.</meta>
    </scene>
-   <scene id="s166">
+   <scene id="s166" timecode="01:30:42">
       <sceneheader>INT. MILLENNIUM FALCON - CHEWBACCA</sceneheader>
       <meta id="s166m1">The ship shudders as a laserbolt hits very close to the cockpit. The Wookiee chatters something to Leia.</meta>
    </scene>
-   <scene id="s167">
+   <scene id="s167" timecode="01:30:44">
       <sceneheader>EXT. TIE FIGHTER - SPACE</sceneheader>
       <meta id="s167m1">Full shot of a TIE fighter as it moves fast through the frame, firing on the pirate starship.</meta>
    </scene>
-   <scene id="s168">
+   <scene id="s168" timecode="01:30:46">
       <sceneheader>EXT. SPACE - TIE FIGHTERS</sceneheader>
       <meta id="s168m1">The two TIE fighters fire a barrage of laserbeams at the pirateship.</meta>
    </scene>
-   <scene id="s169">
+   <scene id="s169" timecode="01:30:48">
       <sceneheader>INT. MILLENNIUM FALCON - MAIN PASSAGEWAY</sceneheader>
       <meta id="s169m1">A laserbolt streaks into the side of the pirateship. The ship lurches violently, throwing poor Threepio into a cabinet fill of small computer chips.</meta>
       <dialogue id="s169d1" name="THREEPIO">Oooh!</dialogue>
@@ -1758,39 +1758,39 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s170d3" name="HAN">(to ship) You hear me, baby? Hold together!</dialogue>
       <meta id="s170m4">Artoo-Detoo advances toward the smoking sparking control panel, dousing the inferno by spraying it with fire retardant beeping all the while.</meta>
    </scene>
-   <scene id="s171">
+   <scene id="s171" timecode="01:30:52">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORT</sceneheader>
       <meta id="s171m1">Luke swivels in his gun mount, following the TIE fighter with his laser cannon.</meta>
    </scene>
-   <scene id="s172">
+   <scene id="s172" timecode="01:30:55">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORT</sceneheader>
       <meta id="s172m1">Solo aims his laser cannon at the enemy fighter.</meta>
    </scene>
-   <scene id="s173">
+   <scene id="s173" timecode="01:30:58">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s173m1">A TIE fighter streaks in front of the starship.</meta>
    </scene>
-   <scene id="s174">
+   <scene id="s174" timecode="01:31:01">
       <sceneheader>INT. MILLENNIUM FALCON - COCKPIT</sceneheader>
       <meta id="s174m1">Leia watches the TIE fighter ship fly over.</meta>
    </scene>
-   <scene id="s175">
+   <scene id="s175" timecode="01:31:04">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s175m1">A TIE fighter heads right for the pirateship, then zooms overhead.</meta>
    </scene>
-   <scene id="s176">
+   <scene id="s176" timecode="01:31:06">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORTS</sceneheader>
       <meta id="s176m1">Luke follows the TIE fighter across his field of view, firing laserbeams from his cannon.</meta>
    </scene>
-   <scene id="s177">
+   <scene id="s177" timecode="01:31:09">
       <sceneheader>EXT. TIE FIGHTER</sceneheader>
       <meta id="s177m1">A TIE fighter dives past the pirateship.</meta>
    </scene>
-   <scene id="s178">
+   <scene id="s178" timecode="01:31:12">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORTS</sceneheader>
       <meta id="s178m1">Luke fires at a TIE fighter. At his port, Han follows a fighter in his sights, releasing a blast of laserfire. He connects, and the fighter explodes into fiery dust. Han laughs victoriously.</meta>
    </scene>
-   <scene id="s179">
+   <scene id="s179" timecode="01:31:15">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s179m1">Two TIE fighters move toward and over the Millennium Falcon, unleashing a barrage of laserbolts at the ship.</meta>
    </scene>
@@ -1802,7 +1802,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s180d2" name="HAN">Great kid! Don't get cocky.</dialogue>
       <meta id="s180m3">Han turns back to his laser cannon.</meta>
    </scene>
-   <scene id="s181">
+   <scene id="s181" timecode="01:31:20">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s181m1">Two more TIE fighters cross in front of the pirateship.</meta>
    </scene>
@@ -1811,23 +1811,23 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s182m1">While Chewbacca manipulates the controls, Leia turns, looking over her shoulder out the ports.</meta>
       <dialogue id="s182d1" name="LEIA">There are still two more of them out there!</dialogue>
    </scene>
-   <scene id="s183">
+   <scene id="s183" timecode="01:31:27">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s183m1">A TIE fighter moves up over the pirateship, firing laserblasts at it.</meta>
    </scene>
-   <scene id="s184">
+   <scene id="s184" timecode="01:31:33">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORTS</sceneheader>
       <meta id="s184m1">Luke and Han look into their respective projected target screens. An Imperial fighter crosses Solo's port, and Han swivels in his chair, following it with blasts from his laser cannon. Another fighter crosses Luke's port, and he reacts in a like manner, the glow of his target screen lighting his face.</meta>
    </scene>
-   <scene id="s185">
+   <scene id="s185" timecode="01:31:39">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s185m1">The TIE fighter zooms toward the pirateship, firing destructive blasts at it.</meta>
    </scene>
-   <scene id="s186">
+   <scene id="s186" timecode="01:31:44">
       <sceneheader>INT. MILLENNIUM FALCON - GUNPORTS</sceneheader>
       <meta id="s186m1">Luke fires a laserblast at the approaching enemy fighter, and it bursts into a spectacular explosion. Luke's projected screen gives a readout of the hit. The pirateship bounces slightly as it is struck by the enemy fire.</meta>
    </scene>
-   <scene id="s187">
+   <scene id="s187" timecode="01:31:50">
       <sceneheader>EXT. SPACE - TIE FIGHTER</sceneheader>
       <meta id="s187m1">The last of the attacking Imperial TIE fighters looms in, firing upon the Falcon.</meta>
    </scene>
@@ -1844,7 +1844,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s189d1" name="THREEPIO">Help! I think I'm melting! (to Artoo) This is all your fault.</dialogue>
       <meta id="s189m2">Artoo turns his dome from side to side, beeping in response.</meta>
    </scene>
-   <scene id="s190">
+   <scene id="s190" timecode="01:32:06">
       <sceneheader>EXT. SPACE - MILLENNIUM FALCON</sceneheader>
       <meta id="s190m1">The victorious Millennium Falcon moves off majestically through space.</meta>
    </scene>
@@ -1880,19 +1880,19 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s192d17" name="LUKE">No!</dialogue>
       <meta id="s192m18">Luke says it with finality and looks away. Han smiles at young Luke's jealousy.</meta>
    </scene>
-   <scene id="s193">
+   <scene id="s193" timecode="01:33:12">
       <sceneheader>EXT. SPACE AROUND FOURTH MOON OF YAVIN</sceneheader>
       <meta id="s193m1">The battered pirateship drifts into orbit around the planet Yavin and proceeds to one of its tiny green moons.</meta>
    </scene>
-   <scene id="s194">
+   <scene id="s194" timecode="01:33:32">
       <sceneheader>EXT. FOURTH MOON OF YAVIN</sceneheader>
       <meta id="s194m1">The pirateship soars over the dense jungle.</meta>
    </scene>
-   <scene id="s195">
+   <scene id="s195" timecode="01:33:51">
       <sceneheader>EXT. MASSASSI OUTPOST</sceneheader>
       <meta id="s195m1">An alert guard, his laser gun in hand, scans the countryside. He sets the gun down and looks toward the temple, barely visible in the foliage.</meta>
    </scene>
-   <scene id="s196">
+   <scene id="s196" timecode="01:34:11">
       <sceneheader>EXT. MASSASSI OUTPOST - JUNGLE TEMPLE</sceneheader>
       <meta id="s196m1">Rotting in a forest of gargantuan trees, an ancient temple lies shrouded in an eerie mist. The air is heavy with the fantastic cries of unimaginable creatures. Han, Luke and the others are greeted by the Rebel troops. Luke and the group ride into the massive temple on an armored military speeder.</meta>
    </scene>
@@ -1904,7 +1904,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s197d2" name="WILLARD">When we heard about Alderaan, we were afraid that you were... lost along with your father.</dialogue>
       <dialogue id="s197d3" name="LEIA">We don't have time for our sorrows, Commander. The battle station has surely tracked us here. (looking pointedly to Han) It's the only explanation for the ease of our escape. You must use the information in this R2 unit to plan the attack. It is our only hope.</dialogue>
    </scene>
-   <scene id="s198">
+   <scene id="s198" timecode="01:34:45">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s198m1">The surface of the Death Star ominously approaches the red planet Yavin.</meta>
    </scene>
@@ -1914,7 +1914,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s199d1" name="TARKIN">Yes.</dialogue>
       <dialogue id="s199d2" name="DEATH STAR INTERCOM VOICE">We are approaching the planet Yavin. The Rebel base is on a moon on the far side. We are preparing to orbit the planet.</dialogue>
    </scene>
-   <scene id="s200">
+   <scene id="s200" timecode="01:35:29">
       <sceneheader>EXT. YAVIN - JUNGLE</sceneheader>
       <meta id="s200m1">A lone guard stands in a tower high above the Yavin landscape, surveying the countryside. A mist hangs over the jungle of twisted green.</meta>
    </scene>
@@ -1935,7 +1935,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s201d8" name="DODONNA">Man your ships! And may the Force be with you!</dialogue>
       <meta id="s201m9">The group rises and begins to leave.</meta>
    </scene>
-   <scene id="s202">
+   <scene id="s202" timecode="01:36:20">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s202m1">The Death Star begins to move around the planet toward the tiny green moon.</meta>
    </scene>
@@ -1992,7 +1992,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s205d19" name="BEN'S VOICE">Luke, the Force will be with you.</dialogue>
       <meta id="s205m20">Luke is confused at the voice and taps his headphones.</meta>
    </scene>
-   <scene id="s206">
+   <scene id="s206" timecode="01:39:45">
       <sceneheader>EXT. MASSASSI OUTPOST - JUNGLE</sceneheader>
       <meta id="s206m1">All that can be seen of the fortress is a lone guard standing on a small pedestal jutting out above the dense jungle. The muted gruesome crying sounds that naturally permeate this eerie purgatory are overwhelmed by the thundering din of ion rockets as four silver starships catapult from the foliage in a tight formation and disappears into the morning cloud cover.</meta>
    </scene>
@@ -2001,11 +2001,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s207m1">The princess, Threepio, and a field commander sit quietly before the giant display showing the planet Yavin and its four moons. The red dot that represents the Death Star moves ever closer to the system. A series of green dots appear around the fourth moon. A din of indistinct chatter fills the war room.</meta>
       <dialogue id="s207d1" name="MASSASSI INTERCOM VOICE">Stand-by alert. Death Star approaching. Estimated time to firing range, fifteen minutes.</dialogue>
    </scene>
-   <scene id="s208">
+   <scene id="s208" timecode="01:40:40">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s208m1">The Death Star slowly moves behind the massive yellow surface of Yavin in the foreground, as many X-wing fighters flying in formation zoom toward us and out of the frame.</meta>
    </scene>
-   <scene id="s209">
+   <scene id="s209" timecode="01:40:46">
       <sceneheader>EXT. SPACE - ANOTHER ANGLE</sceneheader>
       <meta id="s209m1">Light from a distant sun creates an eerie atmospheric glow around a huge planet, Yavin. Rebel fighters flying in formation settle ominously in the foreground and very slowly pull away.</meta>
    </scene>
@@ -2039,7 +2039,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s215d1" name="RED ELEVEN">(over headset) Red Eleven standing by.</dialogue>
       <dialogue id="s215d2" name="LUKE">Red Five standing by.</dialogue>
    </scene>
-   <scene id="s216">
+   <scene id="s216" timecode="01:41:01">
       <sceneheader>EXT. LUKE'S X-WING FIGHTER</sceneheader>
       <meta id="s216m1">Artoo-Detoo, in position outside of the fighter, turns his head from side to side and makes beeping sounds.</meta>
    </scene>
@@ -2047,7 +2047,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. RED LEADER'S FIGHTER - COCKPIT</sceneheader>
       <dialogue id="s217d1" name="RED LEADER">Lock S-foils in attack position.</dialogue>
    </scene>
-   <scene id="s218">
+   <scene id="s218" timecode="01:41:08">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s218m1">The group of X-wing fighters move in formation toward the Death Star, unfolding the wings and locking them in the "X" position.</meta>
    </scene>
@@ -2059,16 +2059,16 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. RED LEADER'S COCKPIT</sceneheader>
       <dialogue id="s220d1" name="RED LEADER">Hold tight!</dialogue>
    </scene>
-   <scene id="s221">
+   <scene id="s221" timecode="01:41:13">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s221m1">Luke adjusts his controls as he concentrates on the approaching Death Star. The ship begins to be buffeted slightly.</meta>
       <dialogue id="s221d1" name="RED LEADER">(over headset) Switch your deflectors on.</dialogue>
    </scene>
-   <scene id="s222">
+   <scene id="s222" timecode="01:41:15">
       <sceneheader>INT. ANOTHER COCKPIT</sceneheader>
       <dialogue id="s222d1" name="RED LEADER">(over headset) Double front!</dialogue>
    </scene>
-   <scene id="s223">
+   <scene id="s223" timecode="01:41:17">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s223m1">The fighters, now X-shaped darts, move in formation. The Death Star now appears to be a small moon growing rapidly in size as the Rebel fighters approach. Complex patterns on the metallic surface begin to become visible. A large dish antenna is built into the surface on one side.</meta>
    </scene>
@@ -2082,7 +2082,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. RED LEADER'S COCKPIT</sceneheader>
       <dialogue id="s225d1" name="RED LEADER">Accelerate to attack speed. This is it, boys!</dialogue>
    </scene>
-   <scene id="s226">
+   <scene id="s226" timecode="01:41:26">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s226m1">As the fighters move closer to the Death Star, the awesome size of the gargantuan Imperial fortress is revealed. Half of the deadly space station is in shadow and this area sparkles with thousands of small lights running in thin lines and occasionally grouped in large clusters; somewhat like a city at night as seen from a weather satellite.</meta>
    </scene>
@@ -2097,15 +2097,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s228m1">Red Leader looks around at his wingmen; the Death Star looming in from behind. Two Y-wing fighters bob back and forth in the background. He moves his computer targeting device into position.</meta>
       <dialogue id="s228d1" name="RED LEADER">We're in position. I'm going to cut across the axis and try and draw their fire.</dialogue>
    </scene>
-   <scene id="s229">
+   <scene id="s229" timecode="01:41:36">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s229m1">Two squads of Rebel fighters peel off. The X-wings dive towards the Death Star surface. A thousand lights glow across the dark grey expanse of the huge station.</meta>
    </scene>
-   <scene id="s230">
+   <scene id="s230" timecode="01:41:41">
       <sceneheader>INT. DEATH STAR</sceneheader>
       <meta id="s230m1">Alarm sirens scream as soldiers scramble to large turbo- powered laser gun emplacements. Electronic drivers rotate the huge guns into position as crew adjust their targeting devices.</meta>
    </scene>
-   <scene id="s231">
+   <scene id="s231" timecode="01:41:45">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s231m1">Laserbolts streak through the star-filled night. The Rebel X- wing fighters move in toward the Imperial base, as the Death Star aims its massive laser guns at the Rebel forces and fires.</meta>
    </scene>
@@ -2115,41 +2115,41 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s232d1" name="WEDGE">(over war room speaker system) Heavy fire, boss! Twenty-degrees.</dialogue>
       <dialogue id="s232d2" name="RED LEADER">(over speaker) I see it. Stay low.</dialogue>
    </scene>
-   <scene id="s233">
+   <scene id="s233" timecode="01:41:51">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s233m1">An X-wing zooms across the surface of the Death Star.</meta>
    </scene>
-   <scene id="s234">
+   <scene id="s234" timecode="01:41:53">
       <sceneheader>INT. DEATH STAR</sceneheader>
       <meta id="s234m1">Technical crews scurry here and there loading last-minute armaments and unlocking power cables.</meta>
    </scene>
-   <scene id="s235">
+   <scene id="s235" timecode="01:41:55">
       <sceneheader>INT. WEDGE'S COCKPIT</sceneheader>
       <meta id="s235m1">Wedge maneuvers his fighter toward the menacing Death Star.</meta>
    </scene>
-   <scene id="s236">
+   <scene id="s236" timecode="01:41:57">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s236m1">X-wings continue in their attack course on the Death Star.</meta>
    </scene>
-   <scene id="s237">
+   <scene id="s237" timecode="01:41:59">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s237m1">Luke nosedives radically, starting his attack on the monstrous fortress. The Death Star surface streaks past the cockpit window.</meta>
       <dialogue id="s237d1" name="LUKE">This is Red Five; I'm going in!</dialogue>
    </scene>
-   <scene id="s238">
+   <scene id="s238" timecode="01:42:01">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s238m1">Luke's X-wing races toward the Death Star. Laserbolts streak from Luke's weapons, creating a huge fireball explosion on the dim surface.</meta>
    </scene>
-   <scene id="s239">
+   <scene id="s239" timecode="01:42:03">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s239m1">Terror crosses Luke's face as he realizes he won't be able to pull out in time to avoid the fireball.</meta>
       <dialogue id="s239d1" name="BIGGS">(over headset) Luke, pull up!</dialogue>
    </scene>
-   <scene id="s240">
+   <scene id="s240" timecode="01:42:05">
       <sceneheader>EXT. SURFACE OF DEATH STAR</sceneheader>
       <meta id="s240m1">Luke's ship emerges from the fireball, with the leading edges of his wings slightly scorched.</meta>
    </scene>
-   <scene id="s241">
+   <scene id="s241" timecode="01:42:07">
       <sceneheader>INT. BIGGS' COCKPIT</sceneheader>
       <dialogue id="s241d1" name="BIGGS">Are you all right?</dialogue>
    </scene>
@@ -2158,7 +2158,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s242m1">Luke adjusts his controls and breathes a sigh of relief. Flak bursts outside the cockpit window.</meta>
       <dialogue id="s242d1" name="LUKE">I got a little cooked, but I'm okay.</dialogue>
    </scene>
-   <scene id="s243">
+   <scene id="s243" timecode="01:42:14">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s243m1">Rebel fighters continue to strafe the Death Star's surface with laserbolts.</meta>
    </scene>
@@ -2168,11 +2168,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s244d1" name="ASTRO-OFFICER">We count thirty Rebel ships, Lord Vader. But they're so small they're evading our turbo-lasers!</dialogue>
       <dialogue id="s244d2" name="VADER">We'll have to destroy them ship to ship. Get the crews to their fighters.</dialogue>
    </scene>
-   <scene id="s245">
+   <scene id="s245" timecode="01:42:21">
       <sceneheader>INT. DEATH STAR</sceneheader>
       <meta id="s245m1">Smoke belches from the giant laser guns as they wind up their turbine generators to create sufficient power. The crew rushes about preparing for another blast. Even the troopers head gear is not adequate to protect them from the overwhelming noise of the monstrous weapon. One troopers bangs his helmet with his hand in an attempt to stop the ringing.</meta>
    </scene>
-   <scene id="s246">
+   <scene id="s246" timecode="01:42:24">
       <sceneheader>INT. READ LEADER'S X-WING FIGHTER - COCKPIT - TRAVELING</sceneheader>
       <meta id="s246m1">Red Leader flies through a heavy hail of flak.</meta>
       <dialogue id="s246d1" name="RED LEADER">Luke, let me know when you're going in.</dialogue>
@@ -2184,31 +2184,31 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s247d2" name="RED LEADER">Watch yourself! There's a lot of fire coming from the right side of that deflection tower.</dialogue>
       <dialogue id="s247d3" name="LUKE">I'm on it.</dialogue>
    </scene>
-   <scene id="s248">
+   <scene id="s248" timecode="01:42:32">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s248m1">Luke flings his X-wing into a twisting dive across the horizon and down onto the dim grey surface.</meta>
    </scene>
-   <scene id="s249">
+   <scene id="s249" timecode="01:42:37">
       <sceneheader>EXT. LUKE'S X-WING TRAVELING</sceneheader>
       <meta id="s249m1">A shot hurls from Luke's guns. Laserbolts streak toward the onrushing Death Star surface. Several small radar emplacements erupt in flame. Laserfire erupts from a protruding tower on the surface.</meta>
    </scene>
-   <scene id="s250">
+   <scene id="s250" timecode="01:42:42">
       <sceneheader>INT. LUKE'S X-WING - COCKPIT - TRAVELING</sceneheader>
       <meta id="s250m1">The blurry Death Star surface races past the cockpit window as a big smile sweeps across Luke's face at the success of his run. Flak thunders on all sides of him.</meta>
    </scene>
-   <scene id="s251">
+   <scene id="s251" timecode="01:42:48">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s251m1">The Death Star superstructure races past Luke as he maneuvers his craft through a wall of laserfire and peels away from the surface towards the heavens.</meta>
    </scene>
-   <scene id="s252">
+   <scene id="s252" timecode="01:42:53">
       <sceneheader>INT. DEATH STAR</sceneheader>
       <meta id="s252m1">The thunder and smoke of the big guns reverberate throughout the massive structure. Many soldiers rush about in the smoke and chaos, silhouetted by the almost continual flash of explosions.</meta>
    </scene>
-   <scene id="s253">
+   <scene id="s253" timecode="01:42:58">
       <sceneheader>INT. BIGGS' COCKPIT - TRAVELING</sceneheader>
       <meta id="s253m1">Biggs dives through a forest of radar domes, antennae, and gun towers as he shoots low across the Death Star surface. A dense barrage of laserfire streaks by on all sides.</meta>
    </scene>
-   <scene id="s254">
+   <scene id="s254" timecode="01:43:03">
       <sceneheader>INT. DEATH STAR</sceneheader>
       <meta id="s254m1">Imperial star pilots dash in unison to a line of small auxiliary hatches that lead to Imperial TIE fighters.</meta>
    </scene>
@@ -2227,11 +2227,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s257m1">The Death Star's surface sweeps past as Red Leader searches the sky for the Imperial fighters. Flak pounds at his ship.</meta>
       <dialogue id="s257d1" name="RED LEADER">Keep up your visual scanning. With all this jamming, they'll be on top of you before your scope can pick them up.</dialogue>
    </scene>
-   <scene id="s258">
+   <scene id="s258" timecode="01:43:19">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s258m1">Silhouetted against the rim lights of the Death Star horizon, four ferocious Imperial TIE ships dive on the Rebel fighters. Two of the TIE fighters peel off and drop out of frame. Pan with the remaining two TIE ships.</meta>
    </scene>
-   <scene id="s259">
+   <scene id="s259" timecode="01:43:24">
       <sceneheader>INT. BIGGS' COCKPIT - TRAVELING</sceneheader>
       <meta id="s259m1">Biggs panics when he discovers a TIE ship on his tail. The horizon in the background twists around as he peels off, hoping to lose the Imperial fighter.</meta>
    </scene>
@@ -2240,7 +2240,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s260d1" name="RED LEADER">Biggs! You've picked one up... watch it!</dialogue>
       <dialogue id="s260d2" name="BIGGS">I can't see it! Where is he?!</dialogue>
    </scene>
-   <scene id="s261">
+   <scene id="s261" timecode="01:43:42">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s261m1">Biggs zooms off the surface and into space, closely followed by an Imperial TIE fighter. The TIE ship fires several laserbolts at Biggs, but misses.</meta>
    </scene>
@@ -2249,24 +2249,24 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s262m1">Biggs see the TIE ship behind him and swings around, trying to avoid him.</meta>
       <dialogue id="s262d1" name="BIGGS">He's on me tight, I can't shake him... I can't shake him.</dialogue>
    </scene>
-   <scene id="s263">
+   <scene id="s263" timecode="01:43:55">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s263m1">Biggs, flying at high altitude, peels off and dives toward the Death Star surface, but he is unable to lose the TIE fighter, who sticks close to his tail.</meta>
    </scene>
-   <scene id="s264">
+   <scene id="s264" timecode="01:43:54">
       <sceneheader>INT. X-WING FIGHTER - COCKPIT - TRAVELING</sceneheader>
       <meta id="s264m1">Luke is flying upside down. He rotates his ship around to normal attitude as he comes out of his dive.</meta>
       <dialogue id="s264d1" name="LUKE">Hang on, Biggs, I'm coming in.</dialogue>
    </scene>
-   <scene id="s265">
+   <scene id="s265" timecode="01:43:53">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s265m1">Biggs and the tailing TIE ship dive for the surface, now followed by a fast-gaining Luke. After Biggs dives out of sight, Luke chases the Imperial fighter.</meta>
    </scene>
-   <scene id="s266">
+   <scene id="s266" timecode="01:43:52">
       <sceneheader>EXT. SURFACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s266m1">In the foreground, the Imperial fighter races across the Death Star's surface, closely followed by Luke in the background.</meta>
    </scene>
-   <scene id="s267">
+   <scene id="s267" timecode="01:43:51">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT - TRAVELING</sceneheader>
       <meta id="s267m1">There is a shot from Luke's X-wing of the TIE ship exploding in a mass of flames.</meta>
       <dialogue id="s267d1" name="LUKE">Got him!</dialogue>
@@ -2276,7 +2276,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s268m1">Darth Vader strides purposefully down a Death Star corridor, flanked by Imperial stormtroopers.</meta>
       <dialogue id="s268d1" name="VADER">Several fighters have broken off from the main group. Come with me!</dialogue>
    </scene>
-   <scene id="s269">
+   <scene id="s269" timecode="01:43:54">
       <sceneheader>INT. MASSASSI OUTPOST - WAR ROOM</sceneheader>
       <meta id="s269m1">A concerned Princess Leia, Threepio, Dodonna, and other officers of the Rebellion stand around the huge round readout screen, listening to the ship-to-ship communication on the room's loudspeaker.</meta>
       <dialogue id="s269d1" name="BIGGS">(over speaker) Pull in! Luke... pull in!</dialogue>
@@ -2286,15 +2286,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <dialogue id="s270d1" name="WEDGE">(over headset) Watch your back! Fighter's above you, coming in!</dialogue>
    </scene>
-   <scene id="s271">
+   <scene id="s271" timecode="01:44:01">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s271m1">Luke's ship soars away from the Death Star's surface as he spots the tailing TIE fighter.</meta>
    </scene>
-   <scene id="s272">
+   <scene id="s272" timecode="01:44:03">
       <sceneheader>INT. TIE FIGHTER'S COCKPIT</sceneheader>
       <meta id="s272m1">The TIE pilot takes aim at Luke's X-wing.</meta>
    </scene>
-   <scene id="s273">
+   <scene id="s273" timecode="01:44:05">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s273m1">The Imperial TIE fighter pilot scores a hit on Luke's ship. Fire breaks out on the right side of the X-wing.</meta>
    </scene>
@@ -2309,7 +2309,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s275d1" name="LUKE'S VOICE">Artoo, see what you can do with it. Hang on back there.</dialogue>
       <meta id="s275m2">Green laserfire moves past the beeping little robot as his head turns.</meta>
    </scene>
-   <scene id="s276">
+   <scene id="s276" timecode="01:44:12">
       <sceneheader>INT. LUKE'S X-WING - COCKPIT</sceneheader>
       <meta id="s276m1">Luke nervously works his controls.</meta>
       <dialogue id="s276d1" name="RED LEADER">(over headset) Red Six...</dialogue>
@@ -2320,12 +2320,12 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s277d1" name="RED LEADER">(over speaker) Can you see Red Five?</dialogue>
       <dialogue id="s277d2" name="RED TEN">(over speaker) There's a heavy fire zone on this side. Red Five, where are you?</dialogue>
    </scene>
-   <scene id="s278">
+   <scene id="s278" timecode="01:44:18">
       <sceneheader>INT. LUKE'S X-WING - COCKPIT</sceneheader>
       <meta id="s278m1">Luke spots the TIE fighter behind him and soars away from the Death Star surface.</meta>
       <dialogue id="s278d1" name="LUKE">I can't shake him!</dialogue>
    </scene>
-   <scene id="s279">
+   <scene id="s279" timecode="01:44:20">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s279m1">Luke's ship soars closer to the surface of the Death Star, an Imperial TIE fighter closing in on him in hot pursuit.</meta>
    </scene>
@@ -2334,28 +2334,28 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s280m1">The Death Star whips below Wedge.</meta>
       <dialogue id="s280d1" name="WEDGE">I'm on him, Luke!</dialogue>
    </scene>
-   <scene id="s281">
+   <scene id="s281" timecode="01:44:25">
       <sceneheader>INT. LUKE'S X-WING - COCKPIT</sceneheader>
       <dialogue id="s281d1" name="WEDGE">(over headset) Hold on!</dialogue>
    </scene>
-   <scene id="s282">
+   <scene id="s282" timecode="01:44:27">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s282m1">Wedge dives across the horizon toward Luke and the TIE fighter.</meta>
    </scene>
-   <scene id="s283">
+   <scene id="s283" timecode="01:44:29">
       <sceneheader>INT. WEDGE'S COCKPIT</sceneheader>
       <meta id="s283m1">Wedge moves his X-wing in rapidly.</meta>
    </scene>
-   <scene id="s284">
+   <scene id="s284" timecode="01:44:31">
       <sceneheader>INT. LUKE'S X-WING - COCKPIT</sceneheader>
       <meta id="s284m1">Luke reacts frantically.</meta>
       <dialogue id="s284d1" name="LUKE">Blast it! Wedge where are you?</dialogue>
    </scene>
-   <scene id="s285">
+   <scene id="s285" timecode="01:44:33">
       <sceneheader>INT. TIE FIGHTER - COCKPIT</sceneheader>
       <meta id="s285m1">The fighter pilot watches Wedge's X-wing approach. Another X- wing joins him, and both unleash a volley of laserfire on the Imperial fighter.</meta>
    </scene>
-   <scene id="s286">
+   <scene id="s286" timecode="01:44:35">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s286m1">The TIE fighter explodes, filling the screen with white light. Luke's ship can be seen far in the distance.</meta>
    </scene>
@@ -2364,7 +2364,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s287m1">Luke looks about in relief.</meta>
       <dialogue id="s287d1" name="LUKE">Thanks, Wedge.</dialogue>
    </scene>
-   <scene id="s288">
+   <scene id="s288" timecode="01:44:38">
       <sceneheader>INT. MASSASSI OUTPOST - WAR ROOM</sceneheader>
       <meta id="s288m1">Leia, Threepio, Dodonna and other Rebel officers are listening to the Rebel Fighter's radio transmissions over the war room intercom.</meta>
       <dialogue id="s288d1" name="BIGGS">(over speaker) Good shooting, Wedge!</dialogue>
@@ -2375,7 +2375,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s289m1">Gold Leader peels off and starts toward the long trenches at the Death Star surface pole.</meta>
       <dialogue id="s289d1" name="GOLD LEADER">This is Gold Leader. We're starting out attack run.</dialogue>
    </scene>
-   <scene id="s290">
+   <scene id="s290" timecode="01:44:41">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s290m1">Three Y-wing fighters of the Gold group dive out of the stars toward the Death Star surface.</meta>
    </scene>
@@ -2384,7 +2384,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s291m1">Leia and the others are grouped around the screen, as technicians move about attending to their duties.</meta>
       <dialogue id="s291d1" name="RED LEADER">(over speaker) I copy, Gold Leader. Move into position.</dialogue>
    </scene>
-   <scene id="s292">
+   <scene id="s292" timecode="01:44:46">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s292m1">Three Imperial TIE ships in precise formation dive toward the Death Star surface.</meta>
    </scene>
@@ -2393,20 +2393,20 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s293m1">Darth Vader calmly adjusts his control stick as the stars whip past in the window above his head.</meta>
       <dialogue id="s293d1" name="VADER">Stay in attack formation!</dialogue>
    </scene>
-   <scene id="s294">
+   <scene id="s294" timecode="01:44:50">
       <sceneheader>INT. MASSASSI OUTPOST - WAR ROOM</sceneheader>
       <meta id="s294m1">Technicians are seated at the computer readout table.</meta>
       <dialogue id="s294d1" name="GOLD LEADER">(over speaker) The exhaust post is...</dialogue>
    </scene>
-   <scene id="s295">
+   <scene id="s295" timecode="01:44:53">
       <sceneheader>INT. GOLD LEADER'S Y-WING - COCKPIT</sceneheader>
       <dialogue id="s295d1" name="GOLD LEADER">...marked and locked in!</dialogue>
    </scene>
-   <scene id="s296">
+   <scene id="s296" timecode="01:44:55">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s296m1">Gold Leader approaches the surface and pulls out to skim the surface of the huge station. The ship moves into a deep trench, firing laserbolts. The surface streaks past as laserfire is returned by the Death Star.</meta>
    </scene>
-   <scene id="s297">
+   <scene id="s297" timecode="01:44:58">
       <sceneheader>INT. GOLD FIVE'S Y-WING - COCKPIT - TRAVELING</sceneheader>
       <meta id="s297m1">Gold Five is a pilot in his early fifties with a very battered helmet that looks like it's been through many battles. He looks around to see if enemy ships are near. His fighter is buffeted by Imperial flak.</meta>
    </scene>
@@ -2415,11 +2415,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s298m1">Gold Leader races down the enormous trench that leads to the exhaust port. Laserbolts blast toward him in increasing numbers, occasionally exploding near the ship causing it to bounce about.</meta>
       <dialogue id="s298d1" name="GOLD LEADER">Switch power to front deflector screens.</dialogue>
    </scene>
-   <scene id="s299">
+   <scene id="s299" timecode="01:45:03">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s299m1">Three Y-wing skim the Death Star surface deep in the trench, as laserbolts streak past on all sides.</meta>
    </scene>
-   <scene id="s300">
+   <scene id="s300" timecode="01:45:06">
       <sceneheader>EXT. DEATH STAR SURFACE - GUN EMPLACEMENTS</sceneheader>
       <meta id="s300m1">An exterior surface gun blazes away at the oncoming Rebel fighters.</meta>
    </scene>
@@ -2433,7 +2433,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s302m2">Leia, Threepio, and the technicians view the projected target screen, as red and blue target lights glow. The red target near the center blinks on and off.</meta>
       <dialogue id="s302d2" name="MASSASSI INTERCOM VOICE">(over speaker) Death Star will be in range in five minutes.</dialogue>
    </scene>
-   <scene id="s303">
+   <scene id="s303" timecode="01:45:16">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s303m1">The three Y-wing fighters race toward camera and zoom overhead through a hail of laserfire.</meta>
    </scene>
@@ -2458,7 +2458,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. GOLD LEADER'S Y-WING - COCKPIT</sceneheader>
       <dialogue id="s307d1" name="GOLD LEADER">They've coming in! Three marks at two ten.</dialogue>
    </scene>
-   <scene id="s308">
+   <scene id="s308" timecode="01:45:37">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s308m1">Three Imperial TIE ships, Darth Vader in the center flanked by two wingmen, dive in precise formation almost vertically toward the Death Star surface.</meta>
    </scene>
@@ -2468,31 +2468,31 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s309d1" name="VADER">I'll take them myself! Cover me!</dialogue>
       <dialogue id="s309d2" name="WINGMAN'S VOICE">(over speaker) Yes, sir.</dialogue>
    </scene>
-   <scene id="s310">
+   <scene id="s310" timecode="01:45:41">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s310m1">Three TIE fighters zoom across the surface of the Death Star.</meta>
    </scene>
-   <scene id="s311">
+   <scene id="s311" timecode="01:45:44">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s311m1">Vader lines up Gold Two in his targeting computer. Vader's hands grip the control stick as he presses the button.</meta>
    </scene>
-   <scene id="s312">
+   <scene id="s312" timecode="01:45:46">
       <sceneheader>INT. GOLD LEADER'S Y-WING - COCKPIT</sceneheader>
       <meta id="s312m1">The cockpit explodes around Gold Two. His head falls forward.</meta>
    </scene>
-   <scene id="s313">
+   <scene id="s313" timecode="01:45:49">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s313m1">As Gold Two's ship explodes, debris is flung out into space.</meta>
    </scene>
-   <scene id="s314">
+   <scene id="s314" timecode="01:45:51">
       <sceneheader>INT. GOLD LEADER'S Y-WING - COCKPIT</sceneheader>
       <meta id="s314m1">Gold Leader looks over his shoulder at the scene.</meta>
    </scene>
-   <scene id="s315">
+   <scene id="s315" timecode="01:45:54">
       <sceneheader>EXT. DEATH STAR TRENCH</sceneheader>
       <meta id="s315m1">The three TIE fighters race along in the trench in a tight formation.</meta>
    </scene>
-   <scene id="s316">
+   <scene id="s316" timecode="01:45:56">
       <sceneheader>INT. GOLD LEADER'S Y-WING - COCKPIT</sceneheader>
       <meta id="s316m1">Gold Leader panics.</meta>
       <dialogue id="s316d1" name="GOLD LEADER">(into mike) I can't maneuver!</dialogue>
@@ -2507,7 +2507,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s318m1">The Death Star races by outside the cockpit window as he adjusts his targeting device.</meta>
       <dialogue id="s318d1" name="GOLD LEADER">We're too close.</dialogue>
    </scene>
-   <scene id="s319">
+   <scene id="s319" timecode="01:46:00">
       <sceneheader>INT. GOLD FIVE'S Y-WING - COCKPIT</sceneheader>
       <meta id="s319m1">The older pilot remains calm.</meta>
       <dialogue id="s319d1" name="GOLD FIVE">Stay on target!</dialogue>
@@ -2517,15 +2517,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s320m1">Now he's really panicked.</meta>
       <dialogue id="s320d1" name="GOLD LEADER">Loosen up!</dialogue>
    </scene>
-   <scene id="s321">
+   <scene id="s321" timecode="01:46:03">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s321m1">Vader calmly adjusts his targeting computer and pushes the fire button.</meta>
    </scene>
-   <scene id="s322">
+   <scene id="s322" timecode="01:46:04">
       <sceneheader>INT. GOLD LEADER'S Y-WING - COCKPIT</sceneheader>
       <meta id="s322m1">Gold Leader's ship is hit by Vader's laser.</meta>
    </scene>
-   <scene id="s323">
+   <scene id="s323" timecode="01:46:05">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s323m1">Gold Leader explodes in a ball of flames, throwing debris in all directions.</meta>
    </scene>
@@ -2534,7 +2534,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s324m1">Gold Five moves in on the exhaust port.</meta>
       <dialogue id="s324d1" name="GOLD FIVE">Gold Five to Red Leader...</dialogue>
    </scene>
-   <scene id="s325">
+   <scene id="s325" timecode="01:46:07">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s325m1">Luke looks over his shoulder at the action outside of his cockpit.</meta>
       <dialogue id="s325d1" name="GOLD FIVE">(over headset) Lost Tiree, lost Dutch.</dialogue>
@@ -2547,11 +2547,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. GOLD FIVE'S Y-WING - COCKPIT</sceneheader>
       <dialogue id="s327d1" name="GOLD FIVE">They came from behind...</dialogue>
    </scene>
-   <scene id="s328">
+   <scene id="s328" timecode="01:46:13">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s328m1">One of the engines explodes on Gold Five's Y-wing fighter, blazing out of control. He dives past the horizon toward the Death Star's surface, passing a TIE fighter during his descent. Gold Five, a veteran of countless campaigns, spins toward his death.</meta>
    </scene>
-   <scene id="s329">
+   <scene id="s329" timecode="01:46:17">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s329m1">Luke looks nervously about him at the explosive battle.</meta>
    </scene>
@@ -2584,15 +2584,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s334d1" name="RED LEADER'S VOICE">(over headset) Copy, Base One. Luke, take Red Two and Three. Hold up here and wait for my signal... to start your run.</dialogue>
       <meta id="s334m2">Luke nods his head.</meta>
    </scene>
-   <scene id="s335">
+   <scene id="s335" timecode="01:46:46">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s335m1">The X-wing fighters of Luke, Biggs, and Wedge fly in formation high above the Death Star's surface.</meta>
    </scene>
-   <scene id="s336">
+   <scene id="s336" timecode="01:46:49">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s336m1">Luke peers out from his cockpit.</meta>
    </scene>
-   <scene id="s337">
+   <scene id="s337" timecode="01:46:52">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s337m1">Two X-wings move across the surface of the Death Star. Red Leader's X-wing drops down to the surface leading to the exhaust port.</meta>
    </scene>
@@ -2601,15 +2601,15 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s338m1">Red Leader looks around to watch for the TIE fighters. He begins to perspire.</meta>
       <dialogue id="s338d1" name="RED LEADER">This is it!</dialogue>
    </scene>
-   <scene id="s339">
+   <scene id="s339" timecode="01:46:57">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s339m1">Red Leader roams down the trench of the Death Star as lasers streak across the black heavens.</meta>
    </scene>
-   <scene id="s340">
+   <scene id="s340" timecode="01:46:59">
       <sceneheader>EXT. DEATH STAR SURFACE - GUN EMPLACEMENTS</sceneheader>
       <meta id="s340m1">A huge remote-control laser cannon fires at the approaching Rebel fighters.</meta>
    </scene>
-   <scene id="s341">
+   <scene id="s341" timecode="01:47:00">
       <sceneheader>EXT. DEATH STAR TRENCH</sceneheader>
       <meta id="s341m1">The Rebel fighters evade the Imperial laser blasts.</meta>
    </scene>
@@ -2618,7 +2618,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s342m1">Red Ten looks around for the Imperial fighters.</meta>
       <dialogue id="s342d1" name="RED TEN">We should be able to see it by now.</dialogue>
    </scene>
-   <scene id="s343">
+   <scene id="s343" timecode="01:47:03">
       <sceneheader>EXT. DEATH STAR TRENCH</sceneheader>
       <meta id="s343m1">From the cockpits of the Rebel pilots, the surface of the Death Star streaks by, with Imperial laserfire shooting toward them.</meta>
    </scene>
@@ -2646,7 +2646,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s348d1" name="LUKE">(over headset) Coming in point three five.</dialogue>
       <dialogue id="s348d2" name="RED TEN">I see them.</dialogue>
    </scene>
-   <scene id="s349">
+   <scene id="s349" timecode="01:47:15">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s349m1">Three TIE fighters, Vader flanked by two wingmen, dive in a tight formation. The sun reflects off their dominate solar fins as they loop toward the Death Star's surface.</meta>
    </scene>
@@ -2655,7 +2655,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s350m1">Red Leader pulls his targeting device in front of his eyes and makes several adjustments.</meta>
       <dialogue id="s350d1" name="RED LEADER">I'm in range.</dialogue>
    </scene>
-   <scene id="s351">
+   <scene id="s351" timecode="01:47:17">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s351m1">Red Leader's X-wing moves up the Death Star trench.</meta>
    </scene>
@@ -2670,27 +2670,27 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s353m1">Vader adjusts his control lever and dives on the X-wing fighters.</meta>
       <dialogue id="s353d1" name="VADER">Close up formation.</dialogue>
    </scene>
-   <scene id="s354">
+   <scene id="s354" timecode="01:47:25">
       <sceneheader>EXT. DEATH STAR TRENCH</sceneheader>
       <meta id="s354m1">The three TIE fighters move in formation across the Death Star surface.</meta>
    </scene>
-   <scene id="s355">
+   <scene id="s355" timecode="01:47:25">
       <sceneheader>INT. RED LEADER'S COCKPIT</sceneheader>
       <meta id="s355m1">Red Leader lines up his target on the targeting device cross hairs.</meta>
    </scene>
-   <scene id="s356">
+   <scene id="s356" timecode="01:47:26">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s356m1">Vader and his wingmen zoom down the trench.</meta>
    </scene>
-   <scene id="s357">
+   <scene id="s357" timecode="01:47:26">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s357m1">Vader rapidly approaches the two X-wings of Red Ten and Red Twelve. Vader's laser cannon flashes below the view of the front porthole. the X-wings show in the center of Vader's computer screen.</meta>
    </scene>
-   <scene id="s358">
+   <scene id="s358" timecode="01:47:27">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s358m1">Red Twelve's X-wing fighter is hit by Vader's laserfire, and it explodes into flames against the trench.</meta>
    </scene>
-   <scene id="s359">
+   <scene id="s359" timecode="01:47:27">
       <sceneheader>INT. RED TEN'S COCKPIT</sceneheader>
       <meta id="s359m1">Red Ten works at his controls furiously, trying to avoid Vader's fighter behind him. RED TEN: You'd better let her loose.</meta>
    </scene>
@@ -2704,23 +2704,23 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s361m1">Red Ten panics.</meta>
       <dialogue id="s361d1" name="RED TEN">I can't hold them!</dialogue>
    </scene>
-   <scene id="s362">
+   <scene id="s362" timecode="01:47:44">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s362m1">Vader and his wingmen whip through the trench in pursuit of the Rebel fighters.</meta>
    </scene>
-   <scene id="s363">
+   <scene id="s363" timecode="01:47:46">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s363m1">Vader cooly pushes the fire button on his control stick.</meta>
    </scene>
-   <scene id="s364">
+   <scene id="s364" timecode="01:47:47">
       <sceneheader>INT. RED TEN'S COCKPIT</sceneheader>
       <meta id="s364m1">Darth Vader's well-aimed laserfire proves to be unavoidable, and strikes Red Ten's ship. Red Ten screams in anguish and pain.</meta>
    </scene>
-   <scene id="s365">
+   <scene id="s365" timecode="01:47:49">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s365m1">Red Ten's ship explodes and bursts into flames.</meta>
    </scene>
-   <scene id="s366">
+   <scene id="s366" timecode="01:47:50">
       <sceneheader>INT. RED LEADER'S COCKPIT</sceneheader>
       <meta id="s366m1">Grimly, Red Leader takes careful aim and watches his computer targeting device, which shows the target lined up in the cross hairs, and fires.</meta>
    </scene>
@@ -2728,11 +2728,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. RED LEADER'S COCKPIT</sceneheader>
       <dialogue id="s367d1" name="RED LEADER">It's away!</dialogue>
    </scene>
-   <scene id="s368">
+   <scene id="s368" timecode="01:47:54">
       <sceneheader>INT. DEATH STAR</sceneheader>
       <meta id="s368m1">An armed Imperial stormtrooper is knocked to the floor from the attack explosion. Other troopers scurrying about the corridors are knocked against the wall and lose their balance.</meta>
    </scene>
-   <scene id="s369">
+   <scene id="s369" timecode="01:47:56">
       <sceneheader>INT. MASSASSI OUTPOST - WAR ROOM</sceneheader>
       <meta id="s369m1">Leia and the others stare at the computer screen.</meta>
       <dialogue id="s369d1" name="RED NINE'S VOICE">(over speaker) It's a hit!</dialogue>
@@ -2743,11 +2743,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s370m1">Red Leader looks back at the receding Death Star. Tiny explosions are visible in the distance.</meta>
       <dialogue id="s370d1" name="RED LEADER">Negative! It didn't go in. It just impacted on the surface.</dialogue>
    </scene>
-   <scene id="s371">
+   <scene id="s371" timecode="01:48:02">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR - TIE FIGHTER</sceneheader>
       <meta id="s371m1">Darth Vader peels off in pursuit as Red Leader's X-wing passes the Death Star horizon.</meta>
    </scene>
-   <scene id="s372">
+   <scene id="s372" timecode="01:48:06">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s372m1">Vader swings his ship around for the next kill.</meta>
    </scene>
@@ -2755,7 +2755,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. RED LEADER'S COCKPIT</sceneheader>
       <dialogue id="s373d1" name="LUKE">(over headset) Red Leader, we're right above you. Turn to point...</dialogue>
    </scene>
-   <scene id="s374">
+   <scene id="s374" timecode="01:48:12">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s374m1">Luke tries to spot Red Leader. He looks down at the Death Star surface.</meta>
       <dialogue id="s374d1" name="LUKE">...oh-five; we'll cover for you.</dialogue>
@@ -2771,19 +2771,19 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s376m1">Luke looks excitedly toward Red Leader's X-wing.</meta>
       <dialogue id="s376d1" name="RED LEADER">(over headset) Get set to make your attack run.</dialogue>
    </scene>
-   <scene id="s377">
+   <scene id="s377" timecode="01:48:20">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s377m1">Vader's gloved hands make contact with the control sticks, and he presses their firing buttons.</meta>
    </scene>
-   <scene id="s378">
+   <scene id="s378" timecode="01:48:23">
       <sceneheader>INT. RED LEADER'S COCKPIT</sceneheader>
       <meta id="s378m1">Red Leader fights to gain control of his ship.</meta>
    </scene>
-   <scene id="s379">
+   <scene id="s379" timecode="01:48:26">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s379m1">Laserbolts are flung from Vader's TIE fighter, connecting with Red Leader's Rebel X-wing fighter. Red Leader buys it, creating a tremendous explosion far below. He screams and is destroyed.</meta>
    </scene>
-   <scene id="s380">
+   <scene id="s380" timecode="01:48:29">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s380m1">Luke looks out the window of his X-wing at the explosion far below. For the first time, he feels the helplessness of his situation.</meta>
    </scene>
@@ -2802,7 +2802,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s383m1">The horizon twists as Wedge begins to pull out.</meta>
       <dialogue id="s383d1" name="WEDGE">Right with you, boss.</dialogue>
    </scene>
-   <scene id="s384">
+   <scene id="s384" timecode="01:48:41">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s384m1">The two X-wings peel off against a background of stars and dive toward the Death Star.</meta>
    </scene>
@@ -2814,7 +2814,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <dialogue id="s386d1" name="LUKE">It'll be just like Beggar's Canyon back home.</dialogue>
    </scene>
-   <scene id="s387">
+   <scene id="s387" timecode="01:48:49">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s387m1">The three X-wings move in, unleashing a barrage of laserfire. Laserbolts are returned from the Death Star.</meta>
    </scene>
@@ -2828,7 +2828,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s389m1">Flak and laserbolts flash outside Luke's cockpit window.</meta>
       <dialogue id="s389d1" name="WEDGE">(over headset) My scope shows the tower, but I can't see the exhaust port! Are you sure the computer can hit it?</dialogue>
    </scene>
-   <scene id="s390">
+   <scene id="s390" timecode="01:49:00">
       <sceneheader>EXT. DEATH STAR - GUN EMPLACEMENTS</sceneheader>
       <meta id="s390m1">The Death Star laser cannon slowly rotates as it shoots laserbolts.</meta>
    </scene>
@@ -2846,7 +2846,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <dialogue id="s393d1" name="LUKE">You worry about those fighters! I'll worry about the tower!</dialogue>
    </scene>
-   <scene id="s394">
+   <scene id="s394" timecode="01:49:11">
       <sceneheader>EXT. DEATH STAR SURFACE</sceneheader>
       <meta id="s394m1">Luke's X-wing streaks through the trench, firing lasers.</meta>
    </scene>
@@ -2855,31 +2855,31 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s395m1">Luke breaks into a nervous sweat as the laserfire is returned, knicking one of his wings close to the engine.</meta>
       <dialogue id="s395d1" name="LUKE">(to Artoo) Artoo... that, that stabilizer's broken loose again! See if you can't lock it down!</dialogue>
    </scene>
-   <scene id="s396">
+   <scene id="s396" timecode="01:49:18">
       <sceneheader>EXT. LUKE'S X-WING FIGHTER</sceneheader>
       <meta id="s396m1">Artoo works to repair the damages. The canyon wall rushes by in the background, making his delicate task seem even more precarious.</meta>
    </scene>
-   <scene id="s397">
+   <scene id="s397" timecode="01:49:21">
       <sceneheader>EXT. DEATH STAR</sceneheader>
       <meta id="s397m1">Two laser cannons are firing on the Rebel fighters.</meta>
    </scene>
-   <scene id="s398">
+   <scene id="s398" timecode="01:49:24">
       <sceneheader>INT. WEDGE'S COCKPIT</sceneheader>
       <meta id="s398m1">Wedge looks up and sees the TIE ships.</meta>
    </scene>
-   <scene id="s399">
+   <scene id="s399" timecode="01:49:27">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s399m1">Luke's targeting device marks off the distance to the target.</meta>
    </scene>
-   <scene id="s400">
+   <scene id="s400" timecode="01:49:30">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s400m1">Vader and his wingmen zoom closer.</meta>
    </scene>
-   <scene id="s401">
+   <scene id="s401" timecode="01:49:33">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s401m1">Vader adjusts his controls and fires laserbolts at two X- wings flying down the trench. He scores a direct hit on Wedge.</meta>
    </scene>
-   <scene id="s402">
+   <scene id="s402" timecode="01:49:36">
       <sceneheader>INT. MASSASSI OUTPOST - WAR ROOM</sceneheader>
       <meta id="s402m1">Leia and the others are grouped around the computer board.</meta>
       <dialogue id="s402d1" name="WEDGE">(over speaker) I'm hit! I can't stay with you.</dialogue>
@@ -2893,7 +2893,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. WEDGE'S COCKPIT</sceneheader>
       <dialogue id="s404d1" name="WEDGE">Sorry!</dialogue>
    </scene>
-   <scene id="s405">
+   <scene id="s405" timecode="01:49:41">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s405m1">Wedge pulls his crippled X-wing back away from the battle.</meta>
    </scene>
@@ -2902,7 +2902,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s406m1">Vader watches the escape but issues a command to his wingmen.</meta>
       <dialogue id="s406d1" name="VADER">Let him go! Stay on the leader!</dialogue>
    </scene>
-   <scene id="s407">
+   <scene id="s407" timecode="01:49:46">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s407m1">Luke's X-wing speeds down the trench; the three TIE fighters, still in perfect unbroken formation, tail close behind.</meta>
    </scene>
@@ -2911,7 +2911,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s408m1">Biggs looks around at the TIE fighters. He is worried.</meta>
       <dialogue id="s408d1" name="BIGGS">Hurry, Luke, they're coming in much faster this time. I can't hold them!</dialogue>
    </scene>
-   <scene id="s409">
+   <scene id="s409" timecode="01:49:51">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s409m1">The three TIE fighters move ever closer, closing in on Luke and Biggs.</meta>
    </scene>
@@ -2920,28 +2920,28 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s410m1">Luke looks back anxiously at little Artoo.</meta>
       <dialogue id="s410d1" name="LUKE">Artoo, try and increase the power!</dialogue>
    </scene>
-   <scene id="s411">
+   <scene id="s411" timecode="01:49:55">
       <sceneheader>EXT. LUKE'S X-WING FIGHTER</sceneheader>
       <meta id="s411m1">Ignoring the bumpy ride, flak, and lasers, a beeping Artoo- Detoo struggles to increase the power, his dome turning from side to side.</meta>
    </scene>
-   <scene id="s412">
+   <scene id="s412" timecode="01:49:56">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s412m1">Stealthily, the TIE formation creeps closer.</meta>
    </scene>
-   <scene id="s413">
+   <scene id="s413" timecode="01:49:58">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s413m1">Vader adjusts his control stick.</meta>
    </scene>
-   <scene id="s414">
+   <scene id="s414" timecode="01:49:59">
       <sceneheader>INT. BIGGS' COCKPIT</sceneheader>
       <meta id="s414m1">Biggs looks around at the TIE fighters.</meta>
    </scene>
-   <scene id="s415">
+   <scene id="s415" timecode="01:50:01">
       <sceneheader>INT. LUKE'S X-WING FIGHTER</sceneheader>
       <meta id="s415m1">Luke looks into his targeting device. He moves it away for a moment and ponders its use. He looks back into the computer targeter.</meta>
       <dialogue id="s415d1" name="BIGGS">(over headset) Hurry up, Luke!</dialogue>
    </scene>
-   <scene id="s416">
+   <scene id="s416" timecode="01:50:02">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s416m1">Vader and his wingmen race through the Death Star trench. Biggs moves in to cover for Luke, but Vader gains on him.</meta>
    </scene>
@@ -2950,23 +2950,23 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s417m1">Biggs sees the TIE fighter aiming at him.</meta>
       <dialogue id="s417d1" name="BIGGS">Wait!</dialogue>
    </scene>
-   <scene id="s418">
+   <scene id="s418" timecode="01:50:05">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s418m1">Vader squeezes the fire button on his controls.</meta>
    </scene>
-   <scene id="s419">
+   <scene id="s419" timecode="01:50:06">
       <sceneheader>INT. BIGGS' COCKPIT</sceneheader>
       <meta id="s419m1">Biggs' cockpit explodes around him, lighting him in red.</meta>
    </scene>
-   <scene id="s420">
+   <scene id="s420" timecode="01:50:07">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s420m1">Biggs' ship bursts into a million flaming bits and scatters across the surface.</meta>
    </scene>
-   <scene id="s421">
+   <scene id="s421" timecode="01:50:09">
       <sceneheader>INT. MASSASSI OUTPOST - WAR ROOM</sceneheader>
       <meta id="s421m1">Leia and the others stare at the computer board.</meta>
    </scene>
-   <scene id="s422">
+   <scene id="s422" timecode="01:50:10">
       <sceneheader>INT. LUKE'S X-WING COCKPIT</sceneheader>
       <meta id="s422m1">Luke is stunned by Biggs' death. His eyes are watering, but his anger is also growing.</meta>
    </scene>
@@ -2980,7 +2980,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s424m1">Vader takes aim on Luke and talks to the wingmen.</meta>
       <dialogue id="s424d1" name="VADER">I'm on the leader.</dialogue>
    </scene>
-   <scene id="s425">
+   <scene id="s425" timecode="01:50:17">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR - LUKE'S SHIP</sceneheader>
       <meta id="s425m1">Luke's ship streaks through the trench of the Death Star.</meta>
    </scene>
@@ -2989,23 +2989,23 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s426m1">Princess Leia returns her general's worried and doubtful glances with solid, grim determination. Threepio seems nervous.</meta>
       <dialogue id="s426d1" name="THREEPIO">Hang on, Artoo!</dialogue>
    </scene>
-   <scene id="s427">
+   <scene id="s427" timecode="01:50:21">
       <sceneheader>INT. LUKE'S X-WING - COCKPIT</sceneheader>
       <meta id="s427m1">Luke concentrates on his targeting device.</meta>
    </scene>
-   <scene id="s428">
+   <scene id="s428" timecode="01:50:24">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s428m1">Three TIE fighters charge away down the trench toward Luke.</meta>
    </scene>
-   <scene id="s429">
+   <scene id="s429" timecode="01:50:27">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s429m1">Vader's finger's curls around the control stick.</meta>
    </scene>
-   <scene id="s430">
+   <scene id="s430" timecode="01:50:30">
       <sceneheader>INT. LUKE'S X-WING - COCKPIT</sceneheader>
       <meta id="s430m1">Luke adjusts the lens of his targeting device.</meta>
    </scene>
-   <scene id="s431">
+   <scene id="s431" timecode="01:50:33">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s431m1">Luke's ship charges down the trench.</meta>
    </scene>
@@ -3014,7 +3014,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s432m1">Luke lines up the yellow cross-hair lines of the targeting device's screen. He looks into the targeting device, then starts at a voice he hears.</meta>
       <dialogue id="s432d1" name="BEN'S VOICE">Use the Force, Luke.</dialogue>
    </scene>
-   <scene id="s433">
+   <scene id="s433" timecode="01:50:38">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s433m1">The Death Star trench zooms by.</meta>
    </scene>
@@ -3024,7 +3024,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s434d1" name="BEN'S VOICE">Let go, Luke.</dialogue>
       <meta id="s434m2">A grim determination sweeps across Luke's face as he closes his eyes and starts to mumble Ben's training to himself.</meta>
    </scene>
-   <scene id="s435">
+   <scene id="s435" timecode="01:50:42">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s435m1">Luke's fighter streaks through the trench.</meta>
    </scene>
@@ -3032,7 +3032,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <dialogue id="s436d1" name="VADER">The Force is strong with this one!</dialogue>
    </scene>
-   <scene id="s437">
+   <scene id="s437" timecode="01:50:45">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s437m1">Vader follows Luke's X-wing down the trench.</meta>
    </scene>
@@ -3048,31 +3048,31 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s439d1" name="BASE VOICE">(over speaker) His computer's off. Luke, you switched off your targeting computer. What's wrong?</dialogue>
       <dialogue id="s439d2" name="LUKE">(over speaker) Nothing. I'm all right.</dialogue>
    </scene>
-   <scene id="s440">
+   <scene id="s440" timecode="01:50:57">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s440m1">Luke's ship streaks ever close to the exhaust port.</meta>
    </scene>
-   <scene id="s441">
+   <scene id="s441" timecode="01:50:59">
       <sceneheader>INT. LUKE'S X-WING - COCKPIT</sceneheader>
       <meta id="s441m1">Luke looks at the Death Star surface streaking by.</meta>
    </scene>
-   <scene id="s442">
+   <scene id="s442" timecode="01:51:01">
       <sceneheader>EXT. LUKE'S X-WING FIGHTER</sceneheader>
       <meta id="s442m1">Artoo-Detoo turns his head from side to side, beeping in anticipation.</meta>
    </scene>
-   <scene id="s443">
+   <scene id="s443" timecode="01:51:03">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s443m1">The three TIE fighters, manned by Vader and his two wingmen, follow Luke's X-wing down the trench.</meta>
    </scene>
-   <scene id="s444">
+   <scene id="s444" timecode="01:51:05">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s444m1">Vader maneuvers his controls as he looks at his doomed target. He presses the fire buttons on his control sticks. Laserfire shoots toward Luke's X-wing fighter.</meta>
    </scene>
-   <scene id="s445">
+   <scene id="s445" timecode="01:51:07">
       <sceneheader>EXT. LUKE'S X-WING FIGHTER</sceneheader>
       <meta id="s445m1">A large burst of Vader's laserfire engulfs Artoo. The arms go limp on the smoking little droid as he makes a high-pitched sound.</meta>
    </scene>
-   <scene id="s446">
+   <scene id="s446" timecode="01:51:09">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s446m1">Luke looks frantically back over his shoulder at Artoo.</meta>
    </scene>
@@ -3095,19 +3095,19 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s449d3" name="DEATH STAR INTERCOM VOICE">Commence primary ignition.</dialogue>
       <meta id="s449m4">An officer reaches up and pushes buttons on the control panel, as green lighted buttons turn to red.</meta>
    </scene>
-   <scene id="s450">
+   <scene id="s450" timecode="01:51:24">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s450m1">The three TIE fighters zoom down the Death Star trench in pursuit of Luke, never breaking formation.</meta>
    </scene>
-   <scene id="s451">
+   <scene id="s451" timecode="01:51:28">
       <sceneheader>INT. LUKE'S COCKPIT</sceneheader>
       <meta id="s451m1">Luke looks anxiously at the exhaust port.</meta>
    </scene>
-   <scene id="s452">
+   <scene id="s452" timecode="01:51:32">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s452m1">Vader adjusts his control sticks, checking his projected targeting screen.</meta>
    </scene>
-   <scene id="s453">
+   <scene id="s453" timecode="01:51:36">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s453m1">Luke's ship barrels down the trench.</meta>
    </scene>
@@ -3117,54 +3117,54 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s454d1" name="VADER">I have you now.</dialogue>
       <meta id="s454m2">He pushes the fire buttons.</meta>
    </scene>
-   <scene id="s455">
+   <scene id="s455" timecode="01:51:41">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s455m1">The three TIE fighters move in on Luke. As Vader's center fighter unleashes a volley of laserfire, one of the TIE ships at his side is hit and explodes into flame. The two remaining ships continue to move in.</meta>
    </scene>
-   <scene id="s456">
+   <scene id="s456" timecode="01:51:42">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s456m1">Luke looks about, wondering whose laserfire destroyed Vader's wingman.</meta>
    </scene>
-   <scene id="s457">
+   <scene id="s457" timecode="01:51:43">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s457m1">Vader is taken by surprise, and looks out from his cockpit.</meta>
       <dialogue id="s457d1" name="VADER">What?</dialogue>
    </scene>
-   <scene id="s458">
+   <scene id="s458" timecode="01:51:44">
       <sceneheader>INT. DARTH VADER'S WINGMAN - COCKPIT</sceneheader>
       <meta id="s458m1">Vader's wingman searches around him trying to locate the unknown attacker.</meta>
    </scene>
-   <scene id="s459">
+   <scene id="s459" timecode="01:51:45">
       <sceneheader>INT. MILLENNIUM FALCON - COCKPIT</sceneheader>
       <meta id="s459m1">Han and Chewbacca grin from ear to ear.</meta>
       <dialogue id="s459d1" name="HAN">(yelling) Yahoo!</dialogue>
    </scene>
-   <scene id="s460">
+   <scene id="s460" timecode="01:51:46">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s460m1">The Millennium Falcon heads right at the two TIE fighters. It's a collision course.</meta>
    </scene>
-   <scene id="s461">
+   <scene id="s461" timecode="01:51:47">
       <sceneheader>INT. WINGMAN'S COCKPIT</sceneheader>
       <meta id="s461m1">The wingman spots the pirateship coming at him and warns the Dark Lord.</meta>
       <dialogue id="s461d1" name="WINGMAN">Look out!</dialogue>
    </scene>
-   <scene id="s462">
+   <scene id="s462" timecode="01:51:48">
       <sceneheader>EXT. DEATH STAR TRENCH</sceneheader>
       <meta id="s462m1">Vader's wingman panics at the sight of the oncoming pirate starship and veers radically to one side, colliding with Vader's TIE fighter in the process. Vader's wingman crashes into the side wall of the trench and explodes. Vader's damaged ship spins out of the trench with a damaged wing.</meta>
    </scene>
-   <scene id="s463">
+   <scene id="s463" timecode="01:51:49">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s463m1">Vader's ship spins out of control with a bent solar fin, heading for deep space.</meta>
    </scene>
-   <scene id="s464">
+   <scene id="s464" timecode="01:51:50">
       <sceneheader>INT. DARTH VADER'S COCKPIT</sceneheader>
       <meta id="s464m1">Vader turns round and round in circles as his ship spins into space.</meta>
    </scene>
-   <scene id="s465">
+   <scene id="s465" timecode="01:51:51">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s465m1">Solo's ship moves in toward the Death Star trench.</meta>
    </scene>
-   <scene id="s466">
+   <scene id="s466" timecode="01:51:52">
       <sceneheader>INT. MILLENNIUM FALCON - COCKPIT</sceneheader>
       <meta id="s466m1">Solo, smiling, speaks to Luke over his headset mike.</meta>
       <dialogue id="s466d1" name="HAN">(into mike) You're all clear, kid.</dialogue>
@@ -3174,34 +3174,34 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <meta id="s467m1">Leia and the others listen to Solo's transmission.</meta>
       <dialogue id="s467d1" name="HAN">(over speaker) Now let's blow this thing and go home!</dialogue>
    </scene>
-   <scene id="s468">
+   <scene id="s468" timecode="01:51:57">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s468m1">Luke looks up and smiles. He concentrates on the exhaust port, then fires his laser torpedoes.</meta>
    </scene>
-   <scene id="s469">
+   <scene id="s469" timecode="01:52:00">
       <sceneheader>EXT. SURFACE OF THE DEATH STAR</sceneheader>
       <meta id="s469m1">Luke's torpedoes shoot toward the port and seems to simply disappear into the surface and not explode. But the shots do find their mark and have gone into the exhaust port and are heading for the main reactor.</meta>
    </scene>
-   <scene id="s470">
+   <scene id="s470" timecode="01:52:03">
       <sceneheader>INT. LUKE'S X-WING FIGHTER - COCKPIT</sceneheader>
       <meta id="s470m1">Luke throws his head back in relief.</meta>
    </scene>
-   <scene id="s471">
+   <scene id="s471" timecode="01:52:06">
       <sceneheader>INT. DEATH STAR</sceneheader>
       <meta id="s471m1">An Imperial soldier runs to the control panel board and pulls the attack lever as the board behind him lights up.</meta>
       <dialogue id="s471d1" name="INTERCOM VOICE">Stand by to fire at Rebel base.</dialogue>
    </scene>
-   <scene id="s472">
+   <scene id="s472" timecode="01:52:09">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s472m1">Two X-wings, a Y-wing, and the pirateship race toward Yavin in the distance.</meta>
    </scene>
-   <scene id="s473">
+   <scene id="s473" timecode="01:52:12">
       <sceneheader>INT. DEATH STAR</sceneheader>
       <meta id="s473m1">Several Imperial soldiers, flanking a pensive Grand Moff Tarkin, busily push control levers and buttons.</meta>
       <dialogue id="s473d1" name="INTERCOM VOICE">Standing by.</dialogue>
       <meta id="s473m2">The rumble of a distant explosion begins.</meta>
    </scene>
-   <scene id="s474">
+   <scene id="s474" timecode="01:52:15">
       <sceneheader>EXT. SPACE AROUND THE DEATH STAR</sceneheader>
       <meta id="s474m1">The Rebel ships race out of sight, leaving the moon-like Death Star alone against a blanket of stars. Several small flashes appear on the surface. The Death Star bursts into a supernova, creating a spectacular heavenly display.</meta>
    </scene>
@@ -3215,11 +3215,11 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s476d1" name="BEN'S VOICE">Remember, the Force will be with you... always.</dialogue>
       <meta id="s476m2">The ship rocks back and forth.</meta>
    </scene>
-   <scene id="s477">
+   <scene id="s477" timecode="01:52:35">
       <sceneheader>EXT. DARTH VADER'S TIE FIGHTER</sceneheader>
       <meta id="s477m1">Vader's ship spins off into space.</meta>
    </scene>
-   <scene id="s478">
+   <scene id="s478" timecode="01:52:47">
       <sceneheader>EXT. SPACE</sceneheader>
       <meta id="s478m1">The Rebel ships race toward the fourth moon of Yavin.</meta>
    </scene>
@@ -3241,7 +3241,7 @@ Genres : ActionAdventureFantasySci-Fi</info>
       <dialogue id="s479d9" name="THREEPIO">You must repair him! Sir, if any of my circuits or gears will help, I'll gladly donate them.</dialogue>
       <dialogue id="s479d10" name="LUKE">He'll be all right.</dialogue>
    </scene>
-   <scene id="s480">
+   <scene id="s480" timecode="01:53:29">
       <sceneheader>INT. MASSASSI OUTPOST - MAIN THRONE ROOM</sceneheader>
       <meta id="s480m1">Luke, Han, and Chewbacca enter the huge ruins of the main temple. Hundreds of troops are lined up in neat rows. Banners are flying and at the far end stands a vision in white, the beautiful young Senator Leia. Luke and the others solemnly march up the long aisle and kneel before Senator Leia. From one side of the temple marches a shined-up and fully repaired Artoo-Detoo. He waddles up to the group and stands next to an equally pristine Threepio, who is rather awestruck by the whole event. Chewbacca is confused. Dodonna and several other dignitaries sit on the left of the Princess Leia. Leia is dressed in a long white dress and is staggeringly beautiful. She rises and places a gold medallion around Han's neck. He winks at her. She then repeats the ceremony with Luke, who is moved by the event. They turn and face the assembled troops, who all bow before them. Chewbacca growls and Artoo beeps with happiness.</meta>
       <meta id="s480m2">END CREDITS OVER STARS</meta>
