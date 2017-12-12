@@ -14,8 +14,8 @@ DATA_DIR2 = "moviescripts_to_test"
 # TODO: check if scene_tuples actually extracts all scenes
 def get_scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
     """Separates movie script into scenes; returns tuples of (scene header, scene text)."""
-    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
-    # textdata_dir = os.path.join(PAR_DIR, DATA_DIR2)
+    #textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
+    textdata_dir = os.path.join(PAR_DIR, DATA_DIR2)
 
     movie_path = os.path.join(textdata_dir, movie_filename)
 
@@ -46,7 +46,10 @@ def moviescript_to_xml(movie_filename: str):
 
     # char_pattern = re.compile(r"([ |\t]*\b[^(\-\d][^<>a-z\s\n][^<>a-z:!?\n]*[^<>a-z!?:.\n][ |\t]?\n)(?!\n)")
     #char_pattern = re.compile(r"[\s]*\b[^a-z!?<>]+[^a-z!.?<>]$")  # (?!\n)
-    char_pattern = re.compile(r"\b[^a-z!?<>]*[^a-z!.?<>]+$")  # (?!\n)
+    #
+    # char_pattern = re.compile(r"\b[^a-z!?<>]*[^a-z!.?<>]+$")  # (?!\n)
+    char_pattern = re.compile(r"\b[^a-z!?<>]*[^a-z!.?<>]+(\(.+\))*$")  # (?!\n)
+
 
 
     # remove the movie info (at end of file) and put it into own xml tree element
@@ -123,9 +126,9 @@ def moviescript_to_xml(movie_filename: str):
             ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
 
     xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
-    textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
+    textdata_dir = os.path.join(PAR_DIR, DATA_DIR2)
 
-    path = os.path.join(textdata_dir, "scream.xml")
+    path = os.path.join(textdata_dir, "empty_linesBetweenCharAndDialogue.xml")
     with open(path, "w", encoding="UTF-8") as f:
         f.write(xmlstr)
     # print(xmlstr)
@@ -135,7 +138,8 @@ def main():
     """main"""
 
     # get_scene_tuples("testmovie.txt")
-    moviescript_to_xml("star-wars-4.txt")
+    #moviescript_to_xml("star-wars-4.txt")
+    moviescript_to_xml("empty_linesBetweenCharAndDialogue.txt")
 
 if __name__ == '__main__':
     main()
