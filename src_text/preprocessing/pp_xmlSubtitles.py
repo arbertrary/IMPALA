@@ -13,7 +13,7 @@ DATA_DIR = "testfiles"
 # class Subtitles:
 
 
-def get_subtitles(movie_filename: str) -> List[Tuple[str, str]]:
+def get_subtitles(movie_filename: str) -> List[Tuple[str, str, str]]:
     path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
     tree = ET.parse(path)
     root = tree.getroot()
@@ -22,6 +22,7 @@ def get_subtitles(movie_filename: str) -> List[Tuple[str, str]]:
     time = "00:00:00,000"
     for sentence in root:
         dialogue = ""
+        sentence_id = sentence.get("id")
         for child in sentence:
 
             if child.tag == "time" and str(child.get("id")).endswith("S"):
@@ -39,7 +40,7 @@ def get_subtitles(movie_filename: str) -> List[Tuple[str, str]]:
                     else:
                         dialogue = dialogue + word + " "
 
-        sent_tuple = (time, dialogue.strip())
+        sent_tuple = (sentence_id, time, dialogue.strip())
         subdialogue.append(sent_tuple)
 
     # i=1

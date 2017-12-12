@@ -16,7 +16,7 @@ DATA_DIR = "testfiles"
 def get_scene_timecodes(movie_filename: str, subs_filename: str) -> Dict[str, List[datetime]]:
     """Find closest matching sentences; Assign timecodes to scenes; get average timecode of a scene"""
     subs_dialogue = get_subtitles(subs_filename)
-    # [(timecode, sentence), (timecode, sentence) ...]
+    # [(sentence_id, timecode, sentence), (sentence_id, timecode, sentence) ...]
 
     movie_dialogue = get_moviedialogue(movie_filename)
     # [(sceneID, sentence), (sceneID, sentence) ...]
@@ -33,15 +33,15 @@ def get_scene_timecodes(movie_filename: str, subs_filename: str) -> Dict[str, Li
             elif j > (i + 200):
                 break
             else:
-                if moviesent[1] not in done2 and subsent[1] not in done1:
-                    ratio = fuzz.ratio(subsent[1].lower(), moviesent[1].lower())
+                if moviesent[1] not in done2 and subsent[2] not in done1:
+                    ratio = fuzz.ratio(subsent[2].lower(), moviesent[1].lower())
                     if ratio > 80:
-                        done1.append(subsent[1])
+                        done1.append(subsent[2])
                         done2.append(moviesent[1])
                         count += 1
 
                         # time = subsent[0]
-                        time = datetime.strptime(subsent[0], '%H:%M:%S,%f')  # .time()
+                        time = datetime.strptime(subsent[1], '%H:%M:%S,%f')  # .time()
 
                         sceneID = moviesent[0]
                         if sceneID in scene_times:
@@ -112,7 +112,7 @@ def annotate_time(movie_filename: str, subs_filename: str):
             time = scene_time[1]
 
             if scene_xml.attrib["id"] == id:
-                scene_xml.set("timecode", time.strftime('%H:%M:%S'))
+                scene_xml.set("time", time.strftime('%H:%M:%S'))
     tree.write("annotated.xml")
 
 
@@ -130,8 +130,8 @@ def add_time_inbetween_scenes(xml_filename: str):
     new_time_scenes = []
     for index, scene in enumerate(scenes):
 
-        if scene.attrib.get("timecode"):
-            time_new = scene.attrib.get("timecode")
+        if scene.attrib.get("time"):
+            time_new = scene.attrib.get("time")
 
             dt_new = datetime.strptime(time_new, '%H:%M:%S')
             dt_old = datetime.strptime(time_old, '%H:%M:%S')
@@ -163,7 +163,7 @@ def add_time_inbetween_scenes(xml_filename: str):
     for scene in new_time_scenes:
         for scene_xml in scenes:
             if scene_xml.attrib["id"] == scene[0]:
-                scene_xml.set("timecode", scene[1])
+                scene_xml.set("time_interpolated", scene[1])
 
     annotated = os.path.join(PAR_DIR, DATA_DIR, "star-wars-4_alltimes.xml")
     tree.write(annotated)
@@ -195,17 +195,17 @@ def main():
     # find_closest_sentences("star-wars-4.xml", "star-wars-4_sub.xml")
     # get_avg_scene_times("testmovie.xml", "testsubs.xml")
 
-    # time = datetime.now()
-    # annotate_time("star-wars-4.xml", "star-wars-4_sub.xml")
-    # # annotate_time("testmovie.xml", "testsubs.xml")
-    #
-    # time2 = datetime.now()
-    #
-    # diff = time2-time
-    # print(diff)
+    #time = datetime.now()
+    #annotate_time("star-wars-4.xml", "star-wars-4_sub.xml")
+    # annotate_time("testmovie.xml", "testsubs.xml")
+
+    #time2 = datetime.now()
+
+    #diff = time2-time
+    #print(diff)
 
     # add_time_inbetween_scenes("testmovie_annotated.xml")
-    add_time_inbetween_scenes("star-wars-4_times.xml")
+    add_time_inbetween_scenes("star-wars-4_annotated.xml")
 
     # test = nw.global_align("est", "testlul")
 
