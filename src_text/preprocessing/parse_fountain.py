@@ -12,18 +12,19 @@ DATA_DIR = "testfiles"
 DATA_DIR2 = "moviescripts_to_test"
 
 
-# TODO: check if scene_tuples actually extracts all scenes
-def get_scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
+def get_scene_tuples(movie_path: str) -> List[Tuple[str, str]]:
     """Separates movie script into scenes; returns tuples of (scene header, scene text)."""
-    #textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
-    textdata_dir = os.path.join(PAR_DIR, DATA_DIR2)
+    # textdata_dir = os.path.join(PAR_DIR, DATA_DIR)
+    # textdata_dir = os.path.join(PAR_DIR, DATA_DIR2)
 
-    movie_path = os.path.join(textdata_dir, movie_filename)
+    # movie_path = os.path.join(textdata_dir, movie_filename)
 
     with open(movie_path, 'r', encoding='utf-8') as movie:
         text = movie.read()
 
-        text = re.sub(r"FADE IN[.:]?|FADE TO[.:]?|CUT TO[.:]?|DISSOLVE TO[.:]?|FADE OUT[.:]?|FADE TO BLACK[.:]?\(?CONTINUED\)?", "", text)
+        text = re.sub(
+            r"FADE IN[.:]?|FADE TO[.:]?|CUT TO[.:]?|DISSOLVE TO[.:]?|FADE OUT[.:]?|FADE TO BLACK[.:]?\(?CONTINUED\)?",
+            "", text)
         text = text.strip()
 
         text = re.split(
@@ -40,30 +41,27 @@ def get_scene_tuples(movie_filename: str) -> List[Tuple[str, str]]:
     return scenelist
 
 
-def moviescript_to_xml(movie_filename: str):
+def moviescript_to_xml(movie_path: str):
     """Parses movie scripts in fountain plain text format to xml"""
     root = ET.Element("movie")
-    scenelist = get_scene_tuples(movie_filename)
+    scenelist = get_scene_tuples(movie_path)
 
     # char_pattern = re.compile(r"([ |\t]*\b[^(\-\d][^<>a-z\s\n][^<>a-z:!?\n]*[^<>a-z!?:.\n][ |\t]?\n)(?!\n)")
-    #char_pattern = re.compile(r"[\s]*\b[^a-z!?<>]+[^a-z!.?<>]$")  # (?!\n)
+    # char_pattern = re.compile(r"[\s]*\b[^a-z!?<>]+[^a-z!.?<>]$")  # (?!\n)
     #
     # char_pattern = re.compile(r"\b[^a-z!?<>]*[^a-z!.?<>]+$")  # (?!\n)
     char_pattern = re.compile(r"\b[^a-z!?<>]*[^a-z!.?<>]+(\(.+\))*$")  # (?!\n)
 
-
-
     # remove the movie info (at end of file) and put it into own xml tree element
     temp = scenelist[-1]
     text = temp[1].split('\n\n')
-    movieinfo = re.sub(r"\xa0|User Comments", "", text[-1]).strip()
+    movieinfo = re.sub(r"\xa0|User Comments", " ", text[-1]).strip()
     scene_text = re.sub(text[-1], "", temp[1])
     scenelist[-1] = (temp[0], scene_text)
     ET.SubElement(root, "info").text = movieinfo
 
     for index, scene in enumerate(scenelist):
         scene_id = "s" + str(index)
-        # ET.SubElement(sc, "sceneheader").text = scene[0].strip()
 
         # From start to first scene = Beginning
         if scene[0] == "MOVIEBEGINNING":
@@ -71,7 +69,7 @@ def moviescript_to_xml(movie_filename: str):
             continue
         else:
             sc = ET.SubElement(root, "scene", id=scene_id)
-            header = ET.SubElement(sc, "sceneheader").text = scene[0].strip()
+            ET.SubElement(sc, "sceneheader").text = scene[0].strip()
 
         lines = scene[1].split(os.linesep)
 
@@ -126,51 +124,49 @@ def moviescript_to_xml(movie_filename: str):
         if metatext.strip() and meta_id:
             ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
 
-    xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
-    textdata_dir = os.path.join(PAR_DIR, DATA_DIR2)
+    tree = ET.ElementTree(root)
 
-    path = os.path.join(textdata_dir, "empty_linesBetweenCharAndDialogue.xml")
-    with open(path, "w", encoding="UTF-8") as f:
-        f.write(xmlstr)
-    # print(xmlstr)
+    tokenize_moviescript(tree)
 
 
-def tokenize_moviescript(movie_filename: str):
-    path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
-    tree = ET.parse(path)
-
+def tokenize_moviescript(tree: ET.ElementTree):
+    """Sentence tokenizing of dialogue and meta text in movie script"""
     for scene in tree.findall("scene"):
         meta = scene.findall("meta")
         dialogue = scene.findall("dialogue")
 
         i = 1
         for m in meta:
-            m_sent_id = m.get("id") + "sent" + str(i)
-            i += 1
             for s in sent_tokenize(m.text):
+                m_sent_id = m.get("id") + "sent" + str(i)
                 ET.SubElement(m, "s", id=m_sent_id).text = s
+                i += 1
             m.text = ""
+            i = 1
         j = 1
         for d in dialogue:
-            d_sent_id = d.get("id") +"sent" + str(j)
-            j +=1
             for s in sent_tokenize(d.text):
+                d_sent_id = d.get("id") + "sent" + str(j)
                 ET.SubElement(d, "s", id=d_sent_id).text = s
+                j += 1
             d.text = ""
+            j = 1
 
     xmlstr = minidom.parseString(ET.tostring(tree.getroot())).toprettyxml(indent="   ")
+
     with open("testfile.xml", "w", encoding="UTF-8") as f:
         f.write(xmlstr)
 
-    #tree.write("testfile.xml")
 
 def main():
     """main"""
+    path = os.path.join(PAR_DIR, DATA_DIR, "star-wars-4.txt")
 
-    tokenize_moviescript("star-wars-4.xml")
+    # tokenize_moviescript("star-wars-4.xml")
     # get_scene_tuples("testmovie.txt")
-    #moviescript_to_xml("star-wars-4.txt")
-    #moviescript_to_xml("empty_linesBetweenCharAndDialogue.txt")
+    moviescript_to_xml(path)
+    # moviescript_to_xml("empty_linesBetweenCharAndDialogue.txt")
+
 
 if __name__ == '__main__':
     main()

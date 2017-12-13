@@ -5,24 +5,24 @@ import os
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
-from pp_xmlSubtitles import get_subtitles
-from pp_moviescript import get_moviedialogue
+from subtitles import get_subtitles
+from moviescript import get_moviedialogue
 from typing import List, Tuple, Dict
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"
 
 
-def get_scene_timecodes(movie_filename: str, subs_filename: str) -> Dict[str, List[datetime]]:
+def match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str, List[datetime]], Dict[str, datetime]]:
     """Find closest matching sentences; Assign timecodes to scenes; get average timecode of a scene"""
     subs_dialogue = get_subtitles(subs_filename)
     # [(sentence_id, timecode, sentence), (sentence_id, timecode, sentence) ...]
 
     movie_dialogue = get_moviedialogue(movie_filename)
-    # [(sceneID, sentence), (sceneID, sentence) ...]
+    # [(sentence_id, scene_id, sentence), (sentence_id, scene_id, sentence) ...]
 
     scene_times = {"s1": []}
-
+    sentence_times = {}
     done1 = []
     done2 = []
     count = 0
@@ -33,43 +33,40 @@ def get_scene_timecodes(movie_filename: str, subs_filename: str) -> Dict[str, Li
             elif j > (i + 200):
                 break
             else:
-                if moviesent[1] not in done2 and subsent[2] not in done1:
-                    ratio = fuzz.ratio(subsent[2].lower(), moviesent[1].lower())
+                if moviesent[2] not in done2 and subsent[2] not in done1:
+                    ratio = fuzz.ratio(subsent[2].lower(), moviesent[2].lower())
                     if ratio > 80:
                         done1.append(subsent[2])
-                        done2.append(moviesent[1])
+                        done2.append(moviesent[2])
                         count += 1
 
-                        # time = subsent[0]
-                        time = datetime.strptime(subsent[1], '%H:%M:%S,%f')  # .time()
+                        time = datetime.strptime(subsent[1], '%H:%M:%S,%f')
 
-                        sceneID = moviesent[0]
-                        if sceneID in scene_times:
-                            scene_times[sceneID].append(time)
+                        sentence_id = moviesent[0]
+                        scene_id = moviesent[1]
+
+                        if scene_id in scene_times:
+                            scene_times[scene_id].append(time)
                         else:
-                            scene_times[sceneID] = [time]
+                            scene_times[scene_id] = [time]
 
-                        print(i, j)
-                        print(moviesent[1])
-                        print(subsent[1])
-                        print(ratio)
-                        # print("\n")
+                        sentence_times[sentence_id] = time
+
+                        # print(i, j)
+                        # print(moviesent[1])
+                        # print(subsent[2])
+                        # print(ratio)
 
                     else:
                         continue
 
-    # print("sentences in subs: ", len(subs_dialogue))
-    # print("sentences in movie: ", len(movie_dialogue))
-    # print("found: ", count)
-
-    # print(scene_times["s1"])
-    return scene_times
+    return scene_times, sentence_times
 
 
 def get_avg_scene_times(movie_filename: str, subs_filename: str) -> List[Tuple[str, datetime]]:
     """Returns the average timecode for scenes with dialogue"""
 
-    scene_times = get_scene_timecodes(movie_filename, subs_filename)
+    scene_times = match_sentences(movie_filename, subs_filename)[0]
 
     scene_times_tuples = []
     for scene in scene_times:
@@ -97,16 +94,17 @@ def get_avg_scene_times(movie_filename: str, subs_filename: str) -> List[Tuple[s
     return scene_times_tuples
 
 
+# TODO: Zeiten der einzelnen SÄtze annotieren
 def annotate_time(movie_filename: str, subs_filename: str):
     """Adds the timecode to the scenes in the movie script xml file"""
-    times = get_avg_scene_times(movie_filename, subs_filename)
+    scene_times = get_avg_scene_times(movie_filename, subs_filename)
     path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
 
     tree = ET.parse(path)
 
     scenes = tree.findall("scene")
 
-    for scene_time in times:
+    for scene_time in scene_times:
         for scene_xml in scenes:
             id = scene_time[0]
             time = scene_time[1]
@@ -169,55 +167,26 @@ def add_time_inbetween_scenes(xml_filename: str):
     tree.write(annotated)
 
 
-# def test_needleman(movie_filename: str, subs_filename: str):
-#     """testing nwalign3"""
-#
-#     subs_dialogue = ' '.join(extract_subdialogue(subs_filename))
-#     subs_dialogue = word_tokenize(subs_dialogue)
-#
-#     movie_dialogue = ' '.join(extract_moviedialogue(movie_filename))
-#     movie_dialogue = word_tokenize(movie_dialogue)
-#
-#     for subsent in subs_dialogue:
-#         for moviesent in movie_dialogue:
-#             test = nw.global_align(subsent, moviesent)
-#
-#
-#             score = nw.score_alignment(test[0].upper(), test[1].upper(), gap_open=-10, gap_extend=-5, matrix='PAM250')
-#             if score > 10:
-#                 print(test[0])
-#                 print(test[1])
-#                 print(score)
-
-
 def main():
     """main function"""
-    # find_closest_sentences("star-wars-4.xml", "star-wars-4_sub.xml")
-    # get_avg_scene_times("testmovie.xml", "testsubs.xml")
 
-    #time = datetime.now()
+    path = os.path.join(PAR_DIR, DATA_DIR)
+
+    time = datetime.now()
     #annotate_time("star-wars-4.xml", "star-wars-4_sub.xml")
     # annotate_time("testmovie.xml", "testsubs.xml")
+    #test = match_sentences(os.path.join(path, "star-wars-4.xml"), os.path.join(path, "star-wars-4_sub.xml"))
+    test = get_avg_scene_times(os.path.join(path, "star-wars-4.xml"), os.path.join(path, "star-wars-4_sub.xml"))
+    time2 = datetime.now()
+    diff = time2-time
+    print(diff)
 
-    #time2 = datetime.now()
-
-    #diff = time2-time
-    #print(diff)
+    for item in test:
+        print(item)
 
     # add_time_inbetween_scenes("testmovie_annotated.xml")
-    add_time_inbetween_scenes("star-wars-4_annotated.xml")
+    # add_time_inbetween_scenes("star-wars-4_annotated.xml")
 
-    # test = nw.global_align("est", "testlul")
-
-    # print(test[0].upper())
-    # print(test[1])
-
-    # print(nw.score_alignment(test[0].upper(), test[1].upper(), gap_open=-5, gap_extend=-2, matrix='PAM250'))
-    # print(nw.score_alignment('CEELECANTH', '-PELICAN--', gap_open=-5,
-    # gap_extend=-2, matrix='PAM250'))
-
-    # test_needleman("Star-Wars-A-New-Hope.txt", "Star-Wars-A-New-HopeSubtitles.srt")
-    # test_needleman("testmovie.txt", "testsubs.txt")
 
 
 if __name__ == '__main__':

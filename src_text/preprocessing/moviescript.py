@@ -25,14 +25,13 @@ def get_movieinfo(movie_filename: str) -> str:
     return info
 
 
-def get_moviedialogue(movie_filename: str) -> List[Tuple[str, str]]:
+def get_moviedialogue(movie_path) -> List[Tuple[str, str]]:
     """Get only the dialogue from the moviescript, together with a reference to the scene?
     TODO: Vielleicht statt List[Tuple[id, satz] lieber mit dict {id: Tuple[sätze]}?
     Brauche ich nur die szenen-ID oder auch die dialog-id?
     """
 
-    path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
-    tree = ET.parse(path)
+    tree = ET.parse(movie_path)
     dialogue_tuples = []
 
     for scene in tree.findall("scene"):
@@ -41,7 +40,7 @@ def get_moviedialogue(movie_filename: str) -> List[Tuple[str, str]]:
         dialogue = scene.findall("dialogue")
 
         for d in dialogue:
-            dialogue_tuples += [(scene_id, sent) for sent in sent_tokenize(d.text)]
+            dialogue_tuples += [(sent.get("id"), scene_id, sent.text) for sent in d.findall("s")]
 
     # for d in dialogue_tuples:
     #     print(d)
@@ -93,10 +92,9 @@ def get_genres(movie_filename: str) -> List[str]:
 
 
 def main():
-    print(get_genres("star-wars-4.xml"))
-    # get_movieinfo("star-wars-4.xml")
-    # print(get_characters("star-wars-4.xml"))
-    # get_moviedialogue("star-wars-4.xml")
+
+    path = os.path.join(PAR_DIR, DATA_DIR)
+    get_moviedialogue(os.path.join(path, "star-wars-4.xml"))
     # get_metatext("star-wars-4.xml")
 
 
