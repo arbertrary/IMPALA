@@ -4,6 +4,7 @@ import os
 import re
 import xml.etree.cElementTree as ET
 from typing import List, Tuple
+from nltk import sent_tokenize
 from xml.dom import minidom
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
@@ -134,12 +135,42 @@ def moviescript_to_xml(movie_filename: str):
     # print(xmlstr)
 
 
+def tokenize_moviescript(movie_filename: str):
+    path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
+    tree = ET.parse(path)
+
+    for scene in tree.findall("scene"):
+        meta = scene.findall("meta")
+        dialogue = scene.findall("dialogue")
+
+        i = 1
+        for m in meta:
+            m_sent_id = m.get("id") + "sent" + str(i)
+            i += 1
+            for s in sent_tokenize(m.text):
+                ET.SubElement(m, "s", id=m_sent_id).text = s
+            m.text = ""
+        j = 1
+        for d in dialogue:
+            d_sent_id = d.get("id") +"sent" + str(j)
+            j +=1
+            for s in sent_tokenize(d.text):
+                ET.SubElement(d, "s", id=d_sent_id).text = s
+            d.text = ""
+
+    xmlstr = minidom.parseString(ET.tostring(tree.getroot())).toprettyxml(indent="   ")
+    with open("testfile.xml", "w", encoding="UTF-8") as f:
+        f.write(xmlstr)
+
+    #tree.write("testfile.xml")
+
 def main():
     """main"""
 
+    tokenize_moviescript("star-wars-4.xml")
     # get_scene_tuples("testmovie.txt")
     #moviescript_to_xml("star-wars-4.txt")
-    moviescript_to_xml("empty_linesBetweenCharAndDialogue.txt")
+    #moviescript_to_xml("empty_linesBetweenCharAndDialogue.txt")
 
 if __name__ == '__main__':
     main()
