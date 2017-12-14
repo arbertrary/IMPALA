@@ -1,4 +1,4 @@
-"""Reading moviescript from xml format"""
+"""Reading moviescript from xml format BEFORE annotating with timecodes"""
 
 import os
 import xml.etree.ElementTree as ET
@@ -25,10 +25,8 @@ def get_movieinfo(movie_filename: str) -> str:
     return info
 
 
-def get_moviedialogue(movie_path) -> List[Tuple[str, str]]:
-    """Get only the dialogue from the moviescript, together with a reference to the scene?
-    TODO: Vielleicht statt List[Tuple[id, satz] lieber mit dict {id: Tuple[sätze]}?
-    Brauche ich nur die szenen-ID oder auch die dialog-id?
+def get_moviedialogue(movie_path) -> List[Tuple[str, str, str]]:
+    """Return List of Triples of (sentence_id, scene_id, sentence)
     """
 
     tree = ET.parse(movie_path)
@@ -48,7 +46,7 @@ def get_moviedialogue(movie_path) -> List[Tuple[str, str]]:
 
 
 def get_characters(movie_filename: str) -> Set[str]:
-    """get the characters"""
+    """get the movie characters"""
     path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
     tree = ET.parse(path)
     temp = []

@@ -126,10 +126,15 @@ def moviescript_to_xml(movie_path: str):
 
     tree = ET.ElementTree(root)
 
-    tokenize_moviescript(tree)
+    tree = sent_tokenize_moviescript(tree)
+
+    xmlstr = minidom.parseString(ET.tostring(tree.getroot())).toprettyxml(indent="   ")
+
+    with open("testfile.xml", "w", encoding="UTF-8") as f:
+        f.write(xmlstr)
 
 
-def tokenize_moviescript(tree: ET.ElementTree):
+def sent_tokenize_moviescript(tree: ET.ElementTree) -> ET.ElementTree:
     """Sentence tokenizing of dialogue and meta text in movie script"""
     for scene in tree.findall("scene"):
         meta = scene.findall("meta")
@@ -152,17 +157,14 @@ def tokenize_moviescript(tree: ET.ElementTree):
             d.text = ""
             j = 1
 
-    xmlstr = minidom.parseString(ET.tostring(tree.getroot())).toprettyxml(indent="   ")
-
-    with open("testfile.xml", "w", encoding="UTF-8") as f:
-        f.write(xmlstr)
+    return tree
 
 
 def main():
     """main"""
     path = os.path.join(PAR_DIR, DATA_DIR, "star-wars-4.txt")
 
-    # tokenize_moviescript("star-wars-4.xml")
+    # sent_tokenize_moviescript("star-wars-4.xml")
     # get_scene_tuples("testmovie.txt")
     moviescript_to_xml(path)
     # moviescript_to_xml("empty_linesBetweenCharAndDialogue.txt")
