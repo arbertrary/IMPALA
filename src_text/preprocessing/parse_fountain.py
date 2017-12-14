@@ -41,7 +41,7 @@ def get_scene_tuples(movie_path: str) -> List[Tuple[str, str]]:
     return scenelist
 
 
-def moviescript_to_xml(movie_path: str):
+def moviescript_to_xml(movie_path: str, dest: str):
     """Parses movie scripts in fountain plain text format to xml"""
     root = ET.Element("movie")
     scenelist = get_scene_tuples(movie_path)
@@ -130,7 +130,7 @@ def moviescript_to_xml(movie_path: str):
 
     xmlstr = minidom.parseString(ET.tostring(tree.getroot())).toprettyxml(indent="   ")
 
-    with open("testfile.xml", "w", encoding="UTF-8") as f:
+    with open(dest, "w", encoding="UTF-8") as f:
         f.write(xmlstr)
 
 
@@ -162,11 +162,11 @@ def sent_tokenize_moviescript(tree: ET.ElementTree) -> ET.ElementTree:
 
 def main():
     """main"""
-    path = os.path.join(PAR_DIR, DATA_DIR, "star-wars-4.txt")
-
+    path = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.txt")
+    dest = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.xml")
     # sent_tokenize_moviescript("star-wars-4.xml")
     # get_scene_tuples("testmovie.txt")
-    moviescript_to_xml(path)
+    moviescript_to_xml(path, dest)
     # moviescript_to_xml("empty_linesBetweenCharAndDialogue.txt")
 
 

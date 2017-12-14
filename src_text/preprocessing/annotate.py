@@ -1,5 +1,4 @@
-"""Comparing movie scripts and subtitle file.
-Upcoming: annotating movie scripts with time codes from subtitles """
+"""Annotating xml movie scripts with time codes found in subtitle files"""
 
 import os
 import xml.etree.ElementTree as ET
@@ -14,24 +13,25 @@ DATA_DIR = "testfiles"
 
 
 def annotate(movie_path: str, subs_path: str, dest_path: str):
+    """ Input: xml movie script without times and xml subtitle file
+        Output: annotated xml movie script with average time and interpolated time codes @ scenes and
+        time codes @ matched sentences
+    """
     scene_times, sentence_times = match_sentences(movie_path, subs_path)
 
     avg_scene_times = get_avg_scene_times(scene_times)
 
     tree = annotate_time(movie_path, avg_scene_times, sentence_times)
 
-    add_time_inbetween_scenes(tree, dest_path)
+    interpolate_timecodes(tree, dest_path)
 
 
-# TODO: Zeiten der einzelnen Sätze annotieren
-def annotate_time(movie_path: str, avg_scene_times: List, sentence_times: Dict):
-    """Adds the timecode to the scenes in the movie script xml file"""
+def annotate_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
+    """Adds the timecode to the scenes and sentences in the movie script xml file"""
     tree = ET.parse(movie_path)
 
-    scenes = tree.findall("scene")
-
     for scene_time in avg_scene_times:
-        for scene_xml in scenes:
+        for scene_xml in tree.iter("scene"):
             scene_id = scene_time[0]
             time = scene_time[1]
             if scene_xml.attrib["id"] == scene_id:
@@ -55,16 +55,19 @@ def match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str, 
     movie_dialogue = get_moviedialogue(movie_filename)
     # [(sentence_id, scene_id, sentence), (sentence_id, scene_id, sentence) ...]
 
-    scene_times = {"s1": []}
+    diff = abs(len(movie_dialogue) - len(subs_dialogue))
+
+    # scene_times = {"s1": []}
+    scene_times = {}
     sentence_times = {}
     done1 = []
     done2 = []
     count = 0
     for i, subsent in enumerate(subs_dialogue):
         for j, moviesent in enumerate(movie_dialogue):
-            if j < (i - 200):
+            if j < (i - diff):
                 continue
-            elif j > (i + 200):
+            elif j > (i + diff):
                 break
             else:
                 if moviesent[2] not in done2 and subsent[2] not in done1:
@@ -73,6 +76,10 @@ def match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str, 
                         done1.append(subsent[2])
                         done2.append(moviesent[2])
                         count += 1
+
+                        # print(subsent[2])
+                        # print(moviesent[2])
+                        # print(ratio)
 
                         time = datetime.strptime(subsent[1], '%H:%M:%S,%f')
 
@@ -113,8 +120,8 @@ def get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tupl
     return scene_times_tuples
 
 
-def add_time_inbetween_scenes(tree, dest_path):
-    """Add timecode to scenes that originally had none. Based on timecodes before and after those scenes."""
+def interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
+    """Add interpolated time codes to scenes that previously had no time"""
 
     scenes = tree.findall("scene")
 
@@ -170,7 +177,15 @@ def main():
 
     time = datetime.now()
 
-    annotate(os.path.join(path, "star-wars-4.xml"), os.path.join(path, "star-wars-4_sub.xml"), "annotated.xml")
+    annotate(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"), os.path.join(path, "hellraiser_annotated.xml"))
+
+    # test1, test2 = match_sentences(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"))
+    #
+    # for t in test1:
+    #     print(t, test1[t])
+    #
+    # for t in test2:
+    #     print(t, test2[t])
 
     time2 = datetime.now()
     diff = time2 - time
