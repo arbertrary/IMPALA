@@ -13,6 +13,7 @@ matplotlib = "*"
 textblob = "*"
 afinn = "*"
 librosa = "*"
+pysoundfile = "*"
 
 
 [dev-packages]
