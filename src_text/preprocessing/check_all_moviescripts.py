@@ -5,7 +5,7 @@ Check and clean all movie scripts in directory
 import os
 import re
 from nltk import word_tokenize
-from parse_fountain import scene_tuples
+from fountain import scene_tuples
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = 'imsdbScripts'

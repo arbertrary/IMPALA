@@ -7,9 +7,26 @@ TODO
 import os
 import xml.etree.ElementTree as ET
 from typing import List, Set
+from annotate import annotate
+from fountain import moviescript_to_xml
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"
+
+
+def parse(fountain_path: str, subs_path: str, dest_path: str):
+    unannotated_xml = moviescript_to_xml(fountain_path, dest_path)
+
+    annotate(unannotated_xml, subs_path, dest_path)
+
+
+def main():
+    path = os.path.join(PAR_DIR, DATA_DIR)
+    fountain = os.path.join(path, "star-wars-4.txt")
+    subs_path = os.path.join(path, "star-wars-4_sub.xml")
+    dest_path = os.path.join(path, "star-wars-4_annotated.xml")
+
+    parse(fountain, subs_path, dest_path)
 
 
 def get_movieinfo(xml_path: str) -> str:
@@ -26,6 +43,7 @@ def get_characters(xml_path: str) -> Set[str]:
     characters = set(char.get("name") for char in tree.iter("dialogue"))
 
     return characters
+
 
 def get_dialogue(xml_path):
     """Get only the dialogue"""
@@ -57,12 +75,6 @@ def get_genres(xml_path: str) -> List[str]:
             raise ValueError("Movie not found in allgenres.txt")
 
     return genres
-
-
-def main():
-    path = os.path.join(PAR_DIR, DATA_DIR)
-
-    print(get_genres(os.path.join(path, "star-wars-4.xml")))
 
 
 if __name__ == '__main__':

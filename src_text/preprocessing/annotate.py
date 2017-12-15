@@ -17,16 +17,16 @@ def annotate(movie_path: str, subs_path: str, dest_path: str):
         Output: annotated xml movie script with average time and interpolated time codes @ scenes and
         time codes @ matched sentences
     """
-    scene_times, sentence_times = match_sentences(movie_path, subs_path)
+    scene_times, sentence_times = __match_sentences(movie_path, subs_path)
 
-    avg_scene_times = get_avg_scene_times(scene_times)
+    avg_scene_times = __get_avg_scene_times(scene_times)
 
-    tree = annotate_time(movie_path, avg_scene_times, sentence_times)
+    tree = __annotate_time(movie_path, avg_scene_times, sentence_times)
 
-    interpolate_timecodes(tree, dest_path)
+    __interpolate_timecodes(tree, dest_path)
 
 
-def annotate_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
+def __annotate_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
     """Adds the timecode to the scenes and sentences in the movie script xml file"""
     tree = ET.parse(movie_path)
 
@@ -47,7 +47,7 @@ def annotate_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) 
     return tree
 
 
-def match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str, List[datetime]], Dict[str, datetime]]:
+def __match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str, List[datetime]], Dict[str, datetime]]:
     """Find closest matching sentences; Assign timecodes to scenes; get average timecode of a scene"""
     subs_dialogue = get_subtitles(subs_filename)
     # [(sentence_id, timecode, sentence), (sentence_id, timecode, sentence) ...]
@@ -98,7 +98,7 @@ def match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str, 
     return scene_times, sentence_times
 
 
-def get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tuple[str, datetime]]:
+def __get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tuple[str, datetime]]:
     """Returns the average timecode for scenes with dialogue"""
 
     scene_times_tuples = []
@@ -120,7 +120,7 @@ def get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tupl
     return scene_times_tuples
 
 
-def interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
+def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
     """Add interpolated time codes to scenes that previously had no time"""
 
     scenes = tree.findall("scene")
@@ -177,7 +177,8 @@ def main():
 
     time = datetime.now()
 
-    annotate(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"), os.path.join(path, "hellraiser_annotated.xml"))
+    annotate(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"),
+             os.path.join(path, "hellraiser_annotated.xml"))
 
     # test1, test2 = match_sentences(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"))
     #

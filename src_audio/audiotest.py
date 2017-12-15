@@ -10,8 +10,8 @@ CUR_DIR = os.path.dirname(__file__)
 PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
 DATA_DIR = "testfiles"
 
-# audio_path = os.path.join(PAR_DIR, DATA_DIR, "selfiefromhell.wav")
-audio_path = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.wav")
+audio_path = os.path.join(PAR_DIR, DATA_DIR, "selfiefromhell.wav")
+# audio_path = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.wav")
 
 
 def rms_energy(audiofile):
@@ -46,23 +46,32 @@ def test(path):
         # S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
         # rms = librosa.feature.rmse(S=S)
 
-        m = np.median(rms)
+        m = np.mean(rms)
         testlist.append(m)
 
     l = len(testlist)
 
-    plt.figure(figsize=(20, 5))
-
-    plt.subplot(311)
-    i = l//3
-    plt.semilogy(testlist[0:i])
-    plt.subplot(312)
-    j = 2*l//3
-    plt.semilogy(testlist[i:j])
-    plt.subplot(313)
-    k = 2*l//3
-    plt.semilogy(testlist[k:])
-
+    plt.figure()
+    plt.title("")
+    plt.subplot(211)
+    plt.semilogy(testlist, label="RMS Energy")
+    plt.xlim(0, l)
+    # plt.subplot(311)
+    # plt.title('Hellraiser 1/3')
+    # i = l//3
+    # plt.semilogy(testlist[0:i])
+    #
+    # plt.subplot(312)
+    # plt.title('Hellraiser 2/3')
+    #
+    # j = 2*l//3
+    # plt.semilogy(testlist[i:j])
+    #
+    # plt.subplot(313)
+    # plt.title('Hellraiser 3/3')
+    #
+    # k = 2*l//3
+    # plt.semilogy(testlist[k:])
 
     plt.tight_layout()
 

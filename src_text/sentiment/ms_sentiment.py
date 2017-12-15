@@ -2,7 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from parse_fountain import extract_moviedialogue, get_scene_tuples
+from fountain import extract_moviedialogue, get_scene_tuples
 from pp_subtitles import extract_subdialogue
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
