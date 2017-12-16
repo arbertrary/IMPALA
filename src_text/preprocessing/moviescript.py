@@ -26,6 +26,10 @@ def main():
     subs_path = os.path.join(path, "star-wars-4_sub.xml")
     dest_path = os.path.join(path, "star-wars-4_annotated.xml")
 
+    # fountain = os.path.join(path, "hellraiser.txt")
+    # subs_path = os.path.join(path, "hellraiser_sub.xml")
+    # dest_path = os.path.join(path, "hellraiser_annotated.xml")
+
     parse(fountain, subs_path, dest_path)
 
 

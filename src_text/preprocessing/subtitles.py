@@ -14,6 +14,7 @@ DATA_DIR = "testfiles"
 
 
 def get_subtitles(movie_filename: str) -> List[Tuple[str, str, str]]:
+    """returns subtitles as list of Triples of (sentence_id, start-timecode, sentence)"""
     path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
     tree = ET.parse(path)
     root = tree.getroot()

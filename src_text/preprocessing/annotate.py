@@ -5,7 +5,6 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
 from subtitles import get_subtitles
-from moviescript_temp import get_moviedialogue
 from typing import List, Tuple, Dict
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
@@ -21,12 +20,12 @@ def annotate(movie_path: str, subs_path: str, dest_path: str):
 
     avg_scene_times = __get_avg_scene_times(scene_times)
 
-    tree = __annotate_time(movie_path, avg_scene_times, sentence_times)
+    tree = __write_time(movie_path, avg_scene_times, sentence_times)
 
     __interpolate_timecodes(tree, dest_path)
 
 
-def __annotate_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
+def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
     """Adds the timecode to the scenes and sentences in the movie script xml file"""
     tree = ET.parse(movie_path)
 
@@ -40,19 +39,25 @@ def __annotate_time(movie_path: str, avg_scene_times: List, sentence_times: Dict
     for sentence_time in sentence_times:
         for s in tree.iter("s"):
             sent_id = sentence_time
-            time = sentence_times[sentence_time]
+            time = sentence_times.get(sentence_time)[0]
+            sub_sentence_id = sentence_times.get(sentence_time)[1]
             if s.attrib["id"] == sent_id:
                 s.set("time", time.strftime('%H:%M:%S'))
+                s.set("subtitle_id", sub_sentence_id)
 
     return tree
 
 
-def __match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str, List[datetime]], Dict[str, datetime]]:
-    """Find closest matching sentences; Assign timecodes to scenes; get average timecode of a scene"""
-    subs_dialogue = get_subtitles(subs_filename)
+def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
+    Dict[str, List[datetime]], Dict[str, Tuple[datetime, str]]]:
+    """Find closest matching sentences; Return two Dicts
+    a) {scene_id : [timecode sentence1, timecode sentence2 ...]}
+    b) {sentence_id : (timecode, sentence id from subtitle file)}
+    """
+    subs_dialogue = get_subtitles(subs_path)
     # [(sentence_id, timecode, sentence), (sentence_id, timecode, sentence) ...]
 
-    movie_dialogue = get_moviedialogue(movie_filename)
+    movie_dialogue = __get_moviedialogue(movie_path)
     # [(sentence_id, scene_id, sentence), (sentence_id, scene_id, sentence) ...]
 
     diff = abs(len(movie_dialogue) - len(subs_dialogue))
@@ -84,7 +89,7 @@ def __match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str
                         time = datetime.strptime(subsent[1], '%H:%M:%S,%f')
 
                         sentence_id = moviesent[0]
-                        sentence_times[sentence_id] = time
+                        sentence_times[sentence_id] = (time, subsent[0])
 
                         scene_id = moviesent[1]
 
@@ -99,7 +104,9 @@ def __match_sentences(movie_filename: str, subs_filename: str) -> Tuple[Dict[str
 
 
 def __get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tuple[str, datetime]]:
-    """Returns the average timecode for scenes with dialogue"""
+    """Returns the average timecode for scenes
+    (averaged over the timecodes of dialogue-sentences, that were found in __match_sentences)
+    """
 
     scene_times_tuples = []
     for scene in scene_timecodes:
@@ -120,8 +127,25 @@ def __get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tu
     return scene_times_tuples
 
 
+def __get_moviedialogue(movie_path) -> List[Tuple[str, str, str]]:
+    """Return List of Triples of (sentence_id, scene_id, sentence)"""
+
+    tree = ET.parse(movie_path)
+    dialogue_triples = []
+
+    for scene in tree.findall("scene"):
+        scene_id = scene.get("id")
+
+        dialogue = scene.findall("dialogue")
+
+        for d in dialogue:
+            dialogue_triples += [(sent.get("id"), scene_id, sent.text) for sent in d.findall("s")]
+
+    return dialogue_triples
+
+
 def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
-    """Add interpolated time codes to scenes that previously had no time"""
+    """Add interpolated time codes to scenes that previously had no annotated time code"""
 
     scenes = tree.findall("scene")
 

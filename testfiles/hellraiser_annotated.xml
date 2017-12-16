@@ -131,7 +131,7 @@ Genres :   Horror</info>
          <s id="sc2d1s1">It's one of these.</s>
       </dialogue>
       <dialogue id="sc2d2" name="JULIA">
-         <s id="sc2d2s1" time="00:05:56">We're going to freeze to death.</s>
+         <s id="sc2d2s1" subtitle_id="6" time="00:05:56">We're going to freeze to death.</s>
       </dialogue>
       <dialogue id="sc2d3" name="LARRY">
          <s id="sc2d3s1">0.K.</s>
@@ -141,7 +141,7 @@ Genres :   Horror</info>
          <s id="sc2m4s1">The sound of another key tried in the lock.</s>
       </meta>
       <dialogue id="sc2d4" name="JULIA">
-         <s id="sc2d4s1" time="00:06:00">Maybe somebody changed the lock.</s>
+         <s id="sc2d4s1" subtitle_id="8" time="00:06:00">Maybe somebody changed the lock.</s>
       </dialogue>
       <dialogue id="sc2d5" name="LARRY">
          <s id="sc2d5s1">(slightly irritated) Like who?</s>
@@ -150,13 +150,13 @@ Genres :   Horror</info>
          <s id="sc2d6s1">Just a thought -</s>
       </dialogue>
       <dialogue id="sc2d7" name="LARRY">
-         <s id="sc2d7s1" time="00:06:08">Ah!</s>
+         <s id="sc2d7s1" subtitle_id="13" time="00:06:08">Ah!</s>
       </dialogue>
       <meta id="sc2m8">
          <s id="sc2m8s1">The key is turned.</s>
       </meta>
       <dialogue id="sc2d8" name="LARRY">
-         <s id="sc2d8s1" time="00:06:08">Success.</s>
+         <s id="sc2d8s1" subtitle_id="14" time="00:06:08">Success.</s>
       </dialogue>
       <meta id="sc2m9">
          <s id="sc2m9s1">The door swings open.</s>
@@ -187,7 +187,7 @@ Genres :   Horror</info>
          <s id="sc3m1s2">From downstairs, we hear JULIA's voice.</s>
       </meta>
       <dialogue id="sc3d1" name="JULIA">
-         <s id="sc3d1s1" time="00:06:26">It smells damp.</s>
+         <s id="sc3d1s1" subtitle_id="19" time="00:06:26">It smells damp.</s>
       </dialogue>
       <dialogue id="sc3d2" name="LARRY">
          <s id="sc3d2s1">It's just been empty a while.</s>
@@ -223,16 +223,16 @@ Genres :   Horror</info>
          <s id="sc6m1s1">He stands in the hallway, not certain which way to go from here.</s>
       </meta>
       <dialogue id="sc6d1" name="JULIA">
-         <s id="sc6d1s1" time="00:06:38">How long since you were here?</s>
+         <s id="sc6d1s1" subtitle_id="22" time="00:06:38">How long since you were here?</s>
       </dialogue>
       <dialogue id="sc6d2" name="LARRY">
-         <s id="sc6d2s1" time="00:06:38">The best part of ten years.</s>
+         <s id="sc6d2s1" subtitle_id="23" time="00:06:38">The best part of ten years.</s>
       </dialogue>
       <meta id="sc6m3">
          <s id="sc6m3s1">LARRY picks up some mail - circulars mostly - from behind the door, then leads JULIA through from the hallway to explore the ground floor.</s>
       </meta>
       <dialogue id="sc6d3" name="LARRY">
-         <s id="sc6d3s1" time="00:06:45">I wanted to sell it off at one point, after the old Lady died, but I couldn't get Frank to agree.</s>
+         <s id="sc6d3s1" subtitle_id="24" time="00:06:45">I wanted to sell it off at one point, after the old Lady died, but I couldn't get Frank to agree.</s>
       </dialogue>
       <meta id="sc6m4">
          <s id="sc6m4s1">He opens one of the doors, and looks inside.</s>
@@ -274,7 +274,7 @@ Genres :   Horror</info>
          <s id="sc6d9s2">Sell everything.</s>
       </dialogue>
       <dialogue id="sc6d10" name="JULIA">
-         <s id="sc6d10s1" time="00:07:03">I thought half of it was your brother's?</s>
+         <s id="sc6d10s1" subtitle_id="29" time="00:07:03">I thought half of it was your brother's?</s>
       </dialogue>
       <dialogue id="sc6d11" name="LARRY">
          <s id="sc6d11s1">He won't complain.</s>
@@ -285,8 +285,8 @@ Genres :   Horror</info>
          <s id="sc6m12s2">He leaves the room, moving past JULIA to explore further.</s>
       </meta>
       <dialogue id="sc6d12" name="LARRY">
-         <s id="sc6d12s1" time="00:07:15">You know we have to let Kirsty see this place, before we do anything to it.</s>
-         <s id="sc6d12s2" time="00:07:19">She'll love it.</s>
+         <s id="sc6d12s1" subtitle_id="33" time="00:07:15">You know we have to let Kirsty see this place, before we do anything to it.</s>
+         <s id="sc6d12s2" subtitle_id="34" time="00:07:19">She'll love it.</s>
       </dialogue>
       <dialogue id="sc6d13" name="JULIA">
          <s id="sc6d13s1">You mean we're moving in?</s>
@@ -296,13 +296,13 @@ Genres :   Horror</info>
          <s id="sc6m14s2">Looks at her.</s>
       </meta>
       <dialogue id="sc6d14" name="LARRY">
-         <s id="sc6d14s1" time="00:07:22">You don't like it?</s>
+         <s id="sc6d14s1" subtitle_id="36" time="00:07:22">You don't like it?</s>
       </dialogue>
       <meta id="sc6m15">
          <s id="sc6m15s1">JULIA shrugs.</s>
       </meta>
       <dialogue id="sc6d15" name="JULIA">
-         <s id="sc6d15s1" time="00:07:24">It's better than Brooklyn.</s>
+         <s id="sc6d15s1" subtitle_id="37" time="00:07:24">It's better than Brooklyn.</s>
       </dialogue>
       <meta id="sc6m16">
          <s id="sc6m16s1">She turns back down the hallway.</s>
@@ -323,10 +323,10 @@ Genres :   Horror</info>
          <s id="sc6m19s1">We are hearing the tip of a debate they've had dozens of times, which immediately annoys them both.</s>
       </meta>
       <dialogue id="sc6d19" name="JULIA">
-         <s id="sc6d19s1" time="00:11:15">All right.</s>
+         <s id="sc6d19s1" subtitle_id="90" time="00:11:15">All right.</s>
       </dialogue>
       <dialogue id="sc6d20" name="LARRY">
-         <s id="sc6d20s1" time="00:07:41">So what's the argument?</s>
+         <s id="sc6d20s1" subtitle_id="44" time="00:07:41">So what's the argument?</s>
       </dialogue>
       <dialogue id="sc6d21" name="JULIA">
          <s id="sc6d21s1">(cold) No argument.</s>
@@ -375,7 +375,7 @@ Genres :   Horror</info>
          <s id="sc9m1s4">Then, from above:</s>
       </meta>
       <dialogue id="sc9d1" name="JULIA">
-         <s id="sc9d1s1" time="00:08:33">Larry!</s>
+         <s id="sc9d1s1" subtitle_id="49" time="00:08:33">Larry!</s>
       </dialogue>
       <meta id="sc9m2">
          <s id="sc9m2s1">He leaves the kitchen and retraces his steps to the bottom of the stairs.</s>
@@ -397,7 +397,7 @@ Genres :   Horror</info>
          <s id="sc10m1s1">LARRY reaches the top of the stairs.</s>
       </meta>
       <dialogue id="sc10d1" name="LARRY">
-         <s id="sc10d1s1" time="00:08:36">Where are you?</s>
+         <s id="sc10d1s1" subtitle_id="51" time="00:08:36">Where are you?</s>
       </dialogue>
       <dialogue id="sc10d2" name="JULIA">
          <s id="sc10d2s1">(out of sight) In here.</s>
@@ -408,7 +408,7 @@ Genres :   Horror</info>
          <s id="sc10m3s3">Beyond, the 'bedroom' we saw in the titles sequence, untouched since then.</s>
       </meta>
       <dialogue id="sc10d3" name="JULIA">
-         <s id="sc10d3s1" time="00:08:47">Squatters?</s>
+         <s id="sc10d3s1" subtitle_id="53" time="00:08:47">Squatters?</s>
       </dialogue>
       <meta id="sc10m4">
          <s id="sc10m4s1">LARRY steps past her, and throws back the blankets.</s>
@@ -420,13 +420,13 @@ Genres :   Horror</info>
          <s id="sc10m4s7">One pictures a good-looking intense man in his mid to late thirties, in bed with a naked Chinese girl.</s>
       </meta>
       <dialogue id="sc10d4" name="LARRY">
-         <s id="sc10d4s1" time="00:08:53">Frank.</s>
+         <s id="sc10d4s1" subtitle_id="54" time="00:08:53">Frank.</s>
       </dialogue>
       <meta id="sc10m5">
          <s id="sc10m5s1">At the door, we see JULIA almost flinch at the name.</s>
       </meta>
       <dialogue id="sc10d5" name="JULIA">
-         <s id="sc10d5s1" time="00:08:56">He's here?</s>
+         <s id="sc10d5s1" subtitle_id="55" time="00:08:56">He's here?</s>
       </dialogue>
       <dialogue id="sc10d6" name="LARRY">
          <s id="sc10d6s1">He's been here.</s>
@@ -550,16 +550,16 @@ Genres :   Horror</info>
          <s id="sc18m1s3">We can't see much of the room she's in at the moment, the shot is too tight.</s>
       </meta>
       <dialogue id="sc18d1" name="LARRY   (V.0.)">
-         <s id="sc18d1s1" time="00:09:26">Kirsty?</s>
+         <s id="sc18d1s1" subtitle_id="62" time="00:09:26">Kirsty?</s>
       </dialogue>
       <dialogue id="sc18d2" name="KIRSTY">
-         <s id="sc18d2s1" time="00:09:27">I got through.</s>
+         <s id="sc18d2s1" subtitle_id="63" time="00:09:27">I got through.</s>
       </dialogue>
       <dialogue id="sc18d3" name="LARRY   (V.O.)">
          <s id="sc18d3s1">Where are you?</s>
       </dialogue>
       <dialogue id="sc18d4" name="KIRSTY">
-         <s id="sc18d4s1" time="00:09:29">I found a room.</s>
+         <s id="sc18d4s1" subtitle_id="65" time="00:09:29">I found a room.</s>
       </dialogue>
       <meta id="sc18m5">
          <s id="sc18m5s1">20</s>
@@ -577,7 +577,7 @@ Genres :   Horror</info>
    <scene id="sc20" time_avg="00:09:35">
       <sceneheader>INT.   KIRSTY'S ROOM   DAY</sceneheader>
       <dialogue id="sc20d1" name="KIRSTY">
-         <s id="sc20d1s1" time="00:09:32">I said: I found a room.</s>
+         <s id="sc20d1s1" subtitle_id="67" time="00:09:32">I said: I found a room.</s>
       </dialogue>
       <meta id="sc20m2">
          <s id="sc20m2s1">We begin to draw back from KIRSTY now, as she continues to speak to her father.</s>
@@ -586,16 +586,16 @@ Genres :   Horror</info>
          <s id="sc20m2s4">From outside, the sound of trains going by.</s>
       </meta>
       <dialogue id="sc20d2" name="LARRY (V.0.)">
-         <s id="sc20d2s1" time="00:09:34">I thought you were going to stay with us for awhile?</s>
+         <s id="sc20d2s1" subtitle_id="68" time="00:09:34">I thought you were going to stay with us for awhile?</s>
       </dialogue>
       <dialogue id="sc20d3" name="KIRSTY">
          <s id="sc20d3s1">(pained) No Dad.</s>
       </dialogue>
       <dialogue id="sc20d4" name="LARRY (V.0.)">
-         <s id="sc20d4s1" time="00:09:37">You'd like the house.</s>
+         <s id="sc20d4s1" subtitle_id="70" time="00:09:37">You'd like the house.</s>
       </dialogue>
       <dialogue id="sc20d5" name="KIRSTY">
-         <s id="sc20d5s1" time="00:09:39">YOU'D like my room.</s>
+         <s id="sc20d5s1" subtitle_id="71" time="00:09:39">YOU'D like my room.</s>
       </dialogue>
       <dialogue id="sc20d6" name="LARRY (V.0.)">
          <s id="sc20d6s1">Do you want me to come over?</s>
@@ -736,13 +736,13 @@ Genres :   Horror</info>
          <s id="sc23d3s1">How are you doing through there?</s>
       </dialogue>
       <dialogue id="sc23d4" name="JULIA">
-         <s id="sc23d4s1" time="00:11:42">It looks like a bomb's dropped.</s>
+         <s id="sc23d4s1" subtitle_id="103" time="00:11:42">It looks like a bomb's dropped.</s>
       </dialogue>
       <dialogue id="sc23d5" name="2ND MAN">
-         <s id="sc23d5s1" time="00:11:44">Got any beer?</s>
+         <s id="sc23d5s1" subtitle_id="104" time="00:11:44">Got any beer?</s>
       </dialogue>
       <dialogue id="sc23d6" name="JULIA">
-         <s id="sc23d6s1" time="00:11:46">There's some in the 'fridge.</s>
+         <s id="sc23d6s1" subtitle_id="105" time="00:11:46">There's some in the 'fridge.</s>
       </dialogue>
       <meta id="sc23m7">
          <s id="sc23m7s1">Nobody moves to get it.</s>
@@ -788,7 +788,7 @@ Genres :   Horror</info>
          <s id="sc25d3s1">Want to buy a bed?</s>
       </dialogue>
       <dialogue id="sc25d4" name="KIRSTY">
-         <s id="sc25d4s1" time="00:13:10">Not much.</s>
+         <s id="sc25d4s1" subtitle_id="112" time="00:13:10">Not much.</s>
       </dialogue>
       <meta id="sc25m5">
          <s id="sc25m5s1">She moves past them, attempting to insinuate herself between the bed and the door-jamb.</s>
@@ -801,7 +801,7 @@ Genres :   Horror</info>
    <scene id="sc26" time_avg="00:13:06">
       <sceneheader>INT.   HALLWAY   DAY</sceneheader>
       <dialogue id="sc26d1" name="KIRSTY">
-         <s id="sc26d1s1" time="00:09:25">Dad?</s>
+         <s id="sc26d1s1" subtitle_id="61" time="00:09:25">Dad?</s>
       </dialogue>
       <meta id="sc26m2">
          <s id="sc26m2s1">LARRY emerges from one of the rooms, looking harassed.</s>
@@ -817,10 +817,10 @@ Genres :   Horror</info>
          <s id="sc26d3s1">Big house.</s>
       </dialogue>
       <dialogue id="sc26d4" name="LARRY">
-         <s id="sc26d4s1" time="00:13:22">You like?</s>
+         <s id="sc26d4s1" subtitle_id="121" time="00:13:22">You like?</s>
       </dialogue>
       <dialogue id="sc26d5" name="KIRSTY">
-         <s id="sc26d5s1" time="00:13:25">Me like.</s>
+         <s id="sc26d5s1" subtitle_id="123" time="00:13:25">Me like.</s>
       </dialogue>
       <meta id="sc26m6">
          <s id="sc26m6s1">Another hug.</s>
@@ -829,12 +829,12 @@ Genres :   Horror</info>
          <s id="sc26d6s1">I'll show you around when we've got this damn bed moved.</s>
       </dialogue>
       <dialogue id="sc26d7" name="KIRSTY">
-         <s id="sc26d7s1" time="00:13:30">Is Julia here?</s>
+         <s id="sc26d7s1" subtitle_id="125" time="00:13:30">Is Julia here?</s>
       </dialogue>
       <dialogue id="sc26d8" name="LARRY">
          <s id="sc26d8s1">Upstairs.</s>
          <s id="sc26d8s2">(his voice lowers) Treat her gently, huh?</s>
-         <s id="sc26d8s3" time="00:13:35">She hates moving.</s>
+         <s id="sc26d8s3" subtitle_id="128" time="00:13:35">She hates moving.</s>
       </dialogue>
       <dialogue id="sc26d9" name="KIRSTY">
          <s id="sc26d9s1">(dryly) Suprise.</s>
@@ -846,7 +846,7 @@ Genres :   Horror</info>
          <s id="sc26d11s1">O.K.</s>
          <s id="sc26d11s2">I'll be nice.</s>
          <s id="sc26d11s3">You get on with the muscle work.</s>
-         <s id="sc26d11s4" time="00:13:43">I'll make myself some coffee.</s>
+         <s id="sc26d11s4" subtitle_id="133" time="00:13:43">I'll make myself some coffee.</s>
       </dialogue>
       <dialogue id="sc26d12" name="LARRY">
          <s id="sc26d12s1">Kitchen's through on your left</s>
@@ -860,7 +860,7 @@ Genres :   Horror</info>
          <s id="sc26m13s6">The 2ND MAN is unperturbed.</s>
       </meta>
       <dialogue id="sc26d13" name="2ND MAN">
-         <s id="sc26d13s1" time="00:13:52">That your daughter?</s>
+         <s id="sc26d13s1" subtitle_id="138" time="00:13:52">That your daughter?</s>
       </dialogue>
       <dialogue id="sc26d14" name="LARRY">
          <s id="sc26d14s1">Uh-huh.</s>
@@ -869,7 +869,7 @@ Genres :   Horror</info>
          <s id="sc26d15s1">(grins oafishly) Got her mother's looks.</s>
       </dialogue>
       <dialogue id="sc26d16" name="LARRY">
-         <s id="sc26d16s1" time="00:13:54">Her mother's dead.</s>
+         <s id="sc26d16s1" subtitle_id="140" time="00:13:54">Her mother's dead.</s>
       </dialogue>
       <meta id="sc26m17">
          <s id="sc26m17s1">2ND MAN's grin fades.</s>
@@ -917,7 +917,7 @@ Genres :   Horror</info>
          <s id="sc28m1s7">Then FRANK's voice.</s>
       </meta>
       <dialogue id="sc28d1" name="FRANK">
-         <s id="sc28d1s1" time="00:14:17">Can I come in?</s>
+         <s id="sc28d1s1" subtitle_id="142" time="00:14:17">Can I come in?</s>
       </dialogue>
       <meta id="sc28m2">
          <s id="sc28m2s1">JULIA looks up from the photograph.</s>
@@ -956,7 +956,7 @@ Genres :   Horror</info>
          <s id="sc30m1s2">She jumps back, soaked.</s>
       </meta>
       <dialogue id="sc30d1" name="KIRSTY">
-         <s id="sc30d1s1" time="00:19:26">Shit!</s>
+         <s id="sc30d1s1" subtitle_id="191" time="00:19:26">Shit!</s>
          <s id="sc30d1s2">Shit!</s>
       </dialogue>
       <meta id="sc30m2">
@@ -1001,11 +1001,11 @@ Genres :   Horror</info>
          <s id="sc33m1s5">She looks at the man on the doorstep without a trace of recognition on her face.</s>
       </meta>
       <dialogue id="sc33d1" name="FRANK">
-         <s id="sc33d1s1" time="00:14:29">You're Julia, right?</s>
+         <s id="sc33d1s1" subtitle_id="144" time="00:14:29">You're Julia, right?</s>
       </dialogue>
       <dialogue id="sc33d2" name="JULIA">
-         <s id="sc33d2s1" time="00:14:29">That's right.</s>
-         <s id="sc33d2s2" time="00:14:33">Who are you?</s>
+         <s id="sc33d2s1" subtitle_id="145" time="00:14:29">That's right.</s>
+         <s id="sc33d2s2" subtitle_id="146" time="00:14:33">Who are you?</s>
       </dialogue>
       <dialogue id="sc33d3" name="FRANK">
          <s id="sc33d3s1">(a dazzling smile) I'm brother Frank.</s>
@@ -1014,7 +1014,7 @@ Genres :   Horror</info>
          <s id="sc33d4s1">(smiles) Oh.</s>
       </dialogue>
       <dialogue id="sc33d5" name="FRANK">
-         <s id="sc33d5s1" time="00:14:44">I came for the wedding.</s>
+         <s id="sc33d5s1" subtitle_id="151" time="00:14:44">I came for the wedding.</s>
       </dialogue>
       <meta id="sc33m6">
          <s id="sc33m6s1">He looks at her, eyes glittering.</s>
@@ -1026,12 +1026,12 @@ Genres :   Horror</info>
          <s id="sc33d6s2">Oh yes.</s>
       </dialogue>
       <dialogue id="sc33d7" name="FRANK">
-         <s id="sc33d7s1" time="00:14:50">Well can I come in or not?</s>
+         <s id="sc33d7s1" subtitle_id="152" time="00:14:50">Well can I come in or not?</s>
       </dialogue>
       <dialogue id="sc33d8" name="JULIA">
-         <s id="sc33d8s1" time="00:14:52">I'm sorry.</s>
-         <s id="sc33d8s2" time="00:14:52">Of course.</s>
-         <s id="sc33d8s3" time="00:14:59">You're very welcome.</s>
+         <s id="sc33d8s1" subtitle_id="153" time="00:14:52">I'm sorry.</s>
+         <s id="sc33d8s2" subtitle_id="154" time="00:14:52">Of course.</s>
+         <s id="sc33d8s3" subtitle_id="155" time="00:14:59">You're very welcome.</s>
       </dialogue>
       <meta id="sc33m9">
          <s id="sc33m9s1">He steps inside.</s>
@@ -1039,8 +1039,8 @@ Genres :   Horror</info>
          <s id="sc33m9s3">We can hear his breath; sense the almost intimidating intimacy of his presence.</s>
       </meta>
       <dialogue id="sc33d9" name="FRANK">
-         <s id="sc33d9s1" time="00:14:59">That's nice to know.</s>
-         <s id="sc33d9s2" time="00:15:08">(pause) Have you got a towel?</s>
+         <s id="sc33d9s1" subtitle_id="157" time="00:14:59">That's nice to know.</s>
+         <s id="sc33d9s2" subtitle_id="159" time="00:15:08">(pause) Have you got a towel?</s>
       </dialogue>
       <meta id="sc33m10">
          <s id="sc33m10s1">35</s>
@@ -1061,14 +1061,14 @@ Genres :   Horror</info>
          <s id="sc34m2s3">JULIA looks up, and hurriedly pockets the photograph.</s>
       </meta>
       <dialogue id="sc34d2" name="JULIA">
-         <s id="sc34d2s1" time="00:15:11">Kirsty.</s>
+         <s id="sc34d2s1" subtitle_id="160" time="00:15:11">Kirsty.</s>
       </dialogue>
       <dialogue id="sc34d3" name="KIRSTY">
          <s id="sc34d3s1">Hi.</s>
          <s id="sc34d3s2">I got soaked.</s>
       </dialogue>
       <dialogue id="sc34d4" name="JULIA">
-         <s id="sc34d4s1" time="00:15:13">There's a towel in the bath- room.</s>
+         <s id="sc34d4s1" subtitle_id="161" time="00:15:13">There's a towel in the bath- room.</s>
       </dialogue>
       <dialogue id="sc34d5" name="KIRSTY">
          <s id="sc34d5s1">Which is where?</s>
@@ -1081,7 +1081,7 @@ Genres :   Horror</info>
          <s id="sc34m7s2">We</s>
       </meta>
       <dialogue id="sc34d7" name="CUT BACK TO">
-         <s id="sc34d7s1" time="00:15:22">JULIA.</s>
+         <s id="sc34d7s1" subtitle_id="164" time="00:15:22">JULIA.</s>
          <s id="sc34d7s2">It's clear the memory of her first meeting with FRANK has affected her deeply.</s>
          <s id="sc34d7s3">The tears that threatened earlier are close.</s>
       </dialogue>
@@ -1150,14 +1150,14 @@ Genres :   Horror</info>
          <s id="sc39m1s7">From downstairs, the voices of the bed-movers.</s>
       </meta>
       <dialogue id="sc39d1" name="1ST MAN">
-         <s id="sc39d1s1" time="00:18:04">Have you got it?</s>
+         <s id="sc39d1s1" subtitle_id="174" time="00:18:04">Have you got it?</s>
       </dialogue>
       <dialogue id="sc39d2" name="2ND MAN">
          <s id="sc39d2s1">I've got it.</s>
          <s id="sc39d2s2">I told you -</s>
       </dialogue>
       <dialogue id="sc39d3" name="LARRY">
-         <s id="sc39d3s1" time="00:27:35">Wait!</s>
+         <s id="sc39d3s1" subtitle_id="272" time="00:27:35">Wait!</s>
          <s id="sc39d3s2">Wait!</s>
       </dialogue>
       <meta id="sc39m4">
@@ -1215,10 +1215,10 @@ Genres :   Horror</info>
          <s id="sc40m8s1">FRANK steps towards her.</s>
       </meta>
       <dialogue id="sc40d8" name="JULIA">
-         <s id="sc40d8s1" time="00:16:48">What about Larry -</s>
+         <s id="sc40d8s1" subtitle_id="171" time="00:16:48">What about Larry -</s>
       </dialogue>
       <dialogue id="sc40d9" name="FRANK">
-         <s id="sc40d9s1" time="00:16:58">Forget him.</s>
+         <s id="sc40d9s1" subtitle_id="172" time="00:16:58">Forget him.</s>
       </dialogue>
       <meta id="sc40m10">
          <s id="sc40m10s1">FRANK takes hold of her.</s>
@@ -1261,7 +1261,7 @@ Genres :   Horror</info>
          <s id="sc42m1s11">Her arms are flung up over her head; her eyes are closed as she murmurs:</s>
       </meta>
       <dialogue id="sc42d1" name="JULIA">
-         <s id="sc42d1s1" time="00:26:06">Oh my God.</s>
+         <s id="sc42d1s1" subtitle_id="254" time="00:26:06">Oh my God.</s>
          <s id="sc42d1s2">Oh my God.</s>
          <s id="sc42d1s3">Oh my God.</s>
       </dialogue>
@@ -1432,10 +1432,10 @@ Genres :   Horror</info>
       </dialogue>
       <dialogue id="sc48d4" name="LARRY">
          <s id="sc48d4s1">I don't know, I haven't looked.</s>
-         <s id="sc48d4s2" time="00:19:19">You know me and blood.</s>
+         <s id="sc48d4s2" subtitle_id="186" time="00:19:19">You know me and blood.</s>
       </dialogue>
       <dialogue id="sc48d5" name="JULIA">
-         <s id="sc48d5s1" time="00:19:21">You're NOT going to faint.</s>
+         <s id="sc48d5s1" subtitle_id="188" time="00:19:21">You're NOT going to faint.</s>
       </dialogue>
       <dialogue id="sc48d6" name="LARRY">
          <s id="sc48d6s1">(he leans againts the wall) Shit.</s>
@@ -1449,10 +1449,10 @@ Genres :   Horror</info>
          <s id="sc48m8s3">Blood comes faster, hitting the floor between them.</s>
       </meta>
       <dialogue id="sc48d8" name="JULIA">
-         <s id="sc48d8s1" time="00:19:30">It's probably going to need stitches.</s>
+         <s id="sc48d8s1" subtitle_id="192" time="00:19:30">It's probably going to need stitches.</s>
       </dialogue>
       <dialogue id="sc48d9" name="LARRY">
-         <s id="sc48d9s1" time="00:19:35">I'm going to throw up.</s>
+         <s id="sc48d9s1" subtitle_id="196" time="00:19:35">I'm going to throw up.</s>
       </dialogue>
       <dialogue id="sc48d10" name="JULIA">
          <s id="sc48d10s1">No, you're not.</s>
@@ -1491,19 +1491,19 @@ Genres :   Horror</info>
          <s id="sc49m1s1">KIRSTY is half way up the stairs, as JULIA and LARRY head down.</s>
       </meta>
       <dialogue id="sc49d1" name="KIRSTY">
-         <s id="sc49d1s1" time="00:20:04">What happened?</s>
+         <s id="sc49d1s1" subtitle_id="201" time="00:20:04">What happened?</s>
       </dialogue>
       <dialogue id="sc49d2" name="JULIA">
-         <s id="sc49d2s1" time="00:20:06">Just an accident.</s>
-         <s id="sc49d2s2" time="00:20:06">He's all right.</s>
-         <s id="sc49d2s3" time="00:20:08">Will you drive?</s>
-         <s id="sc49d2s4" time="00:20:08">He needs stitches.</s>
+         <s id="sc49d2s1" subtitle_id="202" time="00:20:06">Just an accident.</s>
+         <s id="sc49d2s2" subtitle_id="203" time="00:20:06">He's all right.</s>
+         <s id="sc49d2s3" subtitle_id="204" time="00:20:08">Will you drive?</s>
+         <s id="sc49d2s4" subtitle_id="205" time="00:20:08">He needs stitches.</s>
       </dialogue>
       <dialogue id="sc49d3" name="KIRSTY">
          <s id="sc49d3s1">Sure.</s>
       </dialogue>
       <dialogue id="sc49d4" name="JULIA">
-         <s id="sc49d4s1" time="00:20:10">The keys are in the kitchen.</s>
+         <s id="sc49d4s1" subtitle_id="207" time="00:20:10">The keys are in the kitchen.</s>
       </dialogue>
       <meta id="sc49m5">
          <s id="sc49m5s1">KIRSTY heads back to the kitchen.</s>
@@ -1589,10 +1589,10 @@ Genres :   Horror</info>
          <s id="sc52d4s1">Probably thought you'd sue.</s>
       </dialogue>
       <dialogue id="sc52d5" name="LARRY">
-         <s id="sc52d5s1" time="00:23:01">I should do it!</s>
+         <s id="sc52d5s1" subtitle_id="216" time="00:23:01">I should do it!</s>
       </dialogue>
       <dialogue id="sc52d6" name="EVELYN">
-         <s id="sc52d6s1" time="00:23:14">Doctors -</s>
+         <s id="sc52d6s1" subtitle_id="220" time="00:23:14">Doctors -</s>
       </dialogue>
       <dialogue id="sc52d7" name="LARRY">
          <s id="sc52d7s1">I know.</s>
@@ -1607,7 +1607,7 @@ Genres :   Horror</info>
       </dialogue>
       <dialogue id="sc52d10" name="EVELYN">
          <s id="sc52d10s1">(protests) No ... no ...</s>
-         <s id="sc52d10s2" time="00:34:55">I ...</s>
+         <s id="sc52d10s2" subtitle_id="343" time="00:34:55">I ...</s>
       </dialogue>
       <dialogue id="sc52d11" name="LARRY">
          <s id="sc52d11s1">Come on, you're only young once -</s>
@@ -1641,10 +1641,10 @@ Genres :   Horror</info>
          <s id="sc52m18s1">He fills up KIRSTY's glass.</s>
       </meta>
       <dialogue id="sc52d18" name="KIRSTY">
-         <s id="sc52d18s1" time="00:23:27">I won't be able to stand.</s>
+         <s id="sc52d18s1" subtitle_id="228" time="00:23:27">I won't be able to stand.</s>
       </dialogue>
       <dialogue id="sc52d19" name="STEVE">
-         <s id="sc52d19s1" time="00:23:27">So lie down.</s>
+         <s id="sc52d19s1" subtitle_id="229" time="00:23:27">So lie down.</s>
       </dialogue>
       <meta id="sc52m20">
          <s id="sc52m20s1">She casts him a sly glance.</s>
@@ -1653,8 +1653,8 @@ Genres :   Horror</info>
          <s id="sc52m20s4">JULIA now stands up.</s>
       </meta>
       <dialogue id="sc52d20" name="JULIA">
-         <s id="sc52d20s1" time="00:23:38">Would you excuse me?</s>
-         <s id="sc52d20s2" time="00:23:38">I think I'm going to go to bed.</s>
+         <s id="sc52d20s1" subtitle_id="230" time="00:23:38">Would you excuse me?</s>
+         <s id="sc52d20s2" subtitle_id="231" time="00:23:38">I think I'm going to go to bed.</s>
       </dialogue>
       <dialogue id="sc52d21" name="LARRY">
          <s id="sc52d21s1">Are you O.K.</s>
@@ -1673,7 +1673,7 @@ Genres :   Horror</info>
       <dialogue id="sc52d23" name="LARRY">
          <s id="sc52d23s1">Bill?</s>
          <s id="sc52d23s2">Absolutely not.</s>
-         <s id="sc52d23s3" time="00:23:53">Sit down.</s>
+         <s id="sc52d23s3" subtitle_id="238" time="00:23:53">Sit down.</s>
          <s id="sc52d23s4">We've got celebrating to do.</s>
       </dialogue>
       <meta id="sc52m24">
@@ -1717,7 +1717,7 @@ Genres :   Horror</info>
          <s id="sc52m31s4">Meanwhile, the conversation has returned to LARRY's 'wound'.</s>
       </meta>
       <dialogue id="sc52d31" name="EVELYN">
-         <s id="sc52d31s1" time="00:24:22">Does it still hurt?</s>
+         <s id="sc52d31s1" subtitle_id="246" time="00:24:22">Does it still hurt?</s>
       </dialogue>
       <dialogue id="sc52d32" name="LARRY">
          <s id="sc52d32s1">Only when I laugh.</s>
@@ -1780,20 +1780,20 @@ Genres :   Horror</info>
          <s id="sc55d3s1">Oh my God.</s>
       </dialogue>
       <dialogue id="sc55d4" name="FRANK">
-         <s id="sc55d4s1" time="00:26:08">Don't look at me.</s>
+         <s id="sc55d4s1" subtitle_id="255" time="00:26:08">Don't look at me.</s>
       </dialogue>
       <dialogue id="sc55d5" name="JULIA">
          <s id="sc55d5s1">Who are you?</s>
       </dialogue>
       <dialogue id="sc55d6" name="FRANK">
-         <s id="sc55d6s1" time="00:26:18">I said: don't look.</s>
+         <s id="sc55d6s1" subtitle_id="257" time="00:26:18">I said: don't look.</s>
       </dialogue>
       <meta id="sc55m7">
          <s id="sc55m7s1">She looks away.</s>
          <s id="sc55m7s2">Help me.</s>
       </meta>
       <dialogue id="sc55d7" name="JULIA">
-         <s id="sc55d7s1" time="00:26:29">Tell me who you are.</s>
+         <s id="sc55d7s1" subtitle_id="259" time="00:26:29">Tell me who you are.</s>
       </dialogue>
       <dialogue id="sc55d8" name="FRANK">
          <s id="sc55d8s1">Frank.</s>
@@ -1802,27 +1802,27 @@ Genres :   Horror</info>
          <s id="sc55m9s1">JULIA's face registers horror and disbelief.</s>
       </meta>
       <dialogue id="sc55d9" name="JULIA">
-         <s id="sc55d9s1" time="00:26:40">No.</s>
+         <s id="sc55d9s1" subtitle_id="261" time="00:26:40">No.</s>
          <s id="sc55d9s2">God no.</s>
       </dialogue>
       <dialogue id="sc55d10" name="FRANK">
          <s id="sc55d10s1">Believe me.</s>
          <s id="sc55d10s2">It's me.</s>
-         <s id="sc55d10s3" time="00:26:47">It's really me.</s>
+         <s id="sc55d10s3" subtitle_id="264" time="00:26:47">It's really me.</s>
       </dialogue>
       <dialogue id="sc55d11" name="JULIA">
          <s id="sc55d11s1">What happened to you?</s>
       </dialogue>
       <dialogue id="sc55d12" name="FRANK">
-         <s id="sc55d12s1" time="00:26:50">His blood ... on the floor ...</s>
-         <s id="sc55d12s2" time="00:26:50">It brought me back.</s>
+         <s id="sc55d12s1" subtitle_id="265" time="00:26:50">His blood ... on the floor ...</s>
+         <s id="sc55d12s2" subtitle_id="266" time="00:26:50">It brought me back.</s>
       </dialogue>
       <dialogue id="sc55d13" name="JULIA">
-         <s id="sc55d13s1" time="00:27:01">Back from where?</s>
+         <s id="sc55d13s1" subtitle_id="268" time="00:27:01">Back from where?</s>
       </dialogue>
       <dialogue id="sc55d14" name="FRANK">
-         <s id="sc55d14s1" time="00:27:03">Just help, will you?</s>
-         <s id="sc55d14s2" time="00:27:06">Please God, help me -</s>
+         <s id="sc55d14s1" subtitle_id="269" time="00:27:03">Just help, will you?</s>
+         <s id="sc55d14s2" subtitle_id="270" time="00:27:06">Please God, help me -</s>
       </dialogue>
       <meta id="sc55m15">
          <s id="sc55m15s1">From downstairs, dimly, laughter.</s>
@@ -1889,7 +1889,7 @@ Genres :   Horror</info>
          <s id="sc58m1s1">FRANK, in the corner of the room, watches JULIA, who is still at the door.</s>
       </meta>
       <dialogue id="sc58d1" name="FRANK">
-         <s id="sc58d1s1" time="00:27:35">... somebody ...</s>
+         <s id="sc58d1s1" subtitle_id="271" time="00:27:35">... somebody ...</s>
       </dialogue>
       <dialogue id="sc58d2" name="JULIA">
          <s id="sc58d2s1">Ssh!</s>
@@ -1899,14 +1899,14 @@ Genres :   Horror</info>
       </meta>
       <dialogue id="sc58d3" name="FRANK">
          <s id="sc58d3s1">You can't let me stay like this.</s>
-         <s id="sc58d3s2" time="00:37:55">Please.</s>
+         <s id="sc58d3s2" subtitle_id="378" time="00:37:55">Please.</s>
          <s id="sc58d3s3">You can't.</s>
       </dialogue>
       <dialogue id="sc58d4" name="JULIA">
-         <s id="sc58d4s1" time="00:27:58">What do you want me to do.</s>
+         <s id="sc58d4s1" subtitle_id="274" time="00:27:58">What do you want me to do.</s>
       </dialogue>
       <dialogue id="sc58d5" name="FRANK">
-         <s id="sc58d5s1" time="00:28:00">The blood brought me this far.</s>
+         <s id="sc58d5s1" subtitle_id="275" time="00:28:00">The blood brought me this far.</s>
          <s id="sc58d5s2">I need more of the same.</s>
          <s id="sc58d5s3">Or I'll slip back ...</s>
       </dialogue>
@@ -1915,7 +1915,7 @@ Genres :   Horror</info>
          <s id="sc58d6s2">She is appalled at the choice before her.</s>
       </dialogue>
       <dialogue id="sc58d7" name="FRANK">
-         <s id="sc58d7s1" time="00:28:08">(a plea) You have to heal me.</s>
+         <s id="sc58d7s1" subtitle_id="277" time="00:28:08">(a plea) You have to heal me.</s>
       </dialogue>
       <meta id="sc58m8">
          <s id="sc58m8s1">58</s>
@@ -1938,7 +1938,7 @@ Genres :   Horror</info>
          <s id="sc60m1s3">From the floor above, a soft sigh.</s>
       </meta>
       <dialogue id="sc60d1" name="KIRSTY">
-         <s id="sc60d1s1" time="00:32:38">Hello?</s>
+         <s id="sc60d1s1" subtitle_id="316" time="00:32:38">Hello?</s>
       </dialogue>
       <meta id="sc60m2">
          <s id="sc60m2s1">JULIA moves out of shadow into a patch of patterned light splashing up the stair well.The effect recalls her memory of her lovemaking with FRANK.</s>
@@ -1963,7 +1963,7 @@ Genres :   Horror</info>
          <s id="sc60d4s1">(calls down) I'm here.</s>
       </dialogue>
       <dialogue id="sc60d5" name="STEVE">
-         <s id="sc60d5s1" time="00:28:31">I thought we'd lost you.</s>
+         <s id="sc60d5s1" subtitle_id="281" time="00:28:31">I thought we'd lost you.</s>
       </dialogue>
       <dialogue id="sc60d6" name="KIRSTY">
          <s id="sc60d6s1">(calls down) I'm coming!</s>
@@ -2019,21 +2019,21 @@ Genres :   Horror</info>
          <s id="sc62m1s1">KIRSTY and STEVE are walking.</s>
       </meta>
       <dialogue id="sc62d1" name="STEVE">
-         <s id="sc62d1s1" time="00:28:59">Why don't you stay at Larry's house?</s>
-         <s id="sc62d1s2" time="00:28:59">There's plenty of room.</s>
+         <s id="sc62d1s1" subtitle_id="284" time="00:28:59">Why don't you stay at Larry's house?</s>
+         <s id="sc62d1s2" subtitle_id="285" time="00:28:59">There's plenty of room.</s>
       </dialogue>
       <dialogue id="sc62d2" name="KIRSTY">
-         <s id="sc62d2s1" time="00:29:02">Yeah, there's room.</s>
-         <s id="sc62d2s2" time="00:29:02">And there's Julia.</s>
+         <s id="sc62d2s1" subtitle_id="286" time="00:29:02">Yeah, there's room.</s>
+         <s id="sc62d2s2" subtitle_id="287" time="00:29:02">And there's Julia.</s>
       </dialogue>
       <dialogue id="sc62d3" name="STEVE">
-         <s id="sc62d3s1" time="00:29:06">I see.</s>
+         <s id="sc62d3s1" subtitle_id="289" time="00:29:06">I see.</s>
       </dialogue>
       <dialogue id="sc62d4" name="KIRSTY">
          <s id="sc62d4s1">She's so damn ... English.</s>
       </dialogue>
       <dialogue id="sc62d5" name="STEVE">
-         <s id="sc62d5s1" time="00:29:18">Meaning what?</s>
+         <s id="sc62d5s1" subtitle_id="292" time="00:29:18">Meaning what?</s>
       </dialogue>
       <dialogue id="sc62d6" name="KIRSTY">
          <s id="sc62d6s1">Oh, I don't know.</s>
@@ -2044,27 +2044,27 @@ Genres :   Horror</info>
          <s id="sc62m7s1">STEVE stops walking.</s>
       </meta>
       <dialogue id="sc62d7" name="STEVE">
-         <s id="sc62d7s1" time="00:29:25">I beg your pardon?</s>
+         <s id="sc62d7s1" subtitle_id="294" time="00:29:25">I beg your pardon?</s>
       </dialogue>
       <dialogue id="sc62d8" name="KIRSTY">
          <s id="sc62d8s1">(lightly) There ya go.</s>
          <s id="sc62d8s2">(imitates his tone) I beg your pardon?</s>
       </dialogue>
       <dialogue id="sc62d9" name="STEVE">
-         <s id="sc62d9s1" time="00:29:29">We're not all frigid.</s>
+         <s id="sc62d9s1" subtitle_id="297" time="00:29:29">We're not all frigid.</s>
       </dialogue>
       <meta id="sc62m10">
          <s id="sc62m10s1">KIRSTY has turned to look at him.</s>
          <s id="sc62m10s2">Both of them are aware where the banter is leading; smiles play on their faces as they speak.</s>
       </meta>
       <dialogue id="sc62d10" name="KIRSTY">
-         <s id="sc62d10s1" time="00:29:33">Oh no?</s>
+         <s id="sc62d10s1" subtitle_id="300" time="00:29:33">Oh no?</s>
       </dialogue>
       <dialogue id="sc62d11" name="STEVE">
-         <s id="sc62d11s1" time="00:29:35">Oh no.</s>
+         <s id="sc62d11s1" subtitle_id="301" time="00:29:35">Oh no.</s>
       </dialogue>
       <dialogue id="sc62d12" name="KIRSTY">
-         <s id="sc62d12s1" time="00:29:37">It's not what I heard.</s>
+         <s id="sc62d12s1" subtitle_id="302" time="00:29:37">It's not what I heard.</s>
       </dialogue>
       <dialogue id="sc62d13" name="STEVE">
          <s id="sc62d13s1">(moves closer to her) Well you've just been talking to the wrong people.</s>
@@ -2159,7 +2159,7 @@ Genres :   Horror</info>
          <s id="sc68d4s1">In a moment.</s>
       </dialogue>
       <dialogue id="sc68d5" name="2ND CUSTOMER">
-         <s id="sc68d5s1" time="00:41:30">Did you hear me?</s>
+         <s id="sc68d5s1" subtitle_id="394" time="00:41:30">Did you hear me?</s>
       </dialogue>
       <meta id="sc68m6">
          <s id="sc68m6s1">KIRSTY starts back to the counter.</s>
@@ -2223,13 +2223,13 @@ Genres :   Horror</info>
          <s id="sc69m1s19">Suddenly, PRUDHOE's at her side.</s>
       </meta>
       <dialogue id="sc69d1" name="PRUDHOE">
-         <s id="sc69d1s1" time="00:33:53">Not much fun, is it?</s>
+         <s id="sc69d1s1" subtitle_id="329" time="00:33:53">Not much fun, is it?</s>
       </dialogue>
       <dialogue id="sc69d2" name="JULIA">
-         <s id="sc69d2s1" time="00:33:53">What?</s>
+         <s id="sc69d2s1" subtitle_id="330" time="00:33:53">What?</s>
       </dialogue>
       <dialogue id="sc69d3" name="PRUDHOE">
-         <s id="sc69d3s1" time="00:33:56">Drinking alone.</s>
+         <s id="sc69d3s1" subtitle_id="331" time="00:33:56">Drinking alone.</s>
       </dialogue>
       <dialogue id="sc69d4" name="JULIA">
          <s id="sc69d4s1">Not much.</s>
@@ -2246,7 +2246,7 @@ Genres :   Horror</info>
          <s id="sc69m6s6">Then:</s>
       </meta>
       <dialogue id="sc69d6" name="JULIA">
-         <s id="sc69d6s1" time="00:34:21">Why not?</s>
+         <s id="sc69d6s1" subtitle_id="334" time="00:34:21">Why not?</s>
       </dialogue>
       <meta id="sc69m7">
          <s id="sc69m7s1">She smiles.</s>
@@ -2322,21 +2322,21 @@ Genres :   Horror</info>
          <s id="sc72m1s2">JULIA closes the door</s>
       </meta>
       <dialogue id="sc72d1" name="PRUDHOE">
-         <s id="sc72d1s1" time="00:34:31">You know it's not often I ... you know ...</s>
+         <s id="sc72d1s1" subtitle_id="335" time="00:34:31">You know it's not often I ... you know ...</s>
       </dialogue>
       <dialogue id="sc72d2" name="JULIA">
-         <s id="sc72d2s1" time="00:34:34">There's a first time for every- thing.</s>
+         <s id="sc72d2s1" subtitle_id="336" time="00:34:34">There's a first time for every- thing.</s>
       </dialogue>
       <dialogue id="sc72d3" name="PRUDHOE">
-         <s id="sc72d3s1" time="00:34:38">I suppose that's right.</s>
+         <s id="sc72d3s1" subtitle_id="338" time="00:34:38">I suppose that's right.</s>
       </dialogue>
       <dialogue id="sc72d4" name="JULIA">
          <s id="sc72d4s1">You want something to drink?</s>
       </dialogue>
       <dialogue id="sc72d5" name="PRUDHOE">
          <s id="sc72d5s1">I'm already way over my usual limit.</s>
-         <s id="sc72d5s2" time="00:34:55">You know, it's funny.</s>
-         <s id="sc72d5s3" time="00:34:59">I feel like I've known you for years.</s>
+         <s id="sc72d5s2" subtitle_id="342" time="00:34:55">You know, it's funny.</s>
+         <s id="sc72d5s3" subtitle_id="344" time="00:34:59">I feel like I've known you for years.</s>
       </dialogue>
       <meta id="sc72m6">
          <s id="sc72m6s1">He approaches her:  his gestures made slightly clumsy by the alcohol he's drunk.</s>
@@ -2348,7 +2348,7 @@ Genres :   Horror</info>
          <s id="sc72d6s2">(he takes hold of her breast) It's what you brought me here for, isn't it?</s>
       </dialogue>
       <dialogue id="sc72d7" name="JULIA">
-         <s id="sc72d7s1" time="00:48:15">Yes.</s>
+         <s id="sc72d7s1" subtitle_id="478" time="00:48:15">Yes.</s>
          <s id="sc72d7s2">I just think we'd be better off upstairs.</s>
       </dialogue>
       <dialogue id="sc72d8" name="PRUDHOE">
@@ -2375,7 +2375,7 @@ Genres :   Horror</info>
          <s id="sc73d3s1">No personal details, right?</s>
       </dialogue>
       <dialogue id="sc73d4" name="JULIA">
-         <s id="sc73d4s1" time="00:35:49">Right.</s>
+         <s id="sc73d4s1" subtitle_id="356" time="00:35:49">Right.</s>
       </dialogue>
       <dialogue id="sc73d5" name="PRUDHOE">
          <s id="sc73d5s1">You know, you're incredible -</s>
@@ -2384,7 +2384,7 @@ Genres :   Horror</info>
          <s id="sc73m6s1">JULIA opens the door.</s>
       </meta>
       <dialogue id="sc73d6" name="JULIA">
-         <s id="sc73d6s1" time="00:50:03">Come on in.</s>
+         <s id="sc73d6s1" subtitle_id="507" time="00:50:03">Come on in.</s>
          <s id="sc73d6s2">Make yourself at home.</s>
       </dialogue>
       <meta id="sc73m7">
@@ -2405,7 +2405,7 @@ Genres :   Horror</info>
          <s id="sc73d10s1">I prefer the floor.</s>
       </dialogue>
       <dialogue id="sc73d11" name="PRUDHOE">
-         <s id="sc73d11s1" time="00:36:29">First time for everything, right?</s>
+         <s id="sc73d11s1" subtitle_id="363" time="00:36:29">First time for everything, right?</s>
       </dialogue>
       <dialogue id="sc73d12" name="JULIA">
          <s id="sc73d12s1">Right.</s>
@@ -2414,11 +2414,11 @@ Genres :   Horror</info>
          <s id="sc73m13s1">JULIA moves towards him</s>
       </meta>
       <dialogue id="sc73d13" name="JULIA">
-         <s id="sc73d13s1" time="00:36:33">Why don't you take off your jacket?</s>
+         <s id="sc73d13s1" subtitle_id="364" time="00:36:33">Why don't you take off your jacket?</s>
          <s id="sc73d13s2">You're warm.</s>
       </dialogue>
       <dialogue id="sc73d14" name="PRUDHOE">
-         <s id="sc73d14s1" time="00:36:39">Yeah, why don't I?</s>
+         <s id="sc73d14s1" subtitle_id="365" time="00:36:39">Yeah, why don't I?</s>
       </dialogue>
       <meta id="sc73m15">
          <s id="sc73m15s1">She slips the knot of his tie.</s>
@@ -2430,7 +2430,7 @@ Genres :   Horror</info>
          <s id="sc73d15s1">(takes over his undressing) Why don't you do the same?</s>
       </dialogue>
       <dialogue id="sc73d16" name="JULIA">
-         <s id="sc73d16s1" time="00:37:05">Maybe I will.</s>
+         <s id="sc73d16s1" subtitle_id="367" time="00:37:05">Maybe I will.</s>
       </dialogue>
       <meta id="sc73m17">
          <s id="sc73m17s1">PRUDHOE, now starts to shed his jacket and trousers, trying not to take his eyes off JULIA for an instant.</s>
@@ -2443,10 +2443,10 @@ Genres :   Horror</info>
          <s id="sc73d17s1">(voice slightly slurred) You know, you're very beautiful.</s>
       </dialogue>
       <dialogue id="sc73d18" name="JULIA">
-         <s id="sc73d18s1" time="00:37:22">Am I?</s>
+         <s id="sc73d18s1" subtitle_id="369" time="00:37:22">Am I?</s>
       </dialogue>
       <dialogue id="sc73d19" name="PRUDHOE">
-         <s id="sc73d19s1" time="00:37:25">You know you are.</s>
+         <s id="sc73d19s1" subtitle_id="370" time="00:37:25">You know you are.</s>
          <s id="sc73d19s2">Loveliest woman I ever set eyes on.</s>
       </dialogue>
       <meta id="sc73m20">
@@ -2457,10 +2457,10 @@ Genres :   Horror</info>
          <s id="sc73d20s1">Oh Christ.</s>
       </dialogue>
       <dialogue id="sc73d21" name="JULIA">
-         <s id="sc73d21s1" time="00:37:32">What's wrong?</s>
+         <s id="sc73d21s1" subtitle_id="373" time="00:37:32">What's wrong?</s>
       </dialogue>
       <dialogue id="sc73d22" name="PRUDHOE">
-         <s id="sc73d22s1" time="00:37:40">Too much drink.</s>
+         <s id="sc73d22s1" subtitle_id="375" time="00:37:40">Too much drink.</s>
          <s id="sc73d22s2">Better empty my bladder.</s>
       </dialogue>
       <meta id="sc73m23">
@@ -2561,7 +2561,7 @@ Genres :   Horror</info>
          <s id="sc77m1s7">A ghostly sight.</s>
       </meta>
       <dialogue id="sc77d1" name="JULIA">
-         <s id="sc77d1s1" time="00:39:29">Jesus Christ.</s>
+         <s id="sc77d1s1" subtitle_id="381" time="00:39:29">Jesus Christ.</s>
       </dialogue>
       <meta id="sc77m2">
          <s id="sc77m2s1">JULIA looks across at FRANK, who is no longer sitting, but standing in the shadows.</s>
@@ -2575,8 +2575,8 @@ Genres :   Horror</info>
          <s id="sc77m3s3">His flesh glistens and pulses.</s>
       </meta>
       <dialogue id="sc77d3" name="FRANK">
-         <s id="sc77d3s1" time="00:39:54">See?</s>
-         <s id="sc77d3s2" time="00:39:56">It's making me whole again.</s>
+         <s id="sc77d3s1" subtitle_id="382" time="00:39:54">See?</s>
+         <s id="sc77d3s2" subtitle_id="383" time="00:39:56">It's making me whole again.</s>
       </dialogue>
       <meta id="sc77m4">
          <s id="sc77m4s1">He turns his arm over for her appreciation.</s>
@@ -2642,7 +2642,7 @@ Genres :   Horror</info>
          <s id="sc80m1s1">LARRY is still at the bottom of the stairs.</s>
       </meta>
       <dialogue id="sc80d1" name="LARRY">
-         <s id="sc80d1s1" time="00:41:34">Are you there?</s>
+         <s id="sc80d1s1" subtitle_id="395" time="00:41:34">Are you there?</s>
       </dialogue>
       <meta id="sc80m2">
          <s id="sc80m2s1">For a moment it looks as though he's going to climb the stairs, then he thinks better of it, and goes through to the back of the house.</s>
@@ -2722,7 +2722,7 @@ Genres :   Horror</info>
          <s id="sc85m1s2">LARRY ascends to the top of the stairs.</s>
       </meta>
       <dialogue id="sc85d1" name="LARRY">
-         <s id="sc85d1s1" time="00:40:37">Julia?</s>
+         <s id="sc85d1s1" subtitle_id="390" time="00:40:37">Julia?</s>
       </dialogue>
       <dialogue id="sc85d2" name="JULIA">
          <s id="sc85d2s1">(from bathroom) I'm here.</s>
@@ -2740,7 +2740,7 @@ Genres :   Horror</info>
          <s id="sc85d4s1">Just feeling a bit sick.</s>
       </dialogue>
       <dialogue id="sc85d5" name="LARRY">
-         <s id="sc85d5s1" time="00:41:43">Oh, babe ...</s>
+         <s id="sc85d5s1" subtitle_id="398" time="00:41:43">Oh, babe ...</s>
       </dialogue>
       <meta id="sc85m6">
          <s id="sc85m6s1">85</s>
@@ -2759,13 +2759,13 @@ Genres :   Horror</info>
          <s id="sc86d2s1">Can I get you anything?</s>
       </dialogue>
       <dialogue id="sc86d3" name="JULIA">
-         <s id="sc86d3s1" time="00:41:48">Maybe a brandy.</s>
+         <s id="sc86d3s1" subtitle_id="400" time="00:41:48">Maybe a brandy.</s>
       </dialogue>
       <dialogue id="sc86d4" name="LARRY">
-         <s id="sc86d4s1" time="00:54:09">Sure.</s>
+         <s id="sc86d4s1" subtitle_id="552" time="00:54:09">Sure.</s>
       </dialogue>
       <dialogue id="sc86d5" name="JULIA">
-         <s id="sc86d5s1" time="00:41:52">I'll be down in a minute</s>
+         <s id="sc86d5s1" subtitle_id="402" time="00:41:52">I'll be down in a minute</s>
       </dialogue>
       <dialogue id="sc86d6" name="LARRY">
          <s id="sc86d6s1">O.K.</s>
@@ -2794,20 +2794,20 @@ Genres :   Horror</info>
          <s id="sc87m2s2">FRANK's hand opens, dropping the pieces of PRUDHOE's dentures, which he has crushed, onto the floor, in a rain of plastic teeth.</s>
       </meta>
       <dialogue id="sc87d2" name="FRANK">
-         <s id="sc87d2s1" time="00:42:31">I'm hurting</s>
+         <s id="sc87d2s1" subtitle_id="406" time="00:42:31">I'm hurting</s>
       </dialogue>
       <dialogue id="sc87d3" name="JULIA">
-         <s id="sc87d3s1" time="00:42:33">Hurting.</s>
+         <s id="sc87d3s1" subtitle_id="407" time="00:42:33">Hurting.</s>
       </dialogue>
       <dialogue id="sc87d4" name="FRANK">
-         <s id="sc87d4s1" time="00:42:34">My nerves ... are beginning to work again.</s>
+         <s id="sc87d4s1" subtitle_id="408" time="00:42:34">My nerves ... are beginning to work again.</s>
       </dialogue>
       <dialogue id="sc87d5" name="JULIA">
-         <s id="sc87d5s1" time="00:40:11">Good.</s>
+         <s id="sc87d5s1" subtitle_id="386" time="00:40:11">Good.</s>
       </dialogue>
       <dialogue id="sc87d6" name="FRANK">
-         <s id="sc87d6s1" time="00:42:38">One more.</s>
-         <s id="sc87d6s2" time="00:42:38">Maybe two -</s>
+         <s id="sc87d6s1" subtitle_id="410" time="00:42:38">One more.</s>
+         <s id="sc87d6s2" subtitle_id="411" time="00:42:38">Maybe two -</s>
       </dialogue>
       <meta id="sc87m7">
          <s id="sc87m7s1">JULIA's face registers no horrer at this.</s>
@@ -2818,23 +2818,23 @@ Genres :   Horror</info>
          <s id="sc87d7s1">Who?</s>
       </dialogue>
       <dialogue id="sc87d8" name="FRANK">
-         <s id="sc87d8s1" time="00:42:48">The Cenobites.</s>
-         <s id="sc87d8s2" time="00:42:50">It's only a matter of time before they find I've slipped them.</s>
-         <s id="sc87d8s3" time="00:42:54">I have to get away from here.</s>
+         <s id="sc87d8s1" subtitle_id="416" time="00:42:48">The Cenobites.</s>
+         <s id="sc87d8s2" subtitle_id="417" time="00:42:50">It's only a matter of time before they find I've slipped them.</s>
+         <s id="sc87d8s3" subtitle_id="418" time="00:42:54">I have to get away from here.</s>
       </dialogue>
       <meta id="sc87m9">
          <s id="sc87m9s1">From downstairs, LARRY.</s>
       </meta>
       <dialogue id="sc87d9" name="LARRY">
          <s id="sc87d9s1">Julia?</s>
-         <s id="sc87d9s2" time="00:42:58">Are you all right?</s>
+         <s id="sc87d9s2" subtitle_id="420" time="00:42:58">Are you all right?</s>
       </dialogue>
       <meta id="sc87m10">
          <s id="sc87m10s1">JULIA crosses to the door and calls down.</s>
       </meta>
       <dialogue id="sc87d10" name="JULIA">
-         <s id="sc87d10s1" time="00:43:03">Just a moment.</s>
-         <s id="sc87d10s2" time="00:43:09">Put on some music will you babe?</s>
+         <s id="sc87d10s1" subtitle_id="421" time="00:43:03">Just a moment.</s>
+         <s id="sc87d10s2" subtitle_id="422" time="00:43:09">Put on some music will you babe?</s>
       </dialogue>
       <dialogue id="sc87d11" name="LARRY">
          <s id="sc87d11s1">O.K.</s>
@@ -2847,7 +2847,7 @@ Genres :   Horror</info>
          <s id="sc87d12s2">Obedient as ever.</s>
       </dialogue>
       <dialogue id="sc87d13" name="JULIA">
-         <s id="sc87d13s1" time="00:43:17">Keep your voice down.</s>
+         <s id="sc87d13s1" subtitle_id="425" time="00:43:17">Keep your voice down.</s>
       </dialogue>
       <meta id="sc87m14">
          <s id="sc87m14s1">She crosses to close the door.</s>
@@ -2857,16 +2857,16 @@ Genres :   Horror</info>
       </meta>
       <dialogue id="sc87d14" name="FRANK">
          <s id="sc87d14s1">Ssh.</s>
-         <s id="sc87d14s2" time="00:43:20">Don't want babe to hear.</s>
+         <s id="sc87d14s2" subtitle_id="426" time="00:43:20">Don't want babe to hear.</s>
       </dialogue>
       <dialogue id="sc87d15" name="JULIA">
-         <s id="sc87d15s1" time="00:43:23">You're hurting.</s>
+         <s id="sc87d15s1" subtitle_id="427" time="00:43:23">You're hurting.</s>
       </dialogue>
       <dialogue id="sc87d16" name="FRANK">
-         <s id="sc87d16s1" time="00:43:26">You won't cheat me will you?</s>
-         <s id="sc87d16s2" time="00:43:28">You'll stay with me.</s>
-         <s id="sc87d16s3" time="00:43:28">Help me.</s>
-         <s id="sc87d16s4" time="00:43:31">Then we can be together, the way we were before.</s>
+         <s id="sc87d16s1" subtitle_id="428" time="00:43:26">You won't cheat me will you?</s>
+         <s id="sc87d16s2" subtitle_id="429" time="00:43:28">You'll stay with me.</s>
+         <s id="sc87d16s3" subtitle_id="430" time="00:43:28">Help me.</s>
+         <s id="sc87d16s4" subtitle_id="431" time="00:43:31">Then we can be together, the way we were before.</s>
          <s id="sc87d16s5">We belong to each other now, for better or worse ...</s>
       </dialogue>
       <meta id="sc87m17">
@@ -2910,7 +2910,7 @@ Genres :   Horror</info>
          <s id="sc88m1s3">He looks across the room to see KIRSTY at the end of the bed, with the sheet in her hand.</s>
       </meta>
       <dialogue id="sc88d1" name="STEVE">
-         <s id="sc88d1s1" time="00:44:23">What are you doing?</s>
+         <s id="sc88d1s1" subtitle_id="444" time="00:44:23">What are you doing?</s>
       </dialogue>
       <meta id="sc88m2">
          <s id="sc88m2s1">KIRSTY's eyes are still closed.</s>
@@ -3042,13 +3042,13 @@ Genres :   Horror</info>
          <s id="sc96m1s3">He is as nervous as PRUDHOE.</s>
       </meta>
       <dialogue id="sc96d1" name="VICTIM">
-         <s id="sc96d1s1" time="00:45:37">You're sure we're not going to be interrupted -</s>
+         <s id="sc96d1s1" subtitle_id="456" time="00:45:37">You're sure we're not going to be interrupted -</s>
       </dialogue>
       <dialogue id="sc96d2" name="JULIA">
-         <s id="sc96d2s1" time="00:45:42">Quite sure.</s>
+         <s id="sc96d2s1" subtitle_id="457" time="00:45:42">Quite sure.</s>
       </dialogue>
       <dialogue id="sc96d3" name="VICTIM">
-         <s id="sc96d3s1" time="00:45:46">Only I like to be careful.</s>
+         <s id="sc96d3s1" subtitle_id="459" time="00:45:46">Only I like to be careful.</s>
       </dialogue>
       <meta id="sc96m4">
          <s id="sc96m4s1">97</s>
@@ -3239,7 +3239,7 @@ Genres :   Horror</info>
          <s id="sc102d1s1">Is this upsetting you?</s>
       </dialogue>
       <dialogue id="sc102d2" name="JULIA">
-         <s id="sc102d2s1" time="00:48:39">I've seen worse.</s>
+         <s id="sc102d2s1" subtitle_id="484" time="00:48:39">I've seen worse.</s>
       </dialogue>
       <meta id="sc102m3">
          <s id="sc102m3s1">LARRY looks at her.</s>
@@ -3248,7 +3248,7 @@ Genres :   Horror</info>
          <s id="sc102d3s1">Are you all right?</s>
       </dialogue>
       <dialogue id="sc102d4" name="JULIA">
-         <s id="sc102d4s1" time="00:48:47">Fine.</s>
+         <s id="sc102d4s1" subtitle_id="486" time="00:48:47">Fine.</s>
       </dialogue>
       <dialogue id="sc102d5" name="LARRY">
          <s id="sc102d5s1">Only I'll turn it off -</s>
@@ -3290,7 +3290,7 @@ Genres :   Horror</info>
          <s id="sc104d1s1">- and now he's in trouble, he's really in trouble -</s>
       </dialogue>
       <dialogue id="sc104d2" name="LARRY">
-         <s id="sc104d2s1" time="00:49:07">What was that?</s>
+         <s id="sc104d2s1" subtitle_id="490" time="00:49:07">What was that?</s>
       </dialogue>
       <meta id="sc104m3">
          <s id="sc104m3s1">JULIA looks up from her magazine.</s>
@@ -3342,7 +3342,7 @@ Genres :   Horror</info>
          <s id="sc106m1s2">JULIA follows.</s>
       </meta>
       <dialogue id="sc106d1" name="JULIA">
-         <s id="sc106d1s1" time="00:49:15">It was nothing.</s>
+         <s id="sc106d1s1" subtitle_id="495" time="00:49:15">It was nothing.</s>
       </dialogue>
       <meta id="sc106m2">
          <s id="sc106m2s1">LARRY has reached the top of the stairs.</s>
@@ -3362,7 +3362,7 @@ Genres :   Horror</info>
          <s id="sc106m4s1">He crosses to her.</s>
       </meta>
       <dialogue id="sc106d4" name="LARRY">
-         <s id="sc106d4s1" time="00:49:30">I'm here.</s>
+         <s id="sc106d4s1" subtitle_id="499" time="00:49:30">I'm here.</s>
       </dialogue>
       <meta id="sc106m5">
          <s id="sc106m5s1">He puts his arms around her.</s>
@@ -3409,7 +3409,7 @@ Genres :   Horror</info>
          <s id="sc107m1s8">He throws open the door.</s>
       </meta>
       <dialogue id="sc107d1" name="JULIA">
-         <s id="sc107d1s1" time="00:50:28">Don't.</s>
+         <s id="sc107d1s1" subtitle_id="511" time="00:50:28">Don't.</s>
       </dialogue>
       <meta id="sc107m2">
          <s id="sc107m2s1">Lightning floods the room.</s>
@@ -3532,7 +3532,7 @@ Genres :   Horror</info>
          <s id="sc108m10s6">Click.</s>
       </meta>
       <dialogue id="sc108d10" name="LARRY">
-         <s id="sc108d10s1" time="00:52:50">I don't understand you.</s>
+         <s id="sc108d10s1" subtitle_id="534" time="00:52:50">I don't understand you.</s>
          <s id="sc108d10s2">One moment you're all over me, the next it's:  Don't touch me.</s>
       </dialogue>
       <meta id="sc108m11">
@@ -3559,7 +3559,7 @@ Genres :   Horror</info>
          <s id="sc109m1s4">KIRSTY, by contrast, is sparkling</s>
       </meta>
       <dialogue id="sc109d1" name="LARRY">
-         <s id="sc109d1s1" time="00:53:17">... maybe we should never have come back.</s>
+         <s id="sc109d1s1" subtitle_id="538" time="00:53:17">... maybe we should never have come back.</s>
       </dialogue>
       <dialogue id="sc109d2" name="KIRSTY">
          <s id="sc109d2s1">Maybe you should give it some time.</s>
@@ -3581,7 +3581,7 @@ Genres :   Horror</info>
          <s id="sc109m6s2">She wants to be delicate with her father's feelings, but honest at the same time.</s>
       </meta>
       <dialogue id="sc109d6" name="KIRSTY">
-         <s id="sc109d6s1" time="00:53:15">I don't know her.</s>
+         <s id="sc109d6s1" subtitle_id="537" time="00:53:15">I don't know her.</s>
          <s id="sc109d6s2">She's so ... sealed up.</s>
       </dialogue>
       <meta id="sc109m7">
@@ -3592,13 +3592,13 @@ Genres :   Horror</info>
          <s id="sc109m7s5">LARRY nods, a weak smile on his face</s>
       </meta>
       <dialogue id="sc109d7" name="LARRY">
-         <s id="sc109d7s1" time="00:53:34">She doesn't even want to leave the house.</s>
+         <s id="sc109d7s1" subtitle_id="543" time="00:53:34">She doesn't even want to leave the house.</s>
       </dialogue>
       <dialogue id="sc109d8" name="KIRSTY">
-         <s id="sc109d8s1" time="00:53:37">Really?</s>
+         <s id="sc109d8s1" subtitle_id="544" time="00:53:37">Really?</s>
       </dialogue>
       <dialogue id="sc109d9" name="LARRY">
-         <s id="sc109d9s1" time="00:53:41">It's like she's waiting for something.</s>
+         <s id="sc109d9s1" subtitle_id="545" time="00:53:41">It's like she's waiting for something.</s>
       </dialogue>
       <dialogue id="sc109d10" name="KIRSTY">
          <s id="sc109d10s1">What?</s>
@@ -3606,14 +3606,14 @@ Genres :   Horror</info>
       <dialogue id="sc109d11" name="LARRY">
          <s id="sc109d11s1">I don't know.</s>
          <s id="sc109d11s2">I don't know.</s>
-         <s id="sc109d11s3" time="00:53:52">It's beyond me.</s>
+         <s id="sc109d11s3" subtitle_id="549" time="00:53:52">It's beyond me.</s>
       </dialogue>
       <meta id="sc109m12">
          <s id="sc109m12s1">A silence.</s>
       </meta>
       <dialogue id="sc109d12" name="LARRY">
          <s id="sc109d12s1">(hesitant) Would you ... maybe call round sometime?</s>
-         <s id="sc109d12s2" time="00:54:07">Try to make friends.</s>
+         <s id="sc109d12s2" subtitle_id="551" time="00:54:07">Try to make friends.</s>
       </dialogue>
       <dialogue id="sc109d13" name="KIRSTY">
          <s id="sc109d13s1">Sure.</s>
@@ -3632,19 +3632,19 @@ Genres :   Horror</info>
          <s id="sc110m1s2">JULIA is a few steps down, staring up at him.</s>
       </meta>
       <dialogue id="sc110d1" name="FRANK">
-         <s id="sc110d1s1" time="00:54:15">You can't love him.</s>
+         <s id="sc110d1s1" subtitle_id="554" time="00:54:15">You can't love him.</s>
       </dialogue>
       <dialogue id="sc110d2" name="JULIA">
          <s id="sc110d2s1">I don't.</s>
       </dialogue>
       <dialogue id="sc110d3" name="FRANK">
-         <s id="sc110d3s1" time="00:54:27">So where's the harm?</s>
+         <s id="sc110d3s1" subtitle_id="556" time="00:54:27">So where's the harm?</s>
       </dialogue>
       <dialogue id="sc110d4" name="JULIA">
          <s id="sc110d4s1">I said no.</s>
       </dialogue>
       <dialogue id="sc110d5" name="FRANK">
-         <s id="sc110d5s1" time="00:54:30">Then find me somebody else, before they come looking.</s>
+         <s id="sc110d5s1" subtitle_id="558" time="00:54:30">Then find me somebody else, before they come looking.</s>
       </dialogue>
       <meta id="sc110m6">
          <s id="sc110m6s1">JULIA nods.</s>
@@ -3715,10 +3715,10 @@ Genres :   Horror</info>
          <s id="sc116m1s1">From the top of the stairs we watch JULIA lead SYKES upstairs.</s>
       </meta>
       <dialogue id="sc116d1" name="SYKES">
-         <s id="sc116d1s1" time="00:55:13">I get lonely sometimes.</s>
+         <s id="sc116d1s1" subtitle_id="561" time="00:55:13">I get lonely sometimes.</s>
       </dialogue>
       <dialogue id="sc116d2" name="JULIA">
-         <s id="sc116d2s1" time="00:55:18">Everybody does.</s>
+         <s id="sc116d2s1" subtitle_id="562" time="00:55:18">Everybody does.</s>
       </dialogue>
       <meta id="sc116m3">
          <s id="sc116m3s1">117</s>
@@ -3741,7 +3741,7 @@ Genres :   Horror</info>
          <s id="sc118m1s3">Outside the door, a footfall.</s>
       </meta>
       <dialogue id="sc118d1" name="JULIA">
-         <s id="sc118d1s1" time="00:55:36">Come in.</s>
+         <s id="sc118d1s1" subtitle_id="563" time="00:55:36">Come in.</s>
       </dialogue>
       <meta id="sc118m2">
          <s id="sc118m2s1">The humming stops.</s>
@@ -3766,8 +3766,8 @@ Genres :   Horror</info>
          <s id="sc120m1s1">SYKES is looking at JULIA.</s>
       </meta>
       <dialogue id="sc120d1" name="SYKES">
-         <s id="sc120d1s1" time="00:55:41">What is this?</s>
-         <s id="sc120d1s2" time="00:55:43">A game?</s>
+         <s id="sc120d1s1" subtitle_id="564" time="00:55:41">What is this?</s>
+         <s id="sc120d1s2" subtitle_id="565" time="00:55:43">A game?</s>
       </dialogue>
       <meta id="sc120m2">
          <s id="sc120m2s1">FRANK moves in the corner.</s>
@@ -3832,7 +3832,7 @@ Genres :   Horror</info>
          <s id="sc124m2s3">FRANK descends on SYKES.</s>
       </meta>
       <dialogue id="sc124d2" name="SYKES">
-         <s id="sc124d2s1" time="00:54:34">No!</s>
+         <s id="sc124d2s1" subtitle_id="559" time="00:54:34">No!</s>
       </dialogue>
       <meta id="sc124m3">
          <s id="sc124m3s1">125</s>
@@ -3979,20 +3979,20 @@ Genres :   Horror</info>
       </meta>
       <dialogue id="sc134d5" name="FRANK">
          <s id="sc134d5s1">Kirsty.</s>
-         <s id="sc134d5s2" time="01:00:07">It's Frank.</s>
-         <s id="sc134d5s3" time="01:00:07">It's Uncle Frank.</s>
+         <s id="sc134d5s2" subtitle_id="608" time="01:00:07">It's Frank.</s>
+         <s id="sc134d5s3" subtitle_id="610" time="01:00:07">It's Uncle Frank.</s>
       </dialogue>
       <dialogue id="sc134d6" name="KIRSTY">
          <s id="sc134d6s1">No.</s>
       </dialogue>
       <dialogue id="sc134d7" name="FRANK">
-         <s id="sc134d7s1" time="00:58:12">You remember.</s>
+         <s id="sc134d7s1" subtitle_id="576" time="00:58:12">You remember.</s>
       </dialogue>
       <dialogue id="sc134d8" name="KIRSTY">
          <s id="sc134d8s1">No.</s>
       </dialogue>
       <dialogue id="sc134d9" name="FRANK">
-         <s id="sc134d9s1" time="00:58:14">Come to Daddy.</s>
+         <s id="sc134d9s1" subtitle_id="578" time="00:58:14">Come to Daddy.</s>
       </dialogue>
       <meta id="sc134m10">
          <s id="sc134m10s1">Her puzzlement, however, has slowed her retreat, and now FRANK reaches for her.</s>
@@ -4000,7 +4000,7 @@ Genres :   Horror</info>
       </meta>
       <dialogue id="sc134d10" name="KIRSTY">
          <s id="sc134d10s1">No.</s>
-         <s id="sc134d10s2" time="00:58:14">Get the fuck off me.</s>
+         <s id="sc134d10s2" subtitle_id="579" time="00:58:14">Get the fuck off me.</s>
       </dialogue>
       <meta id="sc134m11">
          <s id="sc134m11s1">He drags her back up the stairs.</s>
@@ -4016,8 +4016,8 @@ Genres :   Horror</info>
          <s id="sc135m1s2">He closes the door.</s>
       </meta>
       <dialogue id="sc135d1" name="FRANK">
-         <s id="sc135d1s1" time="00:58:21">You've grown.</s>
-         <s id="sc135d1s2" time="00:58:21">You're beautiful.</s>
+         <s id="sc135d1s1" subtitle_id="580" time="00:58:21">You've grown.</s>
+         <s id="sc135d1s2" subtitle_id="581" time="00:58:21">You're beautiful.</s>
       </dialogue>
       <meta id="sc135m2">
          <s id="sc135m2s1">She has retreated as far from him as she can get.</s>
@@ -4029,8 +4029,8 @@ Genres :   Horror</info>
       </dialogue>
       <dialogue id="sc135d3" name="FRANK">
          <s id="sc135d3s1">What?</s>
-         <s id="sc135d3s2" time="00:58:31">What will you do?</s>
-         <s id="sc135d3s3" time="00:58:34">What can you do?</s>
+         <s id="sc135d3s2" subtitle_id="585" time="00:58:31">What will you do?</s>
+         <s id="sc135d3s3" subtitle_id="586" time="00:58:34">What can you do?</s>
          <s id="sc135d3s4">(pause) There's nothing to be frightened of.</s>
       </dialogue>
       <meta id="sc135m4">
@@ -4038,19 +4038,19 @@ Genres :   Horror</info>
          <s id="sc135m4s2">He Lakes hold of her face.</s>
       </meta>
       <dialogue id="sc135d4" name="FRANK">
-         <s id="sc135d4s1" time="00:58:41">I bet you make your Daddy proud, don't you?</s>
-         <s id="sc135d4s2" time="00:58:41">Beautiful.</s>
+         <s id="sc135d4s1" subtitle_id="588" time="00:58:41">I bet you make your Daddy proud, don't you?</s>
+         <s id="sc135d4s2" subtitle_id="589" time="00:58:41">Beautiful.</s>
       </dialogue>
       <dialogue id="sc135d5" name="KIRSTY">
-         <s id="sc135d5s1" time="00:58:44">This isn't happening.</s>
+         <s id="sc135d5s1" subtitle_id="590" time="00:58:44">This isn't happening.</s>
       </dialogue>
       <dialogue id="sc135d6" name="FRANK">
-         <s id="sc135d6s1" time="00:58:45">I used to tell myself that.</s>
-         <s id="sc135d6s2" time="00:58:47">Used to try and pretend I was dreaming all the pain.</s>
+         <s id="sc135d6s1" subtitle_id="591" time="00:58:45">I used to tell myself that.</s>
+         <s id="sc135d6s2" subtitle_id="592" time="00:58:47">Used to try and pretend I was dreaming all the pain.</s>
          <s id="sc135d6s3">But why kid yourself?</s>
-         <s id="sc135d6s4" time="00:58:51">Some things have to be endured.</s>
+         <s id="sc135d6s4" subtitle_id="594" time="00:58:51">Some things have to be endured.</s>
          <s id="sc135d6s5">Take it from me.</s>
-         <s id="sc135d6s6" time="00:58:53">And that makes the pleasures so much sweeter ...</s>
+         <s id="sc135d6s6" subtitle_id="595" time="00:58:53">And that makes the pleasures so much sweeter ...</s>
       </dialogue>
       <meta id="sc135m7">
          <s id="sc135m7s1">As he leans in to kiss her she snatches hold of the pus and bloodstained shirt that's glued to his abdomen, and PULLS.</s>
@@ -4090,10 +4090,10 @@ Genres :   Horror</info>
       </dialogue>
       <dialogue id="sc135d9" name="FRANK">
          <s id="sc135d9s1">One last time.</s>
-         <s id="sc135d9s2" time="00:59:24">Give me the box.</s>
+         <s id="sc135d9s2" subtitle_id="603" time="00:59:24">Give me the box.</s>
       </dialogue>
       <dialogue id="sc135d10" name="KIRSTY">
-         <s id="sc135d10s1" time="00:59:19">You want it?</s>
+         <s id="sc135d10s1" subtitle_id="600" time="00:59:19">You want it?</s>
       </dialogue>
       <meta id="sc135m11">
          <s id="sc135m11s1">The monster's eyes glitter.</s>
@@ -4102,7 +4102,7 @@ Genres :   Horror</info>
          <s id="sc135m11s4">It sails past FRANK and smashes through the window.</s>
       </meta>
       <dialogue id="sc135d11" name="FRANK">
-         <s id="sc135d11s1" time="00:59:09">NO!</s>
+         <s id="sc135d11s1" subtitle_id="596" time="00:59:09">NO!</s>
       </dialogue>
       <meta id="sc135m12">
          <s id="sc135m12s1">He goes to the window.</s>
@@ -4198,7 +4198,7 @@ Genres :   Horror</info>
          <s id="sc140m1s2">A NURSE is at her bedside, monitoring her condition.</s>
       </meta>
       <dialogue id="sc140d1" name="NURSE">
-         <s id="sc140d1s1" time="01:01:05">You're awake.</s>
+         <s id="sc140d1s1" subtitle_id="612" time="01:01:05">You're awake.</s>
       </dialogue>
       <meta id="sc140m2">
          <s id="sc140m2s1">She goes to the door.</s>
@@ -4280,35 +4280,35 @@ Genres :   Horror</info>
          <s id="sc141m1s6">JULIA is very nervous now; desperate even.</s>
       </meta>
       <dialogue id="sc141d1" name="JULIA">
-         <s id="sc141d1s1" time="01:08:47">She'll tell them everything ...</s>
+         <s id="sc141d1s1" subtitle_id="683" time="01:08:47">She'll tell them everything ...</s>
       </dialogue>
       <dialogue id="sc141d2" name="FRANK">
-         <s id="sc141d2s1" time="01:08:49">I don't think so.</s>
-         <s id="sc141d2s2" time="01:08:49">She'll want Larry first.</s>
+         <s id="sc141d2s1" subtitle_id="684" time="01:08:49">I don't think so.</s>
+         <s id="sc141d2s2" subtitle_id="685" time="01:08:49">She'll want Larry first.</s>
       </dialogue>
       <dialogue id="sc141d3" name="JULIA">
-         <s id="sc141d3s1" time="01:08:52">That's probably her now.</s>
-         <s id="sc141d3s2" time="01:08:55">Or the police.</s>
+         <s id="sc141d3s1" subtitle_id="686" time="01:08:52">That's probably her now.</s>
+         <s id="sc141d3s2" subtitle_id="687" time="01:08:55">Or the police.</s>
       </dialogue>
       <dialogue id="sc141d4" name="FRANK">
          <s id="sc141d4s1">Maybe.</s>
       </dialogue>
       <dialogue id="sc141d5" name="JULIA">
-         <s id="sc141d5s1" time="01:08:59">Don't you care?</s>
+         <s id="sc141d5s1" subtitle_id="689" time="01:08:59">Don't you care?</s>
       </dialogue>
       <dialogue id="sc141d6" name="FRANK">
          <s id="sc141d6s1">There's very little I can do about it.</s>
       </dialogue>
       <dialogue id="sc141d7" name="JULIA">
-         <s id="sc141d7s1" time="01:09:03">Maybe we should just leave -</s>
+         <s id="sc141d7s1" subtitle_id="691" time="01:09:03">Maybe we should just leave -</s>
       </dialogue>
       <dialogue id="sc141d8" name="FRANK">
-         <s id="sc141d8s1" time="01:09:03">Like this?</s>
-         <s id="sc141d8s2" time="01:09:03">Look at me!</s>
+         <s id="sc141d8s1" subtitle_id="692" time="01:09:03">Like this?</s>
+         <s id="sc141d8s2" subtitle_id="693" time="01:09:03">Look at me!</s>
          <s id="sc141d8s3">LIKE THIS?</s>
       </dialogue>
       <dialogue id="sc141d9" name="JULIA">
-         <s id="sc141d9s1" time="01:09:07">Well we can't just stay here -</s>
+         <s id="sc141d9s1" subtitle_id="694" time="01:09:07">Well we can't just stay here -</s>
       </dialogue>
       <dialogue id="sc141d10" name="FRANK">
          <s id="sc141d10s1">I need a skin.</s>
@@ -4385,13 +4385,13 @@ Genres :   Horror</info>
          <s id="sc144d1s1">What's wrong?</s>
       </dialogue>
       <dialogue id="sc144d2" name="JULIA">
-         <s id="sc144d2s1" time="01:09:33">I don't know where to begin ...</s>
+         <s id="sc144d2s1" subtitle_id="697" time="01:09:33">I don't know where to begin ...</s>
       </dialogue>
       <dialogue id="sc144d3" name="LARRY">
-         <s id="sc144d3s1" time="01:09:36">What are you talking about?</s>
+         <s id="sc144d3s1" subtitle_id="698" time="01:09:36">What are you talking about?</s>
       </dialogue>
       <dialogue id="sc144d4" name="JULIA">
-         <s id="sc144d4s1" time="01:09:40">It's better you see for your- self -</s>
+         <s id="sc144d4s1" subtitle_id="699" time="01:09:40">It's better you see for your- self -</s>
       </dialogue>
       <meta id="sc144m5">
          <s id="sc144m5s1">She turns and starts up the stairs.</s>
@@ -4508,10 +4508,10 @@ Genres :   Horror</info>
       </meta>
       <dialogue id="sc149d2" name="CENOBITE">
          <s id="sc149d2s1">The box ... you opened it.</s>
-         <s id="sc149d2s2" time="01:06:53">We came.</s>
+         <s id="sc149d2s2" subtitle_id="637" time="01:06:53">We came.</s>
       </dialogue>
       <dialogue id="sc149d3" name="KIRSTY">
-         <s id="sc149d3s1" time="01:06:58">It's just a puzzle box.</s>
+         <s id="sc149d3s1" subtitle_id="638" time="01:06:58">It's just a puzzle box.</s>
       </dialogue>
       <dialogue id="sc149d4" name="CENOBITE">
          <s id="sc149d4s1">It's a means to summon us - it's called the Lament Con- figuration.</s>
@@ -4521,17 +4521,17 @@ Genres :   Horror</info>
       </dialogue>
       <dialogue id="sc149d6" name="CENOBITE">
          <s id="sc149d6s1">Cenobites.</s>
-         <s id="sc149d6s2" time="01:07:05">Explorers in the further regions of experience.</s>
-         <s id="sc149d6s3" time="01:07:09">Demons to some.</s>
-         <s id="sc149d6s4" time="01:07:09">Angels to others.</s>
+         <s id="sc149d6s2" subtitle_id="642" time="01:07:05">Explorers in the further regions of experience.</s>
+         <s id="sc149d6s3" subtitle_id="643" time="01:07:09">Demons to some.</s>
+         <s id="sc149d6s4" subtitle_id="644" time="01:07:09">Angels to others.</s>
       </dialogue>
       <dialogue id="sc149d7" name="KIRSTY">
          <s id="sc149d7s1">Well, I didn't mean to open that thing.</s>
          <s id="sc149d7s2">You can go back wherever you came from.</s>
       </dialogue>
       <dialogue id="sc149d8" name="FEMALE CENOBITE">
-         <s id="sc149d8s1" time="01:07:25">We can't.</s>
-         <s id="sc149d8s2" time="01:07:25">Not alone.</s>
+         <s id="sc149d8s1" subtitle_id="649" time="01:07:25">We can't.</s>
+         <s id="sc149d8s2" subtitle_id="650" time="01:07:25">Not alone.</s>
       </dialogue>
       <meta id="sc149m9">
          <s id="sc149m9s1">At this, the creature with the wired open jaw chatters like a mad monkey.</s>
@@ -4540,10 +4540,10 @@ Genres :   Horror</info>
          <s id="sc149d9s1">This isn't for real.</s>
       </dialogue>
       <dialogue id="sc149d10" name="CENOBITE">
-         <s id="sc149d10s1" time="01:07:27">You solved the box.</s>
+         <s id="sc149d10s1" subtitle_id="651" time="01:07:27">You solved the box.</s>
          <s id="sc149d10s2">We came.</s>
-         <s id="sc149d10s3" time="01:07:29">Now you must come with us.</s>
-         <s id="sc149d10s4" time="01:07:33">Taste our pleasures.</s>
+         <s id="sc149d10s3" subtitle_id="653" time="01:07:29">Now you must come with us.</s>
+         <s id="sc149d10s4" subtitle_id="654" time="01:07:33">Taste our pleasures.</s>
       </dialogue>
       <meta id="sc149m11">
          <s id="sc149m11s1">The chattering CENOBITE steps towards her.</s>
@@ -4558,7 +4558,7 @@ Genres :   Horror</info>
          <s id="sc149m12s4">STEVE does not register the CENOBITES' presence however.</s>
       </meta>
       <dialogue id="sc149d12" name="KIRSTY">
-         <s id="sc149d12s1" time="01:25:34">Steve.</s>
+         <s id="sc149d12s1" subtitle_id="815" time="01:25:34">Steve.</s>
          <s id="sc149d12s2">Thank God you came.</s>
       </dialogue>
       <dialogue id="sc149d13" name="STEVE">
@@ -5036,7 +5036,7 @@ Genres :   Horror</info>
          <s id="sc164d18s2">He's better off dead.</s>
       </dialogue>
       <dialogue id="sc164d19" name="KIRSTY">
-         <s id="sc164d19s1" time="01:13:04">I don't believe it.</s>
+         <s id="sc164d19s1" subtitle_id="752" time="01:13:04">I don't believe it.</s>
       </dialogue>
       <dialogue id="sc164d20" name="LARRY">
          <s id="sc164d20s1">I'm afraid it's true.</s>
@@ -5045,10 +5045,10 @@ Genres :   Horror</info>
          <s id="sc164d21s1">(tears in her eyes) I want to see.</s>
       </dialogue>
       <dialogue id="sc164d22" name="LARRY">
-         <s id="sc164d22s1" time="01:13:14">No you don't.</s>
+         <s id="sc164d22s1" subtitle_id="756" time="01:13:14">No you don't.</s>
       </dialogue>
       <dialogue id="sc164d23" name="KIRSTY">
-         <s id="sc164d23s1" time="01:13:19">Yes!</s>
+         <s id="sc164d23s1" subtitle_id="758" time="01:13:19">Yes!</s>
       </dialogue>
       <dialogue id="sc164d24" name="LARRY">
          <s id="sc164d24s1">(to Julia) Show her.</s>
@@ -5176,7 +5176,7 @@ Genres :   Horror</info>
          <s id="sc168m2s10">The mask of stolen flesh he wears slips a little, and FRANK's twisted features come into view.</s>
       </meta>
       <dialogue id="sc168d2" name="JULIA">
-         <s id="sc168d2s1" time="01:15:42">Frank!</s>
+         <s id="sc168d2s1" subtitle_id="780" time="01:15:42">Frank!</s>
       </dialogue>
       <meta id="sc168m3">
          <s id="sc168m3s1">KIRSTY screams, as FRANK lunges for her.</s>
@@ -5268,7 +5268,7 @@ Genres :   Horror</info>
          <s id="sc172m1s2">From below, FRANK's voice.</s>
       </meta>
       <dialogue id="sc172d1" name="FRANK">
-         <s id="sc172d1s1" time="01:16:51">Where are you, beautiful?</s>
+         <s id="sc172d1s1" subtitle_id="786" time="01:16:51">Where are you, beautiful?</s>
       </dialogue>
       <meta id="sc172m2">
          <s id="sc172m2s1">KIRSTY starts up the second flight of stairs, as FRANK's shadow is thrown up on the wall below.</s>
@@ -5419,7 +5419,7 @@ Genres :   Horror</info>
       <dialogue id="sc178d6" name="FRANK">
          <s id="sc178d6s1">Hush now.</s>
          <s id="sc178d6s2">It's all right.</s>
-         <s id="sc178d6s3" time="01:20:19">Frank's here.</s>
+         <s id="sc178d6s3" subtitle_id="796" time="01:20:19">Frank's here.</s>
       </dialogue>
       <dialogue id="sc178d7" name="KIRSTY">
          <s id="sc178d7s1">Frank.</s>
