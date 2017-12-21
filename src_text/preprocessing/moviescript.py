@@ -6,7 +6,7 @@ TODO
 
 import os
 import xml.etree.ElementTree as ET
-from typing import List, Set
+from typing import List, Set, Dict
 from annotate import annotate
 from fountain import moviescript_to_xml
 
@@ -30,7 +30,30 @@ def main():
     # subs_path = os.path.join(path, "hellraiser_sub.xml")
     # dest_path = os.path.join(path, "hellraiser_annotated.xml")
 
-    parse(fountain, subs_path, dest_path)
+    # parse(fountain, subs_path, dest_path)
+    get_full_scenes(dest_path)
+
+
+def get_full_scenes(xml_path: str) -> Dict[str, List[str]]:
+    """TODO: Besser als Dict {time : [sentences], ...}
+    oder als List [(time, [sentences]), ...] returnen?
+    """
+    tree = ET.parse(xml_path)
+    # scenes = {}
+    scenes = []
+    for scene in tree.findall("scene"):
+        sentences = []
+        time = scene.get("time_avg") or scene.get("time_interpolated")
+
+        for child in scene:
+            for grandchild in child:
+                sentences.append(grandchild.text)
+
+        # scenes[time] = sentences
+        scenes.append((time, sentences))
+        # print(time, sentences)
+
+    return scenes
 
 
 def get_movieinfo(xml_path: str) -> str:

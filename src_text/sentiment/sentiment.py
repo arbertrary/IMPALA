@@ -2,6 +2,7 @@ import csv
 import os
 import re
 from nltk import word_tokenize
+from numpy import mean
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir))
 DATA_DIR = os.path.join(PAR_DIR, "lexicons")
@@ -22,8 +23,40 @@ class ImpalaSent:
         else:
             raise ValueError("Not a valid method!")
 
-    def score(self, word: str):
-        return self.lexicon.get(word)
+    def score(self, text: str):
+        words = word_tokenize(text)
+
+        val = []
+        aro = []
+        for word in words:
+            score = self.lexicon.get(word)
+
+            if score:
+                a = float(score[1])
+                v = float(score[0])
+
+                # if v < 5.06 and a > 4.21:
+                val.append(v)
+                aro.append(a)
+
+        if len(val) != 0 and len(aro) != 0:
+            valence = mean(val)
+            arousal = mean(aro)
+        else:
+            valence = 5.06
+            arousal = 4.21
+
+        # print(valence, arousal)
+        return valence, arousal
+
+
+
+
+
+
+
+
+
 
 
 def warriner_dict():
@@ -41,7 +74,8 @@ def warriner_dict():
                 valence = row[2]
                 arousal = row[5]
                 dominance = row[8]
-                temp = {"valence": valence, "arousal": arousal, "dominance": dominance}
+                # temp = {"valence": valence, "arousal": arousal, "dominance": dominance}
+                temp = (valence, arousal, dominance)
                 lexicon[word] = temp
 
     return lexicon
@@ -95,13 +129,13 @@ def main():
     # test = ImpalaSent()
     # test = ImpalaSent("SentiWordNet")
     test = ImpalaSent()
-    print(test.score("happy"))
+    print(test.score("Hey, this really is a shit fucking sentence!"))
 
-    test2 = ImpalaSent("SentiWordNet")
-    print(test2.score("happy"))
+    # test2 = ImpalaSent("SentiWordNet")
+    # print(test2.score("happy"))
 
-    test3 = ImpalaSent("NRC")
-    print(test3.score("happy"))
+    # test3 = ImpalaSent("NRC")
+    # print(test3.score("happy"))
 
 
 
