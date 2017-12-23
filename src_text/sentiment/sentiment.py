@@ -42,9 +42,19 @@ class ImpalaSent:
         if len(val) != 0 and len(aro) != 0:
             valence = mean(val)
             arousal = mean(aro)
+            # return valence, arousal
+        elif len(val) != 0 and len(aro) == 0:
+            valence = mean(val)
+            arousal = 0
+
+        elif len(val) == 0 and len(aro) != 0:
+            valence = 0
+            arousal = mean(aro)
         else:
-            valence = 5.06
-            arousal = 4.21
+            valence = 0
+            arousal = 0
+
+            # return None
 
         # print(valence, arousal)
         return valence, arousal

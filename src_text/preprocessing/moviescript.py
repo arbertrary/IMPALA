@@ -46,8 +46,8 @@ def get_full_scenes(xml_path: str) -> Dict[str, List[str]]:
         time = scene.get("time_avg") or scene.get("time_interpolated")
 
         for child in scene:
-            for grandchild in child:
-                sentences.append(grandchild.text)
+            for sent in child:
+                sentences.append(sent.text)
 
         # scenes[time] = sentences
         scenes.append((time, sentences))
@@ -55,6 +55,23 @@ def get_full_scenes(xml_path: str) -> Dict[str, List[str]]:
 
     return scenes
 
+
+def get_all_sentences(xml_path: str):
+    tree = ET.parse(xml_path)
+
+    sentences = []
+
+    for scene in tree.findall("scene"):
+        time = scene.get("time_avg") or scene.get("time_interpolated")
+
+        for child in scene:
+            for sent in child:
+                if sent.get("time"):
+                    sentences.append((sent.get("time"), sent.text))
+                else:
+                    sentences.append((time, sent.text))
+
+    return sentences
 
 def get_movieinfo(xml_path: str) -> str:
     tree = ET.parse(xml_path)
