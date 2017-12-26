@@ -48,7 +48,8 @@ def scenesentiment(xml_path: str):
     plt.figure().suptitle("Hellraiser Scene Sentiment")
 
     plt.subplot(211)
-    plt.plot_date(xv, yv, "b-")
+    plt.plot_date(xv, yv, fmt="-")
+    # plt.fill(xv, yv)
     plt.xlim(xv[0], xv[-1])
     # plt.plot(xv, yv)
     plt.ylabel("Valence")
@@ -60,7 +61,8 @@ def scenesentiment(xml_path: str):
     plt.ylabel("Arousal")
     plt.xlabel("time")
     # plt.plot(xa, ya)
-    plt.plot_date(xa, ya, "b-")
+    plt.plot_date(xa, ya, "-")
+    # plt.fill(xa, ya)
     plt.xlim(xa[0], xa[-1])
     plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
     plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
@@ -149,8 +151,8 @@ def main():
     xml_path = os.path.join(path, "hellraiser_annotated.xml")
     # xml_path = os.path.join(path, "star-wars-4_annotated.xml")
 
-    # scenesentiment(xml_path)
-    sentence_sentiment(xml_path)
+    scenesentiment(xml_path)
+    # sentence_sentiment(xml_path)
 
 
 if __name__ == '__main__':
