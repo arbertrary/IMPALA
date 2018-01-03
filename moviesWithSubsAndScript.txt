@@ -1,4 +1,4 @@
-12-monkeys
+12-monkeys Y
 a-perfect-world
 above-the-law
 absolute-power
@@ -6,8 +6,8 @@ adaptation
 airplane
 ali
 amadeus
-american-beauty
-american-psycho
+american-beauty	Y
+american-psycho	Y
 american-splendor
 analyze-that
 analyze-this
@@ -19,7 +19,7 @@ as-good-as-it-gets
 autumn-in-new-york
 babe
 backdraft
-bad-santa
+bad-santa	Y
 badlands
 basic
 basic-instinct
@@ -28,13 +28,13 @@ being-john-malkovich
 being-there
 big-fish
 black-rain
-blade
-blade-trinity
+blade	Y
+blade-trinity	Y
 boogie-nights
 bound
-braveheart
+braveheart	Y
 casino
-cast-away
+cast-away	Y
 catwoman
 cellular
 charade
@@ -43,17 +43,17 @@ clerks
 cliffhanger
 cold-mountain
 collateral
-collateral-damage
-conan-the-barbarian
+collateral-damage	Y
+conan-the-barbarian	Y
 confessions-of-a-dangerous-mind
 confidence
-constantine
+constantine	Y
 cradle-2-the-grave
 cruel-intentions
-dances-with-wolves
+dances-with-wolves	Y
 dark-city
-die-hard
-die-hard-2
+die-hard	Y
+die-hard-2	Y
 dog-day-afternoon
 dogma
 drop-dead-gorgeous
@@ -63,48 +63,48 @@ eight-legged-freaks
 enough
 eternal-sunshine-of-the-spotless-mind
 existenz
-fantastic-four
-fargo
+fantastic-four	Y
+fargo	Y
 fear-and-loathing-in-las-vegas
 fight-club
-final-destination
-final-destination-2
-forrest-gump
+final-destination	Y
+final-destination-2	Y
+forrest-gump	Y
 four-rooms
 friday-the-13th
 gandhi
 gang-related
-gangs-of-new-york
+gangs-of-new-york	Y
 garden-state
-gattaca
+gattaca	Y
 get-carter
 ghost
 ghost-ship
 ghost-world
-gladiator
+gladiator	Y
 heat
-hellboy
-hellraiser
+hellboy	Y
+hellraiser	Y
 hellraiser-deader
 high-fidelity
-hostage
+hostage	Y	Hostage Entführt
 hotel-rwanda
 house-of-1000-corpses
 i-am-sam
 i-still-know-what-you-did-last-summer
-indiana-jones-and-the-last-crusade
-indiana-jones-and-the-temple-of-doom
+indiana-jones-and-the-last-crusade	Y
+indiana-jones-and-the-temple-of-doom	Y
 insomnia
 intolerable-cruelty
-jackie-brown
+jackie-brown	Y
 jay-and-silent-bob-strike-back
-judge-dredd
+judge-dredd	Y
 kalifornia
-king-kong
+king-kong	Y
 kramer-vs-kramer
 land-of-the-dead
 legally-blonde
-lord-of-war
+lord-of-war	Y
 lost-highway
 lost-in-space
 lost-in-translation
@@ -119,51 +119,51 @@ mission-to-mars
 new-york-minute
 notting-hill
 o-brother-where-art-thou
-oceans-eleven
-oceans-twelve
+oceans-eleven	Y
+oceans-twelve	Y
 panic-room
 peggy-sue-got-married
 philadelphia
-phone-booth
+phone-booth	Y	Nicht auflegen
 pi
-pirates-of-the-caribbean-the-curse-of-the-black-pearl
-pitch-black
-predator
+pirates-of-the-caribbean-the-curse-of-the-black-pearl	Y
+pitch-black	Y
+predator	Y
 pretty-woman
-pulp-fiction
+pulp-fiction	Y
 queen-of-the-damned
-reservoir-dogs
+reservoir-dogs	Y
 ringu
 ronin
 runaway-bride
 rushmore
 saving-private-ryan
-scream
-se7en
+scream	Y
+se7en	Y
 serenity
 sex-and-the-city
 sideways
-signs
-sleepy-hollow
+signs	Y
+sleepy-hollow	Y
 sling-blade
-snatch
+snatch	Y
 so-i-married-an-axe-murderer
 solaris
 spanglish
 spartan
 sphere
-star-wars-4
+star-wars-4	Y
 storytelling
 strange-days
 suspect-zero
 swordfish
 taking-lives
-the-abyss
+the-abyss	Y	Abyss Abgrund des Todes
 the-american-president
 the-big-white
 the-birds
-the-bourne-identity
-the-bourne-supremacy
+the-bourne-identity	Y
+the-bourne-supremacy	Y	Die Bourne Verschwörung
 the-breakfast-club
 the-cooler
 the-crow
@@ -171,10 +171,10 @@ the-day-the-earth-stood-still
 the-deer-hunter
 the-doors
 the-family-man
-the-fifth-element
-the-godfather
-the-godfather-part-ii
-the-green-mile
+the-fifth-element	Y
+the-godfather	Y
+the-godfather-part-ii	Y
+the-green-mile	Y
 the-grudge
 the-haunting
 the-hudsucker-proxy
@@ -188,8 +188,8 @@ the-life-of-david-gale
 the-long-kiss-goodnight
 the-majestic
 the-manchurian-candidate
-the-matrix
-the-matrix-reloaded
+the-matrix	Y
+the-matrix-reloaded	Y
 the-pacifier
 the-pianist
 the-private-life-of-sherlock-holmes
@@ -197,31 +197,31 @@ the-prophecy
 the-replacements
 the-rock
 the-rocky-horror-picture-show
-the-shining
+the-shining	Y
 the-shipping-news
-the-siege
-the-terminator
-the-thing
+the-siege	Y	Ausnahmezustand
+the-terminator	Y
+the-thing	Y
 the-three-musketeers
 the-time-machine
 the-woodsman
 thirteen-days
 titanic
 tomorrow-never-dies
-total-recall
+total-recall	Y
 traffic
-trainspotting
+trainspotting	Y
 tron
 two-for-the-money
 u-turn
 under-fire
-vanilla-sky
+vanilla-sky	Y
 very-bad-things
 wag-the-dog
 walking-tall
 wall-street
-war-of-the-worlds
+war-of-the-worlds	Y
 what-lies-beneath
 wild-things
 wonder-boys
-xxx
+xxx	Y

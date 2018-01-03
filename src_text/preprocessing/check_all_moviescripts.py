@@ -5,10 +5,9 @@ Check and clean all movie scripts in directory
 import os
 import re
 from nltk import word_tokenize
-from fountain import scene_tuples
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-DATA_DIR = 'imsdbScripts'
+DATA_DIR = "testfiles"
 
 
 # removes movie scripts
@@ -110,30 +109,25 @@ def get_all_genres(directory: str):
 
 def main():
     """ist halt die main, wofür will pylint da einen docstring"""
-    print("Hello")
-    # check_movieinfo_at_end_of_file(os.path.join(parentDir, dataDir))
+    path = os.path.join(PAR_DIR, "moviesWithSubsAndScript.txt")
 
-    # get_all_genres(os.path.join(parentDir, dataDir))
-    # check_all_moviescripts('imsdbScripts')
-    # check_information_at_end_of_file('imsdbScripts')
+    with open(path) as file:
+        movies = file.read()
+        movies = movies.split("\n")
 
-    # testing if scene_tuples correctly extracts only scene headers
-    directory = os.path.join(PAR_DIR, DATA_DIR)
-    f = open(os.path.join(PAR_DIR, "scenetuplestest.txt"), 'w+')
+        asdf = []
+        for m in movies:
+            temp = m.split("\t")
+            if len(temp) > 1 and temp[1] == "Y":
+                print(m)
+                try:
+                    asdf.append(temp[0]+" "+temp[2])
+                except:
+                    asdf.append(temp[0])
 
-    test = []
-    for filename in os.listdir(directory):
-        # print(filename)
-        test2 = scene_tuples(filename)
-        for t in test2:
-            test.append("\t\t" + filename)
-            if t[0].islower():
-                raise ValueError("SCENE HEADER NOT CORRECT!")
-            else:
-                test.append(t[0])
-            # print(t[0])
-    f.write("\n".join(test).strip())
-    f.close()
+    print(len(asdf))
+
+
 
 
 if __name__ == '__main__':
