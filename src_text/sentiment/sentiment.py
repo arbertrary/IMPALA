@@ -60,15 +60,6 @@ class ImpalaSent:
         return valence, arousal
 
 
-
-
-
-
-
-
-
-
-
 def warriner_dict():
     path = os.path.join(DATA_DIR, "WarrinerRatings.csv")
 
@@ -146,9 +137,6 @@ def main():
 
     # test3 = ImpalaSent("NRC")
     # print(test3.score("happy"))
-
-
-
 
 
 if __name__ == '__main__':

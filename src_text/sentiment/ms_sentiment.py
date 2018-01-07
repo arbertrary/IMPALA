@@ -67,6 +67,7 @@ def scenesentiment(xml_path: str):
     plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
     plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
 
+    plt.tight_layout()
     plt.show()
 
 
