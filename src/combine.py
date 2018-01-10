@@ -18,7 +18,7 @@ from ms_sentiment import get_arousal_values
 
 DATA_DIR = os.path.join(os.curdir, "testfiles")
 
-#TODO: Pfade handlen! os.curdir macht Probleme
+#TODO: Pfade handlen! os.curdir macht Probleme. Für alle Module!!!
 def combine(scenes):  # , energy, duration):
 
     s_count = len(scenes)
@@ -27,6 +27,7 @@ def combine(scenes):  # , energy, duration):
 
     arousal_values = get_arousal_values(scenes)
 
+    #TODO: timestamp() funktioniert so nicht ganz
     times = [a[0].timestamp for a in arousal_values]
     print(times[0])
     scores = [a[1] for a in arousal_values]

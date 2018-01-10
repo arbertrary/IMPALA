@@ -4,7 +4,7 @@ import re
 from nltk import word_tokenize
 from numpy import mean
 
-PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir))
+PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 DATA_DIR = os.path.join(PAR_DIR, "lexicons")
 
 
@@ -129,14 +129,18 @@ def sentiwordnet_dict():
 def main():
     # test = ImpalaSent()
     # test = ImpalaSent("SentiWordNet")
-    test = ImpalaSent()
-    print(test.score("Hey, this really is a shit fucking sentence!"))
+    # test = ImpalaSent()
+    # print(test.score("Hey, this really is a shit fucking sentence!"))
 
     # test2 = ImpalaSent("SentiWordNet")
     # print(test2.score("happy"))
 
     # test3 = ImpalaSent("NRC")
     # print(test3.score("happy"))
+
+    PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
+    DATA_DIR = os.path.join(PAR_DIR, "lexicons")
+    print(DATA_DIR)
 
 
 if __name__ == '__main__':
