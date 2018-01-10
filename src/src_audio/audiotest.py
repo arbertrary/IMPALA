@@ -47,6 +47,60 @@ def rms_energy(audiofile):
     plt.show()
 
 
+def get_energy(path: str) -> np.ndarray:
+    block_gen = sf.blocks(path, blocksize=1024)
+    rate = sf.info(path).samplerate
+    duration = sf.info(path).duration
+
+    testlist = []
+
+    for bl in block_gen:
+        y = np.mean(bl, axis=1)
+        S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
+        rms = librosa.feature.rmse(S=S)
+        m = np.mean(rms)
+        testlist.append(m)
+
+    block_gen.close()
+    l = len(testlist)
+    dec = np.array_split(np.array(testlist), l / 100)
+    print(len(dec))
+
+    testlist = [np.mean(a) for a in dec]
+
+    block_duration = np.divide(duration, len(testlist))
+    times = []
+    time = 0
+    i = 1
+    while i <= len(testlist):
+        times.append(time)
+        time += block_duration
+        i += 1
+
+    return np.array(testlist)
+
+
+def plot_energy(energy: np.array):
+    plt.figure()
+    plt.subplot(211)
+    plt.title("")
+    # plt.plot(times, np.array(testlist))
+    plt.semilogy(energy, color="b", label="RMS Energy")
+    plt.legend(loc='best')
+
+    # plt.xlim(0, duration)
+    plt.xlim(0, len(energy))
+    plt.xlabel("seconds")
+
+    plt.subplot(212)
+    # librosa.display.specshow(np.array(chromas), y_axis='chroma', x_axis='time')
+
+    plt.title('Hellraiser RMS Energy')
+    plt.tight_layout()
+
+    plt.show()
+
+
 def test(path):
     block_gen = sf.blocks(path, blocksize=1024)
     rate = sf.info(path).samplerate
@@ -62,10 +116,9 @@ def test(path):
         m = np.mean(rms)
         testlist.append(m)
 
-
     block_gen.close()
     l = len(testlist)
-    dec = np.array_split(np.array(testlist), l/100)
+    dec = np.array_split(np.array(testlist), l / 100)
     print(len(dec))
 
     testlist = [np.mean(a) for a in dec]
@@ -150,7 +203,8 @@ def main():
     hellraiser_audio = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.wav")
 
     time = datetime.now()
-    test(hellraiser_audio)
+    energy = get_energy(selfie_audio)
+    plot_energy(energy)
     # test2(selfie_audio)
     # print("")
     # rms_energy(selfie_audio)
