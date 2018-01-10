@@ -52,32 +52,32 @@ def get_energy(path: str) -> np.ndarray:
     rate = sf.info(path).samplerate
     duration = sf.info(path).duration
 
-    testlist = []
+    energy_list = []
 
     for bl in block_gen:
         y = np.mean(bl, axis=1)
         S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
         rms = librosa.feature.rmse(S=S)
         m = np.mean(rms)
-        testlist.append(m)
+        energy_list.append(m)
 
     block_gen.close()
-    l = len(testlist)
-    dec = np.array_split(np.array(testlist), l / 10)
-    print(len(dec))
+    # l = len(energy_list)
+    # dec = np.array_split(np.array(energy_list), l / 10)
+    # print(len(dec))
 
-    testlist = [np.mean(a) for a in dec]
+    # energy_list = [np.mean(a) for a in dec]
 
-    block_duration = np.divide(duration, len(testlist))
-    times = []
-    time = 0
-    i = 1
-    while i <= len(testlist):
-        times.append(time)
-        time += block_duration
-        i += 1
+    # block_duration = np.divide(duration, len(energy_list))
+    # times = []
+    # time = 0
+    # i = 1
+    # while i <= len(energy_list):
+    #     times.append(time)
+    #     time += block_duration
+    #     i += 1
 
-    return np.array(testlist)
+    return np.array(energy_list)
 
 
 def plot_energy(energy: np.array):

@@ -91,6 +91,8 @@ def get_arousal_values(scenes:  List[Tuple[str, List[str]]]):
         arousal = score[1]
         if arousal != 0:
             arousal_values.append((time, arousal))
+        else:
+            arousal_values.append((time, 4.21))
 
     arousal_values.sort(key=lambda tup: tup[0])
     xa = [a[0] for a in arousal_values]
