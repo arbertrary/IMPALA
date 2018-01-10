@@ -63,7 +63,7 @@ def get_energy(path: str) -> np.ndarray:
 
     block_gen.close()
     l = len(testlist)
-    dec = np.array_split(np.array(testlist), l / 100)
+    dec = np.array_split(np.array(testlist), l / 10)
     print(len(dec))
 
     testlist = [np.mean(a) for a in dec]
@@ -85,6 +85,7 @@ def plot_energy(energy: np.array):
     plt.subplot(211)
     plt.title("")
     # plt.plot(times, np.array(testlist))
+    # plt.semilogy(times, energy, color="b", label="RMS Energy")
     plt.semilogy(energy, color="b", label="RMS Energy")
     plt.legend(loc='best')
 

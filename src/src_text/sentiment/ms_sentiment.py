@@ -4,6 +4,7 @@ from datetime import datetime
 from matplotlib import dates
 from sentiment import ImpalaSent
 from moviescript import get_full_scenes, get_all_sentences
+from typing import List, Tuple
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"
@@ -69,6 +70,34 @@ def scenesentiment(xml_path: str):
 
     plt.tight_layout()
     plt.show()
+
+
+def get_arousal_values(scenes:  List[Tuple[str, List[str]]]):
+    """Plan: sentiment für komplette szenen; plotten in zwei unterschiedlichen graphen. Valence and arousal"""
+
+    sentiment = ImpalaSent()
+
+    # scenes = get_full_scenes(xml_path)
+
+    arousal_values = []
+    for scene in scenes:
+        time = datetime.strptime(scene[0], "%H:%M:%S")
+
+        # sentences = scenes[scene]
+        sentences = scene[1]
+        text = " ".join(sentences)
+        score = sentiment.score(text)
+
+        arousal = score[1]
+        if arousal != 0:
+            arousal_values.append((time, arousal))
+
+    arousal_values.sort(key=lambda tup: tup[0])
+    xa = [a[0] for a in arousal_values]
+    # ya = [a[1] for a in arousal_values]
+    # xa = dates.date2num(xa)
+
+    return arousal_values
 
 
 def sentence_sentiment(xml_path):
