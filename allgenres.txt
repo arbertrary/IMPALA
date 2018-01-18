@@ -221,7 +221,7 @@ wag-the-dog:Comedy
 walking-tall:Action,Drama,Thriller
 wall-street:Crime,Drama
 war-of-the-worlds:Action,Adventure,Sci-Fi,Thriller
-what-lies-beneath:Horror.Mystery,Thriller,Drama
+what-lies-beneath:Horror,Mystery,Thriller,Drama
 wild-things:Crime,Drama
 wonder-boys:Comedy,Drama
 xxx:Action,Adventure,Thriller
