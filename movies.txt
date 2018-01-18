@@ -17,7 +17,6 @@ armageddon
 army-of-darkness
 as-good-as-it-gets
 autumn-in-new-york
-babe
 backdraft
 bad-santa
 badlands
@@ -103,7 +102,6 @@ kalifornia
 king-kong
 kramer-vs-kramer
 land-of-the-dead
-legally-blonde
 lord-of-war
 lost-highway
 lost-in-space
@@ -117,7 +115,6 @@ mimic
 mission-impossible-ii
 mission-to-mars
 new-york-minute
-notting-hill
 o-brother-where-art-thou
 oceans-eleven
 oceans-twelve
@@ -159,7 +156,6 @@ suspect-zero
 swordfish
 taking-lives
 the-abyss
-the-american-president
 the-big-white
 the-birds
 the-bourne-identity

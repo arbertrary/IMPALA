@@ -8,6 +8,8 @@
 #data folders
 data_moviescripts/
 data_subtitles/
+data_xml/
+data_xml_annotated/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
