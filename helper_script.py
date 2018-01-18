@@ -6,8 +6,8 @@ import os
 import re
 from nltk import word_tokenize
 
-PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-DATA_DIR = "testfiles"
+# PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
+# DATA_DIR = "testfiles"
 
 
 # removes movie scripts
@@ -109,23 +109,30 @@ def get_all_genres(directory: str):
 
 def main():
     """ist halt die main, wofür will pylint da einen docstring"""
-    path = os.path.join(PAR_DIR, "moviesWithSubsAndScript.txt")
+    # with open("moviesWithSubsAndScript.txt") as file:
+    #     movies = file.read()
+    #     movies = movies.split("\n")
+    #
+    #     asdf = []
+    #     for m in movies:
+    #         temp = m.split("\t")
+    #         if len(temp) > 1 and temp[1] == "Y":
+    #             print(m)
+    #             try:
+    #                 asdf.append(temp[0]+" // Deutsch: "+temp[2])
+    #             except:
+    #                 asdf.append(temp[0])
+    # with open("filme.txt", "w") as f:
+    #     f.write("\n".join(asdf))
+    # print(len(asdf))
+    test = []
+    with open("filme.txt") as file:
+        movies = file.readlines()
+        # movies = movies.split("\n")
+        movies.sort()
 
-    with open(path) as file:
-        movies = file.read()
-        movies = movies.split("\n")
-
-        asdf = []
-        for m in movies:
-            temp = m.split("\t")
-            if len(temp) > 1 and temp[1] == "Y":
-                print(m)
-                try:
-                    asdf.append(temp[0]+" "+temp[2])
-                except:
-                    asdf.append(temp[0])
-
-    print(len(asdf))
+    with open("filme2.txt", "w") as file:
+        file.write("".join(movies))
 
 
 

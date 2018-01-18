@@ -28,23 +28,24 @@ def combine(scenes, energy, duration):
     :param duration = duration of the audio
     """
     scene_count = len(scenes)
-    intervals = np.array_split(energy, scene_count)
+    # intervals = np.array_split(energy, scene_count)
+    intervals = np.array_split(energy, len(energy)/100)
     intervals = [np.mean(e) for e in intervals]
 
-    # block_duration = np.divide(duration, len(intervals))
-    # en_times = []
-    # time = 0
-    # i = 1
-    # while i <= len(intervals):
+    block_duration = np.divide(duration, len(intervals))
+    en_times = []
+    time = 0
+    i = 1
+    while i <= len(intervals):
     #     # hms = str(timedelta(seconds=time))
     #     # print(hms)
     #     m, s = divmod(time, 60)
     #     h, m = divmod(m, 60)
     #     hms = "%d:%02d:%02d" % (h, m, s)
     #
-    #     en_times.append(hms)
-    #     time += block_duration
-    #     i += 1
+        en_times.append(time)
+        time += block_duration
+        i += 1
 
     arousal_values = get_arousal_values(scenes)
 
@@ -56,17 +57,17 @@ def combine(scenes, energy, duration):
     plt.figure()
     plt.subplot(211)
     plt.title('Hellraiser: Audio (RMS Energy)')
-    plt.xlabel("time")
+    plt.xlabel("seconds")
 
-    plt.semilogy(times, intervals, color="b", label="RMS Energy")
+    plt.semilogy(en_times, intervals, color="b", label="RMS Energy")
     # plt.plot_date(times, intervals, "-")
     plt.legend(loc='best')
 
-    # plt.xlim(0, len(intervals))
-    plt.xlim(times[0], times[-1])
+    plt.xlim(0, en_times[-1])
+    # plt.xlim(times[0], times[-1])
 
-    plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
-    plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
+    # plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
+    # plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
 
     plt.subplot(212)
     plt.title("Hellraiser: Sentiment (Arousal Scores)")
