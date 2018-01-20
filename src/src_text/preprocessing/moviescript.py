@@ -5,7 +5,9 @@ TODO
 """
 
 import os
+import functools
 import xml.etree.ElementTree as ET
+from datetime import datetime
 from typing import List, Set, Tuple, Dict
 from annotate import annotate
 from fountain import moviescript_to_xml
@@ -33,8 +35,14 @@ def main():
 
     # parse(fountain, subs_path, dest_path)
     # get_full_scenes(dest_path)
-    test = get_char_dialogue(dest_path)
-    print(test.get("THREEPIO"))
+    # test = get_char_dialogue(dest_path)
+    # print(test.get("THREEPIO"))
+
+    test = get_full_scenes(dest_path)
+    total = functools.reduce(lambda x, y: x + len(y[1]), test, 0)
+
+    for s in test:
+        print((len(s[1])/total)*100)
 
 
 def get_full_scenes(xml_path: str) -> List[Tuple[str, List[str]]]:
