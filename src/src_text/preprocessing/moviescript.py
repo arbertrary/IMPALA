@@ -31,24 +31,20 @@ def main():
 
     # fountain = os.path.join(path, "hellraiser.txt")
     # subs_path = os.path.join(path, "hellraiser_sub.xml")
-    # dest_path = os.path.join(path, "hellraiser_annotated.xml")
+    dest_path = os.path.join(path, "hellraiser_annotated.xml")
 
     # parse(fountain, subs_path, dest_path)
-    # get_full_scenes(dest_path)
+    scenes = get_full_scenes(dest_path)
     # test = get_char_dialogue(dest_path)
     # print(test.get("THREEPIO"))
 
-    test = get_full_scenes(dest_path)
-    total = functools.reduce(lambda x, y: x + len(y[1]), test, 0)
-
-    for s in test:
-        print((len(s[1])/total)*100)
+    for index, scene in enumerate(scenes):
+        print("scene: ", index, " time: ", scene[0])
 
 
 def get_full_scenes(xml_path: str) -> List[Tuple[str, List[str]]]:
     """:returns List of all scenes. (List consisting of time code and a list of all sentences in that scene)"""
     tree = ET.parse(xml_path)
-    # scenes = {}
     scenes = []
     for scene in tree.findall("scene"):
         sentences = []
@@ -58,9 +54,7 @@ def get_full_scenes(xml_path: str) -> List[Tuple[str, List[str]]]:
             for sent in child:
                 sentences.append(sent.text)
 
-        # scenes[time] = sentences
         scenes.append((time, sentences))
-        # print(time, sentences)
 
     return scenes
 

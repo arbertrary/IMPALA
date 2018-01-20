@@ -35,29 +35,50 @@ class ImpalaSent:
                 a = float(score[1])
                 v = float(score[0])
 
-                # if v < 5.06 and a > 4.21:
                 val.append(v)
                 aro.append(a)
 
-        if len(val) != 0 and len(aro) != 0:
+        lv = len(val)
+        la = len(aro)
+
+        if lv != 0 and la != 0:
             valence = mean(val)
             arousal = mean(aro)
-            # return valence, arousal
-        elif len(val) != 0 and len(aro) == 0:
+            # arousal = max(aro)
+        elif lv != 0 and la == 0:
             valence = mean(val)
             arousal = 0
 
-        elif len(val) == 0 and len(aro) != 0:
+        elif lv == 0 and la != 0:
             valence = 0
             arousal = mean(aro)
+            # arousal = max(aro)
+
         else:
             valence = 0
             arousal = 0
 
-            # return None
-
-        # print(valence, arousal)
         return valence, arousal
+
+    def arousal_weights(self, text: str):
+        words = word_tokenize(text)
+
+        aro = []
+        for word in words:
+            score = self.lexicon.get(word)
+
+            if score:
+                a = float(score[1])
+
+                # if v < 5.06 and a > 4.21:
+                aro.append(a)
+
+        if len(aro) != 0:
+            arousal = mean(aro)
+        else:
+            arousal = 4.21
+
+        return arousal, len(aro)
 
 
 def warriner_dict():

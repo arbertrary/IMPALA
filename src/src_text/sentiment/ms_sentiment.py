@@ -1,4 +1,5 @@
 import os
+import functools
 import matplotlib.pyplot as plt
 from datetime import datetime
 from matplotlib import dates
@@ -72,7 +73,97 @@ def scenesentiment(xml_path: str):
     plt.show()
 
 
-def get_arousal_values(scenes:  List[Tuple[str, List[str]]]):
+def weighted_scenesentiment(xml_path: str):
+    scenes = get_full_scenes(xml_path)
+    y = get_arousal_values_wo_time(scenes)
+
+    # total = functools.reduce(lambda x, y: x + len(y[1]), scenes, 0)
+
+    x = []
+    i = 0
+    for s in scenes:
+        l = len(s[1])
+        i += l
+        x.append(i)
+
+    print(len(x))
+    print(len(y))
+
+    test = get_arousal_values(scenes)
+    x2 = [a[0] for a in test]
+    y2 = [a[1] for a in test]
+    x2 = dates.date2num(x2)
+
+    plt.figure().suptitle("Hellraiser Scene Sentiment")
+
+    plt.subplot(311)
+    plt.ylabel("Arousal")
+    plt.xlabel("scenes")
+    plt.plot(y)
+    plt.xlim(0, len(y))
+
+    plt.subplot(312)
+    plt.plot(x, y)
+    plt.ylabel("Arousal")
+    plt.xlabel("Scenes in Abh. ihrer Länge")
+    plt.xlim(x[0], x[-1])
+
+    plt.subplot(313)
+    plt.ylabel("Arousal")
+    plt.xlabel("time")
+    plt.plot_date(x2, y2, "-")
+    plt.xlim(x2[0], x2[-1])
+    plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
+    plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
+
+    plt.tight_layout()
+    plt.show()
+
+
+def get_arousal_weights(scenes: List[Tuple[str, List[str]]]):
+    sentiment = ImpalaSent()
+
+    arousal_values = []
+    for scene in scenes:
+        sentences = scene[1]
+        text = " ".join(sentences)
+        score = sentiment.arousal_weights(text)
+
+        arousal = score[0]
+        # if arousal != 0:
+        # arousal_values.append((arousal, score[1]))
+        arousal_values.append(score[1])
+
+        # else:
+        #     arousal_values.append((4.21)
+
+    # arousal_values.sort(key=lambda tup: tup[0])
+
+    return arousal_values
+
+
+def get_arousal_values_wo_time(scenes: List[Tuple[str, List[str]]]):
+    sentiment = ImpalaSent()
+
+    arousal_values = []
+    for scene in scenes:
+
+        sentences = scene[1]
+        text = " ".join(sentences)
+        score = sentiment.score(text)
+
+        arousal = score[1]
+        if arousal != 0:
+            arousal_values.append(arousal)
+        else:
+            arousal_values.append(4.21)
+
+    # arousal_values.sort(key=lambda tup: tup[0])
+
+    return arousal_values
+
+
+def get_arousal_values(scenes: List[Tuple[str, List[str]]]):
     """Plan: sentiment für komplette szenen; plotten in zwei unterschiedlichen graphen. Valence and arousal"""
 
     sentiment = ImpalaSent()
@@ -183,8 +274,26 @@ def main():
     xml_path = os.path.join(path, "hellraiser_annotated.xml")
     # xml_path = os.path.join(path, "star-wars-4_annotated.xml")
 
-    scenesentiment(xml_path)
-    # sentence_sentiment(xml_path)
+    # scenesentiment(xml_path)
+    weighted_scenesentiment(xml_path)
+
+    # scenes = get_scenes_wo_time(xml_path)
+    # test = get_arousal_weights(scenes)
+    #
+    # x = []
+    # i = 0
+    # for s in scenes:
+    #     l = len(s[1])
+    #     # i += l
+    #     x.append(l)
+    #
+    # # print("found words: \n", test)
+    # # print("# of sentences: \n", x)
+    #
+    # j = 0
+    # while j <len(test):
+    #     print("sentences: ", x[j], "\t", "found words: ", test[j])
+    #     j+=1
 
 
 if __name__ == '__main__':
