@@ -1,77 +1,40 @@
 <movie>
-   <info>Hellraiser
-Writers :   Clive Barker
-Genres :   Horror</info>
-   <beginning>HELLRAISER by CLive Barker - July 28, 1986 Draft
-
-
-
-                         HELLRAISER
-
-
-                        A Screenplay
-                             by
-                        Clive Barker
-                        
-                        
-                                     Paragan Film Productions Ltd
-(C)  Clive Barker 28.7.86            115 Flood Street,
-                                     London.  SW3
-                                     01-352-4195
-
-
-1    TITLE SEQUENCE
-
-     In darkness, a blood-curdling cacophony:  the squeal
-     of unoiled winches, the rasp of hooks and razors
-     being sharpened; and worse, the howl of tormented
-     souls.  Above this din one particular victim yells
-     for mercy - a mixture of tears and roars of rage.
-
-     By degrees his incoherent pleas are drowned out by
-     the surrounding tumult, until without warning his
-     voice pierces the confusion afresh - this time
-     reduced to naked scream.
-
-     And with the sound, an image.
-
-     A house:  NUMBER 55, LODOVICO STREET, an old, three
-     storey, late Victorian house, with gaunt trees lining
-     its overgrown garden.  Its curtains are drawn, there
-     is newspaper over its top window.  The titles begin
-     to run, as we approach the house down the driveway.
-
-     We move inside, to the hallway.  The cries are
-     louder now.
-
-     Room by room, we explore the empty house, while the
-     titles continue to run.  It has been left empty for
-     many years, though much of its furniture remains,
-     covered in dust-sheets.  On the mantelpiece of one room,
-     a plaster saint.  In the kitchen, evidence of life
-     here.  Opened tins; bread; bottles of spirits; a
-     glass.
-
-     We move upstairs, gliding along the corridor of the
-     lower landing.  The din is furious now.  On the
-     floor of one room, a makeshift bed: blankets strewn;
-     an open suitcase; more liquor.
-
-     We move up a flight and approach a room off the upper
-     landing, the door of which is ajar.  The light
-     within swings backwards and forwards, spilling into
-     the passageway.
-
-     As we reach the door, the screams from within halt
-     abruptly.
-
-     We can hear a bell now, which has been pealing
-     steadily throughout this opening sequence.
-
-     As we move through the door, the titles end.
-
-
-2    </beginning>
+   <info>
+      <title>Hellraiser</title>
+      <writers>Clive Barker</writers>
+      <genres>Horror</genres>
+   </info>
+   <beginning>
+      <s id="bs1">HELLRAISER by CLive Barker - July 28, 1986 Draft</s>
+      <s id="bs2">HELLRAISER</s>
+      <s id="bs3">A Screenplay  by  Clive Barker  Paragan Film Productions Ltd
+(C) Clive Barker 28.7.86 115 Flood Street,  London.</s>
+      <s id="bs4">SW3  01-352-4195</s>
+      <s id="bs5">1 TITLE SEQUENCE</s>
+      <s id="bs6">In darkness, a blood-curdling cacophony: the squeal  of unoiled winches, the rasp of hooks and razors  being sharpened; and worse, the howl of tormented  souls.</s>
+      <s id="bs7">Above this din one particular victim yells  for mercy - a mixture of tears and roars of rage.</s>
+      <s id="bs8">By degrees his incoherent pleas are drowned out by  the surrounding tumult, until without warning his  voice pierces the confusion afresh - this time  reduced to naked scream.</s>
+      <s id="bs9">And with the sound, an image.</s>
+      <s id="bs10">A house: NUMBER 55, LODOVICO STREET, an old, three  storey, late Victorian house, with gaunt trees lining  its overgrown garden.</s>
+      <s id="bs11">Its curtains are drawn, there  is newspaper over its top window.</s>
+      <s id="bs12">The titles begin  to run, as we approach the house down the driveway.</s>
+      <s id="bs13">We move inside, to the hallway.</s>
+      <s id="bs14">The cries are  louder now.</s>
+      <s id="bs15">Room by room, we explore the empty house, while the  titles continue to run.</s>
+      <s id="bs16">It has been left empty for  many years, though much of its furniture remains,  covered in dust-sheets.</s>
+      <s id="bs17">On the mantelpiece of one room,  a plaster saint.</s>
+      <s id="bs18">In the kitchen, evidence of life  here.</s>
+      <s id="bs19">Opened tins; bread; bottles of spirits; a  glass.</s>
+      <s id="bs20">We move upstairs, gliding along the corridor of the  lower landing.</s>
+      <s id="bs21">The din is furious now.</s>
+      <s id="bs22">On the  floor of one room, a makeshift bed: blankets strewn;  an open suitcase; more liquor.</s>
+      <s id="bs23">We move up a flight and approach a room off the upper  landing, the door of which is ajar.</s>
+      <s id="bs24">The light  within swings backwards and forwards, spilling into  the passageway.</s>
+      <s id="bs25">As we reach the door, the screams from within halt  abruptly.</s>
+      <s id="bs26">We can hear a bell now, which has been pealing  steadily throughout this opening sequence.</s>
+      <s id="bs27">As we move through the door, the titles end.</s>
+      <s id="bs28">2</s>
+   </beginning>
    <scene id="sc1" time_interpolated="00:03:01">
       <sceneheader>INT.   TORTURE ROOM   NIGHT</sceneheader>
       <meta id="sc1m1">

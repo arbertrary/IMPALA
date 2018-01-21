@@ -54,8 +54,8 @@ def get_energy(path: str) -> np.ndarray:
 
     energy_list = []
 
-    for bl in block_gen:
-        y = np.mean(bl, axis=1)
+    for y in block_gen:
+        # y = np.mean(bl, axis=0)
         S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
         rms = librosa.feature.rmse(S=S)
         m = np.mean(rms)
@@ -76,7 +76,6 @@ def get_energy(path: str) -> np.ndarray:
     #     times.append(time)
     #     time += block_duration
     #     i += 1
-
     return np.array(energy_list)
 
 
@@ -205,7 +204,7 @@ def main():
 
     time = datetime.now()
     energy = get_energy(selfie_audio)
-    plot_energy(energy)
+    # plot_energy(energy)
     # test2(selfie_audio)
     # print("")
     # rms_energy(selfie_audio)

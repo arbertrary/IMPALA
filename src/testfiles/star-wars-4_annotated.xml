@@ -1,55 +1,29 @@
 <movie>
-   <info>Star Wars: A New Hope
-Writers :   George Lucas
-Genres :   Action  Adventure  Fantasy  Sci-Fi</info>
-   <beginning>STAR WARS
-
-                                        Episode IV
-
-                                        A NEW HOPE
-
-                                         From the
-                                  JOURNAL OF THE WHILLS
-
-                                            by
-                                       George Lucas
-
-                                   Revised Fourth Draft
-                                     January 15, 1976
-
-                                      LUCASFILM LTD.
-
-                
-
-               A long time ago, in a galaxy far, far, away...
-
-               A vast sea of stars serves as the backdrop for the main title. 
-               War drums echo through the heavens as a rollup slowly crawls 
-               into infinity.
-
-                    It is a period of civil war. Rebel spaceships, 
-                    striking from a hidden base, have won their first 
-                    victory against the evil Galactic Empire.
-
-                    During the battle, Rebel spies managed to steal 
-                    secret plans to the Empire's ultimate weapon, the 
-                    Death Star, an armored space station with enough 
-                    power to destroy an entire planet.
-
-                    Pursued by the Empire's sinister agents, Princess 
-                    Leia races home aboard her starship, custodian of 
-                    the stolen plans that can save her people and 
-                    restore freedom to the galaxy...
-
-               The awesome yellow planet of Tatooine emerges from a total 
-               eclipse, her two moons glowing against the darkness. A tiny 
-               silver spacecraft, a Rebel Blockade Runner firing lasers 
-               from the back of the ship, races through space. It is pursed 
-               by a giant Imperial Stardestroyer. Hundreds of deadly 
-               laserbolts streak from the Imperial Stardestroyer, causing 
-               the main solar fin of the Rebel craft to disintegrate.
-
-               </beginning>
+   <info>
+      <title>Star Wars: A New Hope</title>
+      <writers>George Lucas</writers>
+      <genres>Action,Adventure,Fantasy,Sci-Fi</genres>
+   </info>
+   <beginning>
+      <s id="bs1">STAR WARS</s>
+      <s id="bs2">Episode IV</s>
+      <s id="bs3">A NEW HOPE</s>
+      <s id="bs4">From the  JOURNAL OF THE WHILLS</s>
+      <s id="bs5">by  George Lucas</s>
+      <s id="bs6">Revised Fourth Draft  January 15, 1976</s>
+      <s id="bs7">LUCASFILM LTD.</s>
+      <s id="bs8">A long time ago, in a galaxy far, far, away...</s>
+      <s id="bs9">A vast sea of stars serves as the backdrop for the main title.</s>
+      <s id="bs10">War drums echo through the heavens as a rollup slowly crawls into infinity.</s>
+      <s id="bs11">It is a period of civil war.</s>
+      <s id="bs12">Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.</s>
+      <s id="bs13">During the battle, Rebel spies managed to steal secret plans to the Empire's ultimate weapon, the Death Star, an armored space station with enough power to destroy an entire planet.</s>
+      <s id="bs14">Pursued by the Empire's sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy...</s>
+      <s id="bs15">The awesome yellow planet of Tatooine emerges from a total eclipse, her two moons glowing against the darkness.</s>
+      <s id="bs16">A tiny silver spacecraft, a Rebel Blockade Runner firing lasers from the back of the ship, races through space.</s>
+      <s id="bs17">It is pursed by a giant Imperial Stardestroyer.</s>
+      <s id="bs18">Hundreds of deadly laserbolts streak from the Imperial Stardestroyer, causing the main solar fin of the Rebel craft to disintegrate.</s>
+   </beginning>
    <scene id="sc1" time_avg="00:02:29">
       <sceneheader>INT. REBEL BLOCKADE RUNNER - MAIN PASSAGEWAY</sceneheader>
       <meta id="sc1m1">
