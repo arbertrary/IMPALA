@@ -6,6 +6,8 @@
 *.wav
 
 #data folders
+all_subtitles/
+all_moviescripts/
 data_moviescripts/
 data_subtitles/
 data_xml/

@@ -4,9 +4,13 @@ Check and clean all movie scripts in directory
 
 import os
 import re
+import shutil
 from nltk import word_tokenize
+from subtitles import check_correctness
 
 PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
+
+
 # DATA_DIR = "testfiles"
 
 
@@ -107,10 +111,43 @@ def get_all_genres(directory: str):
     f.close()
 
 
+def check_all_subs(directory):
+    for filename in os.listdir(directory):
+        path = os.path.join(directory, filename)
+
+        try:
+            check_correctness(path)
+        except ValueError:
+            print(filename)
+
+
+def move_subtitles():
+    with open("filmliste.txt") as filme:
+        filmliste = filme.read().splitlines(keepends=False)
+        # print(filmliste)
+
+    subs_dir = os.path.join(PAR_DIR, "all_subtitles")
+
+    for film in filmliste:
+        filename = film + "_subs.xml"
+
+        if filename in os.listdir(subs_dir):
+            src = os.path.join(subs_dir, filename)
+            dest = os.path.join(PAR_DIR, "data_subtitles", filename)
+            shutil.copy(src, dest)
+            print(src, dest)
+
+        else:
+            print(filename)
+
 
 def main():
     """ist halt die main, wofür will pylint da einen docstring"""
-    print("hello")
+    subs_dir = os.path.join(PAR_DIR, "data_subtitles")
+    print(subs_dir)
+
+    check_all_subs(subs_dir)
+    # move_subtitles()
 
 
 if __name__ == '__main__':
