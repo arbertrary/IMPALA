@@ -4,7 +4,7 @@ import os
 import xml.etree.ElementTree as ET
 import string
 from typing import List, Tuple
-from datetime import datetime
+from datetime import datetime, timedelta
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"
@@ -54,8 +54,39 @@ def get_subtitles(movie_filename: str) -> List[Tuple[str, str, str]]:
     return subdialogue
 
 
+def check_correctness(path: str):
+    """Checks whether a file of xml subtitles is correctly numbered and the time codes are continuous"""
+
+    tree = ET.parse(path)
+
+    id = 1
+    root = tree.getroot()
+
+    for sentence in root:
+        if int(sentence.get("id")) != id:
+            raise ValueError("Error at sentence "+ str(id)+ ": ID not continuous")
+        id += 1
+
+    times = tree.iter("time")
+
+    currenttime = datetime.strptime("00:00:00,000", '%H:%M:%S,%f')
+    for time in times:
+        if str(time.get("id")).endswith("S"):
+            timestring = time.get("value")
+            t = datetime.strptime(timestring, '%H:%M:%S,%f')
+
+            if t < currenttime:
+                raise ValueError("Time not continuous @"+time.get("id"))
+            currenttime = t
+        else:
+            continue
+
 def main():
-    get_subtitles("star-wars-4_sub.xml")
+    # print(get_subtitles("star-wars-4_sub.xml"))
+    # path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
+    path = os.path.join(PAR_DIR, DATA_DIR, "gladiator_subs.xml")
+
+    check_correctness(path)
 
 
 if __name__ == '__main__':

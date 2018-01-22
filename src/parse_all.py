@@ -9,24 +9,24 @@ PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.
 
 
 def rename_subs():
-    data_subtitles = data_moviescripts = os.path.join(PAR_DIR, "data_subtitles")
-    test = os.listdir(data_subtitles)
+    all_subtitles = os.path.join(PAR_DIR, "all_subtitles")
+    test = os.listdir(all_subtitles)
     filename = test[0]
-    print(os.path.join(data_subtitles, filename))
-    print(os.path.join(data_subtitles, filename + "_subs.xml"))
+    print(os.path.join(all_subtitles, filename))
+    print(os.path.join(all_subtitles, filename + "_subs.xml"))
     print(os.path.splitext(filename)[0] + "_subs.xml")
 
-    for filename in os.listdir(data_subtitles):
+    for filename in os.listdir(all_subtitles):
         new_filename = os.path.splitext(filename)[0] + "_subs.xml"
-        os.rename(os.path.join(data_subtitles, filename), os.path.join(data_subtitles, new_filename))
+        os.rename(os.path.join(all_subtitles, filename), os.path.join(all_subtitles, new_filename))
 
 
 def parse_all():
-    data_moviescripts = os.path.join(PAR_DIR, "data_moviescripts")
+    all_moviescripts = os.path.join(PAR_DIR, "all_moviescripts")
     dest_dir = os.path.join(PAR_DIR, "xml_moviescripts")
     list_dest_dir = os.listdir(dest_dir)
-    for filename in os.listdir(data_moviescripts):
-        path = os.path.join(data_moviescripts, filename)
+    for filename in os.listdir(all_moviescripts):
+        path = os.path.join(all_moviescripts, filename)
         xml_path = os.path.splitext(filename)[0] + ".xml"
         try:
             if xml_path not in list_dest_dir:
