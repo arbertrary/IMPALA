@@ -54,6 +54,39 @@ def get_subtitles(movie_filename: str) -> List[Tuple[str, str, str]]:
     return subdialogue
 
 
+def get_sub_sentences(path: str) -> List[Tuple[str, str]]:
+    tree = ET.parse(path)
+    root = tree.getroot()
+
+    subdialogue = []
+    time = "00:00:00,000"
+    for sentence in root:
+        dialogue = ""
+        sentence_id = sentence.get("id")
+        for child in sentence:
+
+            if child.tag == "time" and str(child.get("id")).endswith("S"):
+                time = child.get("value")
+
+            elif child.tag == "time" and str(child.get("id")).endswith("E"):
+                continue
+            else:
+                word = str(child.text)
+                if word.endswith("'"):
+                    dialogue += word
+                else:
+                    if word in string.punctuation:
+                        dialogue = dialogue.strip() + word + " "
+                    else:
+                        dialogue = dialogue + word + " "
+
+        sent_tuple = (time, dialogue.strip())
+        subdialogue.append(sent_tuple)
+
+    return subdialogue
+
+
+
 def check_correctness(path: str):
     """Checks whether a file of xml subtitles is correctly numbered and the time codes are continuous"""
 
@@ -84,10 +117,13 @@ def check_correctness(path: str):
 def main():
     # print(get_subtitles("star-wars-4_sub.xml"))
     # path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    path = os.path.join(PAR_DIR, DATA_DIR, "gladiator_subs.xml")
+    path = os.path.join(PAR_DIR, DATA_DIR, "hellraiser_subs.xml")
 
-    check_correctness(path)
+    # check_correctness(path)
 
+    test = get_sub_sentences(path)
+    for s in test:
+        print(s)
 
 if __name__ == '__main__':
     main()

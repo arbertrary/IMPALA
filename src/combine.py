@@ -9,6 +9,7 @@ from matplotlib import dates
 from moviescript import get_full_scenes
 from audio_analysis import get_energy
 from ms_sentiment import get_arousal_values, get_arousal_values_wo_time
+from subs_sentiment import get_subs_sentiment
 
 """Idee:
 - scenes mit time codes aus moviescript get_full_scenes
@@ -85,23 +86,67 @@ def combine(scenes, energy, duration):
     plt.show()
 
 
+def combine_subs(subtitle_scores, subtitle_times, energy, duration):
+    intervals = np.array_split(energy, len(energy) / 100)
+    intervals = [np.mean(e) for e in intervals]
+
+    block_duration = np.divide(duration, len(intervals))
+    en_times = []
+    time = 0
+    i = 1
+    while i <= len(intervals):
+        en_times.append(time)
+        time += block_duration
+        i += 1
+
+    plt.figure()
+    plt.subplot(211)
+    plt.title('Hellraiser: Audio (RMS Energy)')
+    # plt.title("Star Wars IV: Audio (RMS Energy)")
+    plt.xlabel("seconds")
+
+    plt.semilogy(en_times, intervals, color="b", label="RMS Energy")
+    plt.legend(loc='best')
+
+    plt.xlim(0, en_times[-1])
+
+    plt.subplot(212)
+    plt.title("Hellraiser: Sentiment (Arousal Scores)")
+    # plt.title("Star Wars IV: Sentiment (Arousal Scores)")
+    plt.ylabel("Arousal")
+    plt.xlabel("time")
+
+    plt.plot_date(subtitle_times, subtitle_scores, fmt="-", color="b", label="Arousal")
+    plt.legend(loc='best')
+    plt.xlim(subtitle_times[0], subtitle_times[-1])
+    plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
+    plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
+
+    plt.tight_layout()
+    plt.show()
+
+
 def main():
     time = datetime.now()
 
     # scenes = get_full_scenes(os.path.join(DATA_DIR, "hellraiser_annotated.xml"))
     # energy = get_energy(os.path.join(DATA_DIR, "hellraiser.wav"))
     # duration = sf.info(os.path.join(DATA_DIR, "hellraiser.wav")).duration
-    scenes = get_full_scenes(os.path.join(DATA_DIR, "star-wars-4_annotated.xml"))
+    # scenes = get_full_scenes(os.path.join(DATA_DIR, "star-wars-4_annotated.xml"))
     energy = get_energy(os.path.join(DATA_DIR, "star-wars-4.wav"))
     duration = sf.info(os.path.join(DATA_DIR, "star-wars-4.wav")).duration
     # energy = get_energy(os.path.join(DATA_DIR, "selfiefromhell.wav"))
     # duration = sf.info(os.path.join(DATA_DIR, "selfiefromhell.wav")).duration
+
+    subtitle_scores, subtitle_times = get_subs_sentiment(os.path.join(DATA_DIR, "star-wars-4_subs.xml"))
+
     time2 = datetime.now()
     diff = time2 - time
 
     print(diff)
 
-    combine(scenes, energy, duration)
+    # combine(scenes, energy, duration)
+    combine_subs(subtitle_scores, subtitle_times, energy, duration)
 
 
 if __name__ == '__main__':

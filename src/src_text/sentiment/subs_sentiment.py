@@ -1,54 +1,58 @@
 """Sentiment analysis of subtitle files"""
+
 import matplotlib.pyplot as plt
 from matplotlib import dates
-from pp_subtitles import get_dialogue_with_time
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from nltk import tokenize
-from textblob import TextBlob
-from afinn import Afinn
+from sentiment import ImpalaSent
+from subtitles import get_sub_sentences
+from datetime import datetime
 
 
-def subdialogue_sentiment(subs_filename):
+def get_subs_sentiment(subs_filename: str):
     """Analyse dialogue from subtitles"""
-    subtitles = get_dialogue_with_time(subs_filename)
 
-    x = []
+    sentiment = ImpalaSent()
+
+    sentences = get_sub_sentences(subs_filename)
+
     scores = []
+    times = []
 
-    sid = SentimentIntensityAnalyzer()
-    afinn = Afinn()
+    for s in sentences:
+        arousal = sentiment.score(s[1])[1]
+        if (arousal == 0):
+            continue
+        else:
+            time = datetime.strptime(s[0], "%H:%M:%S,%f")
 
-    for s in subtitles:
-        #Textblob
-        blob = TextBlob(s[1])
-        score = blob.sentiment.polarity
-        if score != 0.0:
-            x.append(s[0])
-            scores.append(score)
+            scores.append(arousal)
+            times.append(time)
 
-        #VADER
-       # score = sid.polarity_scores(s[1]).get('compound')
-        #if score != 0:
-         #   x.append(s[0])
-          #  scores.append(score)
+    scores = scores[::3]
+    print(len(scores))
+    times = times[::3]
 
-        #Afinn
-       # score = afinn.score(s[1])
-        #if score !=0:
-         #   x.append(s[0])
-          #  scores.append(score)
+    times = dates.date2num(times)
 
+    # plt.subplot(212)
+    # plt.ylabel("Arousal")
+    # plt.xlabel("time")
+    #
+    # plt.plot_date(times, scores, fmt="-", color="b", label="Arousal")
+    # plt.xlim(times[0], times[-1])
+    # plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
+    # plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
+    #
+    # plt.tight_layout()
+    # plt.show()
 
-
-    x = dates.date2num(x)
-
-    plt.plot_date(x, scores)
-    plt.show()
+    return scores, times
 
 
 def main():
     """main function"""
-    subdialogue_sentiment("star-wars-4.srt")
+    # path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/hellraiser_subs.xml"
+    path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/star-wars-4_subs.xml"
+    get_subs_sentiment(path)
 
 
 if __name__ == '__main__':
