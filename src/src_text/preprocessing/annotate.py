@@ -4,7 +4,7 @@ import os
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
-from subtitles import get_subtitles
+from subtitles import get_subtitles_for_annotating
 from typing import List, Tuple, Dict
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
@@ -54,7 +54,7 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     a) {scene_id : [timecode sentence1, timecode sentence2 ...]}
     b) {sentence_id : (timecode, sentence id from subtitle file)}
     """
-    subs_dialogue = get_subtitles(subs_path)
+    subs_dialogue = get_subtitles_for_annotating(subs_path)
     # [(sentence_id, timecode, sentence), (sentence_id, timecode, sentence) ...]
 
     movie_dialogue = __get_moviedialogue(movie_path)

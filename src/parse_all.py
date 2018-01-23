@@ -2,7 +2,7 @@
 
 import os
 import sys
-from fountain import moviescript_to_xml
+from parse_fountain import moviescript_to_xml
 from moviescript import annotate
 
 PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))

@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from typing import List, Set, Tuple, Dict
 from annotate import annotate
-from fountain import moviescript_to_xml
+from parse_fountain import moviescript_to_xml
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"

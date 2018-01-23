@@ -13,7 +13,7 @@ DATA_DIR = "testfiles"
 # class Subtitles:
 
 
-def get_subtitles(movie_filename: str) -> List[Tuple[str, str, str]]:
+def get_subtitles_for_annotating(movie_filename: str) -> List[Tuple[str, str, str]]:
     """returns subtitles as list of Triples of (sentence_id, start-timecode, sentence)"""
     path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
     tree = ET.parse(path)
@@ -54,15 +54,14 @@ def get_subtitles(movie_filename: str) -> List[Tuple[str, str, str]]:
     return subdialogue
 
 
-def get_sub_sentences(path: str) -> List[Tuple[str, str]]:
+def get_subtitles(path: str) -> List[Tuple[str, str]]:
     tree = ET.parse(path)
     root = tree.getroot()
 
-    subdialogue = []
+    temp_dialogue = []
     time = "00:00:00,000"
     for sentence in root:
         dialogue = ""
-        sentence_id = sentence.get("id")
         for child in sentence:
 
             if child.tag == "time" and str(child.get("id")).endswith("S"):
@@ -75,16 +74,27 @@ def get_sub_sentences(path: str) -> List[Tuple[str, str]]:
                 if word.endswith("'"):
                     dialogue += word
                 else:
-                    if word in string.punctuation:
+                    if word in string.punctuation or word.startswith("'"):
                         dialogue = dialogue.strip() + word + " "
                     else:
                         dialogue = dialogue + word + " "
 
         sent_tuple = (time, dialogue.strip())
-        subdialogue.append(sent_tuple)
+        temp_dialogue.append(sent_tuple)
+
+    time = temp_dialogue[0][0]
+    dialogue = ""
+    subdialogue = []
+    for x in temp_dialogue:
+        if time == x[0]:
+            dialogue = dialogue + " " + x[1]
+        else:
+            subdialogue.append((time, dialogue.strip()))
+
+            time = x[0]
+            dialogue = x[1]
 
     return subdialogue
-
 
 
 def check_correctness(path: str):
@@ -97,7 +107,7 @@ def check_correctness(path: str):
 
     for sentence in root:
         if int(sentence.get("id")) != id:
-            raise ValueError("Error at sentence "+ str(id)+ ": ID not continuous")
+            raise ValueError("Error at sentence " + str(id) + ": ID not continuous")
         id += 1
 
     times = tree.iter("time")
@@ -109,21 +119,23 @@ def check_correctness(path: str):
             t = datetime.strptime(timestring, '%H:%M:%S,%f')
 
             if t < currenttime:
-                raise ValueError("Time not continuous @"+time.get("id"))
+                raise ValueError("Time not continuous @" + time.get("id"))
             currenttime = t
         else:
             continue
 
+
 def main():
-    # print(get_subtitles("star-wars-4_sub.xml"))
+    # print(get_subtitles_for_annotating("star-wars-4_sub.xml"))
     # path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    path = os.path.join(PAR_DIR, DATA_DIR, "hellraiser_subs.xml")
+    path = os.path.join(PAR_DIR, DATA_DIR, "american-psycho_subs.xml")
 
     # check_correctness(path)
+    get_subtitles(path)
+    # test = get_subtitles(path)
+    # for s in test:
+    #     print(s)
 
-    test = get_sub_sentences(path)
-    for s in test:
-        print(s)
 
 if __name__ == '__main__':
     main()
