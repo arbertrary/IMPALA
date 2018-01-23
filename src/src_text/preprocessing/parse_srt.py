@@ -9,7 +9,7 @@ PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"
 
 
-def srt_to_xml(srt_path:str, dest_path: str):
+def srt_to_xml(srt_path: str, dest_path: str):
     """Parses subtitles from .srt plain text format to xml"""
 
     root = ET.Element("document")
@@ -38,12 +38,11 @@ def srt_to_xml(srt_path:str, dest_path: str):
                 time = lines[1].split(" --> ")
                 start = time[0].strip()
                 end = time[1].strip()
-                start_id = "T"+str(time_id)+"S"
-                end_id = "T"+str(time_id)+"E"
+                start_id = "T" + str(time_id) + "S"
+                end_id = "T" + str(time_id) + "E"
 
                 # print(start)
                 # print(end)
-
 
                 dialogue = sent_tokenize(" ".join(lines[2:]))
                 for sentence in dialogue:
@@ -52,8 +51,8 @@ def srt_to_xml(srt_path:str, dest_path: str):
                     ET.SubElement(s, "time", id=start_id, value=start)
 
                     for w in word_tokenize(sentence):
-                        word_id = str(s_id)+"."+str(w_id)
-                        w_id +=1
+                        word_id = str(s_id) + "." + str(w_id)
+                        w_id += 1
                         ET.SubElement(s, "w", id=word_id).text = w
 
                     ET.SubElement(s, "time", id=end_id, value=end)
@@ -61,13 +60,13 @@ def srt_to_xml(srt_path:str, dest_path: str):
                     time_id += 1
             control_id += 1
 
-
     tree = ET.ElementTree(root)
     xmlstr = minidom.parseString(ET.tostring(tree.getroot())).toprettyxml(indent="   ")
     # print(xmlstr)
 
     with open(dest_path, "w", encoding="UTF-8") as f:
         f.write(xmlstr)
+
 
 def main():
     """main"""

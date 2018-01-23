@@ -14,23 +14,30 @@ DATA_DIR = "testfiles"
 def rms_energy(audiofile):
     print("complete")
     y, sr = librosa.load(audiofile)
+    test = librosa.util.frame(y, frame_length=1024, hop_length=128)
+    print("shape of y ", y.shape)
+    print("shape of librosa.util.frame(y) ", test.shape)
     print("Samplerate: ", sr)
 
     print("length of complete audio signal: ", len(y))
 
     S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
-    print(S.shape)
+    print("shape of S", S.shape)
+    print("length of S[0]: ", len(S[0]))
+    print(S[0])
+    print(S[0][0])
     rms = librosa.feature.rmse(S=S)
     print("length of rms.T: ", len(rms.T))
-    print(rms.shape)
+    print("shape of rms ", rms.shape)
 
     plt.figure()
-    plt.subplot(211)
-    plt.semilogy(rms.T, label='RMS Energy')
+    plt.subplot(311)
+    # plt.semilogy(rms.T, label='RMS Energy')
+    plt.plot(y)
     # plt.xticks([])
-    plt.xlim([0, rms.shape[-1]])
+    # plt.xlim([0, rms.shape[-1]])
     plt.legend(loc='best')
-    plt.subplot(212)
+    plt.subplot(312)
 
     test = librosa.amplitude_to_db(S, ref=np.max)
     print("shape of librosa.amplitude_to_db:", test.shape)
@@ -38,8 +45,12 @@ def rms_energy(audiofile):
     mel = librosa.feature.melspectrogram(y=y, sr=sr)
     print("shape of librosa.feature.melspectrogram", mel.shape)
     print("shape of librosa.power_to_db(mel)", librosa.power_to_db(mel).shape)
-    librosa.display.specshow(librosa.power_to_db(mel), sr=sr, y_axis='log', x_axis='time')
-    # librosa.display.specshow(S, sr=sr, y_axis='log', x_axis='time')
+    print("shape of librosa.amplitude_do_db(mel", librosa.amplitude_to_db(mel).shape)
+    librosa.display.specshow(librosa.power_to_db(mel, ref=np.max), sr=sr, y_axis='log', x_axis='time')
+
+
+    plt.subplot(313)
+    librosa.display.specshow(librosa.amplitude_to_db(mel, ref=np.max), sr=sr, y_axis='log', x_axis='time')
 
     plt.title('log Power spectrogram')
     plt.tight_layout()
@@ -102,53 +113,38 @@ def plot_energy(energy: np.array):
 
 
 def test(path):
-    block_gen = sf.blocks(path, blocksize=1024)
+    block_gen = sf.blocks(path, blocksize=2048)
     rate = sf.info(path).samplerate
     duration = sf.info(path).duration
-    print(rate)
     testlist = []
 
     i = 1
-    for bl in block_gen:
-        y = np.mean(bl, axis=1)
-        S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
-        rms = librosa.feature.rmse(S=S)
-        m = np.mean(rms)
-        testlist.append(m)
+    for y in block_gen:
+        mel = librosa.feature.melspectrogram(y=y)
+        a = librosa.power_to_db(mel)
+        # S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
+        # a= librosa.amplitude_to_db(S, ref=np.max)
 
+        m = np.mean(a)
+        test = [np.mean(x) for x in a]
+
+        if i == 1:
+            print(a.shape)
+            print(mel.shape)
+            # print(a)
+            print(test)
+            i+=1
+        testlist.append(test)
+
+    print(np.array(testlist).T.shape)
+    asdf = np.array(testlist).T
     block_gen.close()
-    l = len(testlist)
-    dec = np.array_split(np.array(testlist), l / 100)
-    print(len(dec))
 
-    testlist = [np.mean(a) for a in dec]
-
-    block_duration = np.divide(duration, len(testlist))
-    times = []
-    time = 0
-    i = 1
-    while i <= len(testlist):
-        times.append(time)
-        time += block_duration
-        i += 1
-
-    print(l)
 
     plt.figure()
     plt.subplot(211)
     plt.title("")
-    plt.plot(times, np.array(testlist))
-    plt.semilogy(times, np.array(testlist), color="b", label="RMS Energy")
-    plt.legend(loc='best')
-
-    plt.xlim(0, duration)
-    plt.xlabel("seconds")
-
-    plt.subplot(212)
-    # librosa.display.specshow(np.array(chromas), y_axis='chroma', x_axis='time')
-
-    plt.title('Hellraiser RMS Energy')
-    plt.tight_layout()
+    librosa.display.specshow(asdf, y_axis='log', x_axis='time')
 
     # Das ganze Problem bei diesem blockweisen einlesen ist, dass für jeden Block ein array erstellt wird
     # als wäre der Block die ganze audio file
@@ -168,9 +164,6 @@ def test2(path):
     testlist = []
 
     for bl in block_gen:
-        # np.mean ist nötig weil die blöcke ein 2D array der Länge l=blocksize
-        # mit subarrays length 2 sind
-        # np.mean macht daraus ein einzelnes Array der länge blocksize
         y = np.mean(bl, axis=1)
 
         testlist.extend(y)
@@ -203,20 +196,13 @@ def main():
     hellraiser_audio = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.wav")
 
     time = datetime.now()
-    energy = get_energy(selfie_audio)
-    # plot_energy(energy)
-    # test2(selfie_audio)
-    # print("")
+    test(hellraiser_audio)
     # rms_energy(selfie_audio)
     time2 = datetime.now()
     diff = time2 - time
 
     print(diff)
-    # plt.show()
 
-    # info = sf.info(selfie_audio, verbose=True)
-    # print(info)
-    # print(info.duration)
 
 
 # block size 1024:
