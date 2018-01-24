@@ -30,31 +30,32 @@ def rms_energy(audiofile):
     print("length of rms.T: ", len(rms.T))
     print("shape of rms ", rms.shape)
 
-    plt.figure()
-    plt.subplot(311)
+    # plt.figure()
+    # plt.subplot(311)
     # plt.semilogy(rms.T, label='RMS Energy')
-    plt.plot(y)
+    # plt.plot(y)
     # plt.xticks([])
     # plt.xlim([0, rms.shape[-1]])
-    plt.legend(loc='best')
-    plt.subplot(312)
+    # plt.legend(loc='best')
+    # plt.subplot(312)
 
     test = librosa.amplitude_to_db(S, ref=np.max)
     print("shape of librosa.amplitude_to_db:", test.shape)
 
-    mel = librosa.feature.melspectrogram(y=y, sr=sr)
+    mel = librosa.feature.melspectrogram(y=y)
     print("shape of librosa.feature.melspectrogram", mel.shape)
     print("shape of librosa.power_to_db(mel)", librosa.power_to_db(mel).shape)
     print("shape of librosa.amplitude_do_db(mel", librosa.amplitude_to_db(mel).shape)
-    librosa.display.specshow(librosa.power_to_db(mel, ref=np.max), sr=sr, y_axis='log', x_axis='time')
+    librosa.display.specshow(librosa.amplitude_to_db(mel), sr=22050, y_axis='log', x_axis='time')
+    plt.colorbar(format='%+2.0f dB')
 
-    plt.subplot(313)
-    librosa.display.specshow(librosa.amplitude_to_db(mel, ref=np.max), sr=sr, y_axis='log', x_axis='time')
+    # plt.subplot(313)
+    # librosa.display.specshow(librosa.amplitude_to_db(mel, ref=np.max), sr=sr, y_axis='log', x_axis='time')
 
-    plt.title('log Power spectrogram')
-    plt.tight_layout()
+    # plt.title('log Power spectrogram')
+    # plt.tight_layout()
 
-    plt.show()
+    # plt.show()
 
 
 def get_energy(path: str) -> np.ndarray:
@@ -118,18 +119,20 @@ def blockwise_processing(path):
     testlist = []
 
     i = 1
+    print("stft")
     for y in block_gen:
-        mel = librosa.feature.melspectrogram(y=y)
-        a = librosa.power_to_db(mel)
-        # S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
-        # a= librosa.amplitude_to_db(S, ref=np.max)
+        # Varianten:
 
-        m = np.mean(a)
+        # D = librosa.magphase(librosa.stft(y, window=np.ones))[0]
+        # D = librosa.stft(y)
+        D = librosa.feature.melspectrogram(y=y)
+        a = librosa.amplitude_to_db(D)
+
         test = [np.mean(x) for x in a]
 
         if i == 1:
             print(a.shape)
-            print(mel.shape)
+            # print(mel.shape)
             # print(a)
             print(test)
             i += 1
@@ -139,40 +142,32 @@ def blockwise_processing(path):
     asdf = np.array(testlist).T
     block_gen.close()
 
-    plt.figure()
-    plt.title("")
-    librosa.display.specshow(asdf, y_axis='log', x_axis='time')
+    # plt.figure()
+    # plt.title("")
+    librosa.display.specshow(asdf, sr=22050, y_axis='log', x_axis='time')
+    plt.colorbar(format='%+2.0f dB')
 
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
 
 
 def main():
-    selfie_audio = os.path.join(PAR_DIR, DATA_DIR, "selfiefromhell.wav")
+    selfie_audio = os.path.join(PAR_DIR, DATA_DIR, "selfiefromhell_part.wav")
 
     hellraiser_audio = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.wav")
 
     time = datetime.now()
+    # plt.subplot(211)
+    plt.title("blockwise")
     blockwise_processing(selfie_audio)
+    # plt.subplot(212)
+    # plt.title("als ganzes")
     # rms_energy(selfie_audio)
     time2 = datetime.now()
     diff = time2 - time
 
     print(diff)
-
-
-# block size 1024:
-# blocks: 4385
-# items in flat list: 4489344
-
-# block size 256:
-# blocks: 17537
-# 4489344
-# rms.T length = 9
-
-# rms_energy:
-# length of y = 2244672 (= 4489344/2)
-# rms.T length = 4385 (= block anzahl bei block size 1024?)
+    plt.show()
 
 
 if __name__ == '__main__':
