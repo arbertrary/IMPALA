@@ -48,7 +48,6 @@ def rms_energy(audiofile):
     print("shape of librosa.amplitude_do_db(mel", librosa.amplitude_to_db(mel).shape)
     librosa.display.specshow(librosa.power_to_db(mel, ref=np.max), sr=sr, y_axis='log', x_axis='time')
 
-
     plt.subplot(313)
     librosa.display.specshow(librosa.amplitude_to_db(mel, ref=np.max), sr=sr, y_axis='log', x_axis='time')
 
@@ -112,7 +111,7 @@ def plot_energy(energy: np.array):
     plt.show()
 
 
-def test(path):
+def blockwise_processing(path):
     block_gen = sf.blocks(path, blocksize=2048)
     rate = sf.info(path).samplerate
     duration = sf.info(path).duration
@@ -133,61 +132,19 @@ def test(path):
             print(mel.shape)
             # print(a)
             print(test)
-            i+=1
+            i += 1
         testlist.append(test)
 
     print(np.array(testlist).T.shape)
     asdf = np.array(testlist).T
     block_gen.close()
 
-
     plt.figure()
-    plt.subplot(211)
     plt.title("")
     librosa.display.specshow(asdf, y_axis='log', x_axis='time')
 
-    # Das ganze Problem bei diesem blockweisen einlesen ist, dass für jeden Block ein array erstellt wird
-    # als wäre der Block die ganze audio file
-    # um das für die ganze audio file zu plotten müsste ich aber alle diese arrays zusammenkleben und dann plotten,
-    # aber anscheinend geht das nicht,
-
     plt.tight_layout()
     plt.show()
-
-
-def test2(path):
-    print("blockwise:")
-    rate = sf.info(path).samplerate
-    print("samplerate: ", rate)
-
-    block_gen = sf.blocks(path, blocksize=1024)
-    testlist = []
-
-    for bl in block_gen:
-        y = np.mean(bl, axis=1)
-
-        testlist.extend(y)
-    block_gen.close()
-
-    y = np.array(testlist)
-    print("length of block list: ", len(y))
-
-    S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
-    rms = librosa.feature.rmse(S=S)
-
-    print("length of rms.T: ", len(rms.T))
-    plt.figure()
-    plt.subplot(211)
-    plt.title("")
-    plt.semilogy(rms.T, label="RMS Energy")
-    plt.xlim(0, rms.shape[-1])
-
-    plt.subplot(212)
-
-    test = librosa.amplitude_to_db(S, ref=np.max)
-    librosa.display.specshow(test, sr=rate, y_axis='log', x_axis='time')
-    plt.tight_layout()
-    # plt.show()
 
 
 def main():
@@ -196,13 +153,12 @@ def main():
     hellraiser_audio = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.wav")
 
     time = datetime.now()
-    test(hellraiser_audio)
+    blockwise_processing(selfie_audio)
     # rms_energy(selfie_audio)
     time2 = datetime.now()
     diff = time2 - time
 
     print(diff)
-
 
 
 # block size 1024:
