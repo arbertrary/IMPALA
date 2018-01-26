@@ -126,15 +126,15 @@ def check_correctness(path: str):
 
 
 def main():
-    # print(get_subtitles_for_annotating("star-wars-4_sub.xml"))
+    # print(get_subtitles_for_annotating("star-wars-4_subs.xml"))
     # path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    path = os.path.join(PAR_DIR, DATA_DIR, "american-psycho_subs.xml")
+    # path = os.path.join(PAR_DIR, DATA_DIR, "american-psycho_subs.xml")
+    path = os.path.join(PAR_DIR, DATA_DIR, "star-wars-4_subs.xml")
 
     # check_correctness(path)
-    get_subtitles(path)
-    # test = get_subtitles(path)
-    # for s in test:
-    #     print(s)
+    test = get_subtitles(path)
+    for s in test:
+        print(s)
 
 
 if __name__ == '__main__':

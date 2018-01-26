@@ -14,21 +14,20 @@ DATA_DIR = "testfiles"
 def rms_energy(audiofile):
     print("complete")
     y, sr = librosa.load(audiofile)
-    test = librosa.util.frame(y, frame_length=1024, hop_length=128)
-    print("shape of y ", y.shape)
-    print("shape of librosa.util.frame(y) ", test.shape)
-    print("Samplerate: ", sr)
-
-    print("length of complete audio signal: ", len(y))
+    # test = librosa.util.frame(y, frame_length=1024, hop_length=128)
+    # print("shape of y ", y.shape)
+    # print("shape of librosa.util.frame(y) ", test.shape)
+    # print("Samplerate: ", sr)
+    # print("length of complete audio signal: ", len(y))
 
     S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
-    print("shape of S", S.shape)
-    print("length of S[0]: ", len(S[0]))
-    print(S[0])
-    print(S[0][0])
+    # print("shape of S", S.shape)
+    # print("length of S[0]: ", len(S[0]))
+    # print(S[0])
+    # print(S[0][0])
     rms = librosa.feature.rmse(S=S)
-    print("length of rms.T: ", len(rms.T))
-    print("shape of rms ", rms.shape)
+    # print("length of rms.T: ", len(rms.T))
+    # print("shape of rms ", rms.shape)
 
     # plt.figure()
     # plt.subplot(311)
@@ -40,13 +39,18 @@ def rms_energy(audiofile):
     # plt.subplot(312)
 
     test = librosa.amplitude_to_db(S, ref=np.max)
-    print("shape of librosa.amplitude_to_db:", test.shape)
+    # print("shape of librosa.amplitude_to_db:", test.shape)
 
     mel = librosa.feature.melspectrogram(y=y)
-    print("shape of librosa.feature.melspectrogram", mel.shape)
-    print("shape of librosa.power_to_db(mel)", librosa.power_to_db(mel).shape)
-    print("shape of librosa.amplitude_do_db(mel", librosa.amplitude_to_db(mel).shape)
-    librosa.display.specshow(librosa.amplitude_to_db(mel), sr=22050, y_axis='log', x_axis='time')
+    # mfccs = librosa.feature.mfcc(y=y, sr=sr)
+
+    # print("shape of librosa.feature.melspectrogram", mel.shape)
+    # print("shape of librosa.power_to_db(mel)", librosa.power_to_db(mel).shape)
+    # print("shape of librosa.amplitude_do_db(mel", librosa.amplitude_to_db(mel).shape)
+
+    d = librosa.power_to_db(mel)
+    librosa.display.specshow(test, sr=22050, y_axis='log', x_axis='time')
+    # librosa.display.specshow(mfccs, x_axis="time")
     plt.colorbar(format='%+2.0f dB')
 
     # plt.subplot(313)
@@ -119,50 +123,55 @@ def blockwise_processing(path):
     testlist = []
 
     i = 1
-    print("stft")
     for y in block_gen:
         # Varianten:
 
         # D = librosa.magphase(librosa.stft(y, window=np.ones))[0]
         # D = librosa.stft(y)
         D = librosa.feature.melspectrogram(y=y)
-        a = librosa.amplitude_to_db(D)
+        # D = librosa.feature.melspectrogram(y=y, sr=22050, n_mels=256)
+        # a = librosa.amplitude_to_db(D)
+        a = librosa.power_to_db(D)
+        # a = librosa.feature.mfcc(y=y, sr=22050)
 
         test = [np.mean(x) for x in a]
 
         if i == 1:
-            print(a.shape)
+            # print(a.shape)
             # print(mel.shape)
             # print(a)
-            print(test)
+            # print(test)
             i += 1
         testlist.append(test)
+        i += 1
 
     print(np.array(testlist).T.shape)
     asdf = np.array(testlist).T
     block_gen.close()
-
+    block_duration = duration / i
+    test = duration / len(testlist)
+    print("duration: ", block_duration, test)
     # plt.figure()
     # plt.title("")
-    librosa.display.specshow(asdf, sr=22050, y_axis='log', x_axis='time')
+    librosa.display.specshow(asdf, sr=22050, y_axis='mel', x_axis='frames')
     plt.colorbar(format='%+2.0f dB')
-
-    # plt.tight_layout()
+    # np.savetxt("test.csv", asdf, delimiter=",")
+    plt.tight_layout()
     # plt.show()
 
 
 def main():
-    selfie_audio = os.path.join(PAR_DIR, DATA_DIR, "selfiefromhell_part.wav")
-
+    selfie_audio = os.path.join(PAR_DIR, DATA_DIR, "selfiefromhell.wav")
+    # print(sf.info(selfie_audio).duration)
     hellraiser_audio = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.wav")
 
     time = datetime.now()
-    # plt.subplot(211)
-    plt.title("blockwise")
-    blockwise_processing(selfie_audio)
+    plt.subplot(211)
+    # plt.title("blockwise")
+    # blockwise_processing(selfie_audio)
     # plt.subplot(212)
     # plt.title("als ganzes")
-    # rms_energy(selfie_audio)
+    rms_energy(selfie_audio)
     time2 = datetime.now()
     diff = time2 - time
 

@@ -1,8 +1,8 @@
 import csv
 import os
 import re
+import numpy as np
 from nltk import word_tokenize
-from numpy import mean
 
 PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 DATA_DIR = os.path.join(PAR_DIR, "lexicons")
@@ -26,8 +26,8 @@ class ImpalaSent:
     def score(self, text: str):
         words = word_tokenize(text)
 
-        val = []
-        aro = []
+        valence_scores = []
+        arousal_scores = []
         for word in words:
             score = self.lexicon.get(word)
 
@@ -35,24 +35,25 @@ class ImpalaSent:
                 a = float(score[1])
                 v = float(score[0])
 
-                val.append(v)
-                aro.append(a)
+                valence_scores.append(v)
+                arousal_scores.append(a)
 
-        lv = len(val)
-        la = len(aro)
+        lv = len(valence_scores)
+        la = len(arousal_scores)
 
+        # If-Else conditions for cases where no word in text is found in the lexicon
         if lv != 0 and la != 0:
-            valence = mean(val)
-            arousal = mean(aro)
-            # arousal = max(aro)
+            valence = np.mean(valence_scores)
+            arousal = np.mean(arousal_scores)
+            # arousal = max(arousal_scores)
         elif lv != 0 and la == 0:
-            valence = mean(val)
+            valence = np.mean(valence_scores)
             arousal = 0
 
         elif lv == 0 and la != 0:
             valence = 0
-            arousal = mean(aro)
-            # arousal = max(aro)
+            arousal = np.mean(arousal_scores)
+            # arousal = max(arousal_scores)
 
         else:
             valence = 0
@@ -74,11 +75,45 @@ class ImpalaSent:
                 aro.append(a)
 
         if len(aro) != 0:
-            arousal = mean(aro)
+            arousal = np.mean(aro)
         else:
             arousal = 4.21
 
         return arousal, len(aro)
+
+    def nrc_score(self, text: str):
+        if self.method != "NRC":
+            raise ValueError("Lexicon is not NRC")
+
+        words = word_tokenize(text)
+
+        scores = []
+        for word in words:
+            score = self.lexicon.get(word)
+
+            if score:
+                scores.append(score)
+
+        anger = ant = disgust = fear = joy = negative = positive = sadness = surprise = trust = 0
+        emotions = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        word_count = len(scores)
+        for dict in scores:
+            emotions[0] += dict.get("anger")
+            emotions[1] += dict.get("anticipation")
+            emotions[2] += dict.get("disgust")
+            emotions[3] += dict.get("fear")
+            emotions[4] += dict.get("joy")
+            emotions[5] += dict.get("negative")
+            emotions[6] += dict.get("positive")
+            emotions[7] += dict.get("sadness")
+            emotions[8] += dict.get("surprise")
+            emotions[9] += dict.get("trust")
+
+        # print(emotions)
+        emotions = [x / word_count if x != 0 else x for x in emotions]
+        # print(emotions)
+
+        return emotions
 
 
 def warriner_dict():
@@ -118,7 +153,7 @@ def nrc_dict():
             if index % 10 < 9:
                 temp_dict[key] = int(value)
             else:
-                temp_dict[key] = value
+                temp_dict[key] = int(value)
                 lexicon[word] = temp_dict
                 temp_dict = {}
 
@@ -156,12 +191,13 @@ def main():
     # test2 = ImpalaSent("SentiWordNet")
     # print(test2.score("happy"))
 
-    # test3 = ImpalaSent("NRC")
-    # print(test3.score("happy"))
-
-    PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
-    DATA_DIR = os.path.join(PAR_DIR, "lexicons")
-    print(DATA_DIR)
+    test3 = ImpalaSent("NRC")
+    # print(test3.lexicon.get("happy"))
+    # print(test3.lexicon.get("death"))
+    print(test3.nrc_score('Take her away!'))
+    # PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
+    # DATA_DIR = os.path.join(PAR_DIR, "lexicons")
+    # print(DATA_DIR)
 
 
 if __name__ == '__main__':
