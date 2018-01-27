@@ -1,12 +1,16 @@
 """Sentiment analysis of subtitle files"""
 
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from matplotlib import dates
-from sentiment import ImpalaSent
-from subtitles import get_subtitles
 from datetime import datetime
+
+from src.src_text.sentiment.sentiment import ImpalaSent
+from src.src_text.preprocessing.subtitles import get_subtitles
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
 def get_subs_sentiment(subs_filename: str):
@@ -123,7 +127,8 @@ def plot_stuff(path):
 
 def main():
     """main function"""
-    path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/american-psycho_subs.xml"
+    path = os.path.join(BASE_DIR, "src/testfiles", "american-psycho_subs.xml")
+    # path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/american-psycho_subs.xml"
     # path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/star-wars-4_subs.xml"
     # test= get_nrc_sentiment(path)
     # test, test2 = get_subs_sentiment(path)

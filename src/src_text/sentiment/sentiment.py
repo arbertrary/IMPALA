@@ -1,15 +1,14 @@
+"""The main sentiment class"""
 import csv
 import os
 import re
 import numpy as np
 from nltk import word_tokenize
 
-PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
-DATA_DIR = os.path.join(PAR_DIR, "lexicons")
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
 class ImpalaSent:
-
     def __init__(self, method="default"):
         if method == ("default" or "Warriner"):
             self.method = "RatingsWarriner"
@@ -117,7 +116,7 @@ class ImpalaSent:
 
 
 def warriner_dict():
-    path = os.path.join(DATA_DIR, "WarrinerRatings.csv")
+    path = os.path.join(BASE_DIR, "src/src_text/lexicons/", "WarrinerRatings.csv")
 
     lexicon = {}
     with open(path, newline='') as csvfile:
@@ -139,7 +138,7 @@ def warriner_dict():
 
 
 def nrc_dict():
-    path = os.path.join(DATA_DIR, "NRC_EmoLex.txt")
+    path = os.path.join(BASE_DIR, "src/src_text/lexicons/", "NRC_EmoLex.txt")
 
     lexicon = {}
     with open(path, newline='') as csvfile:
@@ -161,7 +160,7 @@ def nrc_dict():
 
 
 def sentiwordnet_dict():
-    path = os.path.join(DATA_DIR, "SentiWordNet.txt")
+    path = os.path.join(BASE_DIR, "src/src_text/lexicons/", "SentiWordNet.txt")
 
     lexicon = {}
     with open(path, newline='') as csvfile:

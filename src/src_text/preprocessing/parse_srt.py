@@ -5,8 +5,7 @@ from typing import List, Tuple
 from nltk import sent_tokenize, word_tokenize
 from xml.dom import minidom
 
-PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-DATA_DIR = "testfiles"
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
 def srt_to_xml(srt_path: str, dest_path: str):
@@ -72,8 +71,8 @@ def main():
     """main"""
     # srt_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.srt")
     # dest_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    srt_path = os.path.join(PAR_DIR, DATA_DIR, "gladiator_subs.srt")
-    dest_path = os.path.join(PAR_DIR, DATA_DIR, "gladiator_subs.xml")
+    srt_path = os.path.join(BASE_DIR, "src/testfiles/" "gladiator_subs.srt")
+    dest_path = os.path.join(BASE_DIR, "src/testfiles/", "gladiator_subs.xml")
     srt_to_xml(srt_path, dest_path)
 
 

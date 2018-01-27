@@ -7,17 +7,11 @@ import string
 from typing import List, Tuple
 from datetime import datetime, timedelta
 
-
-PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-DATA_DIR = "testfiles"
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
-# class Subtitles:
-
-
-def get_subtitles_for_annotating(movie_filename: str) -> List[Tuple[str, str, str]]:
+def get_subtitles_for_annotating(path: str) -> List[Tuple[str, str, str]]:
     """returns subtitles as list of Triples of (sentence_id, start-timecode, sentence)"""
-    path = os.path.join(PAR_DIR, DATA_DIR, movie_filename)
     tree = ET.parse(path)
     root = tree.getroot()
 
@@ -107,14 +101,15 @@ def get_avg_timediff(path: str):
     end = ""
     times = list(tree.iter("time"))
     test = []
-    i =0
-    while i+1 < len(times):
+    i = 0
+    while i + 1 < len(times):
         start = datetime.strptime(str(times[i].get("value")), '%H:%M:%S,%f')
-        end = datetime.strptime(str(times[i+1].get("value")), '%H:%M:%S,%f')
+        end = datetime.strptime(str(times[i + 1].get("value")), '%H:%M:%S,%f')
 
-        test.append((end-start).total_seconds())
-        i+=2
+        test.append((end - start).total_seconds())
+        i += 2
     return np.mean(test)
+
 
 def check_correctness(path: str):
     """Checks whether a file of xml subtitles is correctly numbered and the time codes are continuous"""
@@ -148,15 +143,14 @@ def main():
     # print(get_subtitles_for_annotating("star-wars-4_subs.xml"))
     # path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
     # path = os.path.join(PAR_DIR, DATA_DIR, "american-psycho_subs.xml")
-    path = os.path.join(PAR_DIR, DATA_DIR, "gladiator_subs.xml")
+    path = os.path.join(BASE_DIR, "testfiles", "gladiator_subs.xml")
+    print(BASE_DIR)
 
     check_correctness(path)
     print(get_avg_timediff(path))
     # test = get_subtitles(path)
     # for s in test:
     #     print(s)
-
-
 
 
 if __name__ == '__main__':

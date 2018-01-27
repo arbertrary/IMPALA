@@ -7,9 +7,7 @@ from typing import List, Tuple
 from nltk import sent_tokenize, word_tokenize
 from xml.dom import minidom
 
-PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-DATA_DIR = "testfiles"
-DATA_DIR2 = "moviescripts_to_test"
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
 def moviescript_to_xml(movie_path: str, dest: str):
@@ -184,8 +182,8 @@ def main():
     """main"""
     # path = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.txt")
     # dest = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.xml")
-    path = os.path.join(PAR_DIR, DATA_DIR, "star-wars-4.txt")
-    dest = os.path.join(PAR_DIR, DATA_DIR, "star-wars-4.xml")
+    path = os.path.join(BASE_DIR, "src/testfiles/", "star-wars-4.txt")
+    dest = os.path.join(BASE_DIR, "src/testfiles/", "star-wars-4.xml")
     # sent_tokenize_moviescript("star-wars-4.xml")
     # get_scene_tuples("testmovie.txt")
     moviescript_to_xml(path, dest)

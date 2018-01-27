@@ -9,11 +9,15 @@ import functools
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from typing import List, Set, Tuple, Dict
-from annotate import annotate
-from parse_fountain import moviescript_to_xml
 
-PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-DATA_DIR = "testfiles"
+from src.src_text.preprocessing.annotate import annotate
+from src.src_text.preprocessing.parse_fountain import moviescript_to_xml
+
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
+
+# PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
+# DATA_DIR = "testfiles"
 
 
 def parse(fountain_path: str, subs_path: str, dest_path: str):
@@ -24,7 +28,7 @@ def parse(fountain_path: str, subs_path: str, dest_path: str):
 
 
 def main():
-    path = os.path.join(PAR_DIR, DATA_DIR)
+    path = os.path.join(BASE_DIR, "src/testfiles/")
     # fountain = os.path.join(path, "star-wars-4.txt")
     # subs_path = os.path.join(path, "star-wars-4_sub.xml")
     dest_path = os.path.join(path, "star-wars-4_annotated.xml")
@@ -131,7 +135,7 @@ def get_metatext(xml_path) -> List[str]:
 def get_genres(xml_path: str) -> List[str]:
     """Gets the genres as list of strings from the allgenres.txt file"""
     genres = []
-    with open(os.path.join(PAR_DIR, "allgenres.txt"), "r") as allgenres:
+    with open(os.path.join(BASE_DIR, "allgenres.txt"), "r") as allgenres:
         movies = allgenres.read().splitlines()
         name, ext = os.path.splitext(os.path.basename(xml_path))
         for m in movies:

@@ -6,12 +6,9 @@ import os
 import re
 import shutil
 from nltk import word_tokenize
-from subtitles import check_correctness
+from src.src_text.preprocessing.subtitles import check_correctness
 
-PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
-
-
-# DATA_DIR = "testfiles"
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 
 
 # removes movie scripts
@@ -78,7 +75,7 @@ def check_movieinfo_at_end_of_file(directory: str):
 
 def get_all_genres(directory: str):
     """Extracts genres from all moviescripts and writes them to new file"""
-    f = open(os.path.join(PAR_DIR, "allgenres2.txt"), 'w+')
+    f = open(os.path.join(BASE_DIR, "allgenres2.txt"), 'w+')
 
     allgenres = []
     for filename in os.listdir(directory):
@@ -126,14 +123,14 @@ def move_subtitles():
         filmliste = filme.read().splitlines(keepends=False)
         # print(filmliste)
 
-    subs_dir = os.path.join(PAR_DIR, "all_subtitles")
+    subs_dir = os.path.join(BASE_DIR, "all_subtitles")
 
     for film in filmliste:
         filename = film + "_subs.xml"
 
         if filename in os.listdir(subs_dir):
             src = os.path.join(subs_dir, filename)
-            dest = os.path.join(PAR_DIR, "data_subtitles", filename)
+            dest = os.path.join(BASE_DIR, "data_subtitles", filename)
             shutil.copy(src, dest)
             print(src, dest)
 
@@ -143,10 +140,10 @@ def move_subtitles():
 
 def main():
     """ist halt die main, wofür will pylint da einen docstring"""
-    subs_dir = os.path.join(PAR_DIR, "data_subtitles")
+    subs_dir = os.path.join(BASE_DIR, "data_subtitles")
     print(subs_dir)
 
-    check_all_subs(subs_dir)
+    # check_all_subs(subs_dir)
     # move_subtitles()
 
 

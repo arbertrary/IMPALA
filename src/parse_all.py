@@ -2,14 +2,14 @@
 
 import os
 import sys
-from parse_fountain import moviescript_to_xml
-from moviescript import annotate
+from src.src_text.preprocessing.parse_fountain import moviescript_to_xml
+from src.src_text.preprocessing.moviescript import annotate
 
-PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
 def rename_subs():
-    all_subtitles = os.path.join(PAR_DIR, "all_subtitles")
+    all_subtitles = os.path.join(BASE_DIR, "all_subtitles")
     test = os.listdir(all_subtitles)
     filename = test[0]
     print(os.path.join(all_subtitles, filename))
@@ -22,8 +22,8 @@ def rename_subs():
 
 
 def parse_all():
-    all_moviescripts = os.path.join(PAR_DIR, "all_moviescripts")
-    dest_dir = os.path.join(PAR_DIR, "xml_moviescripts")
+    all_moviescripts = os.path.join(BASE_DIR, "all_moviescripts")
+    dest_dir = os.path.join(BASE_DIR, "xml_moviescripts")
     list_dest_dir = os.listdir(dest_dir)
     for filename in os.listdir(all_moviescripts):
         path = os.path.join(all_moviescripts, filename)
@@ -41,13 +41,13 @@ def parse_all():
 
 def annotate_all():
     movies = []
-    with open(os.path.join(PAR_DIR, "movies.txt")) as f:
+    with open(os.path.join(BASE_DIR, "movies.txt")) as f:
         movies = f.readlines()
         movies = [l.strip() for l in movies]
 
-    xml_moviescripts_dir = os.path.join(PAR_DIR, "xml_moviescripts")
-    subtitles_dir = os.path.join(PAR_DIR, "data_subtitles")
-    annotated_dir = os.path.join(PAR_DIR, "xml_moviescripts_annotated")
+    xml_moviescripts_dir = os.path.join(BASE_DIR, "xml_moviescripts")
+    subtitles_dir = os.path.join(BASE_DIR, "data_subtitles")
+    annotated_dir = os.path.join(BASE_DIR, "xml_moviescripts_annotated")
     print(os.listdir(annotated_dir)[0])
     for m in movies:
         script = os.path.join(xml_moviescripts_dir, m + ".xml")

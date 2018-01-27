@@ -6,10 +6,10 @@ import numpy as np
 from matplotlib import pyplot as plt
 from datetime import datetime, timedelta
 from matplotlib import dates
-from moviescript import get_full_scenes
-from audio_analysis import get_energy
-from ms_sentiment import get_arousal_values, get_arousal_values_wo_time
-from subs_sentiment import get_subs_sentiment
+from src.src_text.preprocessing.moviescript import get_full_scenes
+from src.src_audio.audio_analysis import get_energy
+from src.src_text.sentiment.ms_sentiment import get_arousal_values, get_arousal_values_wo_time
+from src.src_text.sentiment.subs_sentiment import get_subs_sentiment
 
 """Idee:
 - scenes mit time codes aus moviescript get_full_scenes
@@ -18,7 +18,7 @@ from subs_sentiment import get_subs_sentiment
 - plotte beides über der gleichen Zeitachse
 """
 
-DATA_DIR = os.path.join(os.curdir, "testfiles")
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
 # TODO: Pfade handlen! os.curdir macht Probleme. Für alle Module!!!
@@ -127,26 +127,28 @@ def combine_subs(subtitle_scores, subtitle_times, energy, duration):
 
 
 def main():
-    time = datetime.now()
+    # time = datetime.now()
 
     # scenes = get_full_scenes(os.path.join(DATA_DIR, "hellraiser_annotated.xml"))
     # energy = get_energy(os.path.join(DATA_DIR, "hellraiser.wav"))
     # duration = sf.info(os.path.join(DATA_DIR, "hellraiser.wav")).duration
     # scenes = get_full_scenes(os.path.join(DATA_DIR, "star-wars-4_annotated.xml"))
-    energy = get_energy(os.path.join(DATA_DIR, "star-wars-4.wav"))
-    duration = sf.info(os.path.join(DATA_DIR, "star-wars-4.wav")).duration
-    # energy = get_energy(os.path.join(DATA_DIR, "selfiefromhell.wav"))
-    # duration = sf.info(os.path.join(DATA_DIR, "selfiefromhell.wav")).duration
+    # energy = get_energy(os.path.join(DATA_DIR, "star-wars-4.wav"))
+    # duration = sf.info(os.path.join(DATA_DIR, "star-wars-4.wav")).duration
+    # # energy = get_energy(os.path.join(DATA_DIR, "selfiefromhell.wav"))
+    # # duration = sf.info(os.path.join(DATA_DIR, "selfiefromhell.wav")).duration
+    #
+    # subtitle_scores, subtitle_times = get_subs_sentiment(os.path.join(DATA_DIR, "star-wars-4_subs.xml"))
+    #
+    # time2 = datetime.now()
+    # diff = time2 - time
+    #
+    # print(diff)
+    #
+    # # combine(scenes, energy, duration)
+    # combine_subs(subtitle_scores, subtitle_times, energy, duration)
 
-    subtitle_scores, subtitle_times = get_subs_sentiment(os.path.join(DATA_DIR, "star-wars-4_subs.xml"))
-
-    time2 = datetime.now()
-    diff = time2 - time
-
-    print(diff)
-
-    # combine(scenes, energy, duration)
-    combine_subs(subtitle_scores, subtitle_times, energy, duration)
+    print(BASE_DIR)
 
 
 if __name__ == '__main__':

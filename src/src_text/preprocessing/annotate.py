@@ -4,11 +4,13 @@ import os
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
-from subtitles import get_subtitles_for_annotating
 from typing import List, Tuple, Dict
+from src.src_text.preprocessing.subtitles import get_subtitles_for_annotating
 
-PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-DATA_DIR = "testfiles"
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
+
+# PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
+# DATA_DIR = "testfiles"
 
 
 def annotate(movie_path: str, subs_path: str, dest_path: str):
@@ -197,7 +199,7 @@ def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
 def main():
     """main function"""
 
-    path = os.path.join(PAR_DIR, DATA_DIR)
+    path = os.path.join(BASE_DIR, "src/testfiles/")
 
     time = datetime.now()
 

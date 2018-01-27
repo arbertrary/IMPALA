@@ -6,10 +6,7 @@ import librosa.display
 import soundfile as sf
 from datetime import datetime
 
-CUR_DIR = os.path.dirname(__file__)
-PAR_DIR = os.path.abspath(os.path.join(CUR_DIR, os.pardir))
-DATA_DIR = "testfiles"
-
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
 
 def rms_energy(audiofile):
     print("complete")
@@ -161,9 +158,9 @@ def blockwise_processing(path):
 
 
 def main():
-    selfie_audio = os.path.join(PAR_DIR, DATA_DIR, "selfiefromhell.wav")
+    selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
     # print(sf.info(selfie_audio).duration)
-    hellraiser_audio = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.wav")
+    hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
 
     time = datetime.now()
     plt.subplot(211)

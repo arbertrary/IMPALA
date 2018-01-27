@@ -1,14 +1,15 @@
+import sys
 import os
 import functools
 import matplotlib.pyplot as plt
 from datetime import datetime
 from matplotlib import dates
-from sentiment import ImpalaSent
-from moviescript import get_full_scenes, get_all_sentences
 from typing import List, Tuple
 
-PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-DATA_DIR = "testfiles"
+from src.src_text.sentiment.sentiment import ImpalaSent
+from src.src_text.preprocessing.moviescript import get_full_scenes, get_all_sentences
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
 def scenesentiment(xml_path: str):
@@ -270,7 +271,7 @@ def sentence_sentiment(xml_path):
 
 def main():
     # print("Hello")
-    path = os.path.join(PAR_DIR, DATA_DIR)
+    path = os.path.join(BASE_DIR, "src/testfiles/")
     xml_path = os.path.join(path, "hellraiser_annotated.xml")
     # xml_path = os.path.join(path, "star-wars-4_annotated.xml")
 
