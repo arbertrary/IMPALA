@@ -6,8 +6,8 @@ from datetime import datetime
 from matplotlib import dates
 from typing import List, Tuple
 
-from src.src_text.sentiment.sentiment import ImpalaSent
-from src.src_text.preprocessing.moviescript import get_full_scenes, get_all_sentences
+from sentiment import ImpalaSent
+from moviescript import get_full_scenes, get_all_sentences
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 

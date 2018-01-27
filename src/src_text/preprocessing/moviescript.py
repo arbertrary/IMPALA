@@ -10,8 +10,8 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from typing import List, Set, Tuple, Dict
 
-from src.src_text.preprocessing.annotate import annotate
-from src.src_text.preprocessing.parse_fountain import moviescript_to_xml
+from annotate import annotate
+from parse_fountain import moviescript_to_xml
 
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))

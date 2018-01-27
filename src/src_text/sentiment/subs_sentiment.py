@@ -7,8 +7,8 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from matplotlib import dates
 from datetime import datetime
 
-from src.src_text.sentiment.sentiment import ImpalaSent
-from src.src_text.preprocessing.subtitles import get_subtitles
+from sentiment import ImpalaSent
+from subtitles import get_subtitles
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 

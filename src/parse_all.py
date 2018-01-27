@@ -2,8 +2,8 @@
 
 import os
 import sys
-from src.src_text.preprocessing.parse_fountain import moviescript_to_xml
-from src.src_text.preprocessing.moviescript import annotate
+from parse_fountain import moviescript_to_xml
+from moviescript import annotate
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
@@ -66,8 +66,8 @@ def annotate_all():
 def main():
     """ist halt die main, wofür will pylint da einen docstring"""
     # parse_all()
-    annotate_all()
-
+    # annotate_all()
+    print("test")
 
 if __name__ == '__main__':
     main()

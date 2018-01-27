@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
 from typing import List, Tuple, Dict
-from src.src_text.preprocessing.subtitles import get_subtitles_for_annotating
+from subtitles import get_subtitles_for_annotating
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 

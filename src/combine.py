@@ -6,10 +6,10 @@ import numpy as np
 from matplotlib import pyplot as plt
 from datetime import datetime, timedelta
 from matplotlib import dates
-from src.src_text.preprocessing.moviescript import get_full_scenes
-from src.src_audio.audio_analysis import get_energy
-from src.src_text.sentiment.ms_sentiment import get_arousal_values, get_arousal_values_wo_time
-from src.src_text.sentiment.subs_sentiment import get_subs_sentiment
+from moviescript import get_full_scenes
+from audio_analysis import get_energy
+from ms_sentiment import get_arousal_values, get_arousal_values_wo_time
+from subs_sentiment import get_subs_sentiment
 
 """Idee:
 - scenes mit time codes aus moviescript get_full_scenes
