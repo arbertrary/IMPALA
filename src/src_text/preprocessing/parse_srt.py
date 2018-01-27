@@ -72,8 +72,8 @@ def main():
     """main"""
     # srt_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.srt")
     # dest_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    srt_path = os.path.join(PAR_DIR, DATA_DIR, "american-psycho_subs.srt")
-    dest_path = os.path.join(PAR_DIR, DATA_DIR, "american-psycho_subs.xml")
+    srt_path = os.path.join(PAR_DIR, DATA_DIR, "gladiator_subs.srt")
+    dest_path = os.path.join(PAR_DIR, DATA_DIR, "gladiator_subs.xml")
     srt_to_xml(srt_path, dest_path)
 
 

@@ -1,10 +1,12 @@
 """Preprocessing/parsing the subtitles in xml format"""
 
 import os
+import numpy as np
 import xml.etree.ElementTree as ET
 import string
 from typing import List, Tuple
 from datetime import datetime, timedelta
+
 
 PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 DATA_DIR = "testfiles"
@@ -97,6 +99,23 @@ def get_subtitles(path: str) -> List[Tuple[str, str]]:
     return subdialogue
 
 
+def get_avg_timediff(path: str):
+    tree = ET.parse(path)
+    root = tree.getroot()
+
+    start = ""
+    end = ""
+    times = list(tree.iter("time"))
+    test = []
+    i =0
+    while i+1 < len(times):
+        start = datetime.strptime(str(times[i].get("value")), '%H:%M:%S,%f')
+        end = datetime.strptime(str(times[i+1].get("value")), '%H:%M:%S,%f')
+
+        test.append((end-start).total_seconds())
+        i+=2
+    return np.mean(test)
+
 def check_correctness(path: str):
     """Checks whether a file of xml subtitles is correctly numbered and the time codes are continuous"""
 
@@ -129,12 +148,15 @@ def main():
     # print(get_subtitles_for_annotating("star-wars-4_subs.xml"))
     # path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
     # path = os.path.join(PAR_DIR, DATA_DIR, "american-psycho_subs.xml")
-    path = os.path.join(PAR_DIR, DATA_DIR, "star-wars-4_subs.xml")
+    path = os.path.join(PAR_DIR, DATA_DIR, "gladiator_subs.xml")
 
-    # check_correctness(path)
-    test = get_subtitles(path)
-    for s in test:
-        print(s)
+    check_correctness(path)
+    print(get_avg_timediff(path))
+    # test = get_subtitles(path)
+    # for s in test:
+    #     print(s)
+
+
 
 
 if __name__ == '__main__':
