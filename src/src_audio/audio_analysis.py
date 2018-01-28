@@ -106,7 +106,7 @@ def partition_audiofeature(path: str, dialogue_duration: float):
     time = 0
     duration = 0
     temp = []
-
+    energy_dict = {}
     # Hier könnte ich auch die average timedifference aus subtitles.py benutzen, sodass es individuell für jede film ist
     for frame in energy:
         if duration < dialogue_duration:
@@ -114,14 +114,18 @@ def partition_audiofeature(path: str, dialogue_duration: float):
             time += time_per_frame
             temp.append(frame)
         else:
+            # energy_dict[str(int(round(time)))] = np.mean(temp)
+            # energy_times.append((round(time), np.mean(temp)))
             energy_times.append((time, temp))
             duration = 0
             temp = []
 
-    for e in energy_times:
-        print(e)
+    # for e in energy_dict:
+    #     print(e, energy_dict[e])
 
     # plot_energy(np.array(energy_times[0][1]))
+    # return energy_times
+    return energy_dict
 
 
 def plot_energy(energy: np.array):
@@ -207,7 +211,7 @@ def main():
     #
     # print(diff)
     # plt.show()
-    partition_audiofeature(selfie_audio, 2.5)
+    partition_audiofeature(selfie_audio, 1)
 
 
 if __name__ == '__main__':
