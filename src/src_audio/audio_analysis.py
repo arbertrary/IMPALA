@@ -8,6 +8,7 @@ from datetime import datetime
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
 
+
 def rms_energy(audiofile):
     print("complete")
     y, sr = librosa.load(audiofile)
@@ -91,6 +92,38 @@ def get_energy(path: str) -> np.ndarray:
     return np.array(energy_list)
 
 
+def partition_audiofeature(path: str, dialogue_duration: float):
+    """Teilt die Ergebniswerte der Audiofeatures in Intervalle von X Sekunden """
+    duration = sf.info(path).duration
+    energy = get_energy(path)
+
+    print(duration)
+    print(len(energy))
+    time_per_frame = np.divide(duration, len(energy))
+    print(time_per_frame)
+
+    energy_times = []
+    time = 0
+    duration = 0
+    temp = []
+
+    # Hier könnte ich auch die average timedifference aus subtitles.py benutzen, sodass es individuell für jede film ist
+    for frame in energy:
+        if duration < dialogue_duration:
+            duration += time_per_frame
+            time += time_per_frame
+            temp.append(frame)
+        else:
+            energy_times.append((time, temp))
+            duration = 0
+            temp = []
+
+    for e in energy_times:
+        print(e)
+
+    # plot_energy(np.array(energy_times[0][1]))
+
+
 def plot_energy(energy: np.array):
     plt.figure()
     plt.subplot(211)
@@ -159,21 +192,22 @@ def blockwise_processing(path):
 
 def main():
     selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
-    # print(sf.info(selfie_audio).duration)
-    hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
-
-    time = datetime.now()
-    plt.subplot(211)
-    # plt.title("blockwise")
-    # blockwise_processing(selfie_audio)
-    # plt.subplot(212)
-    # plt.title("als ganzes")
-    rms_energy(selfie_audio)
-    time2 = datetime.now()
-    diff = time2 - time
-
-    print(diff)
-    plt.show()
+    # # print(sf.info(selfie_audio).duration)
+    # hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
+    #
+    # time = datetime.now()
+    # plt.subplot(211)
+    # # plt.title("blockwise")
+    # # blockwise_processing(selfie_audio)
+    # # plt.subplot(212)
+    # # plt.title("als ganzes")
+    # rms_energy(selfie_audio)
+    # time2 = datetime.now()
+    # diff = time2 - time
+    #
+    # print(diff)
+    # plt.show()
+    partition_audiofeature(selfie_audio, 2.5)
 
 
 if __name__ == '__main__':

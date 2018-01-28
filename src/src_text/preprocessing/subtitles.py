@@ -40,31 +40,34 @@ def get_subtitles_for_annotating(path: str) -> List[Tuple[str, str, str]]:
         sent_tuple = (sentence_id, time, dialogue.strip())
         subdialogue.append(sent_tuple)
 
-    # i=1
-    # for d in subdialogue:
-    #     if i<20:
-    #         print(time, d[1].strip())
-    #         i += 1
-    #     else:
-    #         break
     return subdialogue
 
 
-def get_subtitles(path: str) -> List[Tuple[str, str]]:
+def get_subtitles(path: str) -> List[Tuple[float, float, str]]:
+    """Reads Subtitles from the xml files
+    :returns List of Tuples of Strings as [starttime, endtime, text]"""
     tree = ET.parse(path)
     root = tree.getroot()
 
+    beginning = datetime.strptime("00:00:00,000", '%H:%M:%S,%f')
     temp_dialogue = []
-    time = "00:00:00,000"
+    # starttime_string = ""
+    # endtime_string = ""
+    start = 0
+    end = 0
+    dialogue = ""
     for sentence in root:
-        dialogue = ""
         for child in sentence:
 
             if child.tag == "time" and str(child.get("id")).endswith("S"):
-                time = child.get("value")
+                starttime_string = child.get("value")
+                starttime = datetime.strptime(starttime_string, '%H:%M:%S,%f')
+                start = (starttime - beginning).total_seconds()
 
             elif child.tag == "time" and str(child.get("id")).endswith("E"):
-                continue
+                endtime_string = child.get("value")
+                endtime = datetime.strptime(endtime_string, '%H:%M:%S,%f')
+                end = (endtime - beginning).total_seconds()
             else:
                 word = str(child.text)
                 if word.endswith("'"):
@@ -75,40 +78,50 @@ def get_subtitles(path: str) -> List[Tuple[str, str]]:
                     else:
                         dialogue = dialogue + word + " "
 
-        sent_tuple = (time, dialogue.strip())
-        temp_dialogue.append(sent_tuple)
+        # if starttime_string == "" or endtime_string == "":
+        if start == 0 or end == 0:
+            continue
+        else:
+            sent_tuple = (start, end, dialogue.strip())
+            temp_dialogue.append(sent_tuple)
+            dialogue = ""
+            start = 0
+            end = 0
 
-    time = temp_dialogue[0][0]
+    subtitles = __same_time_dialogue(temp_dialogue)
+    return subtitles
+
+
+def __same_time_dialogue(subtitles: List) -> List:
+    """Combines sentences with the same start time. Not necessary for subtitles from the opus.nl corpus
+    but for subtitles parsed with srt_to_xml from parse_srt module"""
+    start = subtitles[0][0]
+    end = subtitles[0][1]
     dialogue = ""
     subdialogue = []
-    for x in temp_dialogue:
-        if time == x[0]:
-            dialogue = dialogue + " " + x[1]
+    for x in subtitles:
+        if start == x[0]:
+            dialogue = dialogue + " " + x[2]
         else:
-            subdialogue.append((time, dialogue.strip()))
+            subdialogue.append((start, end, dialogue.strip()))
 
-            time = x[0]
-            dialogue = x[1]
+            start = x[0]
+            end = x[1]
+            dialogue = x[2]
 
     return subdialogue
 
 
-def get_avg_timediff(path: str):
-    tree = ET.parse(path)
-    root = tree.getroot()
-
-    start = ""
-    end = ""
-    times = list(tree.iter("time"))
-    test = []
-    i = 0
-    while i + 1 < len(times):
-        start = datetime.strptime(str(times[i].get("value")), '%H:%M:%S,%f')
-        end = datetime.strptime(str(times[i + 1].get("value")), '%H:%M:%S,%f')
-
-        test.append((end - start).total_seconds())
-        i += 2
-    return np.mean(test)
+def get_avg_duration(subtitles: List):
+    """:returns average time on screen for subtitles"""
+    temp = []
+    for s in subtitles:
+        # start = datetime.strptime(s[0], '%H:%M:%S,%f')
+        # end = datetime.strptime(s[1], '%H:%M:%S,%f')
+        start = s[0]
+        end = s[1]
+        temp.append(end - start)#.total_seconds())
+    return np.mean(temp)
 
 
 def check_correctness(path: str):
@@ -140,14 +153,17 @@ def check_correctness(path: str):
 
 
 def main():
-    # print(get_subtitles_for_annotating("star-wars-4_subs.xml"))
-    # path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    # path = os.path.join(PAR_DIR, DATA_DIR, "american-psycho_subs.xml")
-    path = os.path.join(BASE_DIR, "testfiles", "gladiator_subs.xml")
-    print(BASE_DIR)
+    path = os.path.join(BASE_DIR, "src/testfiles", "american-psycho_subs.xml")
+    # path = os.path.join(BASE_DIR, "src/testfiles", "blade-trinity_subs.xml")
+    # path = os.path.join(BASE_DIR, "src/testfiles", "hellraiser_subs.xml")
+    # path = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4_subs.xml")
 
-    check_correctness(path)
-    print(get_avg_timediff(path))
+    test = get_subtitles(path)
+    for t in test:
+        print(t)
+    # print(BASE_DIR)
+    # check_correctness(path)
+    print(get_avg_duration(test))
     # test = get_subtitles(path)
     # for s in test:
     #     print(s)

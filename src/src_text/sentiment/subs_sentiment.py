@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from matplotlib import dates
-from datetime import datetime
-
+from datetime import datetime, timedelta
 from sentiment import ImpalaSent
 from subtitles import get_subtitles
 
@@ -27,8 +26,8 @@ def get_subs_sentiment(subs_filename: str):
     for s in sentences:
         # diese Zeile ist erstmal nur temporär da und nimmt den String (s[1]) und den arousal wert score[1]
         # valence wäre score[0]
-        arousal = sentiment.score(s[1])[1]
-        valence = sentiment.score(s[1])[0]
+        arousal = sentiment.score(s[2])[1]
+        valence = sentiment.score(s[2])[0]
         # if arousal == 0:
         #     continue
         # else:
@@ -65,7 +64,7 @@ def get_nrc_sentiment(subs_filename: str):
 
     scores = []
     for s in sentences:
-        emotions = sentiment.nrc_score(s[1])
+        emotions = sentiment.nrc_score(s[2])
         scores.append((s[0], emotions))
         # print(s)
         # print(emotions)
@@ -79,7 +78,7 @@ def get_vader_sentiment(subs_filename: str):
     scores = []
     times = []
     for s in sentences:
-        scores.append(sid.polarity_scores(s[1]).get("compound"))
+        scores.append(sid.polarity_scores(s[2]).get("compound"))
         # print(sid.polarity_scores(s[1]))
         time = datetime.strptime(s[0], "%H:%M:%S,%f")
 
@@ -132,18 +131,18 @@ def main():
     # path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/star-wars-4_subs.xml"
     # test= get_nrc_sentiment(path)
     # test, test2 = get_subs_sentiment(path)
-    test, times = get_vader_sentiment(path)
+    # test, times = get_vader_sentiment(path)
 
-    c1 = 0
-    c2 = 0
-    for t in test:
-        # if np.max(t[1]) == 0:
-        if t == 0:
-            c1 += 1
-        else:
-            c2 += 1
-    print("sätze ohne wert: ", c1)
-    print("sätze mit: ", c2)
+    # c1 = 0
+    # c2 = 0
+    # for t in test:
+    #     if np.max(t[1]) == 0:
+    #     # if t == 0:
+    #         c1 += 1
+    #     else:
+    #         c2 += 1
+    # print("sätze ohne wert: ", c1)
+    # print("sätze mit: ", c2)
 
 
 if __name__ == '__main__':
