@@ -28,18 +28,14 @@ def get_subs_sentiment(subs_filename: str):
         # valence wäre score[0]
         arousal = sentiment.score(s[2])[1]
         valence = sentiment.score(s[2])[0]
-        # if arousal == 0:
-        #     continue
-        # else:
+        if arousal == 0:
+            continue
+        else:
         # time = datetime.strptime(s[0], "%H:%M:%S,%f")
-        # scores.append(arousal)
+            time = s[0]
+            scores.append((time, arousal))
         # scores2.append(valence)
-        # times.append(time)
-
-        # start = s[0]
-        # if arousal != 0:
-        #     scores.append((round(start), arousal))
-        #     scores2.append((round(start), valence))
+            scores2.append((time, valence))
     return scores, scores2
 
 
@@ -113,14 +109,14 @@ def plot_stuff(path):
 
 def main():
     """main function"""
-    path = os.path.join(BASE_DIR, "src/testfiles", "american-psycho_subs.xml")
-    path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/american-psycho_subs.xml"
+    path = os.path.join(BASE_DIR, "src/testfiles", "blade_subs.xml")
     # path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/star-wars-4_subs.xml"
     # test= get_nrc_sentiment(path)
-    test = get_subs_sentiment(path)
+    test, times = get_subs_sentiment(path)
+    print(len(test), len(times))
     # # test, times = get_vader_sentiment(path)
-    for t in test:
-        print(t)
+    for i, t in enumerate(test):
+        print(t, times[i])
     # c1 = 0
     # c2 = 0
     # for t in test:

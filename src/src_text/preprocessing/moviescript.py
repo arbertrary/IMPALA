@@ -52,11 +52,15 @@ def get_full_scenes(xml_path: str) -> List[Tuple[str, List[str]]]:
     scenes = []
     for scene in tree.findall("scene"):
         sentences = []
-        time = scene.get("time_avg") or scene.get("time_interpolated")
+        # time = scene.get("time_avg") or scene.get("time_interpolated")
+        time = scene.get("time")
 
-        for child in scene:
-            for sent in child:
-                sentences.append(sent.text)
+        if time:
+            for child in scene:
+                for sent in child:
+                    sentences.append(sent.text)
+        else:
+            continue
 
         scenes.append((time, sentences))
 

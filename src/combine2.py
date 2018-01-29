@@ -8,7 +8,7 @@ from subs_sentiment import get_subs_sentiment
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def arousal_and_energy(audio_path: str, subtitle_path: str):
+def sentiment_and_energy(audio_path: str, subtitle_path: str):
     # separate audio energy in partitions of 1 s
     energy = partition_audiofeature(audio_path, 1.0)
     arousal, valence = get_subs_sentiment(subtitle_path)
@@ -37,13 +37,13 @@ def arousal_and_energy(audio_path: str, subtitle_path: str):
 
 
 def main():
-    audio = os.path.join(BASE_DIR, "src/testfiles/" "hellraiser.wav")
-    subs = os.path.join(BASE_DIR, "src/testfiles", "hellraiser_subs.xml")
+    subs = os.path.join(BASE_DIR, "src/testfiles/", "blade_subs.xml")
+    audio = os.path.join(BASE_DIR, "src/testfiles/" "blade.wav")
     # selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
     # subs = os.path.join(BASE_DIR, "src/testfiles", "blade-trinity_subs.xml")
     time = datetime.now()
 
-    arousal_and_energy(audio, subs)
+    sentiment_and_energy(audio, subs)
 
     time2 = datetime.now()
     diff = time2 - time

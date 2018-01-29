@@ -13,6 +13,8 @@ data_subtitles/
 data_xml/
 data_xml_annotated/
 
+checked_subtitles/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

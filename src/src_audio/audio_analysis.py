@@ -29,7 +29,7 @@ def rms_energy(audiofile):
 
     # plt.figure()
     # plt.subplot(311)
-    # plt.semilogy(rms.T, label='RMS Energy')
+    plt.semilogy(rms.T, basey=10, label='RMS Energy')
     # plt.plot(y)
     # plt.xticks([])
     # plt.xlim([0, rms.shape[-1]])
@@ -47,9 +47,9 @@ def rms_energy(audiofile):
     # print("shape of librosa.amplitude_do_db(mel", librosa.amplitude_to_db(mel).shape)
 
     d = librosa.power_to_db(mel)
-    librosa.display.specshow(test, sr=22050, y_axis='log', x_axis='time')
+    # librosa.display.specshow(test, sr=22050, y_axis='log', x_axis='time')
     # librosa.display.specshow(mfccs, x_axis="time")
-    plt.colorbar(format='%+2.0f dB')
+    # plt.colorbar(format='%+2.0f dB')
 
     # plt.subplot(313)
     # librosa.display.specshow(librosa.amplitude_to_db(mel, ref=np.max), sr=sr, y_axis='log', x_axis='time')
@@ -57,7 +57,7 @@ def rms_energy(audiofile):
     # plt.title('log Power spectrogram')
     # plt.tight_layout()
 
-    # plt.show()
+    plt.show()
 
 
 def get_energy(path: str) -> np.ndarray:
@@ -114,17 +114,11 @@ def partition_audiofeature(path: str, dialogue_duration: float):
             time += time_per_frame
             temp.append(frame)
         else:
-            # energy_dict[str(int(round(time)))] = np.mean(temp)
+            energy_dict[str(int(round(time)))] = np.mean(temp)
             # energy_times.append((round(time), np.mean(temp)))
-            energy_times.append((time, temp))
+            # energy_times.append((time, temp))
             duration = 0
             temp = []
-
-    # for e in energy_dict:
-    #     print(e, energy_dict[e])
-
-    # plot_energy(np.array(energy_times[0][1]))
-    # return energy_times
     return energy_dict
 
 
@@ -211,8 +205,9 @@ def main():
     #
     # print(diff)
     # plt.show()
-    partition_audiofeature(selfie_audio, 1)
+    # partition_audiofeature(selfie_audio, 1)
 
+    rms_energy(selfie_audio)
 
 if __name__ == '__main__':
     main()
