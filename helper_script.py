@@ -5,8 +5,11 @@ Check and clean all movie scripts in directory
 import os
 import re
 import shutil
+import xml.etree.ElementTree as ET
+from xml.dom import minidom
+
 from nltk import word_tokenize
-from src.src_text.preprocessing.subtitles import check_correctness
+from subtitles import check_correctness
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 
@@ -137,15 +140,83 @@ def move_subtitles():
         else:
             print(filename)
 
+def annotate_genres_to_subs():
+    with open("allgenres.txt") as g:
+        genres= g.read().splitlines(keepends=False)
+
+        genre_dict= {}
+        for film in genres:
+            temp = film.split(":")
+            genre_dict[temp[0]] = temp[1]
+
+        # for f in genre_dict:
+        #     print(f, genre_dict[f])
+
+
+    for film in os.listdir("data_subtitles"):
+        name = re.sub(r"_subs.xml", "", film)
+        genres = genre_dict.get(name)
+
+        if genres:
+            print(film, genres)
+
+        path = os.path.join("data_subtitles", film)
+
+        tree = ET.parse(path)
+        root = tree.getroot()
+        test= ET.Element("genres")
+        test.text = genres
+        root.insert(0, test)
+
+        tree.write(path)
+
+
+
+    # path = os.path.join("all_subtitles", "blade_subs.xml")
+    # tree = ET.parse(path)
+    # root = tree.getroot()
+    # # test = ET.SubElement(root, "genre").text = "testgenre"
+    # test= ET.Element("genre")
+    # test.text = "testgenre"
+    # root.insert(0, test)
+    #
+    # tree.write(path)
+
+
+def genre_set():
+
+    with open("allgenres.txt") as g:
+        genres= g.read().splitlines(keepends=False)
+
+        genreset= []
+        for film in genres:
+            temp = film.split(":")[1].split(",")
+            for g in temp:
+                genreset.append(g)
+        genreset = set(genreset)
+
+        print(genreset)
+
+
+
+
+def move_subs_with_genres():
+    for film in os.listdir("all_subtitles"):
+        path = os.path.join("all_subtitles", film)
+
+        tree = ET.parse(path)
+
 
 def main():
     """ist halt die main, wofür will pylint da einen docstring"""
-    subs_dir = os.path.join(BASE_DIR, "data_subtitles")
-    print(subs_dir)
+    # subs_dir = os.path.join(BASE_DIR, "data_subtitles")
+    # print(subs_dir)
 
     # check_all_subs(subs_dir)
     # move_subtitles()
 
+    # annotate_genres_to_subs()
+    genre_set()
 
 if __name__ == '__main__':
     main()
