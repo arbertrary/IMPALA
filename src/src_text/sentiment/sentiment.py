@@ -94,24 +94,40 @@ class ImpalaSent:
                 scores.append(score)
 
         anger = ant = disgust = fear = joy = negative = positive = sadness = surprise = trust = 0
-        emotions = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        emotions = np.array([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+        # emo_dict = {"anger": -1, "anticipation": -1, "disgust": -1, "fear": -1, "joy": -1, "negative": -1,
+        #             "positive": -1, "sadness": -1, "surprise": -1, "trust": -1}
         word_count = len(scores)
         for dict in scores:
-            emotions[0] += dict.get("anger")
-            emotions[1] += dict.get("anticipation")
-            emotions[2] += dict.get("disgust")
-            emotions[3] += dict.get("fear")
-            emotions[4] += dict.get("joy")
-            emotions[5] += dict.get("negative")
-            emotions[6] += dict.get("positive")
-            emotions[7] += dict.get("sadness")
-            emotions[8] += dict.get("surprise")
-            emotions[9] += dict.get("trust")
+            if emotions[0] == -1:
+                emotions[0] = dict.get("anger")
+                emotions[1] = dict.get("anticipation")
+                emotions[2] = dict.get("disgust")
+                emotions[3] = dict.get("fear")
+                emotions[4] = dict.get("joy")
+                emotions[5] = dict.get("negative")
+                emotions[6] = dict.get("positive")
+                emotions[7] = dict.get("sadness")
+                emotions[8] = dict.get("surprise")
+                emotions[9] = dict.get("trust")
+            else:
+                emotions[0] += dict.get("anger")
+                emotions[1] += dict.get("anticipation")
+                emotions[2] += dict.get("disgust")
+                emotions[3] += dict.get("fear")
+                emotions[4] += dict.get("joy")
+                emotions[5] += dict.get("negative")
+                emotions[6] += dict.get("positive")
+                emotions[7] += dict.get("sadness")
+                emotions[8] += dict.get("surprise")
+                emotions[9] += dict.get("trust")
 
         # print(emotions)
-        emotions = [x / word_count if x != 0 else x for x in emotions]
+        emotions = [x / word_count if x != -1 else x for x in emotions]
         # print(emotions)
-
+        # if emotions[0] == -1:
+        #     return []
+        # else:
         return emotions
 
 

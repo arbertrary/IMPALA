@@ -153,14 +153,22 @@ def check_correctness(path: str):
 
 
 def main():
-    path = os.path.join(BASE_DIR, "src/testfiles", "american-psycho_subs.xml")
+    path = os.path.join(BASE_DIR, "src/testfiles", "blade_subs.xml")
     # path = os.path.join(BASE_DIR, "src/testfiles", "blade-trinity_subs.xml")
     # path = os.path.join(BASE_DIR, "src/testfiles", "hellraiser_subs.xml")
     # path = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4_subs.xml")
 
     test = get_subtitles(path)
+    text = ""
     for t in test:
-        print(t)
+        text += " " +t[2]
+
+
+    print(text)
+    with open("testfile.txt", "w") as t:
+        t.write(text)
+    # for t in test:
+    #     print(t)
     # print(BASE_DIR)
     # check_correctness(path)
     print(get_avg_duration(test))

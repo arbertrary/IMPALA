@@ -61,7 +61,7 @@ def rms_energy(audiofile):
 
 
 def get_energy(path: str) -> np.ndarray:
-    block_gen = sf.blocks(path, blocksize=1024)
+    block_gen = sf.blocks(path, blocksize=2048)
     rate = sf.info(path).samplerate
     duration = sf.info(path).duration
 
@@ -97,10 +97,10 @@ def partition_audiofeature(path: str, dialogue_duration: float):
     duration = sf.info(path).duration
     energy = get_energy(path)
 
-    print(duration)
+    print("duration ", duration)
     print(len(energy))
     time_per_frame = np.divide(duration, len(energy))
-    print(time_per_frame)
+    print("duration per block ", time_per_frame)
 
     energy_times = []
     time = 0
@@ -189,9 +189,9 @@ def blockwise_processing(path):
 
 
 def main():
-    selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
+    # selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
     # # print(sf.info(selfie_audio).duration)
-    # hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
+    hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
     #
     # time = datetime.now()
     # plt.subplot(211)
@@ -205,9 +205,9 @@ def main():
     #
     # print(diff)
     # plt.show()
-    # partition_audiofeature(selfie_audio, 1)
+    partition_audiofeature(hellraiser_audio, 1)
 
-    rms_energy(selfie_audio)
+    # rms_energy(selfie_audio)
 
 if __name__ == '__main__':
     main()

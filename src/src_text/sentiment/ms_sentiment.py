@@ -1,10 +1,13 @@
 import sys
 import os
 import functools
+import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime
 from matplotlib import dates
 from typing import List, Tuple
+import xml.etree.ElementTree as ET
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 from sentiment import ImpalaSent
 from moviescript import get_full_scenes, get_all_sentences
@@ -269,32 +272,110 @@ def sentence_sentiment(xml_path):
     plt.show()
 
 
+def entire_script(path):
+    sentiment = ImpalaSent()
+    sentiment2 = ImpalaSent("NRC")
+    sentences = get_all_sentences(path)
+
+    sid = SentimentIntensityAnalyzer()
+
+    text = ""
+    for s in sentences:
+        text += " " + s[1]
+
+    print(path)
+    score = sentiment.score(text)
+    print("valence", score[0], "arousal", score[1])
+    e = sentiment2.nrc_score(text)
+    print("anger", e[0], "anticipation", e[1], "disgust", e[2], "fear", e[3], "joy", e[4], "negative", e[5], "positive",
+          e[6], "sadness", e[7], "surprise", e[8], "trust", e[9])
+    score = sid.polarity_scores(text)
+    print(score)
+    print("\n")
+
+def sent_classes(path):
+    sentiment = ImpalaSent()
+    tree = ET.parse(path)
+    sentences = get_all_sentences(path)
+
+    sid = SentimentIntensityAnalyzer()
+    high = 0
+    neutral = 0
+    low = 0
+    x1 = []
+    x2 = []
+    x3 = []
+    for s in sentences:
+        # score = sentiment.score(s[1])
+        # valence.append(score[0])
+        # arousal.append(score[1])
+        score = sid.polarity_scores(s[1])
+        x1.append(score.get("neg"))
+        x2.append(score.get("pos"))
+        x3.append(score.get("compound"))
+
+        # if score[1] < 2.7:
+        #     low +=1
+        # elif score[1] > 5.7:
+        #     high +=1
+        # else:
+        #     neutral += 1
+
+    n_bins = 5
+    print(len(x1))
+    print(len(x2))
+    fig, axs = plt.subplots(1, 3, tight_layout=True)
+
+
+    # We can set the number of bins with the `bins` kwarg
+    axs[0].hist(x1, bins=n_bins)
+    axs[0].set_title("neg")
+    axs[1].hist(x2, bins=n_bins)
+    axs[1].set_title("pos")
+    axs[2].hist(x3, bins=n_bins)
+    axs[2].set_title("compound")
+
+
+def test_hist():
+    np.random.seed(19680801)
+    N_points = 100000
+    n_bins = 5
+
+    # Generate a normal distribution, center at x=0 and y=5
+    x = np.random.randn(N_points)
+    y = .4 * x + np.random.randn(100000) + 5
+
+    fig, axs = plt.subplots(1, 2, tight_layout=True)
+
+    # We can set the number of bins with the `bins` kwarg
+    axs[0].hist(x, bins=n_bins)
+    axs[1].hist(y, bins=n_bins)
+    plt.show()
+
 def main():
     # print("Hello")
     path = os.path.join(BASE_DIR, "src/testfiles/")
-    xml_path = os.path.join(path, "hellraiser_annotated.xml")
-    # xml_path = os.path.join(path, "star-wars-4_annotated.xml")
+    xml_path1 = os.path.join(path, "hellraiser_annotated.xml")
+    xml_path2 = os.path.join(path, "star-wars-4_annotated.xml")
+    xml_path3 = os.path.join(path, "cars-2.xml")
 
     # scenesentiment(xml_path)
-    weighted_scenesentiment(xml_path)
+    # weighted_scenesentiment(xml_path)
+    # entire_script(xml_path1)
+    # entire_script(xml_path2)
+    # entire_script(xml_path3)
 
-    # scenes = get_scenes_wo_time(xml_path)
-    # test = get_arousal_weights(scenes)
-    #
-    # x = []
-    # i = 0
-    # for s in scenes:
-    #     l = len(s[1])
-    #     # i += l
-    #     x.append(l)
-    #
-    # # print("found words: \n", test)
-    # # print("# of sentences: \n", x)
-    #
-    # j = 0
-    # while j <len(test):
-    #     print("sentences: ", x[j], "\t", "found words: ", test[j])
-    #     j+=1
+    # print(xml_path1)
+    sent_classes(xml_path1)
+    # print("\n")
+    # print(xml_path2)
+    sent_classes(xml_path2)
+    # print("\n")
+    # print(xml_path3)
+    sent_classes(xml_path3)
+    plt.show()
+    # test_hist()
+
 
 
 if __name__ == '__main__':

@@ -28,14 +28,14 @@ def get_subs_sentiment(subs_filename: str):
         # valence wäre score[0]
         arousal = sentiment.score(s[2])[1]
         valence = sentiment.score(s[2])[0]
-        if arousal == 0:
-            continue
-        else:
+        # if arousal == 0:
+        #     continue
+        # else:
         # time = datetime.strptime(s[0], "%H:%M:%S,%f")
-            time = s[0]
-            scores.append((time, arousal))
+        time = s[0]
+        scores.append((time, arousal))
         # scores2.append(valence)
-            scores2.append((time, valence))
+        scores2.append((time, valence))
     return scores, scores2
 
 
@@ -47,7 +47,8 @@ def get_nrc_sentiment(subs_filename: str):
     scores = []
     for s in sentences:
         emotions = sentiment.nrc_score(s[2])
-        scores.append((s[0], emotions))
+        if len(emotions) != 0:
+            scores.append((s[0], emotions))
         # print(s)
         # print(emotions)
     return scores
@@ -111,22 +112,35 @@ def main():
     """main function"""
     path = os.path.join(BASE_DIR, "src/testfiles", "blade_subs.xml")
     # path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/star-wars-4_subs.xml"
-    # test= get_nrc_sentiment(path)
-    test, times = get_subs_sentiment(path)
-    print(len(test), len(times))
+    test= get_nrc_sentiment(path)
+    arousal, valence = get_subs_sentiment(path)
+    print(len(arousal))
+    print(len(test))
+
+    # print(len(test), len(times))
     # # test, times = get_vader_sentiment(path)
-    for i, t in enumerate(test):
-        print(t, times[i])
-    # c1 = 0
-    # c2 = 0
     # for t in test:
+    #     print(t)
+    c1 = 0
+    c2 = 0
+    for t in arousal:
     #     if np.max(t[1]) == 0:
-    #     # if t == 0:
-    #         c1 += 1
-    #     else:
-    #         c2 += 1
-    # print("sätze ohne wert: ", c1)
-    # print("sätze mit: ", c2)
+        if t[1] == 0:
+            c1 += 1
+        else:
+            c2 += 1
+    print("sätze ohne wert: ", c1)
+    print("sätze mit: ", c2)
+
+    c1 = 0
+    c2 = 0
+    for t in test:
+        if np.max(t[1]) == -1:
+            c1 += 1
+        else:
+            c2 += 1
+    print("sätze ohne wert: ", c1)
+    print("sätze mit: ", c2)
 
 
 if __name__ == '__main__':

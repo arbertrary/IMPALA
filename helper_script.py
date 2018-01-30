@@ -185,7 +185,7 @@ def annotate_genres_to_subs():
 
 def genre_set():
 
-    with open("allgenres.txt") as g:
+    with open("allgenres2.txt") as g:
         genres= g.read().splitlines(keepends=False)
 
         genreset= []
@@ -217,6 +217,7 @@ def main():
 
     # annotate_genres_to_subs()
     genre_set()
+    get_all_genres("all_moviescripts")
 
 if __name__ == '__main__':
     main()
