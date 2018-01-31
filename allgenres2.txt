@@ -823,7 +823,7 @@ three-kings-(spoils-of-war):Action,Adventure,War
 three-kings:Action,Adventure,War
 three-men-and-a-baby:Comedy,Family
 thunderheart:Crime,Mystery,Thriller
-ticker:Action.Thriller,Crime
+ticker:Action,Thriller,Crime
 timber-falls:Horror,Thriller
 tin-cup:Comedy,Drama,Romance
 tin-men:Comedy,Drama
