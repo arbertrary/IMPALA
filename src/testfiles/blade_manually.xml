@@ -613,7 +613,7 @@
          <s id="sc10m23s1">-- and jumps.</s>
       </meta>
    </scene>
-   <scene id="sc11" time="00:15:15">
+   <scene id="sc11" time="00:15:15" end="00:16:31">
       <sceneheader>EXT. HOSPITAL/ROOFTOP PARKING STRUCTURE - NIGHT</sceneheader>
       <meta id="sc11m1">
          <s id="sc11m1s1">Blade clears the impossible distance -- almost.</s>
@@ -935,7 +935,7 @@
          <s id="sc20m2s3">Karen moves towards the door, cautious --</s>
       </meta>
    </scene>
-   <scene id="sc21" time="00:25:30">
+   <scene id="sc21" time="00:25:30" end="00:27:02">
       <sceneheader>INT. WHISTLER'S WORKSHOP - DAY</sceneheader>
       <meta id="sc21m1">
          <s id="sc21m1s1">We hear VOICES now, coming from beyond a series of black-out curtains.</s>
@@ -969,7 +969,7 @@
          <s id="sc21d4s3">She makes for it --</s>
       </dialogue>
    </scene>
-   <scene id="sc22" time="00:27:03">
+   <scene id="sc22" time="00:27:03" end="00:27:27">
       <sceneheader>INT. WHISTLER'S LAB - TANK ROOM - DAY</sceneheader>
       <meta id="sc22m1">
          <s id="sc22m1s1">A dusty, darkened hole of a room, no windows, just shadows, crumbling concrete, rust stains, and --</s>
@@ -1076,7 +1076,7 @@
          <s id="sc22m20s2">Whistler and Karen follow.</s>
       </meta>
    </scene>
-   <scene id="sc23" time="00:27:28">
+   <scene id="sc23" time="00:27:28" end="00:31:04">
       <sceneheader>INT. WHISTLER'S WORKSHOP - DAY</sceneheader>
       <meta id="sc23m1">
          <s id="sc23m1s1">Beyond the grimy outer windows, we can see that the day is closing -- long shadows, amber light.</s>
@@ -1197,7 +1197,7 @@
          <s id="sc23m19s1">Karen stares at Whistler, horrified, as we --</s>
       </meta>
    </scene>
-   <scene id="sc24" time="00:31:05">
+   <scene id="sc24" time="00:31:05" end="00:33:04">
       <sceneheader>INT. THE VAMPIRE ARCHIVES - DAY</sceneheader>
       <meta id="sc24m1">
          <s id="sc24m1s1">We are deep in the narrow stacks of a sepulchral archive.</s>
@@ -1252,7 +1252,7 @@
          <s id="sc24m9s5">It quivers in fear.</s>
       </meta>
    </scene>
-   <scene id="sc25" time="00:33:05">
+   <scene id="sc25" time="00:33:05" end="00:33:19">
       <sceneheader>INT. BLADE'S OLDS (ON KAREN'S STREET CORNER) - DAY</sceneheader>
       <meta id="sc25m1">
          <s id="sc25m1s1">Blade brings the car to a stop.</s>
@@ -1265,21 +1265,21 @@
          <s id="sc25d1s3">They're everywhere.</s>
       </dialogue>
    </scene>
-   <scene id="sc26" time="00:33:20">
+   <scene id="sc26" time="00:33:20" end="00:33:34">
       <sceneheader>EXT. KAREN'S APARTMENT BUILDING - DAY</sceneheader>
       <meta id="sc26m1">
          <s id="sc26m1s1">As Karen climbs out, Blade swings the door shut behind her.</s>
          <s id="sc26m1s2">The Olds ROARS off down the quiet residential street.</s>
       </meta>
    </scene>
-   <scene id="sc27" time="00:33:35">
+   <scene id="sc27" time="00:33:35" end="00:34:04">
       <sceneheader>INT. APARTMENT BUILDING, LOBBY - DAY</sceneheader>
       <meta id="sc27m1">
          <s id="sc27m1s1">Karen crosses the lobby, stepping into an elevator.</s>
          <s id="sc27m1s2">Just as the doors are closing, a WOMAN and TWO MEN duck in alongside her.</s>
       </meta>
    </scene>
-   <scene id="sc28" time="00:34:05">
+   <scene id="sc28" time="00:34:05" end="00:34:26">
       <sceneheader>INT. ELEVATOR - DAY</sceneheader>
       <meta id="sc28m1">
          <s id="sc28m1s1">Silence, the uncomfortableness of an elevator ride magnified tenfold.</s>
@@ -1288,7 +1288,7 @@
          <s id="sc28m1s4">The woman turns to Karen, smiles -- Karen surreptitiously fishes the &quot;vampire mace&quot; from her pocket, clutching it -- and now one of the men turns to look at her, nodding --</s>
       </meta>
    </scene>
-   <scene id="sc29" time="00:34:27">
+   <scene id="sc29" time="00:34:27" end="00:35:01">
       <sceneheader>INT. KAREN'S APARTMENT BUILDING, HALLWAY - DAY</sceneheader>
       <meta id="sc29m1">
          <s id="sc29m1s1">The elevator doors open.</s>
@@ -1298,7 +1298,7 @@
          <s id="sc29m1s5">Karen breathes a sigh of relief, shakes her head.</s>
       </meta>
    </scene>
-   <scene id="sc30" time="00:35:02">
+   <scene id="sc30" time="00:35:02" end="00:37:59">
       <sceneheader>INT. KAREN'S APARTMENT - DAY</sceneheader>
       <meta id="sc30m1">
          <s id="sc30m1s1">Karen enters quickly, bolting the door behind her.</s>
@@ -1589,7 +1589,7 @@
          <s id="sc31m14s3">In seconds, he's gone, tearing off down the street in a cloud of exhaust.</s>
       </meta>
    </scene>
-   <scene id="sc32" time="00:39:20">
+   <scene id="sc32" time="00:39:20" end="00:39:25">
       <sceneheader>EXT. EDGEWOOD TOWERS, PENTHOUSE - DUSK</sceneheader>
       <meta id="sc32m1">
          <s id="sc32m1s1">We are soaring through the air above the gleaming city skyline, moving towards the Edgewood Towers whose windows reflect the blood- red sinking sun.</s>
@@ -1665,7 +1665,7 @@
          <s id="sc33m11s1">Below them, Gideon's lifeless body sinks towards the pool bottom, his police badge twinkling like sunken treasure.</s>
       </meta>
    </scene>
-   <scene id="sc34" time="00:40:36">
+   <scene id="sc34" time="00:40:36" end="00:40:40">
       <sceneheader>EXT. CITY STREET - NIGHT</sceneheader>
       <meta id="sc34m1">
          <s id="sc34m1s1">Blade's Olds cruises to a stop.</s>
@@ -1923,7 +1923,7 @@
          <s id="sc39d3s4">Tore the goddamn place apart!</s>
       </dialogue>
    </scene>
-   <scene id="sc40" time="00:40:25">
+   <scene id="sc40" time="00:40:25" end="00:40:29">
       <sceneheader>EXT. THE BLACK PEARL - NIGHT</sceneheader>
       <meta id="sc40m1">
          <s id="sc40m1s1">Tokyo town.</s>
@@ -1935,7 +1935,7 @@
          <s id="sc40d1s1">Blade's Olds stopping a few blocks down the street.</s>
       </dialogue>
    </scene>
-   <scene id="sc41" time="00:40:30">
+   <scene id="sc41" time="00:40:30" end="00:41:36">
       <sceneheader>INT. BLADE'S OLDS - NIGHT</sceneheader>
       <meta id="sc41m1">
          <s id="sc41m1s1">Blade kills the engine, studying The Black Pearl.</s>
@@ -1981,7 +1981,7 @@
          <s id="sc41m9s1">Blade reaches for the door --</s>
       </meta>
    </scene>
-   <scene id="sc42" time="00:41:37">
+   <scene id="sc42" time="00:41:37" end="00:41:46">
       <sceneheader>EXT. THE BLACK PEARL - NIGHT</sceneheader>
       <meta id="sc42m1">
          <s id="sc42m1s1">Blade and Karen climb out.</s>
@@ -1991,7 +1991,7 @@
          <s id="sc42d1s1">I'm sorry, sir -- do you have an invitation?</s>
       </dialogue>
    </scene>
-   <scene id="sc43" time="00:41:47">
+   <scene id="sc43" time="00:41:47" end="00:42:19">
       <sceneheader>INT. BLACK PEARL - NIGHT</sceneheader>
       <meta id="sc43m1">
          <s id="sc43m1s1">CRASH!</s>
@@ -2012,7 +2012,7 @@
          <s id="sc43d1s3">Long black hair with a streak of white tumbles down her back -- it's Mercury.</s>
       </dialogue>
    </scene>
-   <scene id="sc44" time="00:42:20">
+   <scene id="sc44" time="00:42:20" end="00:42:37">
       <sceneheader>INT. BLACK PEARL, HALLWAY - NIGHT</sceneheader>
       <meta id="sc44m1">
          <s id="sc44m1s1">Blade and Karen head past the bathrooms.</s>
@@ -2026,7 +2026,7 @@
          <s id="sc44m2s1">Blade plants a hand over the kid's face, shoving him back into the bathroom as he kicks open the office door --</s>
       </meta>
    </scene>
-   <scene id="sc45" time="00:42:38">
+   <scene id="sc45" time="00:42:38" end="00:43:49">
       <sceneheader>INT. THE BLACK PEARL, BACK OFFICE - NIGHT</sceneheader>
       <meta id="sc45m1">
          <s id="sc45m1s1">Tanaka spins around, startled, tries to throw a punch -- Blade traps Tanaka's arm, levering the man up and over.</s>
@@ -2069,7 +2069,7 @@
          <s id="sc45d6s1">After you.</s>
       </dialogue>
    </scene>
-   <scene id="sc46" time="00:43:50">
+   <scene id="sc46" time="00:43:50" end="00:44:04">
       <sceneheader>INT. THE BLACK PEARL, ELEVATOR - NIGHT</sceneheader>
       <meta id="sc46m1">
          <s id="sc46m1s1">The elevator descends.</s>
@@ -2077,7 +2077,7 @@
          <s id="sc46m1s3">The doors hiss open --</s>
       </meta>
    </scene>
-   <scene id="sc47" time="00:44:05">
+   <scene id="sc47" time="00:44:05" end="00:47:44">
       <sceneheader>INT. THE VAMPIRE ARCHIVES, HALLWAY - NIGHT</sceneheader>
       <meta id="sc47m1">
          <s id="sc47m1s1">Blade and Karen enter the narrow, maze-like &quot;stacks&quot; of the vampire archives, weaving their way through shelves of climate-controlled, digitized records.</s>
@@ -2122,7 +2122,7 @@
          <s id="sc47m8s1">Blade slides open the nearest shoji screen --</s>
       </meta>
    </scene>
-   <scene id="sc48" time="00:47:45">
+   <scene id="sc48" time="00:47:45" end="00:48:02">
       <sceneheader>INT. PEARL'S BED CHAMBER - NIGHT</sceneheader>
       <meta id="sc48m1">
          <s id="sc48m1s1">Nothing Karen's seen up until this point could prepare her for the archive's curator --</s>
@@ -2147,7 +2147,7 @@
          <s id="sc48d4s1">Frost?</s>
       </dialogue>
    </scene>
-   <scene id="sc49" time="00:48:03">
+   <scene id="sc49" time="00:48:03" end="00:48:29">
       <sceneheader>INT. FROST'S PENTHOUSE, POOL - NIGHT</sceneheader>
       <meta id="sc49m1">
          <s id="sc49m1s1">Frost paces the length of his pool, wearing a hands-free communications headset, grinning.</s>
@@ -2191,7 +2191,7 @@
          <s id="sc51d3s3">(beat) Round one to you, Blade.</s>
       </dialogue>
    </scene>
-   <scene id="sc52" time="00:48:30">
+   <scene id="sc52" time="00:48:30" end="00:57:09">
       <sceneheader>INT. PEARL'S BEDCHAMBER - NIGHT</sceneheader>
       <meta id="sc52m1">
          <s id="sc52m1s1">CLICK, the line goes dead.</s>
@@ -2379,7 +2379,7 @@
          <s id="sc52m27s2">Seconds later, he and Karen are fleeing after Whistler, retreating back through his newly created exit.</s>
       </meta>
    </scene>
-   <scene id="sc53" time="00:54:45">
+   <scene id="sc53" time="00:54:45" end="00:55:19">
       <sceneheader>INT. TUNNEL - NIGHT</sceneheader>
       <meta id="sc53m1">
          <s id="sc53m1s1">The three of them find themselves ankle-deep in a flooded sewer tunnel running parallel to the archives.</s>
@@ -2422,13 +2422,13 @@
          <s id="sc53d6s2">We'd best make tracks.</s>
       </dialogue>
    </scene>
-   <scene id="sc54" time="00:55:20">
+   <scene id="sc54" time="00:55:20" end="00:55:24">
       <sceneheader>INT. PEARL'S BEDCHAMBER, ARCHIVES - NIGHT</sceneheader>
       <meta id="sc54m1">
          <s id="sc54m1s1">An EXPLOSION rips through the bedchamber, mushrooming outward --</s>
       </meta>
    </scene>
-   <scene id="sc55" time="00:55:25">
+   <scene id="sc55" time="00:55:25" end="00:55:29">
       <sceneheader>INT. BLACK PEARL - NIGHT</sceneheader>
       <meta id="sc55m1">
          <s id="sc55m1s1">The EXPLOSION continues expanding, sending tables, drinks, and zaibatsu clientele flying.</s>
@@ -2469,7 +2469,7 @@
          <s id="sc56m5s1">They race through the twisting warren of tunnels, taking one turn after another, the vampires hot on their heels --</s>
       </meta>
    </scene>
-   <scene id="sc57"  time="00:55:30">
+   <scene id="sc57"  time="00:55:30" end="00:57:09">
       <sceneheader>INT. SUBWAY TUNNEL - NIGHT</sceneheader>
       <meta id="sc57m1">
          <s id="sc57m1s1">Blade and Karen stumble out into a larger subway tunnel, which widens into a station stop up ahead.</s>
@@ -2496,7 +2496,7 @@
          <s id="sc57d2s3">He turns and climbs through the window --</s>
       </dialogue>
    </scene>
-   <scene id="sc58" time="00:57:09">
+   <scene id="sc58" time="00:57:09" end="01:01:29">
       <sceneheader>INT. SUBWAY CAR - NIGHT</sceneheader>
       <meta id="sc58m1">
          <s id="sc58m1s1">Karen helps Blade inside.</s>

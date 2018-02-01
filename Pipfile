@@ -14,9 +14,14 @@ textblob = "*"
 afinn = "*"
 librosa = "*"
 pysoundfile = "*"
+pandas = "*"
+scikit-learn = "*"
 
 
 [dev-packages]
 
+
+
 [requires]
+
 python_version = "3.6"

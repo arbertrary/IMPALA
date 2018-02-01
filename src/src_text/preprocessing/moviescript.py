@@ -46,7 +46,7 @@ def main():
         print("scene: ", index, " time: ", scene[0])
 
 
-def get_full_scenes(xml_path: str) -> List[Tuple[str, List[str]]]:
+def get_full_scenes(xml_path: str) -> List[Tuple[str, str, List[str]]]:
     """:returns List of all scenes. (List consisting of time code and a list of all sentences in that scene)"""
     tree = ET.parse(xml_path)
     scenes = []
@@ -54,16 +54,18 @@ def get_full_scenes(xml_path: str) -> List[Tuple[str, List[str]]]:
         sentences = []
         # time = scene.get("time_avg") or scene.get("time_interpolated")
         time = scene.get("time")
+        end = scene.get("end")
 
-        if time:
+        # if time:
+        if time and end:
             for child in scene:
                 for sent in child:
                     sentences.append(sent.text)
         else:
             continue
 
-        scenes.append((time, sentences))
-
+        # scenes.append((time, sentences))
+        scenes.append((time, end, sentences))
     return scenes
 
 

@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import librosa
 import librosa.display
 import soundfile as sf
+import pandas
 from datetime import datetime
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
@@ -92,15 +93,15 @@ def get_energy(path: str) -> np.ndarray:
     return np.array(energy_list)
 
 
-def partition_audiofeature(path: str, dialogue_duration: float):
+def partition_audiofeature(path: str, interval_duration: float):
     """Teilt die Ergebniswerte der Audiofeatures in Intervalle von X Sekunden """
     duration = sf.info(path).duration
     energy = get_energy(path)
 
-    print("duration ", duration)
-    print(len(energy))
+    # print("duration ", duration)
+    # print(len(energy))
     time_per_frame = np.divide(duration, len(energy))
-    print("duration per block ", time_per_frame)
+    # print("duration per block ", time_per_frame)
 
     energy_times = []
     time = 0
@@ -109,18 +110,18 @@ def partition_audiofeature(path: str, dialogue_duration: float):
     energy_dict = {}
     # Hier könnte ich auch die average timedifference aus subtitles.py benutzen, sodass es individuell für jede film ist
     for frame in energy:
-        if duration < dialogue_duration:
+        if duration < interval_duration:
             duration += time_per_frame
             time += time_per_frame
             temp.append(frame)
         else:
-            energy_dict[str(int(round(time)))] = np.mean(temp)
-            # energy_times.append((round(time), np.mean(temp)))
+            # energy_dict[str(int(round(time)))] = np.mean(temp)
+            energy_times.append((round(time), np.mean(temp)))
             # energy_times.append((time, temp))
             duration = 0
             temp = []
-    return energy_dict
-
+    # return energy_dict
+    return energy_times
 
 def plot_energy(energy: np.array):
     plt.figure()
@@ -176,38 +177,36 @@ def blockwise_processing(path):
     print(np.array(testlist).T.shape)
     asdf = np.array(testlist).T
     block_gen.close()
-    block_duration = duration / i
-    test = duration / len(testlist)
-    print("duration: ", block_duration, test)
-    # plt.figure()
-    # plt.title("")
-    librosa.display.specshow(asdf, sr=22050, y_axis='mel', x_axis='frames')
-    plt.colorbar(format='%+2.0f dB')
-    # np.savetxt("test.csv", asdf, delimiter=",")
-    plt.tight_layout()
-    # plt.show()
+
+    return asdf
+    # block_duration = duration / i
+    # test = duration / len(testlist)
+    # print("duration: ", block_duration, test)
+    # # plt.figure()
+    # # plt.title("")
+    # librosa.display.specshow(asdf, sr=22050, y_axis='mel', x_axis='frames')
+    # plt.colorbar(format='%+2.0f dB')
+    # # np.savetxt("test.csv", asdf, delimiter=",")
+    # plt.tight_layout()
+    # # plt.show()
 
 
 def main():
     # selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
     # # print(sf.info(selfie_audio).duration)
-    hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
-    #
-    # time = datetime.now()
-    # plt.subplot(211)
-    # # plt.title("blockwise")
-    # # blockwise_processing(selfie_audio)
-    # # plt.subplot(212)
-    # # plt.title("als ganzes")
-    # rms_energy(selfie_audio)
-    # time2 = datetime.now()
-    # diff = time2 - time
-    #
-    # print(diff)
-    # plt.show()
-    partition_audiofeature(hellraiser_audio, 1)
+    # hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
+    blade_audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
 
-    # rms_energy(selfie_audio)
+    time = datetime.now()
+    energy = get_energy(blade_audio)
+    dataframe = pandas.DataFrame(energy)
+    print(dataframe.describe())
+    print()
+    time2 = datetime.now()
+    diff = time2 - time
+
+    print(diff)
+
 
 if __name__ == '__main__':
     main()
