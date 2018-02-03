@@ -62,13 +62,13 @@ def plot_from_csv():
     plt.figure()
     plt.subplot(211)
     plt.scatter(x1, y)
-    plt.xlim(4.5,)
+    # plt.xlim(4.5,)
     plt.xlabel("Valence")
     plt.ylabel("Audio level")
 
     plt.subplot(212)
     plt.scatter(x2, y)
-    plt.xlim(3.10,)
+    # plt.xlim(3.10, 5.2)
     plt.xlabel("Arousal")
     plt.ylabel("Audio level")
 

@@ -20,6 +20,8 @@ max       35.207653
 import os
 import csv
 import numpy as np
+import librosa
+import matplotlib.pyplot as plt
 from datetime import datetime
 from sentiment import ImpalaSent
 from moviescript import get_full_scenes
@@ -28,10 +30,9 @@ from audio_analysis import partition_audiofeature
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 
 
-def time_sentiment(xml_path):
+def get_time_sentiment(xml_path):
     sentiment = ImpalaSent()
     scenes = get_full_scenes(xml_path)
-
     beginning = datetime.strptime("00:00:00", '%H:%M:%S')
 
     time_sentiment = []
@@ -49,12 +50,18 @@ def time_sentiment(xml_path):
         time_sentiment.append((start, end, score[0], score[1]))
 
     time_sentiment.sort(key=lambda tup: tup[0])
+    print(time_sentiment[0])
+    valence_array = librosa.util.normalize(np.array([x[2] for x in time_sentiment]))
+    arousal_array = librosa.util.normalize(np.array([x[3] for x in time_sentiment]))
+    time_sentiment2 = [(x[0], x[1], y, z) for x in time_sentiment for y in valence_array for z in arousal_array]
+    print(time_sentiment2[0])
+
     return time_sentiment
 
 
 def audio_scenes(audio_path, ts):
     partitions = partition_audiofeature(audio_path, 1)
-    # test = time_sentiment(blade_script, blade_audio)
+    # test = get_time_sentiment(blade_script, blade_audio)
 
     scene_audio = []
     for t in ts:
@@ -96,7 +103,7 @@ def main():
     blade_audio = os.path.join(BASE_DIR, "testfiles", "blade.wav")
     selfie_audio = os.path.join(BASE_DIR, "testfiles", "selfiefromhell.wav")
 
-    ts = time_sentiment(blade_script)
+    ts = get_time_sentiment(blade_script)
     audio_scenes(blade_audio, ts)
 
 

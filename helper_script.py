@@ -140,18 +140,18 @@ def move_subtitles():
         else:
             print(filename)
 
+
 def annotate_genres_to_subs():
     with open("allgenres.txt") as g:
-        genres= g.read().splitlines(keepends=False)
+        genres = g.read().splitlines(keepends=False)
 
-        genre_dict= {}
+        genre_dict = {}
         for film in genres:
             temp = film.split(":")
             genre_dict[temp[0]] = temp[1]
 
         # for f in genre_dict:
         #     print(f, genre_dict[f])
-
 
     for film in os.listdir("data_subtitles"):
         name = re.sub(r"_subs.xml", "", film)
@@ -164,13 +164,11 @@ def annotate_genres_to_subs():
 
         tree = ET.parse(path)
         root = tree.getroot()
-        test= ET.Element("genres")
+        test = ET.Element("genres")
         test.text = genres
         root.insert(0, test)
 
         tree.write(path)
-
-
 
     # path = os.path.join("all_subtitles", "blade_subs.xml")
     # tree = ET.parse(path)
@@ -184,11 +182,10 @@ def annotate_genres_to_subs():
 
 
 def genre_set():
-
     with open("allgenres2.txt") as g:
-        genres= g.read().splitlines(keepends=False)
+        genres = g.read().splitlines(keepends=False)
 
-        genreset= []
+        genreset = []
         for film in genres:
             temp = film.split(":")[1].split(",")
             for g in temp:
@@ -198,8 +195,6 @@ def genre_set():
         print(genreset)
 
 
-
-
 def move_subs_with_genres():
     for film in os.listdir("all_subtitles"):
         path = os.path.join("all_subtitles", film)
@@ -207,7 +202,27 @@ def move_subs_with_genres():
         tree = ET.parse(path)
 
 
+def scene_counter(directory):
+    with open("filmliste.txt") as f:
+        filme = f.read().splitlines(keepends=False)
+
+    scenecount = 0
+    filmcount = 0
+    for filename in os.listdir(directory):
+        name = os.path.splitext(filename)[0]
+        if name in filme:
+            print(name)
+            filmcount += 1
+
+            path = os.path.join(directory, filename)
+            tree = ET.parse(path)
+            scenecount += len(tree.findall("scene"))
+    print(scenecount, filmcount)
+
+
 def main():
+    scene_counter("data_xml")
+
     """ist halt die main, wofür will pylint da einen docstring"""
     # subs_dir = os.path.join(BASE_DIR, "data_subtitles")
     # print(subs_dir)
@@ -216,8 +231,9 @@ def main():
     # move_subtitles()
 
     # annotate_genres_to_subs()
-    genre_set()
-    get_all_genres("all_moviescripts")
+    # genre_set()
+    # get_all_genres("all_moviescripts")
+
 
 if __name__ == '__main__':
     main()

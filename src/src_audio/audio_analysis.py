@@ -123,13 +123,14 @@ def partition_audiofeature(path: str, interval_duration: float):
     # return energy_dict
     return energy_times
 
+
 def plot_energy(energy: np.array):
-    plt.figure()
+    # plt.figure()
     plt.subplot(211)
     plt.title("")
-    # plt.plot(times, np.array(testlist))
     # plt.semilogy(times, energy, color="b", label="RMS Energy")
-    plt.semilogy(energy, color="b", label="RMS Energy")
+    # plt.semilogy(energy, color="b", label="RMS Energy")
+    plt.plot(energy)
     plt.legend(loc='best')
 
     # plt.xlim(0, duration)
@@ -190,23 +191,62 @@ def blockwise_processing(path):
     # plt.tight_layout()
     # # plt.show()
 
+def check_all_audio():
+    path = "/media/armin/Seagate Expansion Drive/Filme_Audio_NoCredits"
+    min_list = []
+    max_list = []
+    for f in os.listdir(path):
+        audio = os.path.join(path, f)
+        energy = get_energy(audio)
+        min = np.min(energy)
+        min_list.append(min)
+        max = np.max(energy)
+        max_list.append(max)
+        print(f, "min: ", min, "max: ", max)
+
+    all_max = np.max(max_list)
+    all_max_min = np.min(max_list)
+    all_min = np.min(min_list)
+    all_min_max = np.max(min_list)
+
+
+    print("min of all: ", all_min, "max of all min: ", all_min_max, "max: ", all_max, "min of all max: ", all_max_min)
+
 
 def main():
-    # selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
-    # # print(sf.info(selfie_audio).duration)
+    check_all_audio()
+    # # audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")    # # print(sf.info(selfie_audio).duration)
     # hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
-    blade_audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
-
-    time = datetime.now()
-    energy = get_energy(blade_audio)
-    dataframe = pandas.DataFrame(energy)
-    print(dataframe.describe())
-    print()
-    time2 = datetime.now()
-    diff = time2 - time
-
-    print(diff)
-
-
+    # star_wars_audio = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4.wav")
+    # audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
+    # time = datetime.now()
+    # energy = get_energy(audio)
+    # energynorm = librosa.util.normalize(energy)
+    #
+    # dataframe = pandas.DataFrame(energy)
+    # print(dataframe.describe())
+    # energy2 =get_energy(star_wars_audio)
+    # energy2norm = librosa.util.normalize(energy2)
+    # dataframe = pandas.DataFrame(energy2)
+    # print(dataframe.describe())
+    #
+    # print()
+    # time2 = datetime.now()
+    # diff = time2 - time
+    #
+    # print(diff)
+    #
+    #
+    # f, axarr = plt.subplots(2, 2)
+    # axarr[0, 0].plot(energy)
+    # axarr[0, 0].set_title('Axis [0,0]')
+    # axarr[0, 1].plot(energynorm)
+    # axarr[0, 1].set_title('Axis [0,1]')
+    # axarr[1, 0].plot(energy2)
+    # axarr[1, 0].set_title('Axis [1,0]')
+    # axarr[1, 1].plot(energy2norm)
+    # axarr[1, 1].set_title('Axis [1,1]')
+    plt.show()
 if __name__ == '__main__':
     main()
+
