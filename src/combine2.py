@@ -1,4 +1,5 @@
 import os
+import csv
 import numpy as np
 from matplotlib import pyplot as plt
 from datetime import datetime, timedelta
@@ -36,6 +37,44 @@ def sentiment_and_energy(audio_path: str, subtitle_path: str):
     plt.ylabel("Audio Energy")
 
 
+def plot_from_csv():
+
+    with open("audio_sent.csv") as csvfile:
+        reader = csv.reader(csvfile)
+
+        x1 = []
+        x2 = []
+        y =[]
+        for row in reader:
+            if row[0] != "Scene Start":
+                x1.append(float(row[2]))
+                x2.append(float(row[3]))
+
+                if row[4] == "silent":
+                    y.append(1)
+                elif row[4] == "medium":
+                    y.append(2)
+                elif row[4] == "louder":
+                    y.append(3)
+                else:
+                    y.append(4)
+
+    plt.figure()
+    plt.subplot(211)
+    plt.scatter(x1, y)
+    plt.xlim(4.5,)
+    plt.xlabel("Valence")
+    plt.ylabel("Audio level")
+
+    plt.subplot(212)
+    plt.scatter(x2, y)
+    plt.xlim(3.10,)
+    plt.xlabel("Arousal")
+    plt.ylabel("Audio level")
+
+
+
+
 def main():
     subs = os.path.join(BASE_DIR, "src/testfiles/", "blade_subs.xml")
     audio = os.path.join(BASE_DIR, "src/testfiles/" "blade.wav")
@@ -43,8 +82,8 @@ def main():
     # subs = os.path.join(BASE_DIR, "src/testfiles", "blade-trinity_subs.xml")
     time = datetime.now()
 
-    sentiment_and_energy(audio, subs)
-
+    # sentiment_and_energy(audio, subs)
+    plot_from_csv()
     time2 = datetime.now()
     diff = time2 - time
 
