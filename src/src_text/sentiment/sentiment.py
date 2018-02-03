@@ -28,7 +28,7 @@ class ImpalaSent:
         valence_scores = []
         arousal_scores = []
         for word in words:
-            score = self.lexicon.get(word)
+            score = self.lexicon.get(word.lower())
 
             if score:
                 a = float(score[1])
@@ -65,7 +65,7 @@ class ImpalaSent:
 
         aro = []
         for word in words:
-            score = self.lexicon.get(word)
+            score = self.lexicon.get(word.lower())
 
             if score:
                 a = float(score[1])
@@ -88,7 +88,7 @@ class ImpalaSent:
 
         scores = []
         for word in words:
-            score = self.lexicon.get(word)
+            score = self.lexicon.get(word.lower())
 
             if score:
                 scores.append(score)
