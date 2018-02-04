@@ -182,8 +182,8 @@ def main():
     """main"""
     # path = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.txt")
     # dest = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.xml")
-    path = os.path.join(BASE_DIR, "src/testfiles/", "star-wars-4.txt")
-    dest = os.path.join(BASE_DIR, "src/testfiles/", "star-wars-4.xml")
+    path = os.path.join(BASE_DIR, "src/testfiles/", "scream.txt")
+    dest = os.path.join(BASE_DIR, "src/testfiles/", "scream.xml")
     # sent_tokenize_moviescript("star-wars-4.xml")
     # get_scene_tuples("testmovie.txt")
     moviescript_to_xml(path, dest)
