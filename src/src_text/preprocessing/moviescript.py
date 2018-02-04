@@ -1,7 +1,6 @@
 """
 The main moviescript module
 Contains functions that return everything that needs to be extracted from fully annotated XML moviescript
-TODO
 """
 
 import os
@@ -13,8 +12,8 @@ from typing import List, Set, Tuple, Dict
 from annotate import annotate
 from parse_fountain import moviescript_to_xml
 
-
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
+
 
 # PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 # DATA_DIR = "testfiles"
@@ -88,13 +87,6 @@ def get_all_sentences(xml_path: str):
     return sentences
 
 
-def get_movieinfo(xml_path: str) -> str:
-    tree = ET.parse(xml_path)
-    info = tree.find("info").text
-
-    return info
-
-
 def get_characters(xml_path: str) -> Set[str]:
     """:returns the movie characters"""
     tree = ET.parse(xml_path)
@@ -122,11 +114,6 @@ def get_char_dialogue(xml_path: str) -> Dict[str, List[str]]:
     return dialogue
 
 
-def get_dialogue(xml_path):
-    """Get only the dialogue"""
-    tree = ET.parse(xml_path)
-
-
 def get_metatext(xml_path) -> List[str]:
     """Get only the meta text from the moviescript, together with a reference to the scene?"""
     tree = ET.parse(xml_path)
@@ -136,22 +123,6 @@ def get_metatext(xml_path) -> List[str]:
         meta_tuples += [(m.get("id"), m.text) for m in scene.findall("meta")]
 
     return meta_tuples
-
-
-def get_genres(xml_path: str) -> List[str]:
-    """Gets the genres as list of strings from the allgenres.txt file"""
-    genres = []
-    with open(os.path.join(BASE_DIR, "allgenres.txt"), "r") as allgenres:
-        movies = allgenres.read().splitlines()
-        name, ext = os.path.splitext(os.path.basename(xml_path))
-        for m in movies:
-            if name in m:
-                genres = m.split(":")[1].split(",")
-
-        if len(genres) == 0:
-            raise ValueError("Movie not found in allgenres.txt")
-
-    return genres
 
 
 if __name__ == '__main__':

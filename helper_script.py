@@ -1,5 +1,5 @@
-"""
-Check and clean all movie scripts in directory
+"""Multi-purpose helper script probably mostly outdated by now (4 Feb 2018)
+Moving files and stuff
 """
 
 import os

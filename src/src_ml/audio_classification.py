@@ -3,6 +3,7 @@ import numpy as np
 import csv
 import warnings
 import matplotlib.pyplot as plt
+
 warnings.filterwarnings("ignore", category=FutureWarning)
 from sklearn.linear_model import SGDClassifier
 from sklearn.multiclass import OneVsOneClassifier
@@ -17,9 +18,8 @@ dataset = dataframe.values
 # print(dataset)
 perm = np.random.permutation(dataset)
 # print(perm)
-X = perm[:,2:4]
-y= perm[:,4]
-
+X = perm[:, 2:4]
+y = perm[:, 4]
 
 X_train, X_test, y_train, y_test = X[:56], X[56:], y[:56], y[56:]
 

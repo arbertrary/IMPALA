@@ -38,13 +38,12 @@ def sentiment_and_energy(audio_path: str, subtitle_path: str):
 
 
 def plot_from_csv():
-
     with open("audio_sent.csv") as csvfile:
         reader = csv.reader(csvfile)
 
         x1 = []
         x2 = []
-        y =[]
+        y = []
         for row in reader:
             if row[0] != "Scene Start":
                 x1.append(float(row[2]))
@@ -71,8 +70,6 @@ def plot_from_csv():
     # plt.xlim(3.10, 5.2)
     plt.xlabel("Arousal")
     plt.ylabel("Audio level")
-
-
 
 
 def main():

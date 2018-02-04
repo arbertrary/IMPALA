@@ -9,6 +9,7 @@ from subtitles import get_subtitles_for_annotating
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
+
 # PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
 # DATA_DIR = "testfiles"
 
@@ -28,7 +29,11 @@ def annotate(movie_path: str, subs_path: str, dest_path: str):
 
 
 def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
-    """Adds the timecode to the scenes and sentences in the movie script xml file"""
+    """Adds the timecode to the scenes and sentences in the movie script xml file.
+    :param movie_path string
+    :param list of scene time codes (averaged)
+    :param list of timecodes of matched sentences
+    :returns xml ElementTree"""
     tree = ET.parse(movie_path)
 
     for scene_time in avg_scene_times:
@@ -53,8 +58,10 @@ def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -
 def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     Dict[str, List[datetime]], Dict[str, Tuple[datetime, str]]]:
     """Find closest matching sentences; Return two Dicts
-    a) {scene_id : [timecode sentence1, timecode sentence2 ...]}
-    b) {sentence_id : (timecode, sentence id from subtitle file)}
+    :returns Dict of key= scene_id and value=time codes per scene
+    {scene_id : [timecode sentence1, timecode sentence2 ...]}
+    :returns Dict of key= sentence_id (from xml movie script) and time code
+    {sentence_id : (timecode, sentence id from subtitle file)}
     """
     subs_dialogue = get_subtitles_for_annotating(subs_path)
     # [(sentence_id, timecode, sentence), (sentence_id, timecode, sentence) ...]
@@ -84,10 +91,6 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
                         done2.append(moviesent[2])
                         count += 1
 
-                        # print(subsent[2])
-                        # print(moviesent[2])
-                        # print(ratio)
-
                         time = datetime.strptime(subsent[1], '%H:%M:%S,%f')
 
                         sentence_id = moviesent[0]
@@ -106,7 +109,9 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
 
 
 def __get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tuple[str, datetime]]:
-    """Returns the average timecode for scenes
+    """Calculates average time for each scene from all the matched time codes in the scene
+    :param scene_timecodes from __match_sentences
+    :returns the average timecode for scenes
     (averaged over the timecodes of dialogue-sentences, that were found in __match_sentences)
     """
 
@@ -130,7 +135,7 @@ def __get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tu
 
 
 def __get_moviedialogue(movie_path) -> List[Tuple[str, str, str]]:
-    """Return List of Triples of (sentence_id, scene_id, sentence)"""
+    """:returns List of Triples of (sentence_id, scene_id, sentence)"""
 
     tree = ET.parse(movie_path)
     dialogue_triples = []
@@ -203,16 +208,8 @@ def main():
 
     time = datetime.now()
 
-    annotate(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"),
-             os.path.join(path, "hellraiser_annotated.xml"))
-
-    # test1, test2 = match_sentences(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"))
-    #
-    # for t in test1:
-    #     print(t, test1[t])
-    #
-    # for t in test2:
-    #     print(t, test2[t])
+    # annotate(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"),
+    #          os.path.join(path, "hellraiser_annotated.xml"))
 
     time2 = datetime.now()
     diff = time2 - time

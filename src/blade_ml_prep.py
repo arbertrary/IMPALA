@@ -72,8 +72,8 @@ def audio_scenes(audio_path, ts):
 
     with open("audio_sent.csv", "w") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
-        writer.writerow(["Scene Start","Scene End", "Valence", "Arousal", "Audio Level"])
-        for i,t in enumerate(scene_audio):
+        writer.writerow(["Scene Start", "Scene End", "Valence", "Arousal", "Audio Level"])
+        for i, t in enumerate(scene_audio):
             level = "nan"
             if t <= 0.586673:
                 level = "silent"
@@ -86,16 +86,12 @@ def audio_scenes(audio_path, ts):
             else:
                 continue
 
-
             start = ts[i][0]
             end = ts[i][1]
             valence = ts[i][2]
             arousal = ts[i][3]
 
             writer.writerow([start, end, valence, arousal, level])
-
-
-
 
 
 def main():
@@ -105,7 +101,6 @@ def main():
 
     ts = get_time_sentiment(blade_script)
     audio_scenes(blade_audio, ts)
-
 
 
 if __name__ == '__main__':

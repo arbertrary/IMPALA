@@ -293,6 +293,7 @@ def entire_script(path):
     print(score)
     print("\n")
 
+
 def sent_classes(path):
     sentiment = ImpalaSent()
     tree = ET.parse(path)
@@ -326,7 +327,6 @@ def sent_classes(path):
     print(len(x2))
     fig, axs = plt.subplots(1, 3, tight_layout=True)
 
-
     # We can set the number of bins with the `bins` kwarg
     axs[0].hist(x1, bins=n_bins)
     axs[0].set_title("neg")
@@ -352,6 +352,7 @@ def test_hist():
     axs[1].hist(y, bins=n_bins)
     plt.show()
 
+
 def main():
     # print("Hello")
     path = os.path.join(BASE_DIR, "src/testfiles/")
@@ -375,7 +376,6 @@ def main():
     sent_classes(xml_path3)
     plt.show()
     # test_hist()
-
 
 
 if __name__ == '__main__':

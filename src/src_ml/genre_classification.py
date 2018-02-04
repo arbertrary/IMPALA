@@ -2,6 +2,7 @@ import pandas
 import csv
 import warnings
 import matplotlib.pyplot as plt
+
 warnings.filterwarnings("ignore", category=FutureWarning)
 from sklearn.linear_model import SGDClassifier
 from sklearn.multiclass import OneVsOneClassifier
@@ -144,7 +145,6 @@ def classify():
     # print(y_scores)
     # print(y_some_digit_pred)
 
-
     import numpy as np
 
     # shuffle_index = np.random.permutation(699)
@@ -160,6 +160,8 @@ def classify():
     some_digit_scores = sgd_clf.decision_function([testfilm])
     print(some_digit_scores)
     print(sgd_clf.classes_)
+
+
 def main():
     classify()
     # preprocess()

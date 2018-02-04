@@ -1,9 +1,10 @@
+"""Helper Script for writing CSV files for Genre classification
+The "write_xy_csv calculate sentiment for all movie scripts"""
+
 import os
 import csv
-import numpy as np
 import random
 from datetime import datetime
-from collections import Counter
 from sentiment import ImpalaSent
 from moviescript import get_all_sentences
 from nltk.sentiment.vader import SentimentIntensityAnalyzer

@@ -1,4 +1,4 @@
-"""Parsing and annotating all available movie scripts"""
+"""Helper Script: Parsing and annotating all available movie scripts"""
 
 import os
 import sys
@@ -68,6 +68,7 @@ def main():
     # parse_all()
     # annotate_all()
     print("test")
+
 
 if __name__ == '__main__':
     main()

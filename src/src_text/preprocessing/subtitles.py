@@ -11,7 +11,8 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os
 
 
 def get_subtitles_for_annotating(path: str) -> List[Tuple[str, str, str]]:
-    """returns subtitles as list of Triples of (sentence_id, start-timecode, sentence)"""
+    """Subtitles only for use in annotate
+    :returns subtitles as list of Triples of (sentence_id, start-timecode, sentence)"""
     tree = ET.parse(path)
     root = tree.getroot()
 
@@ -45,14 +46,12 @@ def get_subtitles_for_annotating(path: str) -> List[Tuple[str, str, str]]:
 
 def get_subtitles(path: str) -> List[Tuple[float, float, str]]:
     """Reads Subtitles from the xml files
-    :returns List of Tuples of Strings as [starttime, endtime, text]"""
+    :returns List of Tuples of Strings as [starttime in s, endtime in s, text]"""
     tree = ET.parse(path)
     root = tree.getroot()
 
     beginning = datetime.strptime("00:00:00,000", '%H:%M:%S,%f')
     temp_dialogue = []
-    # starttime_string = ""
-    # endtime_string = ""
     start = 0
     end = 0
     dialogue = ""
@@ -116,11 +115,9 @@ def get_avg_duration(subtitles: List):
     """:returns average time on screen for subtitles"""
     temp = []
     for s in subtitles:
-        # start = datetime.strptime(s[0], '%H:%M:%S,%f')
-        # end = datetime.strptime(s[1], '%H:%M:%S,%f')
         start = s[0]
         end = s[1]
-        temp.append(end - start)#.total_seconds())
+        temp.append(end - start)  # .total_seconds())
     return np.mean(temp)
 
 
@@ -129,13 +126,13 @@ def check_correctness(path: str):
 
     tree = ET.parse(path)
 
-    id = 1
+    sub_id = 1
     root = tree.getroot()
 
     for sentence in root:
-        if int(sentence.get("id")) != id:
-            raise ValueError("Error at sentence " + str(id) + ": ID not continuous")
-        id += 1
+        if int(sentence.get("id")) != sub_id:
+            raise ValueError("Error at sentence " + str(sub_id) + ": ID not continuous")
+        sub_id += 1
 
     times = tree.iter("time")
 
@@ -154,27 +151,6 @@ def check_correctness(path: str):
 
 def main():
     path = os.path.join(BASE_DIR, "src/testfiles", "blade_subs.xml")
-    # path = os.path.join(BASE_DIR, "src/testfiles", "blade-trinity_subs.xml")
-    # path = os.path.join(BASE_DIR, "src/testfiles", "hellraiser_subs.xml")
-    # path = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4_subs.xml")
-
-    test = get_subtitles(path)
-    text = ""
-    for t in test:
-        text += " " +t[2]
-
-
-    print(text)
-    with open("testfile.txt", "w") as t:
-        t.write(text)
-    # for t in test:
-    #     print(t)
-    # print(BASE_DIR)
-    # check_correctness(path)
-    print(get_avg_duration(test))
-    # test = get_subtitles(path)
-    # for s in test:
-    #     print(s)
 
 
 if __name__ == '__main__':
