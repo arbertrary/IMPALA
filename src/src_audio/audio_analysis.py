@@ -3,6 +3,7 @@ Functions for alculating RMS energy or other audio features (mel spectrogram etc
 
 
 import os
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import librosa
@@ -51,8 +52,8 @@ def get_energy(path: str, block_size: int = 2048) -> np.array:
 
     for y in block_gen:
         S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
-        rms = librosa.feature.rmse(S=S)
-        # rms = librosa.feature.rmse(y=y)
+        # rms = librosa.feature.rmse(S=S)
+        rms = librosa.feature.rmse(y=y)
         m = np.mean(rms)
         energy_list.append(m)
 
@@ -137,8 +138,12 @@ def blockwise_processing(path):
 def main():
     selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
     # hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
-    # star_wars_audio = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4.wav")
+    star_wars_audio = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4.wav")
     # blade_audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
+
+    energy = partition_audiofeature(star_wars_audio)
+    data = pd.DataFrame(energy)
+    print(data.describe())
     time = datetime.now()
     time2 = datetime.now()
     diff = time2 - time

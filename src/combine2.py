@@ -38,7 +38,7 @@ def sentiment_and_energy(audio_path: str, subtitle_path: str):
 
 
 def plot_from_csv():
-    with open("audio_sent.csv") as csvfile:
+    with open("audio_sent_blade.csv") as csvfile:
         reader = csv.reader(csvfile)
 
         x1 = []
@@ -57,7 +57,8 @@ def plot_from_csv():
                     y.append(3)
                 else:
                     y.append(4)
-
+    print("silent: ", y.count(1))
+    print("medium: ", y.count(2))
     plt.figure()
     plt.subplot(211)
     plt.scatter(x1, y)
