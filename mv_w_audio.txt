@@ -30,7 +30,6 @@ lord-of-war
 oceans-eleven
 oceans-twelve
 swordfish
-phone-booth
 pitch-black
 predator
 pulp-fiction
@@ -52,7 +51,6 @@ the-green-mile
 the-matrix-reloaded
 the-matrix
 the-shining
-the-siege
 total-recall
 trainspotting
 xxx

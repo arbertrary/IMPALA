@@ -7,6 +7,7 @@ import re
 import shutil
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+from moviescript import get_full_scenes
 
 from nltk import word_tokenize
 from subtitles import check_correctness
@@ -220,9 +221,16 @@ def scene_counter(directory):
     print(scenecount, filmcount)
 
 
-def main():
-    scene_counter("data_xml")
+def check_scene_count():
+    for filename in os.listdir("data_xml"):
+        tree = ET.parse(os.path.join("data_xml",filename))
+        scenes = tree.findall("scene")
+        if len(scenes) < 20:
+            print(filename, len(scenes))
 
+def main():
+    # scene_counter("data_xml")
+    check_scene_count()
     """ist halt die main, wofür will pylint da einen docstring"""
     # subs_dir = os.path.join(BASE_DIR, "data_subtitles")
     # print(subs_dir)

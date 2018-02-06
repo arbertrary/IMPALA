@@ -121,7 +121,6 @@ oceans-twelve
 panic-room
 peggy-sue-got-married
 philadelphia
-phone-booth
 pi
 pirates-of-the-caribbean-the-curse-of-the-black-pearl
 pitch-black
@@ -195,7 +194,6 @@ the-rock
 the-rocky-horror-picture-show
 the-shining
 the-shipping-news
-the-siege
 the-terminator
 the-thing
 the-three-musketeers

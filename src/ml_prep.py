@@ -27,7 +27,7 @@ import librosa
 import matplotlib.pyplot as plt
 from datetime import datetime
 from sentiment import ImpalaSent
-from moviescript import get_full_scenes
+from moviescript import get_scenes_man_annotated
 from audio_analysis import partition_audiofeature
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
@@ -35,7 +35,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 
 def get_time_sentiment(xml_path):
     sentiment = ImpalaSent()
-    scenes = get_full_scenes(xml_path)
+    scenes = get_scenes_man_annotated(xml_path)
     beginning = datetime.strptime("00:00:00", '%H:%M:%S')
 
     time_sentiment = []
