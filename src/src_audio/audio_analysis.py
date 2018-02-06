@@ -1,7 +1,6 @@
 """Module for processing audio files.
 Functions for alculating RMS energy or other audio features (mel spectrogram etc)."""
 
-
 import os
 import pandas as pd
 import numpy as np
@@ -58,7 +57,9 @@ def get_energy(path: str, block_size: int = 2048) -> np.array:
         energy_list.append(m)
 
     block_gen.close()
-    return np.array(energy_list)
+    # energy = librosa.util.normalize(np.array(energy_list))
+    energy = np.array(energy_list)
+    return energy
 
 
 def partition_audiofeature(path: str, interval_seconds: float = 1.0):
@@ -137,13 +138,29 @@ def blockwise_processing(path):
 
 def main():
     selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
-    # hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
+    hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
     star_wars_audio = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4.wav")
-    # blade_audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
+    blade_audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
 
     energy = partition_audiofeature(star_wars_audio)
+    # energy = get_energy(star_wars_audio)
     data = pd.DataFrame(energy)
+    print("Star Wars")
     print(data.describe())
+    print("\n")
+
+    # energy = get_energy(blade_audio)
+    # data = pd.DataFrame(energy)
+    # print("Blade")
+    # print(data.describe())
+    # print("\n")
+    #
+    # energy = get_energy(hellraiser_audio)
+    # data = pd.DataFrame(energy)
+    # print("Hellraiser")
+    # print(data.describe())
+    # print("\n")
+
     time = datetime.now()
     time2 = datetime.now()
     diff = time2 - time

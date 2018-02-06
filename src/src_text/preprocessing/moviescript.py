@@ -37,25 +37,42 @@ def main():
     dest_path = os.path.join(path, "hellraiser_annotated.xml")
 
     # parse(fountain, subs_path, dest_path)
-    scenes = get_full_scenes(dest_path)
+    # scenes = get_full_scenes(dest_path)
     # test = get_char_dialogue(dest_path)
     # print(test.get("THREEPIO"))
 
-    for index, scene in enumerate(scenes):
-        print("scene: ", index, " time: ", scene[0])
+    # for index, scene in enumerate(scenes):
+    #     print("scene: ", index, " time: ", scene[0])
 
 
-def get_full_scenes(xml_path: str) -> List[Tuple[str, str, List[str]]]:
+def get_full_scenes(xml_path: str) -> List[Tuple[str, List[str]]]:
     """:returns List of all scenes. (List consisting of time code and a list of all sentences in that scene)"""
     tree = ET.parse(xml_path)
     scenes = []
     for scene in tree.findall("scene"):
         sentences = []
-        # time = scene.get("time_avg") or scene.get("time_interpolated")
+        time = scene.get("time_avg") or scene.get("time_interpolated")
+
+        if time:
+            for child in scene:
+                for sent in child:
+                    sentences.append(sent.text)
+        else:
+            continue
+
+        scenes.append((time, sentences))
+    return scenes
+
+
+def get_scenes_man_annotated(xml_path: str) -> List[Tuple[str, str, List[str]]]:
+    """:returns List of all scenes. (List consisting of time code and a list of all sentences in that scene)"""
+    tree = ET.parse(xml_path)
+    scenes = []
+    for scene in tree.findall("scene"):
+        sentences = []
         time = scene.get("start")
         end = scene.get("end")
 
-        # if time:
         if time and end:
             for child in scene:
                 for sent in child:
@@ -63,8 +80,21 @@ def get_full_scenes(xml_path: str) -> List[Tuple[str, str, List[str]]]:
         else:
             continue
 
-        # scenes.append((time, sentences))
         scenes.append((time, end, sentences))
+    return scenes
+
+
+def get_scenes_unannotated(xml_path: str) -> List[List[str]]:
+    tree = ET.parse(xml_path)
+    scenes = []
+    for scene in tree.findall("scene"):
+        sentences = []
+
+        for child in scene:
+            for sent in child:
+                sentences.append(sent.text)
+
+        scenes.append(sentences)
     return scenes
 
 

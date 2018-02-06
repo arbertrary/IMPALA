@@ -27,58 +27,29 @@ class ImpalaSent:
 
         valence_scores = []
         arousal_scores = []
+        dominance_scores = []
         for word in words:
             score = self.lexicon.get(word.lower())
 
             if score:
-                a = float(score[1])
                 v = float(score[0])
+                a = float(score[1])
+                d = float(score[2])
 
                 valence_scores.append(v)
                 arousal_scores.append(a)
+                dominance_scores.append(d)
 
         lv = len(valence_scores)
         la = len(arousal_scores)
-
-        # If-Else conditions for cases where no word in text is found in the lexicon
-        if lv != 0 and la != 0:
+        ld = len(dominance_scores)
+        if lv == 0 or la == 0 or ld == 0:
+            return -1, -1, -1
+        else:
             valence = np.mean(valence_scores)
             arousal = np.mean(arousal_scores)
-            # arousal = max(arousal_scores)
-        elif lv != 0 and la == 0:
-            valence = np.mean(valence_scores)
-            arousal = 0
-
-        elif lv == 0 and la != 0:
-            valence = 0
-            arousal = np.mean(arousal_scores)
-            # arousal = max(arousal_scores)
-
-        else:
-            valence = 0
-            arousal = 0
-
-        return valence, arousal
-
-    def arousal_weights(self, text: str):
-        words = word_tokenize(text)
-
-        aro = []
-        for word in words:
-            score = self.lexicon.get(word.lower())
-
-            if score:
-                a = float(score[1])
-
-                # if v < 5.06 and a > 4.21:
-                aro.append(a)
-
-        if len(aro) != 0:
-            arousal = np.mean(aro)
-        else:
-            arousal = 4.21
-
-        return arousal, len(aro)
+            dominance = np.mean(dominance_scores)
+            return valence, arousal, dominance
 
     def nrc_score(self, text: str):
         if self.method != "NRC":
@@ -147,8 +118,8 @@ def warriner_dict():
                 arousal = row[5]
                 dominance = row[8]
                 # temp = {"valence": valence, "arousal": arousal, "dominance": dominance}
-                temp = (valence, arousal, dominance)
-                lexicon[word] = temp
+                score = (valence, arousal, dominance)
+                lexicon[word] = score
 
     return lexicon
 

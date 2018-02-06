@@ -6,9 +6,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from datetime import datetime, timedelta
 from matplotlib import dates
-from moviescript import get_full_scenes
 from audio_analysis import get_energy
-from ms_sentiment import get_arousal_values, get_arousal_values_wo_time
 from subs_sentiment import get_subs_sentiment
 
 """Idee:
@@ -21,7 +19,6 @@ from subs_sentiment import get_subs_sentiment
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-# TODO: Pfade handlen! os.curdir macht Probleme. Für alle Module!!!
 def combine(scenes, energy, duration):
     """
     :param scenes = list of scenes + their timecodes\n
@@ -41,7 +38,6 @@ def combine(scenes, energy, duration):
         i += 1
 
     arousal_values = get_arousal_values(scenes)
-    arousal_values_wo_time = get_arousal_values_wo_time(scenes)
     x = []
     i = 0
     for s in scenes:
