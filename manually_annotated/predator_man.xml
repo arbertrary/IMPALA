@@ -20,8 +20,8 @@
       <s id="bs12">&quot;HUNTER&quot;</s>
       <s id="bs13">1</s>
    </beginning>
-   <scene id="sc1" start="00:00:25" end="00:">
-      <sceneheader>EXT. OUTER SPACE                                       1</sceneheader>
+   <scene id="sc1" start="00:00:25" end="00:01:25">
+      <sceneheader>EXT. OUTER SPACE</sceneheader>
       <meta id="sc1m1">
          <s id="sc1m1s1">The infinite blackness punctuated by a billion stars.</s>
          <s id="sc1m1s2">As we slowly DESCEND through the varied shades of blue of the Earth's atmosphere, we HEAR the first strains of a haunting, Central American FLUTE, joined by a swelling background of JUNGLE SOUNDS.</s>
@@ -32,7 +32,7 @@
       </meta>
    </scene>
    <scene id="sc2">
-      <sceneheader>EXT. JUNGLE COASTLINE - DAY (MAGIC HOUR)               2</sceneheader>
+      <sceneheader>EXT. JUNGLE COASTLINE - DAY (MAGIC HOUR)</sceneheader>
       <meta id="sc2m1">
          <s id="sc2m1s1">Through a collage of shimmering HEAT-WAVES, a dark, OTHER-WORLDLY OBJECT drops INTO VIEW, backlit by the fiery, ORANGE-RED sphere of a setting tropical SUN, heading slowly towards us, floating, as if suspended by the rising heat of the jungle.</s>
          <s id="sc2m1s2">Continuing to approach, the shimmering object resolves into a MILITARY ASSAULT HELICOPTER, its rotors strobing in the fading sunlight.</s>
@@ -44,7 +44,7 @@
       </meta>
    </scene>
    <scene id="sc3">
-      <sceneheader>INT. COMMAND POST - DAY (MAGIC HOUR)                   2-A  *</sceneheader>
+      <sceneheader>INT. COMMAND POST - DAY (MAGIC HOUR)</sceneheader>
       <meta id="sc3m1">
          <s id="sc3m1s1">Where a MAN wearing a military UNIFORM watches through the large open windows the helicopter as it continues to approach.</s>
          <s id="sc3m1s2">Before the skids have even touched down he SEES the first of the MEN, dressed in CIVILIAN CLOTHES but carrying full COMBAT GEAR, alight gracefully from the chopper, double-timing in close order to one side, the orders SHOUTED by one man lost in the ROAR of the chopper.</s>
@@ -55,7 +55,6 @@
       </dialogue>
       <meta id="sc3m2">
          <s id="sc3m2s1">He turns back, lowering a BAMBOO SHADE, obscuring the       * window.</s>
-         <s id="sc3m2s2">------------------------------------------------------------------------</s>
       </meta>
       <meta id="sc3m3">
          <s id="sc3m3s1">2</s>
@@ -64,8 +63,8 @@
          <s id="sc3m3s1">2-B</s>
       </meta>
    </scene>
-   <scene id="sc4">
-      <sceneheader>EXT. HELICOPTER PAD - NIGHT                            2-B  *</sceneheader>
+   <scene id="sc4" start="00:01:40" end="00:04:03">
+      <sceneheader>EXT. HELICOPTER PAD - NIGHT</sceneheader>
       <meta id="sc4m1">
          <s id="sc4m1s1">On adjoining PADS, two other HELICOPTERS are VISIBLE; in the b.g.</s>
          <s id="sc4m1s2">can be SEEN several concrete and THATCHWORK BUILDINGS, a secret command post disguised as a COASTAL FISHING VILLAGE.</s>
@@ -91,24 +90,14 @@
       <meta id="sc4m3">
          <s id="sc4m3s1">They walk up the stairs, entering the palapa, leaving the other man on guard.</s>
       </meta>
-      <meta id="sc4m3">
-         <s id="sc4m3s1">3</s>
-      </meta>
    </scene>
-   <scene id="sc5">
-      <sceneheader>INT. PALAPA - DAY                                      3</sceneheader>
+   <scene id="sc5" start="00:04:04" end="00:06:29">
+      <sceneheader>INT. PALAPA - DAY</sceneheader>
       <meta id="sc5m1">
          <s id="sc5m1s1">Large, two room concrete floor, thatched walls and roof.</s>
          <s id="sc5m1s2">Behind a partially drawn curtain in the kitchen, a naked lightbulb hung from the rafters illuminates a bank of compact FIELD RADIO EQUIPMENT, MAPS and AERIAL PHOTOGRAPHS.</s>
          <s id="sc5m1s3">Otherwise the rooms are primitive and stand out in stark contrast to this high-tech invasion.</s>
          <s id="sc5m1s4">Philips and Schaefer enter the room.</s>
-         <s id="sc5m1s5">(CONTINUED) ------------------------------------------------------------------------</s>
-      </meta>
-      <meta id="sc5m2">
-         <s id="sc5m2s1">3</s>
-      </meta>
-      <meta id="sc5m3">
-         <s id="sc5m3s1">3     CONTINUED                                              3</s>
       </meta>
       <dialogue id="sc5d3" name="PHILIPS">
          <s id="sc5d3s1">(growing serious) We've got a real problem here, something right up your alley.</s>
@@ -321,7 +310,7 @@
          <s id="sc5m40s1">4</s>
       </meta>
    </scene>
-   <scene id="sc6">
+   <scene id="sc6" start="00:06:31" end="00:06:40">
       <sceneheader>EXT. TWO ASSAULT HELICOPTERS - NIGHT                   4</sceneheader>
       <meta id="sc6m1">
          <s id="sc6m1s1">Burst over the top of a ridge.</s>
@@ -354,7 +343,7 @@
          <s id="sc6m5s1">5</s>
       </meta>
    </scene>
-   <scene id="sc7">
+   <scene id="sc7" start="00:06:42" end="00:07:20">
       <sceneheader>INT. HELICOPTER - NIGHT                                5</sceneheader>
       <meta id="sc7m1">
          <s id="sc7m1s1">Illuminated by the eerie red glow of NIGHT LIGHTS, are SEVEN MEN, dressed in jungle camouflage, soft hats and camouflage face-makeup.</s>
@@ -399,7 +388,7 @@
          <s id="sc7m5s1">6</s>
       </meta>
    </scene>
-   <scene id="sc8">
+   <scene id="sc8" start="00:07:24" end="00:07:30">
       <sceneheader>EXT. JUNGLE - NIGHT                                    6</sceneheader>
       <meta id="sc8m1">
          <s id="sc8m1s1">Clearing another ridge, the helicopters plunge into a steep descent, turning quickly into a DEEP-WALLED CANYON, the force of the turn accentuated by the changing PITCH of the screaming turbines and the biting of rotors into the air.</s>
@@ -408,7 +397,7 @@
          <s id="sc8m1s1">7</s>
       </meta>
    </scene>
-   <scene id="sc9">
+   <scene id="sc9" start="00:07:31" end="00:07:50">
       <sceneheader>INT. HELICOPTER - NIGHT                                7</sceneheader>
       <meta id="sc9m1">
          <s id="sc9m1s1">The men, suspended in RESTRAINING HARNESSES from the bulkheads, lean forward, nearly upside down in response to the radical maneuver, handling the situation with ease.</s>
@@ -462,7 +451,7 @@
          <s id="sc9m10s1">8</s>
       </meta>
    </scene>
-   <scene id="sc10">
+   <scene id="sc10" start="00:07:51" end="00:08:00">
       <sceneheader>INT. COCKPIT - NIGHT                                   8</sceneheader>
       <meta id="sc10m1">
          <s id="sc10m1s1">The PILOT and CO-PILOT are surrounded by an array of dimly lit GAUGES and SWITCHES.</s>
@@ -510,7 +499,7 @@
          <s id="sc12m1s1">11</s>
       </meta>
    </scene>
-   <scene id="sc13">
+   <scene id="sc13" start="00:09:00" end="00:09:48">
       <sceneheader>INT. HELICOPTER - NIGHT                               11</sceneheader>
       <meta id="sc13m1">
          <s id="sc13m1s1">Dillon seems comfortable with the men, showing Ramirez a battered CIGARETTE LIGHTER from a famed commando unit from the past.</s>
@@ -549,7 +538,7 @@
          <s id="sc13m5s1">12</s>
       </meta>
    </scene>
-   <scene id="sc14">
+   <scene id="sc14" start="00:09:50" end="00:09:55">
       <sceneheader>EXT. HELICOPTER - NIGHT                               12</sceneheader>
       <meta id="sc14m1">
          <s id="sc14m1s1">From the open doors the RAPPELLING LINES hurtle into space, CRASHING through the double canopy of the trees and to the jungle floor below.</s>
@@ -558,7 +547,7 @@
          <s id="sc14m1s1">13</s>
       </meta>
    </scene>
-   <scene id="sc15">
+   <scene id="sc15" start="00:09:56" end="00:10:08">
       <sceneheader>INT. HELICOPTER - NIGHT                               13    *</sceneheader>
       <meta id="sc15m1">
          <s id="sc15m1s1">The blue light changes to GREEN.</s>
@@ -603,7 +592,7 @@
          <s id="sc16m1s1">15</s>
       </meta>
    </scene>
-   <scene id="sc17">
+   <scene id="sc17" start="00:10:32" end="00:11:10">
       <sceneheader>EXT. MOUNTAIN RIDGE - DAY (DAWN)                      15</sceneheader>
       <meta id="sc17m1">
          <s id="sc17m1s1">A light shower passes through the trees.</s>
@@ -618,7 +607,7 @@
          <s id="sc17m1s1">16</s>
       </meta>
    </scene>
-   <scene id="sc18">
+   <scene id="sc18" start="00:11:11" end="00:12:00">
       <sceneheader>EXT. JUNGLE HILLSIDE - DAY                            16</sceneheader>
       <meta id="sc18m1">
          <s id="sc18m1s1">Descending the steep mountain slope, the team encounters an even denser growth of jungle, at times moving by instinct, as they are often visually separated.</s>
@@ -629,7 +618,7 @@
          <s id="sc18m1s1">17</s>
       </meta>
    </scene>
-   <scene id="sc19">
+   <scene id="sc19" start="00:12:01" end="00:12:23">
       <sceneheader>EXT. JUNGLE CLEARING - DAY                            17</sceneheader>
       <meta id="sc19m1">
          <s id="sc19m1s1">Blain, in a defensive position, sweeps the jungle slowly with his MP-5.</s>
@@ -647,7 +636,7 @@
          <s id="sc19m3s1">18</s>
       </meta>
    </scene>
-   <scene id="sc20">
+   <scene id="sc20" start="00:12:25" end="00:14:19">
       <sceneheader>INT. HELICOPTER - DAY                                 18</sceneheader>
       <meta id="sc20m1">
          <s id="sc20m1s1">Ramirez moves cautiously, searching for trip wires, using his knife to check the edges of the seats and door frames.</s>
@@ -756,7 +745,7 @@
          <s id="sc20m20s1">19</s>
       </meta>
    </scene>
-   <scene id="sc21">
+   <scene id="sc21" start="00:14:20" end="00:14:52">
       <sceneheader>EXT. JUNGLE - DAY                                     19</sceneheader>
       <meta id="sc21m1">
          <s id="sc21m1s1">As Billy reconnoiters, Ramirez looks back and gives a       * sign... Schaefer nods and rappels down cliff.</s>
@@ -844,7 +833,7 @@
          <s id="sc26m2s1">26</s>
       </meta>
    </scene>
-   <scene id="sc27">
+   <scene id="sc27" start="00:14:53" end="00:17:30">
       <sceneheader>EXT. DENSE UNDERGROWTH - DAY                          26</sceneheader>
       <meta id="sc27m1">
          <s id="sc27m1s1">The hillside of a steep valley, dark and foreboding.</s>
@@ -950,7 +939,7 @@
          <s id="sc27m14s1">28</s>
       </meta>
    </scene>
-   <scene id="sc28">
+   <scene id="sc28" start="00:17:31" end="00:18:20">
       <sceneheader>EXT. BILLY - DAY                                      28</sceneheader>
       <meta id="sc28m1">
          <s id="sc28m1s1">Kneels at the side of the original trail examining the ground.</s>
@@ -1010,7 +999,7 @@
          <s id="sc28m10s1">28-A</s>
       </meta>
    </scene>
-   <scene id="sc29">
+   <scene id="sc29" start="00:18:21" end="00:18:32">
       <sceneheader>EXT. BLAIN - DAY                                      28-A</sceneheader>
       <meta id="sc29m1">
          <s id="sc29m1s1">Blain feeds the magazine of BELTED-SHELLS into the weapon, cocking it.</s>
@@ -1031,7 +1020,7 @@
          <s id="sc29m3s1">29</s>
       </meta>
    </scene>
-   <scene id="sc30">
+   <scene id="sc30" start="00:18:33" end="00:18:50">
       <sceneheader>EXT. ALTERED P.O.V. - DAY                             29</sceneheader>
       <meta id="sc30m1">
          <s id="sc30m1s1">carefully watching this exchange from high in the treetop canopy.</s>
@@ -1041,7 +1030,7 @@
          <s id="sc30m1s1">30</s>
       </meta>
    </scene>
-   <scene id="sc31">
+   <scene id="sc31" start="00:19:45" end="00:20:14">
       <sceneheader>EXT. JUNGLE HILLSIDE - DAY                            30</sceneheader>
       <meta id="sc31m1">
          <s id="sc31m1s1">Mac appears suddenly, materializing out of the undergrowth, pausing cautiously, his senses alert, intense, almost nervous.</s>
@@ -1124,7 +1113,7 @@
          <s id="sc32m7s1">32</s>
       </meta>
    </scene>
-   <scene id="sc33">
+   <scene id="sc33" start="00:20:25" end="00:22:05">
       <sceneheader>EXT. KNOLL                                            32</sceneheader>
       <meta id="sc33m1">
          <s id="sc33m1s1">The assault team moving up the hill, barely visible in the heavy foliage, the team moves cautiously into defensive positions.</s>
@@ -1167,15 +1156,15 @@
          <s id="sc33m5s1">Schaefer makes a circling motion with his thumb and the team members gather in close, huddle formation.</s>
       </meta>
       <dialogue id="sc33d5" name="SCHAEFER">
-         <s id="sc33d5s1">(whispering; angry) Just killed one of the                             * prisoners.</s>
-         <s id="sc33d5s2">No time for                            * invitations.</s>
+         <s id="sc33d5s1">(whispering; angry) Just killed one of the prisoners.</s>
+         <s id="sc33d5s2">No time for invitations.</s>
          <s id="sc33d5s3">We take them, now.</s>
       </dialogue>
       <meta id="sc33m6">
          <s id="sc33m6s1">35</s>
       </meta>
    </scene>
-   <scene id="sc34">
+   <scene id="sc34" start="00:22:06" end="00:22:40">
       <sceneheader>EXT. BLAIN AND MAC - DAY                              35</sceneheader>
       <meta id="sc34m1">
          <s id="sc34m1s1">Crawl silently through the underbrush.</s>
@@ -1210,7 +1199,7 @@
          <s id="sc35m1s1">37</s>
       </meta>
    </scene>
-   <scene id="sc36">
+   <scene id="sc36" start="00:22:41" end="00:23:00">
       <sceneheader>EXT. BILLY - DAY                                      37</sceneheader>
       <meta id="sc36m1">
          <s id="sc36m1s1">On Schaefer's signal rises up, pulling a SENTRY to him, covering his mouth with his hand, jerking him backwards and to the side, knocking him off balance with a sweeping motion of his left leg, killing him with his COMBAT KNIFE.</s>
@@ -1232,7 +1221,7 @@
          <s id="sc37m1s1">39</s>
       </meta>
    </scene>
-   <scene id="sc38">
+   <scene id="sc38" start="00:23:20" end="00:23:30">
       <sceneheader>EXT. MACHINE GUN EMPLACEMENT - DAY                    39</sceneheader>
       <meta id="sc38m1">
          <s id="sc38m1s1">While one Guerrilla attends to his equipment, the OTHER attentively watches the approaches to the camp.</s>
@@ -1269,7 +1258,7 @@
          <s id="sc40m1s1">41</s>
       </meta>
    </scene>
-   <scene id="sc41">
+   <scene id="sc41" start="00:23:35" end="00:23:53">
       <sceneheader>EXT. SCHAEFER                                         41    *</sceneheader>
       <meta id="sc41m1">
          <s id="sc41m1s1">Crouched to the side of the truck, watches the camp, SEEING below through the dense undergrowth, Ramirez, barely visible, signaling.</s>
@@ -1299,7 +1288,7 @@
          <s id="sc41m5s1">44</s>
       </meta>
    </scene>
-   <scene id="sc42">
+   <scene id="sc42" start="00:23:55" end="00:24:20">
       <sceneheader>EXT. SCHAEFER                                         44    *</sceneheader>
       <meta id="sc42m1">
          <s id="sc42m1s1">Holds his huge, COMMANDO MACHETE on a diagonal, pushing through the belt, slicing it cleanly.</s>
@@ -1318,7 +1307,7 @@
          <s id="sc42m3s1">45</s>
       </meta>
    </scene>
-   <scene id="sc43">
+   <scene id="sc43" start="00:24:21" end="00:24:30">
       <sceneheader>EXT. GUERRILLA VILLAGE - DAY                          45</sceneheader>
       <meta id="sc43m1">
          <s id="sc43m1s1">A Guerrilla, alerted by the SOUND of the approaching truck, looks up at the hillside, SEEING the vehicle still moving down the hill at a moderate roll.</s>
@@ -1341,7 +1330,7 @@
          <s id="sc44m1s1">47</s>
       </meta>
    </scene>
-   <scene id="sc45">
+   <scene id="sc45" start="00:24:31" end="00:24:35">
       <sceneheader>EXT. GUERRILLA CAMP - DAY                             47</sceneheader>
       <meta id="sc45m1">
          <s id="sc45m1s1">The truck is BLOWN up into the air by the explosion... a moment later the satchel charge DETONATES with an ear-splitting EXPLOSION, tearing the truck apart.</s>
@@ -1359,7 +1348,7 @@
          <s id="sc46m1s1">49</s>
       </meta>
    </scene>
-   <scene id="sc47">
+   <scene id="sc47" start="00:24:36" end="00:24:45">
       <sceneheader>EXT. KNOLL - DAY                                      49</sceneheader>
       <meta id="sc47m1">
          <s id="sc47m1s1">Schaefer races down the hillside, joined by Dillon, leaving Hawkins to cover them.</s>
@@ -1380,7 +1369,7 @@
          <s id="sc47m3s1">50</s>
       </meta>
    </scene>
-   <scene id="sc48">
+   <scene id="sc48" start="00:25:25" end="00:25:45">
       <sceneheader>EXT. GUERRILLA CAMP - DAY                             50</sceneheader>
       <meta id="sc48m1">
          <s id="sc48m1s1">A MAN almost completely ON FIRE is hit by an onslaught of GUNFIRE, ripping him back into the jungle.</s>
@@ -1416,7 +1405,7 @@
          <s id="sc49m2s1">52</s>
       </meta>
    </scene>
-   <scene id="sc50">
+   <scene id="sc50" start="00:26:23" end="00:26:45">
       <sceneheader>EXT. GUERRILLA VILLAGE                                52    *</sceneheader>
       <meta id="sc50m1">
          <s id="sc50m1s1">at the entrance way to the main palapa, a Guerrilla stands in the doorway, giving COVER FIRE to his comrades as they fall back inside.</s>
@@ -1437,7 +1426,7 @@
          <s id="sc50m1s1">53</s>
       </meta>
    </scene>
-   <scene id="sc51">
+   <scene id="sc51" start="00:26:46" end="00:27:25">
       <sceneheader>INT. PALAPA - DAY                                     53</sceneheader>
       <meta id="sc51m1">
          <s id="sc51m1s1">The sniper CRASHES through the roof, landing on the floor near Hawkins and Ramirez who do a quick double take before opening fire on a group of fleeing Guerrillas, taking out two, giving chase to the others.</s>
@@ -1470,7 +1459,7 @@
          <s id="sc51m4s1">53-A</s>
       </meta>
    </scene>
-   <scene id="sc52">
+   <scene id="sc52" start="00:27:26" end="00:27:51">
       <sceneheader>INT. ROOM - DAY                                       53-A</sceneheader>
       <meta id="sc52m1">
          <s id="sc52m1s1">At one end is a STAIRWAY, leading to an escape door.</s>
@@ -1537,7 +1526,7 @@
          <s id="sc53m1s1">53-C</s>
       </meta>
    </scene>
-   <scene id="sc54">
+   <scene id="sc54" start="00:28:05" end="00:28:34">
       <sceneheader>INT. PALAPA - DAY                                     53-C</sceneheader>
       <meta id="sc54m1">
          <s id="sc54m1s1">For the first time, Schaefer studies the interior of the cavernous palapa, SEEING the enormous stockpile of WEAPONS, EQUIPMENT and SUPPLIES stacked along the walls, obviously a major military stronghold hidden deep within the mountains.</s>
@@ -1608,7 +1597,7 @@
          <s id="sc56m1s1">54-B</s>
       </meta>
    </scene>
-   <scene id="sc57">
+   <scene id="sc57" start="00:28:40" end="00:29:00">
       <sceneheader>EXT. BASE OF ROCK WALL - DAY                          54-B  *</sceneheader>
       <meta id="sc57m1">
          <s id="sc57m1s1">Blain joins Ramirez, behind cover at the foot of the cliff.</s>
@@ -1666,7 +1655,7 @@
          <s id="sc57m9s1">55</s>
       </meta>
    </scene>
-   <scene id="sc58">
+   <scene id="sc58" start="00:29:02" end="00:30:35">
       <sceneheader>INT. PALAPA ROOM - DAY                                55</sceneheader>
       <meta id="sc58m1">
          <s id="sc58m1s1">Schaefer is staring out the window, his weapon slack in one arm, still holding the paper.</s>
@@ -1794,7 +1783,7 @@
          <s id="sc58m21s1">55-A</s>
       </meta>
    </scene>
-   <scene id="sc59">
+   <scene id="sc59" start="00:30:40" end="00:31:04">
       <sceneheader>INT. PALAPA - DAY                                     55-A</sceneheader>
       <meta id="sc59m1">
          <s id="sc59m1s1">Schaefer is talking to Hawkins who has the field radio set on a crate just outside the door.</s>
@@ -1882,7 +1871,7 @@
          <s id="sc59m16s1">56</s>
       </meta>
    </scene>
-   <scene id="sc60">
+   <scene id="sc60" start="00:31:11" end="00:31:35">
       <sceneheader>EXT. GUERRILLA VILLAGE - DAY                          56</sceneheader>
       <meta id="sc60m1">
          <s id="sc60m1s1">Schaefer and Billy are kneeling on the ground near the trailhead, studying a MAP.</s>
@@ -1929,7 +1918,7 @@
          <s id="sc60m6s1">56-A</s>
       </meta>
    </scene>
-   <scene id="sc61">
+   <scene id="sc61" start="00:31:36" end="00:31:44">
       <sceneheader>EXT. OBSERVER'S P.O.V. - DAY                          56-A</sceneheader>
       <meta id="sc61m1">
          <s id="sc61m1s1">Watching as Dillon leads ANNA onward, SEEING her bound hands.</s>
@@ -1939,7 +1928,7 @@
          <s id="sc61m1s1">57</s>
       </meta>
    </scene>
-   <scene id="sc62">
+   <scene id="sc62" start="00:31:45" end="00:32:35">
       <sceneheader>EXT. ANNA - DAY                                       57</sceneheader>
       <meta id="sc62m1">
          <s id="sc62m1s1">Spins, hurling a string of insults to Dillon in SPANISH.</s>
@@ -2029,7 +2018,7 @@
          <s id="sc63m2s1">58-A</s>
       </meta>
    </scene>
-   <scene id="sc64">
+   <scene id="sc64" start="00:33:45" end="00:34:53">
       <sceneheader>EXT. OBSERVER'S P.O.V. OF HIS HAND - DAY              58-A</sceneheader>
       <meta id="sc64m1">
          <s id="sc64m1s1">As it appears, pulsing in a pale magenta heat, low to the ground, holding his weapon.</s>
@@ -2086,7 +2075,7 @@
          <s id="sc66m2s1">60</s>
       </meta>
    </scene>
-   <scene id="sc67">
+   <scene id="sc67" start="00:34:54" end="00:35:28">
       <sceneheader>EXT. JUNGLE VALLEY - DAY                              60</sceneheader>
       <meta id="sc67m1">
          <s id="sc67m1s1">The twilight world of a PREHISTORIC FOREST, filled with gigantic plants and towering trees, overgrown with vines and creepers.</s>
@@ -2098,7 +2087,7 @@
          <s id="sc67m1s1">61</s>
       </meta>
    </scene>
-   <scene id="sc68">
+   <scene id="sc68" start="00:36:30" end="00:37:08">
       <sceneheader>EXT. GIANT HARDWOOD TREE - DAY                        61</sceneheader>
       <meta id="sc68m1">
          <s id="sc68m1s1">Lies across their path.</s>
@@ -2125,7 +2114,7 @@
          <s id="sc68m3s1">62</s>
       </meta>
    </scene>
-   <scene id="sc69">
+   <scene id="sc69" start="00:37:09" end="00:37:48">
       <sceneheader>EXT. ANNA AND DILLON - JUNGLE - DAY                   62</sceneheader>
       <meta id="sc69m1">
          <s id="sc69m1s1">Have fallen behind, Dillon looking worriedly ahead at the them out distancing them.</s>
@@ -2181,7 +2170,7 @@
          <s id="sc69m7s1">63</s>
       </meta>
    </scene>
-   <scene id="sc70">
+   <scene id="sc70" start="00:38:16" end="00:38:22">
       <sceneheader>EXT. HUNTER'S P.O.V. - DAY                            63</sceneheader>
       <meta id="sc70m1">
          <s id="sc70m1s1">As he travels, directly overhead, timing his movement with those of the team.</s>
@@ -2191,7 +2180,7 @@
          <s id="sc70m1s1">64</s>
       </meta>
    </scene>
-   <scene id="sc71">
+   <scene id="sc71" start="00:37:50" end="00:38:15">
       <sceneheader>EXT. RIVER BED - DAY                                  64</sceneheader>
       <meta id="sc71m1">
          <s id="sc71m1s1">The team moves cautiously through the winding stream bed, now wearing their clothing in various stages of disarray for comfort, sweat dripping from their bodies.</s>
@@ -2235,7 +2224,7 @@
          <s id="sc72m1s1">66</s>
       </meta>
    </scene>
-   <scene id="sc73">
+   <scene id="sc73" start="00:40:11" end="00:40:35">
       <sceneheader>EXT. TEAM MEMBERS - DAY                               66</sceneheader>
       <meta id="sc73m1">
          <s id="sc73m1s1">Sensing an ambush, move quietly into the foliage.</s>
@@ -2264,7 +2253,7 @@
          <s id="sc73m4s1">67</s>
       </meta>
    </scene>
-   <scene id="sc74">
+   <scene id="sc74" start="00:38:25" end="00:39:10">
       <sceneheader>EXT. BILLY - AT THE RIVER BED - DAY                   67</sceneheader>
       <meta id="sc74m1">
          <s id="sc74m1s1">He remains frozen and transfixed, staring into the treeline.</s>
@@ -2291,7 +2280,7 @@
          <s id="sc74m4s1">69</s>
       </meta>
    </scene>
-   <scene id="sc75">
+   <scene id="sc75" start="00:39:15" end="00:40:00">
       <sceneheader>EXT. HUNTER'S P.O.V. - DAY                            69</sceneheader>
       <meta id="sc75m1">
          <s id="sc75m1s1">As he slowly descends through the trees, moving towards Billy, who's eyes search the treeline for movement.</s>
@@ -2320,7 +2309,7 @@
          <s id="sc75m6s1">71</s>
       </meta>
    </scene>
-   <scene id="sc76">
+   <scene id="sc76" start="00:40:36" end="00:40:45">
       <sceneheader>EXT. HUNTER'S P.O.V. - DAY                            71</sceneheader>
       <meta id="sc76m1">
          <s id="sc76m1s1">Still closing in on Billy.</s>
@@ -2345,7 +2334,7 @@
          <s id="sc76m4s1">73</s>
       </meta>
    </scene>
-   <scene id="sc77">
+   <scene id="sc77" start="00:40:46" end="00:41:00">
       <sceneheader>EXT. HUNTER'S P.O.V. - DAY                            73</sceneheader>
       <meta id="sc77m1">
          <s id="sc77m1s1">Moves behind a broad fern, skirting around Billy and Schaefer, heading away from the column.</s>
@@ -2374,7 +2363,7 @@
          <s id="sc77m6s1">75</s>
       </meta>
    </scene>
-   <scene id="sc78">
+   <scene id="sc78" start="00:41:01" end="00:41:04">
       <sceneheader>EXT. ANNA AND RAMIREZ - DAY                           75</sceneheader>
       <meta id="sc78m1">
          <s id="sc78m1s1">Sensing the danger has passed, Ramirez releases his grip on Anna.</s>
@@ -2389,7 +2378,7 @@
          <s id="sc78m1s1">76</s>
       </meta>
    </scene>
-   <scene id="sc79">
+   <scene id="sc79" start="00:41:05" end="00:41:10">
       <sceneheader>EXT. SCHAEFER - DAY                                   76</sceneheader>
       <meta id="sc79m1">
          <s id="sc79m1s1">HEARING Ramirez' cry, Schaefer signals to Hawkins to move.</s>
@@ -2399,7 +2388,7 @@
          <s id="sc79m1s1">77</s>
       </meta>
    </scene>
-   <scene id="sc80">
+   <scene id="sc80" start="00:41:11" end="00:41:15">
       <sceneheader>EXT. HAWKINS - DAY                                    77</sceneheader>
       <meta id="sc80m1">
          <s id="sc80m1s1">SEES Anna running away.</s>
@@ -2412,7 +2401,7 @@
          <s id="sc80m1s1">78</s>
       </meta>
    </scene>
-   <scene id="sc81">
+   <scene id="sc81" start="00:41:16" end="00:41:18">
       <sceneheader>EXT. HUNTER'S P.O.V. - DAY                            78</sceneheader>
       <meta id="sc81m1">
          <s id="sc81m1s1">As he passes from behind a large tree, surrounded by dense foliage, SEEING the fleeing Anna.</s>
@@ -2422,7 +2411,7 @@
          <s id="sc81m1s1">79</s>
       </meta>
    </scene>
-   <scene id="sc82">
+   <scene id="sc82" start="00:41:19" end="00:41:30">
       <sceneheader>EXT. ANNA AND HAWKINS - DAY                           79</sceneheader>
       <meta id="sc82m1">
          <s id="sc82m1s1">Anna, bursting through a grove of ferns, drives on, breathing hard with the exertion.</s>
@@ -2442,7 +2431,7 @@
          <s id="sc82m3s1">80</s>
       </meta>
    </scene>
-   <scene id="sc83">
+   <scene id="sc83" start="00:41:31" end="00:42:00">
       <sceneheader>EXT. HUNTER'S P.O.V. - DAY                            80</sceneheader>
       <meta id="sc83m1">
          <s id="sc83m1s1">Moving through the jungle.</s>
@@ -2485,7 +2474,7 @@
          <s id="sc84m1s1">83</s>
       </meta>
    </scene>
-   <scene id="sc85">
+   <scene id="sc85" start="00:42:01" end="00:42:05">
       <sceneheader>EXT. HUNTER'S P.O.V. - ANNA AND HAWKINS - DAY         83</sceneheader>
       <meta id="sc85m1">
          <s id="sc85m1s1">As he hurtles towards them, their faces frozen in surprise.</s>
@@ -2508,7 +2497,7 @@
          <s id="sc85m4s1">85</s>
       </meta>
    </scene>
-   <scene id="sc86">
+   <scene id="sc86" start="00:42:06" end="00:42:16">
       <sceneheader>EXT. RIVER BED - DAY                                  85</sceneheader>
       <meta id="sc86m1">
          <s id="sc86m1s1">HEARING the GUNFIRE, Schaefer WHISTLES low and sharp.</s>
@@ -2533,14 +2522,14 @@
          <s id="sc87m1s1">88</s>
       </meta>
    </scene>
-   <scene id="sc88">
+   <scene id="sc88" start="00:42:17" end="00:43:00">
       <sceneheader>EXT. RAMIREZ                                          88</sceneheader>
       <meta id="sc88m1">
          <s id="sc88m1s1">Entering the alleyway where Hawkins was killed he SEES Anna, cowering in the bushes, her blood splattered face glazed with terror, his eyes vacant.</s>
          <s id="sc88m1s2">He approaches, angry, wary, but the girl is so stunned.</s>
          <s id="sc88m1s3">He SEES the trail of BLOOD and CRUSHED GRASSES leading into the jungle.</s>
          <s id="sc88m1s4">He gives a LOW WHISTLE and then moves on, the rest of the team assuming defensive positions around the clearing.</s>
-         <s id="sc88m1s5">He follows the trail, finding first Hawkins' blood-covered weapon, and then, a few yards later, the radio.</s>
+         <s id="sc88m1s5">He follows the trail, finding first Hawkins' blood covered weapon, and then, a few yards later, the radio.</s>
          <s id="sc88m1s6">Ramirez cautiously parts the brush before him.</s>
          <s id="sc88m1s7">A look of puzzlement and then revulsion comes of his face.</s>
       </meta>
@@ -2548,7 +2537,7 @@
          <s id="sc88m1s1">89</s>
       </meta>
    </scene>
-   <scene id="sc89">
+   <scene id="sc89" start="00:43:07" end="00:43:25">
       <sceneheader>EXT. ALLEYWAY - DAY                                   89</sceneheader>
       <meta id="sc89m1">
          <s id="sc89m1s1">Blain and Mac at either end, cautiously searching the jungle; Billy covering their flanks.</s>
@@ -2582,7 +2571,7 @@
          <s id="sc89m7s1">90</s>
       </meta>
    </scene>
-   <scene id="sc90">
+   <scene id="sc90" start="00:43:35" end="00.43:54">
       <sceneheader>EXT. SCHAEFER AND RAMIREZ - DAY                       90</sceneheader>
       <meta id="sc90m1">
          <s id="sc90m1s1">Dillon in the b.g., as Ramirez parts the brush with his weapon.</s>
@@ -2605,7 +2594,7 @@
          <s id="sc90m5s1">91</s>
       </meta>
    </scene>
-   <scene id="sc91">
+   <scene id="sc91" start="00:43:55" end="00:46:33">
       <sceneheader>EXT. ALLEYWAY - DAY                                   91</sceneheader>
       <meta id="sc91m1">
          <s id="sc91m1s1">The entire team is gathered, still holding defensive positions.</s>
@@ -2677,13 +2666,13 @@
          <s id="sc91m12s5">Where he was sitting, a DROP OF BLOOD falls.</s>
          <s id="sc91m12s6">Another drop falls, dripping from a leaf and above that, from another leaf.</s>
          <s id="sc91m12s7">Above that, high in the top of the tree, SUSPENDED from vines from his ankles, is HAWKINS' BODY, his chest a gaping wound.</s>
-         <s id="sc91m12s8">He hands there as if he were an animal, field dressed.</s>
+         <s id="sc91m12s8">He hangs there as if he were an animal, field dressed.</s>
       </meta>
       <meta id="sc91m12">
          <s id="sc91m12s1">92</s>
       </meta>
    </scene>
-   <scene id="sc92">
+   <scene id="sc92" start="00:46:33" end="00:47:10">
       <sceneheader>EXT. BLAIN - DAY                                      92</sceneheader>
       <meta id="sc92m1">
          <s id="sc92m1s1">Crouched in the undergrowth.</s>
@@ -2719,7 +2708,7 @@
          <s id="sc92m4s1">93</s>
       </meta>
    </scene>
-   <scene id="sc93">
+   <scene id="sc93" start="00:47:11" end="00:47:38">
       <sceneheader>EXT. MAC - DAY                                        93</sceneheader>
       <meta id="sc93m1">
          <s id="sc93m1s1">Has heard Blain's cry.</s>
@@ -2742,7 +2731,7 @@
          <s id="sc93m2s1">94</s>
       </meta>
    </scene>
-   <scene id="sc94">
+   <scene id="sc94" start="00:47:39" end="00:47:42">
       <sceneheader>EXT. THE OTHER TEAM MEMBERS - DAY                     94</sceneheader>
       <meta id="sc94m1">
          <s id="sc94m1s1">Flying through the jungle, weapons ready, eyes searching for movement.</s>
@@ -2751,7 +2740,7 @@
          <s id="sc94m1s1">95</s>
       </meta>
    </scene>
-   <scene id="sc95">
+   <scene id="sc95" start="00:47:43" end="00:48:30">
       <sceneheader>EXT. MAC - DAY                                        95</sceneheader>
       <meta id="sc95m1">
          <s id="sc95m1s1">He throws down the weapon and with a cry of rage, lunges forward, grabbing the Mini-gun.</s>
@@ -2771,7 +2760,7 @@
          <s id="sc95m3s1">96</s>
       </meta>
    </scene>
-   <scene id="sc96">
+   <scene id="sc96" start="00:48:31" end="00:50:38">
       <sceneheader>EXT. HUNTER - DAY                                     96</sceneheader>
       <meta id="sc96m1">
          <s id="sc96m1s1">Moving.</s>
@@ -2908,7 +2897,7 @@
          <s id="sc96m22s1">100</s>
       </meta>
    </scene>
-   <scene id="sc97">
+   <scene id="sc97" start="00:50:39" end="00:50:55">
       <sceneheader>EXT. DETAIL - HUNTER'S BLOOD - DAY                   100</sceneheader>
       <meta id="sc97m1">
          <s id="sc97m1s1">Clinging to the leaves, thick, viscous, pale-orange, almost like the sap of an exotic plant.</s>
@@ -2924,7 +2913,7 @@
          <s id="sc97m2s1">102</s>
       </meta>
    </scene>
-   <scene id="sc98">
+   <scene id="sc98" start="00:50:56" end="00:53:20">
       <sceneheader>EXT. ENCAMPMENT - DUSK                               102</sceneheader>
       <meta id="sc98m1">
          <s id="sc98m1s1">The team is dug into the foxholes in a dense grove of trees, a solid wall to their backs.</s>
@@ -3009,7 +2998,7 @@
          <s id="sc100m1s1">108</s>
       </meta>
    </scene>
-   <scene id="sc101">
+   <scene id="sc101" start="01:22:46" end="01:22:55">
       <sceneheader>INT. HUNTER'S SHIP - DAY (DUSK)                      108</sceneheader>
       <meta id="sc101m1">
          <s id="sc101m1s1">The Hunter's foot steps on the upper leg of the corpse, the PREHENSILE SPUR digging deep, pinioning the body to the ground.</s>
@@ -3020,7 +3009,7 @@
          <s id="sc101m1s1">109</s>
       </meta>
    </scene>
-   <scene id="sc102">
+   <scene id="sc102" start="00:54:15" end="00:56:52">
       <sceneheader>EXT. ENCAMPMENT - DAY (DUSK)                         109</sceneheader>
       <meta id="sc102m1">
          <s id="sc102m1s1">Ramirez is tuning in the compact FIELD RADIO, equipped with a CRYPTO-PHONE device.</s>
@@ -3216,7 +3205,7 @@
          <s id="sc103m1s1">111</s>
       </meta>
    </scene>
-   <scene id="sc104">
+   <scene id="sc104" start="00:56:53" end="00:57:35">
       <sceneheader>EXT. MAC - NIGHT (LATER)                             111</sceneheader>
       <meta id="sc104m1">
          <s id="sc104m1s1">Hunched down in a foxhole, the Mini-gun on a tripod before him.</s>
@@ -3264,7 +3253,7 @@
          <s id="sc105m1s1">113</s>
       </meta>
    </scene>
-   <scene id="sc106">
+   <scene id="sc106" start="00:57:36" end="00:59:18">
       <sceneheader>EXT. ENCAMPMENT - NIGHT                              113</sceneheader>
       <meta id="sc106m1">
          <s id="sc106m1s1">The mist has thickened, the night alive with a million JUNGLE SOUNDS.</s>
@@ -3370,7 +3359,7 @@
          <s id="sc106m13s1">114</s>
       </meta>
    </scene>
-   <scene id="sc107">
+   <scene id="sc107" start="00:59:19" end="01:01:37">
       <sceneheader>EXT. ENCAMPMENT - DAY (PRE-DAWN)                      114</sceneheader>
       <meta id="sc107m1">
          <s id="sc107m1s1">A patchy GROUND FOG covers the area.</s>
@@ -3564,7 +3553,7 @@
          <s id="sc107m34s1">115</s>
       </meta>
    </scene>
-   <scene id="sc108">
+   <scene id="sc108" start="01:01:38" end="01:02:40">
       <sceneheader>EXT. ENCAMPMENT - MORNING (LATER)                    115</sceneheader>
       <meta id="sc108m1">
          <s id="sc108m1s1">Anna at the base of the rocks scans the jungle with binoculars watching the tree line.</s>
@@ -3617,7 +3606,7 @@
          <s id="sc108m8s1">116</s>
       </meta>
    </scene>
-   <scene id="sc109">
+   <scene id="sc109" start="01:03:10" end="01:06:45">
       <sceneheader>EXT. ENCAMPMENT - DAY (LATER)                        116</sceneheader>
       <meta id="sc109m1">
          <s id="sc109m1s1">Morning passes.</s>
@@ -3704,7 +3693,7 @@
          <s id="sc110m1s1">118</s>
       </meta>
    </scene>
-   <scene id="sc111">
+   <scene id="sc111" start="01:06:46" end="01:08:09">
       <sceneheader>EXT. THE TEAM - DAY                                  118</sceneheader>
       <meta id="sc111m1">
          <s id="sc111m1s1">The limb CRASHES down from the trees, Schaefer, Dillon, Billy and Mac Diving for safety.</s>
@@ -3813,7 +3802,7 @@
          <s id="sc111m19s1">119</s>
       </meta>
    </scene>
-   <scene id="sc112">
+   <scene id="sc112" start="01:08:10" end="01:08:46">
       <sceneheader>EXT. MAC - DAY                                       119</sceneheader>
       <meta id="sc112m1">
          <s id="sc112m1s1">Creeping low to the ground, his eyes searching through the trees.</s>
@@ -3825,7 +3814,7 @@
          <s id="sc112m2s1">120</s>
       </meta>
    </scene>
-   <scene id="sc113">
+   <scene id="sc113" start="01:08:48" end="01:11:45">
       <sceneheader>EXT. DILLON - DAY                                    120</sceneheader>
       <meta id="sc113m1">
          <s id="sc113m1s1">Moving through the underbrush HEARS a slight RUSTLING in the foliage.</s>
@@ -3946,7 +3935,7 @@
          <s id="sc113m19s1">126</s>
       </meta>
    </scene>
-   <scene id="sc114">
+   <scene id="sc114" start="01:11:58" end="01:12:15">
       <sceneheader>EXT. NARROW RIVER GORGE - DAY                        126</sceneheader>
       <meta id="sc114m1">
          <s id="sc114m1s1">Anna in the lead, followed by Schaefer carrying Ramirez on his back.</s>
@@ -3956,7 +3945,7 @@
          <s id="sc114m1s1">127</s>
       </meta>
    </scene>
-   <scene id="sc115">
+   <scene id="sc115" start="01:12:19" end="01:12:38">
       <sceneheader>EXT. DILLON                                          127</sceneheader>
       <meta id="sc115m1">
          <s id="sc115m1s1">He stalks through a narrow corridor of tangled vines and moss, leading to the rock outcropping on the other side, his face alert, showing no signs of fear, his weapon ready.</s>
@@ -3965,7 +3954,7 @@
          <s id="sc115m1s1">128</s>
       </meta>
    </scene>
-   <scene id="sc116">
+   <scene id="sc116" start="01:12:39" end="01:12:45">
       <sceneheader>EXT. VINES AND MOSS - DETAIL - DAY                   128</sceneheader>
       <meta id="sc116m1">
          <s id="sc116m1s1">Through the thick tangle of undergrowth, there is MOVEMENT, a slight, undulating distortion, drifting through the hanging vegetation, as if cast by a passing shadow.</s>
@@ -3997,7 +3986,7 @@
          <s id="sc117m2s1">132</s>
       </meta>
    </scene>
-   <scene id="sc118">
+   <scene id="sc118" start="01:12:46" end="00:13:00">
       <sceneheader>EXT. HUNTER'S P.O.V. - DAY                           132</sceneheader>
       <meta id="sc118m1">
          <s id="sc118m1s1">Peering out through the vines.</s>
@@ -4036,7 +4025,7 @@
          <s id="sc118m5s1">134</s>
       </meta>
    </scene>
-   <scene id="sc119">
+   <scene id="sc119" start="01:13:01" end="01:13:40">
       <sceneheader>EXT. MOSS - DETAIL - DAY                             134</sceneheader>
       <meta id="sc119m1">
          <s id="sc119m1s1">Suddenly the right combination of light and shadow prevail and Dillon SEES in an instant, the Hunter's EYES materialize and then disappear.</s>
@@ -4049,7 +4038,7 @@
          <s id="sc119m2s1">136</s>
       </meta>
    </scene>
-   <scene id="sc120">
+   <scene id="sc120" start="01:13:41" end="01:14:10">
       <sceneheader>EXT. THE HUNTER - DAY                                136</sceneheader>
       <meta id="sc120m1">
          <s id="sc120m1s1">In an indiscernible blue of camouflage releases his weapon.</s>
@@ -4069,7 +4058,7 @@
          <s id="sc120m2s1">138</s>
       </meta>
    </scene>
-   <scene id="sc121">
+   <scene id="sc121" start="01:14:11" end="01:14:24">
       <sceneheader>EXT. LOG CROSSING - DAY                              138</sceneheader>
       <meta id="sc121m1">
          <s id="sc121m1s1">spanning the narrow gorge, Schaefer and Anna with Ramirez between them, move onto the log, preparing to cross.</s>
@@ -4092,7 +4081,7 @@
          <s id="sc122m1s1">140</s>
       </meta>
    </scene>
-   <scene id="sc123">
+   <scene id="sc123" start="01:14:25" end="01:15:35">
       <sceneheader>EXT. LOG CROSSING - DAY                              140</sceneheader>
       <meta id="sc123m1">
          <s id="sc123m1s1">The jungle is still deathly SILENT.</s>
@@ -4152,7 +4141,7 @@
          <s id="sc124m3s1">145</s>
       </meta>
    </scene>
-   <scene id="sc125">
+   <scene id="sc125" start="01:15:36" end="01:16:40">
       <sceneheader>EXT. RIDGETOP - DAY                                  145</sceneheader>
       <meta id="sc125m1">
          <s id="sc125m1s1">Over the top, in a low depression, Schaefer props Ramirez against some rocks, reaching for his weapon.</s>
@@ -4202,7 +4191,7 @@
          <s id="sc125m6s1">147</s>
       </meta>
    </scene>
-   <scene id="sc126">
+   <scene id="sc126" start="01:16:40" end="01:16:55">
       <sceneheader>EXT. HUNTER'S P.O.V. OF SCHAEFER - DAY               147</sceneheader>
       <meta id="sc126m1">
          <s id="sc126m1s1">Closing rapidly...another few yard.</s>
@@ -4220,7 +4209,7 @@
          <s id="sc126m2s1">149</s>
       </meta>
    </scene>
-   <scene id="sc127">
+   <scene id="sc127" start="01:16:56" end="01:17:20">
       <sceneheader>EXT. CANYON WALL - DAY                               149</sceneheader>
       <meta id="sc127m1">
          <s id="sc127m1s1">In a shower of leaves, flailing arms and legs, Schaefer crashes through the trees at the canyon's edge, free falling into space.</s>
@@ -4240,7 +4229,7 @@
          <s id="sc127m3s1">150</s>
       </meta>
    </scene>
-   <scene id="sc128">
+   <scene id="sc128" start="01:17:21" end="01:17:40">
       <sceneheader>EXT. RIVER - DAY                                     150</sceneheader>
       <meta id="sc128m1">
          <s id="sc128m1s1">Weighted down by his boots and clothing, Schaefer struggles to stay afloat.</s>
@@ -4266,10 +4255,10 @@
          <s id="sc129m1s1">152</s>
       </meta>
    </scene>
-   <scene id="sc130">
+   <scene id="sc130" start="01:17:41" end="01:17:56">
       <sceneheader>EXT. SCHAEFER - DAY                                  152</sceneheader>
       <meta id="sc130m1">
-         <s id="sc130m1s1">He is swept into a still FASTER CURRENT and is carried helplessly downstream.</s>
+         <s id="sc130m1s1">He is swept into a still FASTER CURRENT and is carried downstream, helpless.</s>
          <s id="sc130m1s2">Boiling WHITEWATER appears.</s>
          <s id="sc130m1s3">(CONTINUED) ------------------------------------------------------------------------</s>
       </meta>
@@ -4283,7 +4272,7 @@
          <s id="sc130m3s1">153</s>
       </meta>
    </scene>
-   <scene id="sc131">
+   <scene id="sc131" start="01:17:57" end="01:19:15">
       <sceneheader>EXT. POOL AT BASE OF FALLS - DAY                     153</sceneheader>
       <meta id="sc131m1">
          <s id="sc131m1s1">There is no sign of Schaefer.</s>
@@ -4311,7 +4300,7 @@
          <s id="sc131m2s1">155</s>
       </meta>
    </scene>
-   <scene id="sc132">
+   <scene id="sc132" start="01:19:16" end="01:19:25">
       <sceneheader>EXT. HUNTER - DAY                                    155</sceneheader>
       <meta id="sc132m1">
          <s id="sc132m1s1">Closing rapidly, another ten feet.</s>
@@ -4352,7 +4341,7 @@
          <s id="sc135m1s1">159</s>
       </meta>
    </scene>
-   <scene id="sc136">
+   <scene id="sc136" start="01:19:48" end="01:20:55">
       <sceneheader>EXT. HUNTER'S P.O.V. - DAY                           159</sceneheader>
       <meta id="sc136m1">
          <s id="sc136m1s1">He's looking directly at Schaefer, EXCEPT HE CAN'T SEE HIM.</s>
@@ -4430,7 +4419,7 @@
          <s id="sc139m2s1">165</s>
       </meta>
    </scene>
-   <scene id="sc140">
+   <scene id="sc140" start="01:23:10" end="01:24:15">
       <sceneheader>EXT. CLAY BANK - NIGHT                               165</sceneheader>
       <meta id="sc140m1">
          <s id="sc140m1s1">Using his MACHETE he carves MAGNESIUM SHAVINGS from a fire block into a pile of KINDLING.</s>
@@ -4460,7 +4449,7 @@
          <s id="sc140m5s1">166</s>
       </meta>
    </scene>
-   <scene id="sc141">
+   <scene id="sc141" start="01:21:45" end="01:22:45">
       <sceneheader>EXT. CLAY BANK - NIGHT                               166</sceneheader>
       <meta id="sc141m1">
          <s id="sc141m1s1">Schaefer is pounding a peeled root between two stones.</s>
@@ -4489,7 +4478,7 @@
          <s id="sc141m3s1">167</s>
       </meta>
    </scene>
-   <scene id="sc142">
+   <scene id="sc142" start="01:24:33" end="01:25:08">
       <sceneheader>EXT. RIVER'S EDGE - NIGHT                            167</sceneheader>
       <meta id="sc142m1">
          <s id="sc142m1s1">Schaefer appears, he has covered him entire body with a variety of CLAYS and OCHERS, creating a mottled, EARTHEN CAMOUFLAGE pattern.</s>
@@ -4499,7 +4488,7 @@
          <s id="sc142m1s1">167-A</s>
       </meta>
    </scene>
-   <scene id="sc143">
+   <scene id="sc143" start="01:25:09" end="01:25:45">
       <sceneheader>EXT. BOULDER FIELD - NIGHT                           167-A</sceneheader>
       <meta id="sc143m1">
          <s id="sc143m1s1">Where the river flows into a series of falls and pools, surrounded by massive boulders and table top rocks, their crevices jammed with large amounts of DRIFTWOOD swept down at high water from the forests above.</s>
@@ -4524,7 +4513,7 @@
          <s id="sc144m1s1">169</s>
       </meta>
    </scene>
-   <scene id="sc145">
+   <scene id="sc145" start="01:25:46" end="01:26:06">
       <sceneheader>EXT. HUNTER'S SHIP - NIGHT                           169</sceneheader>
       <meta id="sc145m1">
          <s id="sc145m1s1">Backlit by the LIGHT of the open door, the Hunter's head, in three-quarter profile, his eyes gleaming, rears INTO VIEW, looking up at the sky, HEARING Schaefer's cry.</s>
@@ -4549,7 +4538,7 @@
          <s id="sc145m5s1">178</s>
       </meta>
    </scene>
-   <scene id="sc146">
+   <scene id="sc146" start="01:26:30" end="01:27:07">
       <sceneheader>EXT. HUNTER'S P.O.V. - JUNGLE - NIGHT                178</sceneheader>
       <meta id="sc146m1">
          <s id="sc146m1s1">Emerging from his camp, the Hunter swings into the nearby tree line, moving to the uppermost branches.</s>
@@ -4585,7 +4574,7 @@
          <s id="sc148m1s1">182</s>
       </meta>
    </scene>
-   <scene id="sc149">
+   <scene id="sc149" start="01:27:04" end="01:27:20">
       <sceneheader>EXT. HUNTER - NIGHT                                  182</sceneheader>
       <meta id="sc149m1">
          <s id="sc149m1s1">Continues on, moving silently down through the canyon.</s>
@@ -4615,7 +4604,7 @@
          <s id="sc150m1s1">183-B</s>
       </meta>
    </scene>
-   <scene id="sc151">
+   <scene id="sc151" start="01:27:27" end="01:27:35">
       <sceneheader>EXT. SCHAEFER - NIGHT                                183-B</sceneheader>
       <meta id="sc151m1">
          <s id="sc151m1s1">He freezes at the sound of the Hunter dropping, his eyes wide with fear.</s>
@@ -4646,7 +4635,7 @@
          <s id="sc153m1s1">184</s>
       </meta>
    </scene>
-   <scene id="sc154">
+   <scene id="sc154" start="01:28:35" end="01:29:27">
       <sceneheader>EXT. ARROW - NIGHT                                   184</sceneheader>
       <meta id="sc154m1">
          <s id="sc154m1s1">Flies into the night, lodging into a BRANCH of an exposed tree, just missing the Hunter's head.</s>
@@ -4657,7 +4646,7 @@
          <s id="sc154m2s1">91</s>
       </meta>
       <dialogue id="sc154d2" name="185     SCHAEFER                                             185">
-         <s id="sc154d2s1">in a flash, is up and running, clutching his weapons, leaping from boulder to boulder.</s>
+         <s id="sc154d2s1">in a flash, is up and running, clutching his weapon, leaping from boulder to boulder.</s>
          <s id="sc154d2s2">He jumps down into the lighted area below, landing hard, rolling into the protective shadows of the rocks, putting the loping fire between he and the Hunter's position on the rocks above.</s>
       </dialogue>
       <meta id="sc154m3">
@@ -4678,7 +4667,7 @@
          <s id="sc155m1s1">185-B</s>
       </meta>
    </scene>
-   <scene id="sc156">
+   <scene id="sc156" start="01:30:25" end="01:30:50">
       <sceneheader>EXT. SCHAEFER - NIGHT                                185-B</sceneheader>
       <meta id="sc156m1">
          <s id="sc156m1s1">Over the SOUNDS of the FIRE and the softly flowing RIVER, distinguishes a NEW SOUND, one that brings fear and a savage determination to his heart:  the rhythmical CLICK-SCRAPE, CLICK-SCRAPE of the Hunter's feet, moving over the rocks, somewhere above him.</s>
@@ -4826,7 +4815,7 @@
          <s id="sc161m5s1">214</s>
       </meta>
    </scene>
-   <scene id="sc162">
+   <scene id="sc162" start="01:31:34" end="01:31:48">
       <sceneheader>INT. THE SPEAR - NIGHT                               214</sceneheader>
       <meta id="sc162m1">
          <s id="sc162m1s1">It smashes into the boulder at the Hunter's feet.</s>
@@ -4838,7 +4827,7 @@
          <s id="sc162m1s1">215</s>
       </meta>
    </scene>
-   <scene id="sc163">
+   <scene id="sc163" start="01:33:34" end="01:33:54">
       <sceneheader>INT. WATERFALL - NIGHT                               215</sceneheader>
       <meta id="sc163m1">
          <s id="sc163m1s1">Cascades over the rocks, fed by a small stream running through the ravine.</s>
@@ -4884,7 +4873,7 @@
          <s id="sc164m5s1">217</s>
       </meta>
    </scene>
-   <scene id="sc165">
+   <scene id="sc165" start="01:39:30" end="01:40:45">
       <sceneheader>EXT. HUNTER'S P.O.V. OF SCHAEFER - NIGHT             217</sceneheader>
       <meta id="sc165m1">
          <s id="sc165m1s1">Schaefer's body, looms over him, MOTTLED and STREAKED from his exposed skin, blood oozing from the shoulder wound, his eyes like black sockets in his almost skull-like face.</s>
@@ -5084,7 +5073,7 @@
          <s id="sc174m3s1">232</s>
       </meta>
    </scene>
-   <scene id="sc175">
+   <scene id="sc175" start="01:40:58" end="01:41:24">
       <sceneheader>EXT. HELICOPTER - COCKPIT - DAY                      232</sceneheader>
       <meta id="sc175m1">
          <s id="sc175m1s1">Enveloped in the flash of intense light.</s>
@@ -5106,7 +5095,7 @@
          <s id="sc175m3s1">233</s>
       </meta>
    </scene>
-   <scene id="sc176">
+   <scene id="sc176" start="01:41:25" end="01:42:20">
       <sceneheader>EXT. HUNTER'S CAMP - DAY                             133</sceneheader>
       <meta id="sc176m1">
          <s id="sc176m1s1">The jungle has been completely transformed.</s>
@@ -5174,44 +5163,15 @@
          <s id="sc179m1s1">239</s>
       </meta>
    </scene>
-   <scene id="sc180">
+   <scene id="sc180" start="01:42:21" end="01:42:35">
       <sceneheader>INT. HELICOPTER - DAY                                239</sceneheader>
       <meta id="sc180m1">
          <s id="sc180m1s1">Schaefer, a blanket over his shoulders, still in the remains of his mud camouflage, his body laced with deep cuts; his chest and shoulder caked with dried blood, is seated on a bench in the cargo hold.</s>
-         <s id="sc180m1s2">(CONTINUED) ------------------------------------------------------------------------</s>
-      </meta>
-      <dialogue id="sc180d1" name="REVISED - &quot;HUNTER&quot; - 4/17/86                         102">
-         <s id="sc180d1s1">*</s>
-      </dialogue>
-      <dialogue id="sc180d2" name="239     CONTINUED:                                           239">
-         <s id="sc180d2s1">Near the cockpit are General Philips, an ARMY MEDIC, two MACHINE GUNNERS.</s>
-         <s id="sc180d2s2">They look at Schaefer in awe.</s>
-      </dialogue>
-      <meta id="sc180m3">
-         <s id="sc180m3s1">The Medic, holding an open FIELD KIT, a syringe and bandages, turns to Philips.</s>
-      </meta>
-      <dialogue id="sc180d3" name="MEDIC">
-         <s id="sc180d3s1">(shaking his head) Looks like he's been through hell...can't believe he's still alive.</s>
-         <s id="sc180d3s2">What the hell went on down there?</s>
-      </dialogue>
-      <dialogue id="sc180d4" name="PHILIPS">
-         <s id="sc180d4s1">If it hadn't been for her, he'd be dead now.</s>
-         <s id="sc180d4s2">That story she told us...I still can't believe it.</s>
-      </dialogue>
-      <meta id="sc180m5">
-         <s id="sc180m5s1">He looks at Anna, her eyes meeting his, as if asking for an explanation.</s>
-         <s id="sc180m5s2">She looks at him a moment before turning back to Schaefer, staring at him as if he were risen from the dead.</s>
-         <s id="sc180m5s3">She looks into Schaefer's face, Schaefer returning her look, recognition passing between them.</s>
-         <s id="sc180m5s4">Anna extends her hand.</s>
-         <s id="sc180m5s5">Schaefer slowly reaches out, touching her fingers, then clasping her hand.</s>
-         <s id="sc180m5s6">Schaefer turns his eyes to stare out the open door, beyond the passing jungle below, out to the heavens.</s>
-         <s id="sc180m5s7">He turns back, looking at Anna, a faint smile crossing his face...they made it.</s>
-      </meta>
-      <meta id="sc180m5">
-         <s id="sc180m5s1">240</s>
+         <s id="sc180m1s2">Schaefer turns his eyes to stare out the open door, beyond the passing jungle below, out to the heavens.</s>
+         <s id="sc180m1s3">He turns back, looking at Anna, a faint smile crossing his face...they made it.</s>
       </meta>
    </scene>
-   <scene id="sc181">
+   <scene id="sc181" start="01:42:36" end="01:42:52">
       <sceneheader>EXT. TWO HELICOPTERS - JUNGLE - DAY                  240</sceneheader>
       <meta id="sc181m1">
          <s id="sc181m1s1">Pull away and head towards the distant, green horizon.</s>

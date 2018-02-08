@@ -62,6 +62,25 @@ def get_energy(path: str, block_size: int = 2048) -> np.array:
     return energy
 
 
+def normalize(energy: np.array):
+    mean = np.mean(energy)
+    print(mean)
+    # test1 = [x-mean for x in energy]
+    # test1data =pd.DataFrame(test1)
+    # print(test1data.describe())
+    test2 = [x/mean for x in energy]
+    test2data =pd.DataFrame(test2)
+    print(test2data.describe())
+
+    plt.subplot(211)
+    plt.plot(energy)
+    # plt.subplot(312)
+    # plt.plot(test1)
+    plt.subplot(212)
+    plt.plot(test2)
+    plt.show()
+
+
 def partition_audiofeature(path: str, interval_seconds: float = 1.0):
     """Partitions (currently) die energy of an audio file into intervals.
     :param path: audio file path
@@ -137,17 +156,18 @@ def blockwise_processing(path):
 
 
 def main():
-    selfie_audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
-    hellraiser_audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
-    star_wars_audio = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4.wav")
-    blade_audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
+    audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
+    # audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
+    # audio = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4.wav")
+    # audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
 
-    energy = partition_audiofeature(star_wars_audio)
-    # energy = get_energy(star_wars_audio)
+    # energy = partition_audiofeature(star_wars_audio)
+    energy = get_energy(audio)
     data = pd.DataFrame(energy)
-    print("Star Wars")
-    print(data.describe())
-    print("\n")
+    normalize(energy)
+    # print("Star Wars")
+    # print(data.describe())
+    # print("\n")
 
     # energy = get_energy(blade_audio)
     # data = pd.DataFrame(energy)

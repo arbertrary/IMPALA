@@ -6,7 +6,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from datetime import datetime, timedelta
 from matplotlib import dates
-from audio_analysis import get_energy
+from audio import get_energy
 from subs_sentiment import get_subs_sentiment
 
 """Idee:

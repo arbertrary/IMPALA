@@ -12,7 +12,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import librosa
 from ms_sentiment import scenesentiment_for_manually_annotated
-from audio_analysis import partition_audiofeature
+from audio import partition_audiofeature
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 
