@@ -12,7 +12,7 @@ data_moviescripts/
 data_subtitles/
 data_xml/
 data_xml_annotated/
-
+data_audio/
 checked_subtitles/
 
 # Byte-compiled / optimized / DLL files

@@ -70,16 +70,17 @@ def normalize(energy: np.array):
     # print(test1data.describe())
     test2 = [x/mean for x in energy]
     test2data =pd.DataFrame(test2)
-    print(test2data.describe())
+    print(test2data.describe(percentiles=[.33,.66]))
+    print(np.median(test2))
 
-    plt.subplot(211)
-    plt.plot(energy)
+    # plt.subplot(211)
+    # plt.plot(energy)
     # plt.subplot(312)
     # plt.plot(test1)
-    plt.subplot(212)
-    plt.plot(test2)
-    plt.show()
-
+    # plt.subplot(212)
+    # plt.plot(test2)
+    # plt.show()
+    return test2
 
 def partition_audiofeature(path: str, interval_seconds: float = 1.0):
     """Partitions (currently) die energy of an audio file into intervals.
@@ -159,7 +160,7 @@ def main():
     audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
     # audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
     # audio = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4.wav")
-    # audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
+    audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
 
     # energy = partition_audiofeature(star_wars_audio)
     energy = get_energy(audio)
