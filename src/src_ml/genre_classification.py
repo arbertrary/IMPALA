@@ -8,7 +8,8 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.multiclass import OneVsOneClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
-from sklearn.model_selection import cross_val_score, cross_val_predict
+from sklearn.model_selection import KFold
+from sklearn.model_selection import cross_validate, cross_val_score, cross_val_predict
 from sklearn.metrics import confusion_matrix, f1_score
 
 
@@ -105,61 +106,54 @@ def vader_cat():
 
 
 def classify():
-    # dataframe = pandas.read_csv("nrccategorical.csv")
-    # dataframe = pandas.read_csv("categorical.csv")
-    # dataframe = pandas.read_csv("vader_random_genres.csv")
-    # dataframe = pandas.read_csv("nrc_random_genres.csv")
-    dataframe = pandas.read_csv("warriner_random_genres.csv")
+    dataframe = pandas.read_csv("new_genres.csv")
     dataset = dataframe.values
-    # print(dataframe.describe(percentiles=[.33, .66]))
-    # print(dataset)
 
-    # nrc
-    # X = dataset[:,1:10]
-    # y = dataset[:,11]
-    # print(y)
+    X = dataset[:, 1:10]
+    # print(X)
+    y = dataset[:, 10]
 
-    # vader
-    # X= dataset[:,1:5]
-    # y=dataset[:,5]
+    kf = KFold(n_splits=10)
+    kf.get_n_splits(X)
+    print(kf)
+    testfilm = X[859]
+    print(dataset[859])
 
-    # vader_cat
-    # X =dataset[:,1:4]
-    # y = dataset[:,4]
-    # # warriner
-    X = dataset[:, 1:2]
-    y = dataset[:, 2]
-
-    testfilm = X[854]
-    print(dataset[854])
+    # for train_index, test_index in kf.split(X):
+    #     print("TRAIN:", train_index, "TEST:", test_index)
+    #     X_train, X_test = X[train_index], X[test_index]
+    #     y_train, y_test = y[train_index], y[test_index]
 
     X_train, X_test, y_train, y_test = X[:700], X[700:], y[:700], y[700:]
-    # y_train_comedy = (y_train == "Comedy")
-    # y_test_comedy = (y_test == "Comedy")
+    svc = SVC(C=1, kernel="linear")
+    # test = svc.fit(X_train, y_train).score(X_test, y_test)
 
-    # sgd_clf = SGDClassifier(random_state=42)
-    # sgd_clf.fit(X_train, y_train_comedy)
+    y_train_comedy = (y_train == "Comedy")
+    y_test_comedy = (y_test == "Comedy")
 
-    # y_scores = sgd_clf.decision_function([testfilm])
-    # y_some_digit_pred = (y_scores > 200)
-    # print(y_scores)
-    # print(y_some_digit_pred)
+    sgd_clf = SGDClassifier(random_state=42)
+    sgd_clf.fit(X_train, y_train_comedy)
+
+    y_scores = sgd_clf.decision_function([testfilm])
+    y_some_digit_pred = (y_scores > 200)
+    print(y_scores)
+    print(y_some_digit_pred)
 
     import numpy as np
 
     # shuffle_index = np.random.permutation(699)
-    # X_train, y_train = X_train[shuffle_index], y_train[shuffle_index]
-
-    from sklearn.linear_model import SGDClassifier
-
-    sgd_clf = SGDClassifier(random_state=42)
-    sgd_clf.fit(X_train, y_train)
-
-    print(sgd_clf.predict([testfilm]))
-
-    some_digit_scores = sgd_clf.decision_function([testfilm])
-    print(some_digit_scores)
-    print(sgd_clf.classes_)
+    # # X_train, y_train = X_train[shuffle_index], y_train[shuffle_index]
+    #
+    # from sklearn.linear_model import SGDClassifier
+    #
+    # sgd_clf = SGDClassifier(random_state=42)
+    # sgd_clf.fit(X_train, y_train)
+    #
+    # print(sgd_clf.predict([testfilm]))
+    #
+    # some_digit_scores = sgd_clf.decision_function([testfilm])
+    # print(some_digit_scores)
+    # print(sgd_clf.classes_)
 
 
 def main():

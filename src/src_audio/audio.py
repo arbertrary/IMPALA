@@ -70,7 +70,6 @@ def normalize(energy: np.array):
     # print(test1data.describe())
     test2 = [x/mean for x in energy]
     test2data =pd.DataFrame(test2)
-    print(test2data.describe(percentiles=[.33,.66]))
     print(np.median(test2))
 
     # plt.subplot(211)

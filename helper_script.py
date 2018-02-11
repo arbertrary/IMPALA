@@ -230,7 +230,7 @@ def check_scene_count():
 
 def main():
     # scene_counter("data_xml")
-    check_scene_count()
+    # check_scene_count()
     """ist halt die main, wofür will pylint da einen docstring"""
     # subs_dir = os.path.join(BASE_DIR, "data_subtitles")
     # print(subs_dir)
@@ -240,7 +240,7 @@ def main():
 
     # annotate_genres_to_subs()
     # genre_set()
-    # get_all_genres("all_moviescripts")
+    get_all_genres("all_moviescripts")
 
 
 if __name__ == '__main__':

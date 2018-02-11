@@ -12,7 +12,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import librosa
 from ms_sentiment import scenesentiment_for_manually_annotated
-from audio import partition_audiofeature, normalize
+from audio import partition_audiofeature, normalize, get_energy
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
@@ -25,33 +25,33 @@ def audio_scenes(audio_path, ts):
         temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[4]]
         if len(temp_audio) != 0:
             scene_audio.append(np.mean(temp_audio))
+            # scene_audio.append(np.median(temp_audio))
 
     print(len(scene_audio))
-    # scene_audio = librosa.util.normalize(np.array(scene_audio))
-    scene_audio = normalize(scene_audio)
-    max_audio = np.max(scene_audio)
+    scene_audio = librosa.util.normalize(np.array(scene_audio))
+    # scene_audio = normalize(scene_audio)
     data = pd.DataFrame(scene_audio)
-    # print(data.describe(percentiles=[.33,.66]))
+    print(data.describe())
 
-    with open("test.csv", "a") as csvfile:
+    with open("asdf.csv", "a") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
         # writer.writerow(["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"])
         for i, t in enumerate(scene_audio):
             level = "nan"
-            # if t <= 0.25*max_audio:
+            # if t <= 1:
             #     level = "silent"
-            # elif 0.25*max_audio < t <= 0.50*max_audio:
+            # elif 1 < t <= 2:
             #     level = "medium"
-            # elif 0.5*max_audio < t <= 0.75*max_audio:
+            # elif 2 < t <= 3:
             #     level = "loud"
             # else:
             #     level = "loudest"
 
-            if t <= 1:
+            if t <= 0.25:
                 level = "silent"
-            elif 1 < t <= 2:
+            elif 0.25 < t <= 0.5:
                 level = "medium"
-            elif 2 < t <= 3:
+            elif 0.5 < t <= 0.75:
                 level = "loud"
             else:
                 level = "loudest"
@@ -66,7 +66,10 @@ def audio_scenes(audio_path, ts):
 
 
 def plot_from_csv():
-    with open("5mv_audioclasses_abs(kleiner1, kleiner2...).csv") as csvfile:
+    # with open("5mv_audioclasses_normalized.csv") as csvfile:
+    # with open("5mv_audioclasses_abs(kleiner1, kleiner2...).csv") as csvfile:
+    with open("asdf.csv") as csvfile:
+
         reader = csv.reader(csvfile)
 
         x1 = []
@@ -105,7 +108,7 @@ def plot_from_csv():
     x = [aro_silent, aro_med, aro_loud, aro_loudest]
 
     plt.suptitle("Audiolevels and Arousal for 5 movies.")
-    plt.boxplot(x, sym="", vert=False, showmeans=True, meanline=True)
+    plt.boxplot(x, vert=False, showmeans=True, meanline=True)
     # plt.scatter(x2,y)
     plt.ylabel("Audio Level (4 = highest)")
     plt.xlabel("Arousal")
@@ -129,7 +132,6 @@ def plot_from_csv():
     plt.show()
 
 
-
 def main():
     script1 = os.path.join(BASE_DIR, "manually_annotated", "blade_man.xml")
     audio1 = os.path.join(BASE_DIR, "data_audio", "blade.wav")
@@ -142,15 +144,15 @@ def main():
     script5 = os.path.join(BASE_DIR, "manually_annotated", "predator_man.xml")
     audio5 = os.path.join(BASE_DIR, "data_audio", "predator.wav")
 
-    data = [(script1, audio1),(script2, audio2),(script3, audio3),(script4, audio4),(script5, audio5),]
-
+    data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5), ]
     # for d in data:
     #     ts = scenesentiment_for_manually_annotated(d[0])
     #     audio_scenes(d[1], ts)
-    # ts = scenesentiment_for_manually_annotated(script)
+    # ts = scenesentiment_for_manually_annotated(script1)
     # print(ts)
-    # audio_scenes(audio, ts)
+    # audio_scenes(audio1, ts)
     plot_from_csv()
+
 
 if __name__ == '__main__':
     main()
