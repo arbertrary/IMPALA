@@ -11,8 +11,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import librosa
-from ms_sentiment import scenesentiment_for_manually_annotated
-from audio import partition_audiofeature, normalize, get_energy
+from src.src_text.sentiment.ms_sentiment import scenesentiment_for_manually_annotated
+from src.src_audio.audio import partition_audiofeature, normalize, get_energy
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
@@ -33,7 +33,7 @@ def audio_scenes(audio_path, ts):
     data = pd.DataFrame(scene_audio)
     print(data.describe())
 
-    with open("asdf.csv", "a") as csvfile:
+    with open("asdf.csv", "w") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
         # writer.writerow(["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"])
         for i, t in enumerate(scene_audio):
@@ -148,9 +148,9 @@ def main():
     # for d in data:
     #     ts = scenesentiment_for_manually_annotated(d[0])
     #     audio_scenes(d[1], ts)
-    # ts = scenesentiment_for_manually_annotated(script1)
-    # print(ts)
-    # audio_scenes(audio1, ts)
+    ts = scenesentiment_for_manually_annotated(script1)
+    print(ts)
+    audio_scenes(audio1, ts)
     plot_from_csv()
 
 

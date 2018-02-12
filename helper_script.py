@@ -7,10 +7,10 @@ import re
 import shutil
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
-from moviescript import get_full_scenes
+from src.src_text.preprocessing.moviescript import get_full_scenes
 
 from nltk import word_tokenize
-from subtitles import check_correctness
+from src.src_text.preprocessing.subtitles import check_correctness
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
 
@@ -223,10 +223,11 @@ def scene_counter(directory):
 
 def check_scene_count():
     for filename in os.listdir("data_xml"):
-        tree = ET.parse(os.path.join("data_xml",filename))
+        tree = ET.parse(os.path.join("data_xml", filename))
         scenes = tree.findall("scene")
         if len(scenes) < 20:
             print(filename, len(scenes))
+
 
 def main():
     # scene_counter("data_xml")

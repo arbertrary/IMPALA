@@ -2,8 +2,8 @@
 
 import os
 import sys
-from parse_fountain import moviescript_to_xml
-from moviescript import annotate
+from src.src_text.preprocessing.parse_fountain import moviescript_to_xml
+from src.src_text.preprocessing.moviescript import annotate
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 

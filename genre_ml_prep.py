@@ -7,9 +7,10 @@ import csv
 import random
 from collections import Counter
 from datetime import datetime
-from sentiment import ImpalaSent
-from moviescript import get_all_sentences
+from src.src_text.sentiment.sentiment import ImpalaSent
+from src.src_text.preprocessing.moviescript import get_all_sentences
 from nltk import word_tokenize
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 # from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
@@ -219,7 +220,7 @@ def read_csv():
                   'Romance': [0],
                   'Horror': [0], 'Adventure': [0], 'Thriller': [0], 'Mystery': [0]}
 
-    with open("new_genres.csv") as csvfile:
+    with open("asdf.csv") as csvfile:
         reader = csv.reader(csvfile)
 
         test = []
@@ -276,7 +277,7 @@ def main():
     # print(test[1:-1])
 
     # write_new_csv()
-    # read_csv()
+    read_csv()
     # edit_csv()
     # write_warriner_csv()
     time2 = datetime.now()

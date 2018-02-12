@@ -6,8 +6,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 from datetime import datetime, timedelta
 from matplotlib import dates
-from audio import get_energy
-from subs_sentiment import get_subs_sentiment
+from src.src_audio.audio import get_energy
+from src.src_text.sentiment.subs_sentiment import get_subs_sentiment
 
 """Idee:
 - scenes mit time codes aus moviescript get_full_scenes
@@ -125,8 +125,8 @@ def main():
     time = datetime.now()
 
     # scenes = get_full_scenes(os.path.join(BASE_DIR, "src/testfiles/" "blade_manually.xml"))
-    energy = get_energy(os.path.join(BASE_DIR, "src/testfiles/" "blade.wav"))
-    duration = sf.info(os.path.join(BASE_DIR, "src/testfiles/" "blade.wav")).duration
+    energy = get_energy(os.path.join(BASE_DIR, "data_audio/" "blade.wav"))
+    duration = sf.info(os.path.join(BASE_DIR, "data_audio/" "blade.wav")).duration
     # scenes = get_full_scenes(os.path.join(DATA_DIR, "star-wars-4_annotated.xml"))
     # energy = get_energy(os.path.join(DATA_DIR, "star-wars-4.wav"))
     # duration = sf.info(os.path.join(DATA_DIR, "star-wars-4.wav")).duration
