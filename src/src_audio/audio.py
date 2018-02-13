@@ -2,6 +2,7 @@
 Functions for alculating RMS energy or other audio features (mel spectrogram etc)."""
 
 import os
+import csv
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -156,32 +157,26 @@ def blockwise_processing(path):
 
 
 def main():
-    audio = os.path.join(BASE_DIR, "src/testfiles/" "selfiefromhell.wav")
-    # audio = os.path.join(BASE_DIR, "src/testfiles/", "hellraiser.wav")
-    # audio = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4.wav")
-    audio = os.path.join(BASE_DIR, "src/testfiles/", "blade.wav")
+    audio1 = os.path.join(BASE_DIR, "data_audio", "blade.wav")
+    audio2 = os.path.join(BASE_DIR, "data_audio", "star-wars-4.wav")
+    audio3 = os.path.join(BASE_DIR, "data_audio", "scream_ger.wav")
+    audio4 = os.path.join(BASE_DIR, "data_audio", "hellboy.wav")
+    audio5 = os.path.join(BASE_DIR, "data_audio", "predator.wav")
 
-    # energy = partition_audiofeature(star_wars_audio)
-    energy = get_energy(audio)
-    data = pd.DataFrame(energy)
-    normalize(energy)
-    # print("Star Wars")
-    # print(data.describe())
-    # print("\n")
-
-    # energy = get_energy(blade_audio)
-    # data = pd.DataFrame(energy)
-    # print("Blade")
-    # print(data.describe())
-    # print("\n")
-    #
-    # energy = get_energy(hellraiser_audio)
-    # data = pd.DataFrame(energy)
-    # print("Hellraiser")
-    # print(data.describe())
-    # print("\n")
-
+    data = [audio1, audio2, audio3, audio4, audio5]
     time = datetime.now()
+
+
+    for d in data:
+        name = os.path.split(d)[1].replace(".wav", ".csv")
+        energy = partition_audiofeature(d)
+
+        with open(name, "w") as csvfile:
+            writer = csv.writer(csvfile)
+            for e in energy:
+                writer.writerow([e[0], e[1]])
+
+
     time2 = datetime.now()
     diff = time2 - time
 
