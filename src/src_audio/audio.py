@@ -69,8 +69,8 @@ def normalize(energy: np.array):
     # test1 = [x-mean for x in energy]
     # test1data =pd.DataFrame(test1)
     # print(test1data.describe())
-    test2 = [x/mean for x in energy]
-    test2data =pd.DataFrame(test2)
+    test2 = [x / mean for x in energy]
+    test2data = pd.DataFrame(test2)
     print(np.median(test2))
 
     # plt.subplot(211)
@@ -81,6 +81,7 @@ def normalize(energy: np.array):
     # plt.plot(test2)
     # plt.show()
     return test2
+
 
 def partition_audiofeature(path: str, interval_seconds: float = 1.0):
     """Partitions (currently) die energy of an audio file into intervals.
@@ -166,7 +167,6 @@ def main():
     data = [audio1, audio2, audio3, audio4, audio5]
     time = datetime.now()
 
-
     for d in data:
         name = os.path.split(d)[1].replace(".wav", ".csv")
         energy = partition_audiofeature(d)
@@ -175,7 +175,6 @@ def main():
             writer = csv.writer(csvfile)
             for e in energy:
                 writer.writerow([e[0], e[1]])
-
 
     time2 = datetime.now()
     diff = time2 - time

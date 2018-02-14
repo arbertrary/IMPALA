@@ -26,8 +26,8 @@ def get_subs_sentiment(subs_filename: str):
     for s in sentences:
         # diese Zeile ist erstmal nur temporär da und nimmt den String (s[1]) und den arousal wert score[1]
         # valence wäre score[0]
-        arousal = sentiment.score(s[2])[1]
-        valence = sentiment.score(s[2])[0]
+        arousal = sentiment.score(s[2]).get("arousal")
+        valence = sentiment.score(s[2]).get("valence")
         # if arousal == 0:
         #     continue
         # else:

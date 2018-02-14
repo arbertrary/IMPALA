@@ -9,9 +9,9 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os
 
 
 class ImpalaSent:
-    def __init__(self, method="default"):
-        if method == ("default" or "Warriner"):
-            self.method = "RatingsWarriner"
+    def __init__(self, method="Warriner"):
+        if method == "Warriner":
+            self.method = "Warriner"
             self.lexicon = warriner_dict()
         elif method == "SentiWordNet":
             self.method = "SentiWordNet"
@@ -23,6 +23,11 @@ class ImpalaSent:
             raise ValueError("Not a valid method!")
 
     def score(self, text: str):
+        """:returns Dict with key= valence, arousal or dominance and value= avg of all values in text
+                if no word in text is found in the Warriner lexicon, return -1 for each value
+            :raises ValueError if used with an ImpalaSent instance with a sentiment lexicon other than Warriner"""
+        if self.method != "Warriner":
+            raise ValueError("Tried to get the Warriner score from an instance of ImpalaSent with a different lexicon")
         words = word_tokenize(text)
 
         valence_scores = []
@@ -30,11 +35,10 @@ class ImpalaSent:
         dominance_scores = []
         for word in words:
             score = self.lexicon.get(word.lower())
-
             if score:
-                v = float(score[0])
-                a = float(score[1])
-                d = float(score[2])
+                v = score.get("valence")
+                a = score.get("arousal")
+                d = score.get("dominance")
 
                 valence_scores.append(v)
                 arousal_scores.append(a)
@@ -44,7 +48,7 @@ class ImpalaSent:
         la = len(arousal_scores)
         ld = len(dominance_scores)
         if lv == 0 or la == 0 or ld == 0:
-            return -1, -1, -1
+            return {"valence": -1, "arousal": -1, "dominance": -1}
         else:
             valence = np.mean(valence_scores)
 
@@ -59,13 +63,17 @@ class ImpalaSent:
             # temp = [x for x in arousal_scores if x > perc]
             # arousal = np.mean(temp)
 
-
             dominance = np.mean(dominance_scores)
-            return valence, arousal, dominance
+            sent_dict = {"valence": valence, "arousal": arousal, "dominance": dominance}
+            return sent_dict
 
     def nrc_score(self, text: str):
+        """:returns Dict with key= NRC emotion and value= avg of all emotion values in text
+        if no word in text is found in NRC lexicon, return -1 for each value
+           :raises ValueError if used with an ImpalaSent instance with a sentiment lexicon other than NRC"""
+
         if self.method != "NRC":
-            raise ValueError("Lexicon is not NRC")
+            raise ValueError("Tried to get the NRC score from an instance of ImpalaSent with a different lexicon")
 
         words = word_tokenize(text)
 
@@ -76,42 +84,24 @@ class ImpalaSent:
             if score:
                 scores.append(score)
 
-        anger = ant = disgust = fear = joy = negative = positive = sadness = surprise = trust = 0
-        emotions = np.array([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-        # emo_dict = {"anger": -1, "anticipation": -1, "disgust": -1, "fear": -1, "joy": -1, "negative": -1,
-        #             "positive": -1, "sadness": -1, "surprise": -1, "trust": -1}
+        emo_dict = {"anger": -1, "anticipation": -1, "disgust": -1, "fear": -1, "joy": -1, "negative": -1,
+                    "positive": -1, "sadness": -1, "surprise": -1, "trust": -1}
         word_count = len(scores)
-        for dict in scores:
-            if emotions[0] == -1:
-                emotions[0] = dict.get("anger")
-                emotions[1] = dict.get("anticipation")
-                emotions[2] = dict.get("disgust")
-                emotions[3] = dict.get("fear")
-                emotions[4] = dict.get("joy")
-                emotions[5] = dict.get("negative")
-                emotions[6] = dict.get("positive")
-                emotions[7] = dict.get("sadness")
-                emotions[8] = dict.get("surprise")
-                emotions[9] = dict.get("trust")
-            else:
-                emotions[0] += dict.get("anger")
-                emotions[1] += dict.get("anticipation")
-                emotions[2] += dict.get("disgust")
-                emotions[3] += dict.get("fear")
-                emotions[4] += dict.get("joy")
-                emotions[5] += dict.get("negative")
-                emotions[6] += dict.get("positive")
-                emotions[7] += dict.get("sadness")
-                emotions[8] += dict.get("surprise")
-                emotions[9] += dict.get("trust")
+        if word_count == 0:
+            return emo_dict
+        else:
+            for d in scores:
+                for emo in emo_dict:
+                    if emo_dict.get(emo) == -1:
+                        emo_dict[emo] = d.get(emo)
+                    else:
+                        emo_dict[emo] += d.get(emo)
 
-        # print(emotions)
-        emotions = [x / word_count if x != -1 else x for x in emotions]
-        # print(emotions)
-        # if emotions[0] == -1:
-        #     return []
-        # else:
-        return emotions
+            for emo in emo_dict:
+                value = emo_dict.get(emo)
+                emo_dict[emo] = value / word_count
+
+            return emo_dict
 
 
 def warriner_dict():
@@ -126,11 +116,11 @@ def warriner_dict():
                 continue
             else:
                 word = row[1]
-                valence = row[2]
-                arousal = row[5]
-                dominance = row[8]
-                # temp = {"valence": valence, "arousal": arousal, "dominance": dominance}
-                score = (valence, arousal, dominance)
+                valence = float(row[2])
+                arousal = float(row[5])
+                dominance = float(row[8])
+                score = {"valence": valence, "arousal": arousal, "dominance": dominance}
+                # score = (valence, arousal, dominance)
                 lexicon[word] = score
 
     return lexicon
@@ -181,18 +171,18 @@ def sentiwordnet_dict():
 
 
 def main():
-    # test = ImpalaSent()
+    test = ImpalaSent()
     # test = ImpalaSent("SentiWordNet")
     # test = ImpalaSent()
-    # print(test.score("Hey, this really is a shit fucking sentence!"))
+    print(test.score("Hey, this really is a shit fucking sentence!"))
 
     # test2 = ImpalaSent("SentiWordNet")
     # print(test2.score("happy"))
 
-    test3 = ImpalaSent("NRC")
+    # test3 = ImpalaSent("NRC")
     # print(test3.lexicon.get("happy"))
     # print(test3.lexicon.get("death"))
-    print(test3.nrc_score('Take her away!'))
+    # print(test3.score("Hey, this really is a shit fucking sentence!"))
     # PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
     # DATA_DIR = os.path.join(PAR_DIR, "lexicons")
     # print(DATA_DIR)

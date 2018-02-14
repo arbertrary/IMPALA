@@ -11,14 +11,16 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import librosa
-from src.src_text.sentiment.ms_sentiment import scenesentiment_for_manually_annotated
-from src.src_audio.audio import partition_audiofeature, normalize, get_energy
+from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def audio_scenes(audio_path, ts):
-    # partitions = partition_audiofeature(audio_path)
+def audio_scenes(audio_path: str, script_path: str, dest_csv_path: str, sent_method: str = "Warriner"):
+    if sent_method not in {"Warriner", "NRC", "Vader"}:
+        raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
+
+    ts = scenesentiment_for_man_annotated(script_path, sent_method)
     partitions = []
 
     with open(audio_path) as audio_csv:
@@ -28,18 +30,18 @@ def audio_scenes(audio_path, ts):
 
     scene_audio = []
     for t in ts:
-        temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[4]]
+        temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[1]]
         if len(temp_audio) != 0:
             # Variante 1: avg über die gesamte szene
             # scene_audio.append(np.mean(temp_audio))
 
             # variante 2: max der gesamten szene
-            scene_audio.append(np.max(temp_audio))
+            # scene_audio.append(np.max(temp_audio))
 
             # variante 3: average des 75% percentile
-            # perc = np.percentile(temp_audio, 75)
-            # temp = [x for x in temp_audio if x > perc]
-            # scene_audio.append(np.mean(temp))
+            perc = np.percentile(temp_audio, 75)
+            temp = [x for x in temp_audio if x > perc]
+            scene_audio.append(np.mean(temp))
 
     print(len(scene_audio))
     scene_audio = librosa.util.normalize(np.array(scene_audio))
@@ -47,9 +49,25 @@ def audio_scenes(audio_path, ts):
     data = pd.DataFrame(scene_audio)
     print(data.describe())
 
-    with open("test.csv", "a") as csvfile:
+    if not os.path.isfile(dest_csv_path):
+        mode = "w"
+    elif os.stat(dest_csv_path).st_size == 0:
+        mode = "w"
+    else:
+        mode = "a"
+
+    with open(dest_csv_path, mode) as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
-        # writer.writerow(["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"])
+
+        if mode == "w":
+            if sent_method == "Warriner":
+                writer.writerow(["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"])
+            elif sent_method == "NRC":
+                writer.writerow(
+                    ["Scene Start", "Scene End", "Anger", "Anticipation", "Disgust", "Fear", "Joy", "Negative",
+                     "Positive", "Sadness", "Surprise", "Trust", "Audio Level"])
+            elif sent_method == "Vader":
+                writer.writerow(["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"])
         for i, t in enumerate(scene_audio):
             level = "nan"
             # if t <= 1:
@@ -78,18 +96,24 @@ def audio_scenes(audio_path, ts):
             #     level = "loudest"
 
             start = ts[i][0]
-            end = ts[i][4]
-            valence = ts[i][1]
-            arousal = ts[i][2]
-            dominance = ts[i][3]
+            end = ts[i][1]
+            score = ts[i][2]
 
-            writer.writerow([start, end, valence, arousal, dominance, level])
+            if sent_method == "Warriner":
+                writer.writerow([start, end, score.get("valence"), score.get("arousal"), score.get("dominance"), level])
+            elif sent_method == "NRC":
+                writer.writerow(
+                    [start, end, score.get("anger"), score.get("anticipation"), score.get("disgust"), score.get("fear"),
+                     score.get("joy"),
+                     score.get("negative"), score.get("positive"), score.get("sadness"), score.get("surprise"),
+                     score.get("trust"), level])
+            elif sent_method == "Vader":
+                writer.writerow(
+                    [start, end, score.get("neg"), score.get("neu"), score.get("pos"), score.get("compound"), level])
 
 
-def plot_from_csv():
-    # with open("5mv_audioclasses_normalized.csv") as csvfile:
-    # with open("5mv_audioclasses_abs(kleiner1, kleiner2...).csv") as csvfile:
-    with open("test.csv") as csvfile:
+def plot_from_csv(csv_path: str):
+    with open(csv_path) as csvfile:
 
         reader = csv.reader(csvfile)
 
@@ -104,31 +128,33 @@ def plot_from_csv():
         aro_loudest = []
 
         for row in reader:
-            if row[0] != "Start":
+            if row[0] != "Scene Start":
                 if row[3] == "nan":
                     continue
                 x1.append(float(row[2]))
                 x2.append(float(row[3]))
                 x3.append(float(row[4]))
 
+                i = 3
+
                 if row[-1] == "silent":
                     y.append(1)
-                    aro_silent.append(float(row[3]))
+                    aro_silent.append(float(row[i]))
                 elif row[-1] == "medium":
-                    aro_med.append(float(row[3]))
+                    aro_med.append(float(row[i]))
                     y.append(2)
                 elif row[-1] == "loud":
-                    aro_loud.append(float(row[3]))
+                    aro_loud.append(float(row[i]))
                     y.append(3)
                 else:
                     y.append(4)
-                    aro_loudest.append(float(row[3]))
+                    aro_loudest.append(float(row[i]))
 
     print("silent median: ", np.median(aro_silent), len(aro_silent))
     print("medium median: ", np.median(aro_med), len(aro_med))
     print("loud median: ", np.median(aro_loud), len(aro_loud))
     print("loudest median: ", np.median(aro_loudest), len(aro_loudest))
-    x = [aro_silent, aro_med, aro_loud]#, aro_loudest]
+    x = [aro_silent, aro_med, aro_loud]  # , aro_loudest]
 
     plt.suptitle("Audiolevels and Arousal for 5 movies.")
     plt.boxplot(x, vert=False, showmeans=True, meanline=True)
@@ -171,12 +197,8 @@ def main():
     # data = [(script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5)]
 
     for d in data:
-        ts = scenesentiment_for_manually_annotated(d[0])
-        audio_scenes(d[1], ts)
-    # ts = scenesentiment_for_manually_annotated(script1)
-    # print(ts)
-    # audio_scenes(audio1, ts)
-    plot_from_csv()
+        audio_scenes(d[1], d[0], dest_csv_path="test.csv", sent_method="Warriner")
+    plot_from_csv("test.csv")
 
 
 if __name__ == '__main__':
