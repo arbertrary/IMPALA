@@ -89,8 +89,11 @@ def partition_audiofeature(path: str, interval_seconds: float = 1.0):
     :param interval_seconds: duration of intervals in seconds as float. defaults to 1s"""
     duration = sf.info(path).duration
     energy = get_energy(path)
+    print(duration)
+    print(len(energy))
 
     time_per_frame = np.divide(duration, len(energy))
+    print(time_per_frame)
 
     energy_times = []
     time = 0
@@ -104,8 +107,12 @@ def partition_audiofeature(path: str, interval_seconds: float = 1.0):
         else:
             energy_times.append((round(time), np.mean(temp)))
             # energy_times.append((time, temp))
+            time += time_per_frame
             duration = 0
             temp = []
+
+    print(len(energy_times))
+    print(energy_times[-1])
     return energy_times
 
 
@@ -164,6 +171,8 @@ def main():
     audio4 = os.path.join(BASE_DIR, "data_audio", "hellboy.wav")
     audio5 = os.path.join(BASE_DIR, "data_audio", "predator.wav")
 
+
+    # test = partition_audiofeature(audio2)
     data = [audio1, audio2, audio3, audio4, audio5]
     time = datetime.now()
 
