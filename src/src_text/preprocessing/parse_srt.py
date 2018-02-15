@@ -15,7 +15,6 @@ def srt_to_xml(srt_path: str, dest_path: str):
 
     with open(srt_path) as file:
         text = file.read().strip()
-
         text = re.sub(r"<.{1,2}>", "", text)
 
         paragraphs = text.split("\n\n")
@@ -71,8 +70,8 @@ def main():
     """main"""
     # srt_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.srt")
     # dest_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    srt_path = os.path.join(BASE_DIR, "src/testfiles/" "pitch-black_subs.srt")
-    dest_path = os.path.join(BASE_DIR, "src/testfiles/", "pitch_black_subs.xml")
+    srt_path = os.path.join(BASE_DIR, "src/testfiles/" "hellboy_subs.srt")
+    dest_path = os.path.join(BASE_DIR, "src/testfiles/", "hellboy_subs.xml")
     srt_to_xml(srt_path, dest_path)
 
 

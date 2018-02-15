@@ -63,6 +63,9 @@ class ImpalaSent:
             # temp = [x for x in arousal_scores if x > perc]
             # arousal = np.mean(temp)
 
+            # variante 4: min der gesamten szene
+            # arousal = np.min(arousal_scores)
+
             dominance = np.mean(dominance_scores)
             sent_dict = {"valence": valence, "arousal": arousal, "dominance": dominance}
             return sent_dict

@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from matplotlib import dates
+from typing import List, Tuple, Dict
 from datetime import datetime, timedelta
 from src.src_text.sentiment.sentiment import ImpalaSent
 from src.src_text.preprocessing.subtitles import get_subtitles
@@ -12,135 +13,71 @@ from src.src_text.preprocessing.subtitles import get_subtitles
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
-def get_subs_sentiment(subs_filename: str):
-    """Analyse dialogue from subtitles"""
+def subtitle_sentiment(xml_path: str, sent_method: str = "Warriner") -> List[Tuple[float, float, Dict]]:
+    """:returns List of Tuples of [scene-starttime in seconds, scene-endtime in seconds, sentiment scores:Dict"""
+    if sent_method not in {"Warriner", "NRC", "Vader"}:
+        raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
+    elif sent_method == "Vader":
+        sid = SentimentIntensityAnalyzer()
+    else:
+        sentiment = ImpalaSent(sent_method)
 
-    sentiment = ImpalaSent()
-
-    sentences = get_subtitles(subs_filename)
-    print(len(sentences))
+    sentences = get_subtitles(xml_path)
     scores = []
-    scores2 = []
-    times = []
 
     for s in sentences:
-        # diese Zeile ist erstmal nur temporär da und nimmt den String (s[1]) und den arousal wert score[1]
-        # valence wäre score[0]
+        score = sentiment.score(s[2])
+        if all(score.get(x) == -1 for x in score):
+            continue
+
         arousal = sentiment.score(s[2]).get("arousal")
         valence = sentiment.score(s[2]).get("valence")
-        # if arousal == 0:
-        #     continue
-        # else:
-        # time = datetime.strptime(s[0], "%H:%M:%S,%f")
-        time = s[0]
-        scores.append((time, arousal))
+
+        start = round(s[0])
+        end = round(s[1])
+        scores.append((start, end, score))
         # scores2.append(valence)
-        scores2.append((time, valence))
-    return scores, scores2
+        # scores2.append((time, valence))
 
-
-def get_nrc_sentiment(subs_filename: str):
-    sentiment = ImpalaSent(method="NRC")
-
-    sentences = get_subtitles(subs_filename)
-
-    scores = []
-    for s in sentences:
-        emotions = sentiment.nrc_score(s[2])
-        if len(emotions) != 0:
-            scores.append((s[0], emotions))
-        # print(s)
-        # print(emotions)
     return scores
 
 
-def get_vader_sentiment(subs_filename: str):
-    sentences = get_subtitles(subs_filename)
-    sid = SentimentIntensityAnalyzer()
-
-    scores = []
-    times = []
-    for s in sentences:
-        scores.append(sid.polarity_scores(s[2]).get("compound"))
-        # print(sid.polarity_scores(s[1]))
-        # time = datetime.strptime(s[0], "%H:%M:%S,%f")
-        time = s[0]
-
-        times.append(time)
-
-    return scores, times
-
-
 def plot_stuff(path):
-    scores1, times1 = get_vader_sentiment(path)
-    scores2, times2 = get_subs_sentiment(path)
+    sentiment = subtitle_sentiment(path)
 
-    # scores1 = scores1[::3]
-    # print(len(scores1))
-    # times1 = times1[::3]
-    #
-    # scores2 = scores2[::3]
-    # print(len(scores2))
-    # times2 = times2[::3]
+    arousal = [score[2].get("arousal") for score in sentiment]
 
-    times1 = dates.date2num(times1)
-    times2 = dates.date2num(times2)
+    windows = []
+
+    for index, score in enumerate(arousal):
+        if index+4 <= len(arousal):
+            temp = arousal[index:index+4]
+            if index== 0:
+                print(len(temp))
+            windows.append(np.mean(temp))
+        else:
+            temp = arousal[index:]
+            windows.append(np.mean(temp))
+
+    print(len(windows), len(arousal))
 
     plt.subplot(211)
-    plt.ylabel("Vader Compound score")
-    plt.xlabel("time")
-
-    plt.plot_date(times1, scores1, fmt="-", color="b", label="compound")
-    plt.xlim(times1[0], times1[-1])
-    plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
-    plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
-
+    plt.plot(arousal)
     plt.subplot(212)
-    plt.ylabel("Warriner Arousal")
-    plt.xlabel("time")
-
-    plt.plot_date(times2, scores2, fmt="-", color="b", label="Arousal")
-    plt.xlim(times2[0], times2[-1])
-    plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
-    plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
-
+    plt.plot(windows)
     plt.tight_layout()
     plt.show()
 
 
+
+
 def main():
     """main function"""
-    path = os.path.join(BASE_DIR, "src/testfiles", "blade_subs.xml")
-    # path = "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/star-wars-4_subs.xml"
-    test= get_nrc_sentiment(path)
-    arousal, valence = get_subs_sentiment(path)
-    print(len(arousal))
-    print(len(test))
-
-    # print(len(test), len(times))
-    # # test, times = get_vader_sentiment(path)
-    # for t in test:
-    #     print(t)
-    c1 = 0
-    c2 = 0
-    for t in arousal:
-    #     if np.max(t[1]) == 0:
-        if t[1] == 0:
-            c1 += 1
-        else:
-            c2 += 1
-    print("sätze ohne wert: ", c1)
-    print("sätze mit: ", c2)
-
-    c1 = 0
-    c2 = 0
-    for t in test:
-        if np.max(t[1]) == -1:
-            c1 += 1
-        else:
-            c2 += 1
-    print("sätze ohne wert: ", c1)
-    print("sätze mit: ", c2)
+    path = os.path.join(BASE_DIR, "src/testfiles", "hellraiser_subs.xml")
+    # subs = get_subtitles(path)
+    # print(subs)
+    print(subtitle_sentiment(path, "Warriner"))
+    # plot_stuff(path)
 
 
 if __name__ == '__main__':

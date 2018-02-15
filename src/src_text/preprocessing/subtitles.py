@@ -150,7 +150,8 @@ def check_correctness(path: str):
 
 
 def main():
-    path = os.path.join(BASE_DIR, "src/testfiles", "blade_subs.xml")
+    path = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4_subs.xml")
+    print(get_subtitles(path))
 
 
 if __name__ == '__main__':

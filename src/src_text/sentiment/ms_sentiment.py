@@ -1,7 +1,6 @@
 import os
 import matplotlib.pyplot as plt
 from datetime import datetime
-from matplotlib import dates
 from typing import List, Tuple, Dict
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from src.src_text.sentiment.sentiment import ImpalaSent
@@ -82,9 +81,9 @@ def scenesentiment_for_man_annotated(xml_path: str, sent_method: str = "Warriner
 def plot_scenesentiment(sentiment_values: List):
     x = [s[0] for s in sentiment_values]
     # x = dates.date2num(x)
-    yv = [v[1].get("valence") for v in sentiment_values]
-    ya = [a[1].get("arousal") for a in sentiment_values]
-    yd = [d[1].get("dominance") for d in sentiment_values]
+    yv = [v[2].get("valence") for v in sentiment_values]
+    ya = [a[2].get("arousal") for a in sentiment_values]
+    yd = [d[2].get("dominance") for d in sentiment_values]
 
     plt.subplot(311)
     # plt.plot_date(x, yv, fmt="-")
@@ -123,8 +122,8 @@ def main():
     sw = os.path.join(path, "star-wars-4_annotated.xml")
     sw_man = os.path.join(path, "star-wars-4_man.xml")
 
-    a = scenesentiment_for_man_annotated(sw_man, "Vader")
-    # plot_scenesentiment(a)
+    a = scenesentiment_for_man_annotated(sw_man, "Warriner")
+    plot_scenesentiment(a)
     print(a)
 
 

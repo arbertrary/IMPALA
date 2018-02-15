@@ -12,6 +12,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import librosa
 from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
+from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
@@ -21,6 +22,7 @@ def audio_scenes(audio_path: str, script_path: str, dest_csv_path: str, sent_met
         raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
 
     ts = scenesentiment_for_man_annotated(script_path, sent_method)
+    # ts = subtitle_sentiment(script_path, sent_method)
     partitions = []
 
     with open(audio_path) as audio_csv:
@@ -36,12 +38,16 @@ def audio_scenes(audio_path: str, script_path: str, dest_csv_path: str, sent_met
             # scene_audio.append(np.mean(temp_audio))
 
             # variante 2: max der gesamten szene
-            # scene_audio.append(np.max(temp_audio))
+            scene_audio.append(np.max(temp_audio))
 
             # variante 3: average des 75% percentile
-            perc = np.percentile(temp_audio, 75)
-            temp = [x for x in temp_audio if x > perc]
-            scene_audio.append(np.mean(temp))
+            # perc = np.percentile(temp_audio, 75)
+            # temp = [x for x in temp_audio if x > perc]
+            # scene_audio.append(np.mean(temp))
+
+            # variante 4: min der gesamten szene
+            # scene_audio.append(np.min(temp_audio))
+
 
     print(len(scene_audio))
     scene_audio = librosa.util.normalize(np.array(scene_audio))
@@ -55,6 +61,9 @@ def audio_scenes(audio_path: str, script_path: str, dest_csv_path: str, sent_met
         mode = "w"
     else:
         mode = "a"
+
+    print(len(scene_audio))
+    print(len(ts))
 
     with open(dest_csv_path, mode) as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
@@ -79,21 +88,21 @@ def audio_scenes(audio_path: str, script_path: str, dest_csv_path: str, sent_met
             # else:
             #     level = "loudest"
 
-            if t <= 0.33:
-                level = "silent"
-            elif 0.33 < t <= 0.66:
-                level = "medium"
-            else:
-                level = "loud"
-
-            # if t <= 0.25:
+            # if t <= 0.33:
             #     level = "silent"
-            # elif 0.25 < t <= 0.5:
+            # elif 0.33 < t <= 0.66:
             #     level = "medium"
-            # elif 0.5 < t <= 0.75:
-            #     level = "loud"
             # else:
-            #     level = "loudest"
+            #     level = "loud"
+
+            if t <= 0.25:
+                level = "silent"
+            elif 0.25 < t <= 0.5:
+                level = "medium"
+            elif 0.5 < t <= 0.75:
+                level = "loud"
+            else:
+                level = "loudest"
 
             start = ts[i][0]
             end = ts[i][1]
@@ -154,7 +163,7 @@ def plot_from_csv(csv_path: str):
     print("medium median: ", np.median(aro_med), len(aro_med))
     print("loud median: ", np.median(aro_loud), len(aro_loud))
     print("loudest median: ", np.median(aro_loudest), len(aro_loudest))
-    x = [aro_silent, aro_med, aro_loud]  # , aro_loudest]
+    x = [aro_silent, aro_med, aro_loud , aro_loudest]
 
     plt.suptitle("Audiolevels and Arousal for 5 movies.")
     plt.boxplot(x, vert=False, showmeans=True, meanline=True)
@@ -187,6 +196,13 @@ def main():
     script3 = os.path.join(BASE_DIR, "manually_annotated", "scream_man.xml")
     script4 = os.path.join(BASE_DIR, "manually_annotated", "hellboy_man.xml")
     script5 = os.path.join(BASE_DIR, "manually_annotated", "predator_man.xml")
+
+    subs1 = os.path.join(BASE_DIR, "data_subtitles/", "hellboy_subs.xml")
+    subs2 = os.path.join(BASE_DIR, "data_subtitles/", "blade_subs.xml")
+    subs3 = os.path.join(BASE_DIR, "data_subtitles/", "star-wars-4_subs.xml")
+    subs4 = os.path.join(BASE_DIR, "data_subtitles/", "scream_subs.xml")
+    subs5 = os.path.join(BASE_DIR, "data_subtitles/", "predator_subs.xml")
+
     audio1 = os.path.join(BASE_DIR, "audio_csvfiles", "blade.csv")
     audio2 = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
     audio3 = os.path.join(BASE_DIR, "audio_csvfiles", "scream_ger.csv")
@@ -194,11 +210,11 @@ def main():
     audio5 = os.path.join(BASE_DIR, "audio_csvfiles", "predator.csv")
 
     data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5)]
-    # data = [(script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5)]
+    data2 = [(subs1, audio1),(subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5)]
 
     for d in data:
-        audio_scenes(d[1], d[0], dest_csv_path="test.csv", sent_method="Warriner")
-    plot_from_csv("test.csv")
+        audio_scenes(d[1], d[0], dest_csv_path="5mv4classes_max_arousal_max_audio.csv", sent_method="Warriner")
+    plot_from_csv("5mv4classes_max_arousal_max_audio.csv")
 
 
 if __name__ == '__main__':
