@@ -11,13 +11,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import librosa
+from src.src_audio.audio import normalize
 from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def audio_scenes(audio_path: str, script_path: str, dest_csv_path: str, sent_method: str = "Warriner"):
+def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str, sent_method: str = "Warriner"):
     if sent_method not in {"Warriner", "NRC", "Vader"}:
         raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
 
@@ -86,23 +87,23 @@ def audio_scenes(audio_path: str, script_path: str, dest_csv_path: str, sent_met
             # elif 2 < t <= 3:
             #     level = "loud"
             # else:
-            #     level = "loudest"
-
-            # if t <= 0.33:
-            #     level = "silent"
-            # elif 0.33 < t <= 0.66:
-            #     level = "medium"
-            # else:
             #     level = "loud"
 
-            if t <= 0.25:
+            if t <= 0.33:
                 level = "silent"
-            elif 0.25 < t <= 0.5:
+            elif 0.33 < t <= 0.66:
                 level = "medium"
-            elif 0.5 < t <= 0.75:
-                level = "loud"
             else:
-                level = "loudest"
+                level = "loud"
+
+            # if t <= 0.25:
+            #     level = "silent"
+            # elif 0.25 < t <= 0.5:
+            #     level = "medium"
+            # elif 0.5 < t <= 0.75:
+            #     level = "loud"
+            # else:
+            #     level = "loudest"
 
             start = ts[i][0]
             end = ts[i][1]
@@ -121,7 +122,7 @@ def audio_scenes(audio_path: str, script_path: str, dest_csv_path: str, sent_met
                     [start, end, score.get("neg"), score.get("neu"), score.get("pos"), score.get("compound"), level])
 
 
-def plot_from_csv(csv_path: str):
+def plot_from_csv(csv_path: str, classes: int):
     with open(csv_path) as csvfile:
 
         reader = csv.reader(csvfile)
@@ -163,14 +164,20 @@ def plot_from_csv(csv_path: str):
     print("medium median: ", np.median(aro_med), len(aro_med))
     print("loud median: ", np.median(aro_loud), len(aro_loud))
     print("loudest median: ", np.median(aro_loudest), len(aro_loudest))
-    x = [aro_silent, aro_med, aro_loud , aro_loudest]
 
-    plt.suptitle("Audiolevels and Arousal for 5 movies.")
+    if classes == 3:
+        x = [aro_silent, aro_med, aro_loud]
+    else:
+        x = [aro_silent, aro_med, aro_loud, aro_loudest]
+
+
+    name = os.path.basename(csv_path).split("_")[0]
+    plt.suptitle("Max arousal, Max audio energy of "+ name)
     plt.boxplot(x, vert=False, showmeans=True, meanline=True)
     # plt.scatter(x2,y)
-    plt.ylabel("Audio Level (3 = highest)")
+    plt.ylabel("Audio Level ("+str(classes)+ " = highest)")
     plt.xlabel("Arousal")
-    plt.tight_layout()
+    # plt.tight_layout()
     # plt.figure()
     # plt.subplot(311)
     # plt.scatter(x1, y)
@@ -187,35 +194,37 @@ def plot_from_csv(csv_path: str):
     # plt.scatter(x3, y)
     # plt.xlabel("Dominance")
     # plt.ylabel("Audio level")
-    plt.show()
-
+    # plt.show()
+    img_path = csv_path.replace(".csv",".png")
+    plt.savefig(img_path, dpi=300)
 
 def main():
     script1 = os.path.join(BASE_DIR, "manually_annotated", "blade_man.xml")
-    script2 = os.path.join(BASE_DIR, "manually_annotated", "star-wars-4_man.xml")
-    script3 = os.path.join(BASE_DIR, "manually_annotated", "scream_man.xml")
-    script4 = os.path.join(BASE_DIR, "manually_annotated", "hellboy_man.xml")
-    script5 = os.path.join(BASE_DIR, "manually_annotated", "predator_man.xml")
+    script2 = os.path.join(BASE_DIR, "manually_annotated", "hellboy_man.xml")
+    script3 = os.path.join(BASE_DIR, "manually_annotated", "predator_man.xml")
+    script4 = os.path.join(BASE_DIR, "manually_annotated", "scream_man.xml")
+    script5 = os.path.join(BASE_DIR, "manually_annotated", "star-wars-4_man.xml")
 
-    subs1 = os.path.join(BASE_DIR, "data_subtitles/", "hellboy_subs.xml")
-    subs2 = os.path.join(BASE_DIR, "data_subtitles/", "blade_subs.xml")
-    subs3 = os.path.join(BASE_DIR, "data_subtitles/", "star-wars-4_subs.xml")
+    subs1 = os.path.join(BASE_DIR, "data_subtitles/", "blade_subs.xml")
+    subs2 = os.path.join(BASE_DIR, "data_subtitles/", "hellboy_subs.xml")
+    subs3 = os.path.join(BASE_DIR, "data_subtitles/", "predator_subs.xml")
     subs4 = os.path.join(BASE_DIR, "data_subtitles/", "scream_subs.xml")
-    subs5 = os.path.join(BASE_DIR, "data_subtitles/", "predator_subs.xml")
+    subs5 = os.path.join(BASE_DIR, "data_subtitles/", "star-wars-4_subs.xml")
 
     audio1 = os.path.join(BASE_DIR, "audio_csvfiles", "blade.csv")
-    audio2 = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
-    audio3 = os.path.join(BASE_DIR, "audio_csvfiles", "scream_ger.csv")
-    audio4 = os.path.join(BASE_DIR, "audio_csvfiles", "hellboy.csv")
-    audio5 = os.path.join(BASE_DIR, "audio_csvfiles", "predator.csv")
+    audio2 = os.path.join(BASE_DIR, "audio_csvfiles", "hellboy.csv")
+    audio3 = os.path.join(BASE_DIR, "audio_csvfiles", "predator.csv")
+    audio4 = os.path.join(BASE_DIR, "audio_csvfiles", "scream_ger.csv")
+    audio5 = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
 
     data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5)]
     data2 = [(subs1, audio1),(subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5)]
 
-    for d in data:
-        audio_scenes(d[1], d[0], dest_csv_path="5mv4classes_max_arousal_max_audio.csv", sent_method="Warriner")
-    plot_from_csv("5mv4classes_max_arousal_max_audio.csv")
-
+    csvpath = "starwars_audio_arousal.csv"
+    create_audio_sent_csv(audio5, script5, dest_csv_path=csvpath)
+    # for d in data:
+    #     create_audio_sent_csv(d[1], d[0], dest_csv_path="5mv4classes_mean_dominance_audio.csv", sent_method="Warriner")
+    plot_from_csv(csvpath, 3)
 
 if __name__ == '__main__':
     main()

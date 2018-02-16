@@ -26,45 +26,47 @@ def subtitle_sentiment(xml_path: str, sent_method: str = "Warriner") -> List[Tup
     scores = []
 
     for s in sentences:
-        score = sentiment.score(s[2])
+        if sent_method == "Warriner":
+            score = sentiment.score(s[2])
+        elif sent_method == "NRC":
+            score = sentiment.nrc_score(s[2])
+        elif sent_method == "Vader":
+            score = sid.polarity_scores(s[2])
+
         if all(score.get(x) == -1 for x in score):
             continue
 
-        arousal = sentiment.score(s[2]).get("arousal")
-        valence = sentiment.score(s[2]).get("valence")
-
         start = round(s[0])
         end = round(s[1])
+
         scores.append((start, end, score))
-        # scores2.append(valence)
-        # scores2.append((time, valence))
 
     return scores
 
 
 def plot_stuff(path):
-    sentiment = subtitle_sentiment(path)
+    sentiment = subtitle_sentiment(path, "NRC")
 
-    arousal = [score[2].get("arousal") for score in sentiment]
+    anger = [score[2].get("anger") for score in sentiment]
+    joy = [score[2].get("joy") for score in sentiment]
 
-    windows = []
-
-    for index, score in enumerate(arousal):
-        if index+4 <= len(arousal):
-            temp = arousal[index:index+4]
-            if index== 0:
-                print(len(temp))
-            windows.append(np.mean(temp))
-        else:
-            temp = arousal[index:]
-            windows.append(np.mean(temp))
-
-    print(len(windows), len(arousal))
+    # windows = []
+    # for index, score in enumerate(anger):
+    #     if index+4 <= len(anger):
+    #         temp = anger[index:index+4]
+    #         if index== 0:
+    #             print(len(temp))
+    #         windows.append(np.mean(temp))
+    #     else:
+    #         temp = anger[index:]
+    #         windows.append(np.mean(temp))
+    #
+    # print(len(windows), len(anger))
 
     plt.subplot(211)
-    plt.plot(arousal)
+    plt.plot(anger, ".")
     plt.subplot(212)
-    plt.plot(windows)
+    plt.plot(joy, ".")
     plt.tight_layout()
     plt.show()
 
@@ -76,8 +78,8 @@ def main():
     path = os.path.join(BASE_DIR, "src/testfiles", "hellraiser_subs.xml")
     # subs = get_subtitles(path)
     # print(subs)
-    print(subtitle_sentiment(path, "Warriner"))
-    # plot_stuff(path)
+    # print(subtitle_sentiment(path, "NRC"))
+    plot_stuff(path)
 
 
 if __name__ == '__main__':

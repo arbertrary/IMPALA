@@ -3,29 +3,19 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 
 
-orig = "scream_man_TODO.xml"
-new = "scream.xml"
+orig = "the-matrix_man.xml"
+new = "the-matrix.xml"
 
 tree1 = ET.parse(orig)
-tree2 = ET.parse(new)
 
 for scene in tree1.findall("scene"):
-    start = scene.get("start")
-    end= scene.get("end")
-    id1 = scene.get("id")
 
-    if start:
-        for s in tree2.findall("scene"):
-            if id1 == s.get("id"):
-                s.set("start", start)
-                s.set("end", end)
-            else:
-                continue
+    for s in tree1.findall("scene"):
+        s.set("start", "")
+        s.set("end", "")
 
-    else:
-        continue
 
-tree2.write("scream_man.xml")
+tree1.write(new)
 
 # path = "star-wars-4copy2.xml"
 #

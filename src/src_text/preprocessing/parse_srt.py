@@ -70,8 +70,8 @@ def main():
     """main"""
     # srt_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.srt")
     # dest_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    srt_path = os.path.join(BASE_DIR, "src/testfiles/" "hellboy_subs.srt")
-    dest_path = os.path.join(BASE_DIR, "src/testfiles/", "hellboy_subs.xml")
+    srt_path = os.path.join(BASE_DIR, "src/testfiles/" "scream_subs.srt")
+    dest_path = os.path.join(BASE_DIR, "src/testfiles/", "scream_subs.xml")
     srt_to_xml(srt_path, dest_path)
 
 

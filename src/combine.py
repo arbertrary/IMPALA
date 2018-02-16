@@ -21,84 +21,32 @@ from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def combine(scenes, energy, duration):
-    """
-    :param scenes = list of scenes + their timecodes\n
-    :param energy = np.array of RMS energy of the audio file\n
-    :param duration = duration of the audio
-    """
-    intervals = np.array_split(energy, len(energy) / 100)
-    intervals = [np.mean(e) for e in intervals]
-
-    block_duration = np.divide(duration, len(intervals))
-    en_times = []
-    time = 0
-    i = 1
-    while i <= len(intervals):
-        en_times.append(time)
-        time += block_duration
-        i += 1
-
-    arousal_values = get_arousal_values(scenes)
-    x = []
-    i = 0
-    for s in scenes:
-        l = len(s[1])
-        i += l
-        x.append(i)
-
-    times = [a[0] for a in arousal_values]
-    scores = [a[1] for a in arousal_values]
-    times = dates.date2num(times)
-
-    plt.figure()
-    plt.subplot(211)
-    plt.title("Blade: Audio (RMS Energy)")
-    plt.xlabel("seconds")
-
-    plt.semilogy(en_times, intervals, color="b", label="RMS Energy")
-    plt.legend(loc='best')
-
-    plt.xlim(0, en_times[-1])
-
-    plt.subplot(212)
-    # plt.title("Hellraiser: Sentiment (Arousal Scores)")
-    plt.title("Blade: Sentiment (Arousal Scores)")
-    plt.ylabel("Arousal")
-    plt.xlabel("time")
-    plt.plot_date(times, scores, fmt="-", color="b", label="Arousal")
-    plt.legend(loc='best')
-    plt.xlim(times[0], times[-1])
-    plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
-    plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
-
-    # plt.subplot(313)
-    # plt.plot(x, arousal_values_wo_time)
-    # plt.ylabel("Arousal")
-    # plt.xlabel("Scenes in Abh. ihrer Länge")
-    # plt.xlim(x[0], x[-1])
-
-    plt.tight_layout()
-
-    plt.show()
-
-
 def sliding_window(inputlist: list, win_size: int):
     windows = []
+    current_mean = []
+
     for index, score in enumerate(inputlist):
         if index + win_size <= len(inputlist):
             temp = inputlist[index:index + win_size]
-            windows.append(np.mean(temp))
+            current_mean = np.mean(temp)
+            windows.append(current_mean)
         else:
             temp = inputlist[index:]
-            windows.append(np.mean(temp))
+            i = len(temp)
+            while i < win_size:
+                temp.append(current_mean)
+                i += 1
+            current_mean = np.mean(temp)
+            windows.append(current_mean)
 
     return windows
 
 
-def combine_subs(audio_csv: str, subs_path: str):
-    # sentiment = subtitle_sentiment(subs_path)
-    sentiment = scenesentiment_for_man_annotated(subs_path, "Warriner")
+def combine(audio_csv: str, xml_path: str, scenelevel=True):
+    if scenelevel:
+        sentiment = scenesentiment_for_man_annotated(xml_path, "Warriner")
+    else:
+        sentiment = subtitle_sentiment(xml_path)
 
     sent_time = [s[0] for s in sentiment]
     arousal = [s[2].get("arousal") for s in sentiment]
@@ -116,14 +64,19 @@ def combine_subs(audio_csv: str, subs_path: str):
     print("sentiment time: ", sent_time[-1])
 
     audio_windows = sliding_window(audio, 10)
-    # sentiment_windows = sliding_window(arousal, 20)
-    sentiment_windows = arousal
+
+    if scenelevel:
+        sentiment_windows = arousal
+    else:
+        sentiment_windows = sliding_window(arousal, 10)
+
     fig, ax1 = plt.subplots()
+    # fig.set_canvas(plt.gcf().canvas)
     color = 'tab:red'
     ax1.set_xlabel('time (s)')
     ax1.set_ylabel('Audio Energy', color=color)
-    # ax1.semilogy(times, audio_windows, color=color)
-    ax1.plot(audio_time, audio_windows, color=color)
+    ax1.semilogy(audio_time, audio_windows, color=color)
+    # ax1.plot(audio_time, audio_windows, color=color)
     ax1.tick_params(axis='y', labelcolor=color)
 
     ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
@@ -132,7 +85,7 @@ def combine_subs(audio_csv: str, subs_path: str):
     ax2.set_ylabel('Arousal', color=color)  # we already handled the x-label with ax1
     ax2.plot(sent_time, sentiment_windows, color=color)
     ax2.tick_params(axis='y', labelcolor=color)
-    fig.tight_layout()
+    # fig.tight_layout()
     # plt.figure()
     # plt.subplot(311)
     # plt.title('Blade: Audio (RMS Energy)')
@@ -156,34 +109,44 @@ def combine_subs(audio_csv: str, subs_path: str):
 
     # plt.tight_layout()
     plt.show()
+    # img_path = os.path.basename(xml_path).replace(".xml", ".png")
+    # fig.savefig(img_path, dpi=300, format="png")
+
 
 
 def main():
     time = datetime.now()
 
     script1 = os.path.join(BASE_DIR, "manually_annotated", "blade_man.xml")
-    script2 = os.path.join(BASE_DIR, "manually_annotated", "star-wars-4_man.xml")
-    script3 = os.path.join(BASE_DIR, "manually_annotated", "scream_man.xml")
-    script4 = os.path.join(BASE_DIR, "manually_annotated", "hellboy_man.xml")
-    script5 = os.path.join(BASE_DIR, "manually_annotated", "predator_man.xml")
+    script2 = os.path.join(BASE_DIR, "manually_annotated", "hellboy_man.xml")
+    script3 = os.path.join(BASE_DIR, "manually_annotated", "predator_man.xml")
+    script4 = os.path.join(BASE_DIR, "manually_annotated", "scream_man.xml")
+    script5 = os.path.join(BASE_DIR, "manually_annotated", "star-wars-4_man.xml")
 
-    subs1 = os.path.join(BASE_DIR, "data_subtitles/", "hellboy_subs.xml")
-    subs2 = os.path.join(BASE_DIR, "data_subtitles/", "blade_subs.xml")
-    subs3 = os.path.join(BASE_DIR, "data_subtitles/", "star-wars-4_subs.xml")
+    subs1 = os.path.join(BASE_DIR, "data_subtitles/", "blade_subs.xml")
+    subs2 = os.path.join(BASE_DIR, "data_subtitles/", "hellboy_subs.xml")
+    subs3 = os.path.join(BASE_DIR, "data_subtitles/", "predator_subs.xml")
     subs4 = os.path.join(BASE_DIR, "data_subtitles/", "scream_subs.xml")
-    subs5 = os.path.join(BASE_DIR, "data_subtitles/", "predator_subs.xml")
+    subs5 = os.path.join(BASE_DIR, "data_subtitles/", "star-wars-4_subs.xml")
 
     audio1 = os.path.join(BASE_DIR, "audio_csvfiles", "blade.csv")
-    audio2 = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
-    audio3 = os.path.join(BASE_DIR, "audio_csvfiles", "scream_ger.csv")
-    audio4 = os.path.join(BASE_DIR, "audio_csvfiles", "hellboy.csv")
-    audio5 = os.path.join(BASE_DIR, "audio_csvfiles", "predator.csv")
-
+    audio2 = os.path.join(BASE_DIR, "audio_csvfiles", "hellboy.csv")
+    audio3 = os.path.join(BASE_DIR, "audio_csvfiles", "predator.csv")
+    audio4 = os.path.join(BASE_DIR, "audio_csvfiles", "scream_ger.csv")
+    audio5 = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
 
     time2 = datetime.now()
     diff = time2 - time
 
-    combine_subs(audio2, script2)
+
+    data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5)]
+    data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5)]
+
+    for d in data:
+        combine(d[1], d[0])
+
+    for d in data2:
+        combine(d[1], d[0], scenelevel=False)
     print(diff)
 
 

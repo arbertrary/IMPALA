@@ -81,34 +81,34 @@ def scenesentiment_for_man_annotated(xml_path: str, sent_method: str = "Warriner
 def plot_scenesentiment(sentiment_values: List):
     x = [s[0] for s in sentiment_values]
     # x = dates.date2num(x)
-    yv = [v[2].get("valence") for v in sentiment_values]
-    ya = [a[2].get("arousal") for a in sentiment_values]
-    yd = [d[2].get("dominance") for d in sentiment_values]
+    yv = [v[2].get("anger") for v in sentiment_values]
+    ya = [a[2].get("joy") for a in sentiment_values]
+    yd = [d[2].get("negative") for d in sentiment_values]
+
 
     plt.subplot(311)
-    # plt.plot_date(x, yv, fmt="-")
     plt.plot(x, yv)
     plt.xlim(x[0], x[-1])
-    plt.ylabel("Valence")
+    plt.ylabel("anger")
     plt.xlabel("time")
-    # plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
-    # plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
 
     plt.subplot(312)
-    plt.ylabel("Arousal")
+    plt.ylabel("joy")
     plt.xlabel("time")
-    # plt.plot_date(x, ya, "-")
     plt.plot(x, ya)
     plt.xlim(x[0], x[-1])
-    # plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
-    # plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
 
     plt.subplot(313)
-    plt.ylabel("Dominace")
+    plt.ylabel("negative")
     plt.xlabel("time")
-    # plt.plot_date(x, yd, "-")
     plt.plot(x, yd)
     plt.xlim(x[0], x[-1])
+
+
+
+
+    # nur mal zum Merken, damit ich nicht wieder googlen muss
+    # plt.plot_date(x, yd, "-")
     # plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
     # plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
 
@@ -122,7 +122,7 @@ def main():
     sw = os.path.join(path, "star-wars-4_annotated.xml")
     sw_man = os.path.join(path, "star-wars-4_man.xml")
 
-    a = scenesentiment_for_man_annotated(sw_man, "Warriner")
+    a = scenesentiment_for_man_annotated(sw_man, "NRC")
     plot_scenesentiment(a)
     print(a)
 
