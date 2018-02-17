@@ -1,0 +1,107 @@
+--- 5mv_raw_max_audio_max_sentiment.csv ---
+sample size:  884
+spearman:  -0.1466566848636259 
+p-value:  1.1980688507348811e-05
+pearson:  -0.13710094957075394 
+p-value:  4.316266743433873e-05
+kendall's tau:  -0.0970200913957046 
+p-value:  1.8980202413052554e-05 
+
+--- 5mv_raw_mean_audio_mean_sentiment.csv ---
+sample size:  884
+spearman:  -0.12550076991583925 
+p-value:  0.00018334324070636682
+pearson:  -0.1327728596112404 
+p-value:  7.50823305291765e-05
+kendall's tau:  -0.08406724772811729 
+p-value:  0.0001828650994172781 
+
+--- blade_raw_max_audio_max_sentiment.csv ---
+sample size:  73
+spearman:  0.06282775077411211 
+p-value:  0.5974593384464937
+pearson:  -0.039880767221398765 
+p-value:  0.7376299046601213
+kendall's tau:  0.03316890295716108 
+p-value:  0.6817048358453657 
+
+--- blade_raw_mean_audio_mean_sentiment.csv ---
+sample size:  73
+spearman:  -0.3684437862520055 
+p-value:  0.0013399374752643956
+pearson:  -0.3964656063192814 
+p-value:  0.0005158251365692325
+kendall's tau:  -0.2488584474885845 
+p-value:  0.0018421434762691106 
+
+--- hellboy_raw_max_audio_max_sentiment.csv ---
+sample size:  176
+spearman:  0.05096272060393651 
+p-value:  0.501764532126495
+pearson:  0.0507771072640789 
+p-value:  0.5033256076360257
+kendall's tau:  0.030875324346645066 
+p-value:  0.54996713119289 
+
+--- hellboy_raw_mean_audio_mean_sentiment.csv ---
+sample size:  176
+spearman:  -0.15720228923618756 
+p-value:  0.037193230071144806
+pearson:  -0.10232521087560702 
+p-value:  0.1765755734858458
+kendall's tau:  -0.10519480519480519 
+p-value:  0.038197828595697564 
+
+--- predator_raw_max_audio_max_sentiment.csv ---
+sample size:  113
+spearman:  0.19056343324699937 
+p-value:  0.04320108485746729
+pearson:  0.1715938440087005 
+p-value:  0.06917266004193916
+kendall's tau:  0.11652660056830069 
+p-value:  0.0705056238515257 
+
+--- predator_raw_mean_audio_mean_sentiment.csv ---
+sample size:  113
+spearman:  -0.09855945172666179 
+p-value:  0.298998487703726
+pearson:  -0.06077975360024846 
+p-value:  0.522494112703823
+kendall's tau:  -0.06573957016434892 
+p-value:  0.30196562753740064 
+
+--- scream_raw_max_audio_max_sentiment.csv ---
+sample size:  95
+spearman:  0.1060127493394376 
+p-value:  0.3065488740416825
+pearson:  0.09816961584671864 
+p-value:  0.3439135785468459
+kendall's tau:  0.07184776192147806 
+p-value:  0.3102223986393928 
+
+--- scream_raw_mean_audio_mean_sentiment.csv ---
+sample size:  95
+spearman:  -0.06315811575527108 
+p-value:  0.5431560605504513
+pearson:  -0.06101873168558117 
+p-value:  0.55692735929159
+kendall's tau:  -0.04524582848400098 
+p-value:  0.5160464817627313 
+
+--- starwars_raw_max_audio_max_sentiment.csv ---
+sample size:  427
+spearman:  -0.23531659590555848 
+p-value:  8.763590625878369e-07
+pearson:  -0.225493414555199 
+p-value:  2.517751463652931e-06
+kendall's tau:  -0.15694325892057695 
+p-value:  1.7582124358103508e-06 
+
+--- starwars_raw_mean_audio_mean_sentiment.csv ---
+sample size:  427
+spearman:  -0.10590715683442944 
+p-value:  0.028654647928939785
+pearson:  -0.1102839897642148 
+p-value:  0.02265624989017904
+kendall's tau:  -0.07047348894223328 
+p-value:  0.029610457551322023 

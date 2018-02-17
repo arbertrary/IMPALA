@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import librosa
+from scipy import stats
 from src.src_audio.audio import normalize
 from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
@@ -36,10 +37,10 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
         temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[1]]
         if len(temp_audio) != 0:
             # Variante 1: avg über die gesamte szene
-            # scene_audio.append(np.mean(temp_audio))
+            scene_audio.append(np.mean(temp_audio))
 
             # variante 2: max der gesamten szene
-            scene_audio.append(np.max(temp_audio))
+            # scene_audio.append(np.max(temp_audio))
 
             # variante 3: average des 75% percentile
             # perc = np.percentile(temp_audio, 75)
@@ -48,7 +49,6 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
 
             # variante 4: min der gesamten szene
             # scene_audio.append(np.min(temp_audio))
-
 
     print(len(scene_audio))
     scene_audio = librosa.util.normalize(np.array(scene_audio))
@@ -79,7 +79,8 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
             elif sent_method == "Vader":
                 writer.writerow(["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"])
         for i, t in enumerate(scene_audio):
-            level = "nan"
+            level = t
+            # level = "nan"
             # if t <= 1:
             #     level = "silent"
             # elif 1 < t <= 2:
@@ -89,12 +90,12 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
             # else:
             #     level = "loud"
 
-            if t <= 0.33:
-                level = "silent"
-            elif 0.33 < t <= 0.66:
-                level = "medium"
-            else:
-                level = "loud"
+            # if t <= 0.33:
+            #     level = "silent"
+            # elif 0.33 < t <= 0.66:
+            #     level = "medium"
+            # else:
+            #     level = "loud"
 
             # if t <= 0.25:
             #     level = "silent"
@@ -120,6 +121,60 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
             elif sent_method == "Vader":
                 writer.writerow(
                     [start, end, score.get("neg"), score.get("neu"), score.get("pos"), score.get("compound"), level])
+
+
+def correlation(csv_path: str, raw=False):
+    with open(csv_path) as csvfile:
+        reader = csv.reader(csvfile)
+
+        sentiment = []
+        audio = []
+
+        for row in reader:
+            if row[0] != "Scene Start":
+                if row[4] == "nan":
+                    continue
+
+                # sentiment.append(float("%.3f"%(float(row[3]))))
+                sentiment.append(float(row[2]))
+
+                if raw:
+                    # audio.append(float("%.3f"%(float(row[-1]))))
+                    audio.append(float(row[-1]))
+                else:
+                    if row[-1] == "silent":
+                        audio.append(1)
+                    elif row[-1] == "medium":
+                        audio.append(2)
+                    elif row[-1] == "loud":
+                        audio.append(3)
+                    else:
+                        audio.append(4)
+
+        # plt.suptitle("Histogram: Distribution of Arousal and Audio Energy of 5 movies")
+        # plt.subplot(211)
+        # plt.hist(sentiment)
+        # plt.ylabel("Number of Data Points")
+        # plt.xlabel("Arousal")
+        # plt.subplot(212)
+        # plt.hist(audio)
+        # plt.ylabel("Number of Data Points")
+        # plt.xlabel("Audio Energy")
+        # plt.show()
+
+        # print(csv_path)
+        # rho = stats.mstats.spearmanr(sentiment, audio)
+        rho = stats.spearmanr(sentiment, audio)
+        # p = stats.mstats.pearsonr(sentiment, audio)
+        p = stats.pearsonr(sentiment,audio)
+        # print(p)
+        # tau = stats.mstats.kendalltau(sentiment, audio)
+        tau = stats.kendalltau(sentiment, audio)
+        # print("spearman: ", rho)
+        # print("pearson: ", p)
+        # print("kendall's tau: ", tau, "\n")
+
+        return rho, p, tau, len(sentiment)
 
 
 def plot_from_csv(csv_path: str, classes: int):
@@ -170,12 +225,11 @@ def plot_from_csv(csv_path: str, classes: int):
     else:
         x = [aro_silent, aro_med, aro_loud, aro_loudest]
 
-
     name = os.path.basename(csv_path).split("_")[0]
-    plt.suptitle("Max arousal, Max audio energy of "+ name)
+    plt.suptitle("Max arousal, Max audio energy of " + name)
     plt.boxplot(x, vert=False, showmeans=True, meanline=True)
     # plt.scatter(x2,y)
-    plt.ylabel("Audio Level ("+str(classes)+ " = highest)")
+    plt.ylabel("Audio Level (" + str(classes) + " = highest)")
     plt.xlabel("Arousal")
     # plt.tight_layout()
     # plt.figure()
@@ -195,8 +249,9 @@ def plot_from_csv(csv_path: str, classes: int):
     # plt.xlabel("Dominance")
     # plt.ylabel("Audio level")
     # plt.show()
-    img_path = csv_path.replace(".csv",".png")
+    img_path = csv_path.replace(".csv", ".png")
     plt.savefig(img_path, dpi=300)
+
 
 def main():
     script1 = os.path.join(BASE_DIR, "manually_annotated", "blade_man.xml")
@@ -218,13 +273,35 @@ def main():
     audio5 = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
 
     data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5)]
-    data2 = [(subs1, audio1),(subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5)]
+    data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5)]
 
-    csvpath = "starwars_audio_arousal.csv"
-    create_audio_sent_csv(audio5, script5, dest_csv_path=csvpath)
+    # csvpath = "blade_raw_mean_audio_mean_sentiment.csv"
+    # create_audio_sent_csv(audio1, script1, dest_csv_path=csvpath)
     # for d in data:
-    #     create_audio_sent_csv(d[1], d[0], dest_csv_path="5mv4classes_mean_dominance_audio.csv", sent_method="Warriner")
-    plot_from_csv(csvpath, 3)
+    #     create_audio_sent_csv(d[1], d[0], dest_csv_path="5mv_raw_mean_audio_mean_sentiment.csv", sent_method="Warriner")
+    # plot_from_csv(csvpath, 3)
+
+
+    test = []
+    for file in os.listdir(os.path.join(BASE_DIR, "audiosent_csv_raw")):
+        path = os.path.join(BASE_DIR, "audiosent_csv_raw", file)
+
+        if path == "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/audiosent_csvfiles/experimental":
+            continue
+        # print(file)
+        corr = correlation(path, raw=True)
+        test.append((corr, file))
+
+    test.sort(key=lambda x: x[1])
+
+    for t in test:
+        print("---",t[1],"---")
+        print("sample size: ", t[0][-1])
+        print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
+        print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
+        print("kendall's tau: ", t[0][2][0],"\np-value: ", t[0][2][1], "\n")
+        # print(t)
+
 
 if __name__ == '__main__':
     main()
