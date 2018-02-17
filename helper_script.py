@@ -229,19 +229,26 @@ def check_scene_count():
             print(filename, len(scenes))
 
 
+
+
+
 def main():
-    # scene_counter("data_xml")
-    # check_scene_count()
-    """ist halt die main, wofür will pylint da einen docstring"""
-    # subs_dir = os.path.join(BASE_DIR, "data_subtitles")
-    # print(subs_dir)
+    with open("correlation.txt") as file:
+        text = file.read().split("\n\n")
 
-    # check_all_subs(subs_dir)
-    # move_subtitles()
+        temp = []
+        for t in text:
+            temp.append(t.split("\n"))
 
-    # annotate_genres_to_subs()
-    # genre_set()
-    get_all_genres("all_moviescripts")
+        temp.sort(key=lambda x: x[0])
+
+    # test = list(map(lambda y: "\n\n".join(list(map(lambda x: "\n".join(x), y))), temp))
+    test = "\n\n".join(list(map(lambda x: "\n".join(x), temp)))
+    print(test)
+
+    with open("correlation_alph.txt", "w") as newfile:
+        newfile.write(test)
+
 
 
 if __name__ == '__main__':

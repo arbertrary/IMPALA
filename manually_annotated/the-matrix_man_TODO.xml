@@ -1381,7 +1381,7 @@
          <s id="sc26d25s1">Nasty little bugger, ain't it?</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc27" start="00:25:01">
+   <scene end="" id="sc27" start="">
       <sceneheader>INT.  HOTEL LAFAYETTE</sceneheader>
       <meta id="sc27m1">
          <s id="sc27m1s1">The van stops in a deserted alley behind a forgotten hotel.</s>
@@ -1415,7 +1415,7 @@
          <s id="sc27d5s2">He's waiting.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc28" start="">
+   <scene end="00:25:40" id="sc28" start="00:25:25">
       <sceneheader>INT.  HOTEL LAFAYETTE</sceneheader>
       <meta id="sc28m1">
          <s id="sc28m1s1">It is a place of putrefying elegance, a rotting host of urban maggotry.</s>
@@ -1434,7 +1434,7 @@
          <s id="sc28d2s3">He knows more than you can possibly imagine.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc29" start="">
+   <scene end="00:32:24" id="sc29" start="00:25:41">
       <sceneheader>INT.  ROOM 1313</sceneheader>
       <meta id="sc29m1">
          <s id="sc29m1s1">Across the room, a dark figure stares out the tall windows veiled with decaying lace.</s>
@@ -1819,7 +1819,7 @@
          <s id="sc29m73s1">His eyes tear with mirror, rolling up and closing as a high-pitched ELECTRIC SCREAM ERUPTS in the headphones -- It is a piercing SHRIEK like a computer calling to another computer -- Neo's body arches in agony and we are pulled like we were pulled into the holes of the phone Sucked into his SCREAM and swallowed by darkness.</s>
       </meta>
    </scene>
-   <scene end="" id="sc30" start="">
+   <scene end="00:34:31" id="sc30" start="00:32:25">
       <sceneheader>INT.  POWER PLANT - CLOSE ON MAN'S BODY</sceneheader>
       <meta id="sc30m1">
          <s id="sc30m1s1">Floating in a womb-red amnion.</s>
@@ -1858,7 +1858,7 @@
          <s id="sc30m1s34">The other connective hoses snap free and snake away as -- The back of the unit opens and a tremendous vacuum, like an airplane door opening, sucks the gelatin and then Neo into a black hole.</s>
       </meta>
    </scene>
-   <scene end="" id="sc31" start="">
+   <scene end="00:35:02" id="sc31" start="00:34:32">
       <sceneheader>INT.  WASTE LINE</sceneheader>
       <meta id="sc31m1">
          <s id="sc31m1s1">The pipe is a waste disposal system and Neo falls, sliding with the clot of gelatin.</s>
@@ -1867,7 +1867,7 @@
          <s id="sc31m1s4">The metallic cable then lifts, pulling him up into the belly of the futuristic flying nachine, hovering inside the sewer main line.</s>
       </meta>
    </scene>
-   <scene end="" id="sc32" start="">
+   <scene end="00:36:38" id="sc32" start="00:35:03">
       <sceneheader>INT.  HOVERCRAFT</sceneheader>
       <meta id="sc32m1">
          <s id="sc32m1s1">The metal harness opens and drops the half-conscious Neo onto the floor.</s>
@@ -1947,7 +1947,7 @@
          <s id="sc32d15s2">The answers are coming.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc33" start="">
+   <scene end="00:37:50" id="sc33" start="00:36:39">
       <sceneheader>INT.  NEO'S ROOM</sceneheader>
       <meta id="sc33m1">
          <s id="sc33m1s1">Neo wakes up from a deep sleep, feeling better.</s>
@@ -1989,7 +1989,7 @@
          <s id="sc33d8s1">I'll show you.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc34" start="">
+   <scene end="00:38:00" id="sc34" start="00:37:51">
       <sceneheader>INT.  HOVERCRAFT</sceneheader>
       <meta id="sc34m1">
          <s id="sc34m1s1">Like a sleepwalker, Neo follows Morpheus through the ship.</s>
@@ -2006,7 +2006,7 @@
          <s id="sc34m2s1">They climb a ladder up to the main deck.</s>
       </meta>
    </scene>
-   <scene end="" id="sc35" start="">
+   <scene end="00:39:24" id="sc35" start="00:38:01">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc35m1">
          <s id="sc35m1s1">Everyone is there.</s>
@@ -2070,7 +2070,7 @@
          <s id="sc35m9s3">He relaxes, opening his eyes as we pull back to a feeling of weightlessness inside another place --</s>
       </meta>
    </scene>
-   <scene end="" id="sc36" start="">
+   <scene end="00:43:55" id="sc36" start="00:39:25">
       <sceneheader>INT.  CONSTRUCT</sceneheader>
       <meta id="sc36m1">
          <s id="sc36m1s1">Neo is standing in an empty, blank-white space.</s>
@@ -2238,7 +2238,7 @@
          <s id="sc36d25s3">I want out!</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc37" start="">
+   <scene end="00:44:22" id="sc37" start="00:43:56">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc37m1">
          <s id="sc37m1s1">His eyes snap open and he thrashes against the chair, trying to rip the cable from the back of his neck.</s>
@@ -2269,7 +2269,7 @@
          <s id="sc37m5s1">Vomiting violently, Neo pitches forward and blacks out.</s>
       </meta>
    </scene>
-   <scene end="" id="sc38" start="">
+   <scene end="00:46:34" id="sc38" start="00:44:23">
       <sceneheader>INT.  NEO'S ROOM</sceneheader>
       <meta id="sc38m1">
          <s id="sc38m1s1">He blinks, regaining consciousness.</s>
@@ -2348,7 +2348,7 @@
          <s id="sc39m1s1">There is no morning; there is only darkness and then the fluorescent light sticks flicker on.</s>
       </meta>
    </scene>
-   <scene end="" id="sc40" start="">
+   <scene end="00:47:51" id="sc40" start="00:46:40">
       <sceneheader>INT.  NEO'S ROOM</sceneheader>
       <meta id="sc40m1">
          <s id="sc40m1s1">Neo is awake in his bed, staring up at the lights.</s>
@@ -2401,7 +2401,7 @@
          <s id="sc40d8s4">We got a lot to do so let's get to it.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc41" start="">
+   <scene end="00:48:40" id="sc41" start="00:47:52">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc41m1">
          <s id="sc41m1s1">Neo is plugged in, hanging in one of the suspension chairs.</s>
@@ -2447,7 +2447,7 @@
          <s id="sc41d7s1">Hell yes!</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc42" start="">
+   <scene end="00:49:12" id="sc42" start="00:48:41">
       <sceneheader>INT.  MAIN DECK - CLOSE ON COMPUTER MONITOR - LATER</sceneheader>
       <meta id="sc42m1">
          <s id="sc42m1s1">as grey pixels slowly fill a small, half-empty box.</s>
@@ -2481,7 +2481,7 @@
          <s id="sc42d4s1">Show me.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc43" start="">
+   <scene end="00:50:10" id="sc43" start="00:49:13">
       <sceneheader>INT.  DOJO</sceneheader>
       <meta id="sc43m1">
          <s id="sc43m1s1">They are standing in a very sparse japanese-style dojo.</s>
@@ -2508,7 +2508,7 @@
          <s id="sc44m1s2">Tank monitors their life systems noticing that Neo is wildly and chaotically lit up as opposed to the slow and steady rhythm of Morpheus.</s>
       </meta>
    </scene>
-   <scene end="" id="sc45" start="">
+   <scene end="00:50:32" id="sc45" start="00:50:28">
       <sceneheader>INT.  MESS HALL</sceneheader>
       <meta id="sc45m1">
          <s id="sc45m1s1">Dinner is up.</s>
@@ -2523,7 +2523,7 @@
          <s id="sc45m2s1">All at once they bolt for the door.</s>
       </meta>
    </scene>
-   <scene end="" id="sc46" start="">
+   <scene end="00:52:20" id="sc46" start="00:50:11">
       <sceneheader>INT.  DOJO</sceneheader>
       <meta id="sc46m1">
          <s id="sc46m1s1">Neo's face is knotted, teeth clenched, as he hurls himself at Morpheus.</s>
@@ -2571,7 +2571,7 @@
          <s id="sc46m8s1">Their fists fly with  pneumatic speed.</s>
       </meta>
    </scene>
-   <scene end="" id="sc47" start="">
+   <scene end="00:52:30" id="sc47" start="00:52:21">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc47m1">
          <s id="sc47m1s1">Everyone is gathered behind Tank, watching the fight, like watching a game of Mortal Combat.</s>
@@ -2591,7 +2591,7 @@
          <s id="sc47d4s2">He's got to be the one.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc48" start="">
+   <scene end="00:53:17" id="sc48" start="00:53:05">
       <sceneheader>INT.  DOJO</sceneheader>
       <meta id="sc48m1">
          <s id="sc48m1s1">The speed of the blows rises like a drum solo that seems impossible to sustain.</s>
@@ -2600,7 +2600,7 @@
          <s id="sc48m1s4">Finally a single blow catches Morpheus on the side of the head, knocking his glasses off.</s>
       </meta>
    </scene>
-   <scene end="" id="sc49" start="">
+   <scene end="00:53:20" id="sc49" start="00:53:18">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc49m1">
          <s id="sc49m1s1">There are several gasps.</s>
@@ -2609,7 +2609,7 @@
          <s id="sc49d1s1">I don't believe it!</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc50" start="">
+   <scene end="00:54:15" id="sc50" start="00:53:21">
       <sceneheader>INT.  DOJO</sceneheader>
       <meta id="sc50m1">
          <s id="sc50m1s1">Morpheus rubs his face.</s>
@@ -2681,7 +2681,7 @@
          <s id="sc50m12s2">Runs.</s>
       </meta>
    </scene>
-   <scene end="" id="sc51" start="">
+   <scene end="00:54:27" id="sc51" start="00:54:19">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc51m1">
          <s id="sc51m1s1">They are transfixed.</s>
@@ -2712,7 +2712,7 @@
          <s id="sc51d7s1">Come on.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc52" start="">
+   <scene end="00:54:55" id="sc52" start="00:54:28">
       <sceneheader>EXT.  ROOFTOP</sceneheader>
       <meta id="sc52m1">
          <s id="sc52m1s1">Summoning every ounce of strength in his legs, Neo launches himself into the air in a single maniacal shriek -- But comes up drastically short.</s>
@@ -2732,7 +2732,7 @@
          <s id="sc52d2s1">If you never know failure, how can you know success?</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc53" start="">
+   <scene end="00:55:35" id="sc53" start="00:54:56">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc53m1">
          <s id="sc53m1s1">They break up.</s>
@@ -2765,10 +2765,10 @@
          <s id="sc53d6s1">The body cannot live without the mind.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc54" start="">
+   <scene end="00:56:05" id="sc54" start="00:55:36">
       <sceneheader>INT.  NEO'S ROOM</sceneheader>
       <meta id="sc54m1">
-         <s id="sc54m1s1">Trinity enters from the hall, carrying a try of food.</s>
+         <s id="sc54m1s1">Trinity enters from the hall, carrying a tray of food.</s>
       </meta>
       <dialogue id="sc54d1" name="TRINITY">
          <s id="sc54d1s1">Neo, I saved you some dinner --</s>
@@ -2788,7 +2788,7 @@
          <s id="sc55m1s2">Everyone is asleep.</s>
       </meta>
    </scene>
-   <scene end="" id="sc56" start="">
+   <scene end="01:03:40" id="sc56" start="01:01:09">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc56m1">
          <s id="sc56m1s1">The core glows with monitor light.</s>
@@ -2872,7 +2872,7 @@
          <s id="sc56d14s1">Welcome to the real world!</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc57" start="">
+   <scene end="01:05:15" id="sc57" start="01:03:41">
       <sceneheader>INT.  RESTAURANT (MATRIX) - NIGHT</sceneheader>
       <meta id="sc57m1">
          <s id="sc57m1s1">CHAMBER MUSIC and the ambiance of wealth soak the room as we watch a serrated knife saw through a thick, gorgeous steak.</s>
@@ -2962,7 +2962,7 @@
          <s id="sc57d15s1">Morpheus.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc58" start="">
+   <scene end="01:07:04" id="sc58" start="01:05:24">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc58m1">
          <s id="sc58m1s1">Sweat dapples his lip as Neo snaps out of the construct coma.</s>
@@ -3053,7 +3053,7 @@
          <s id="sc59m1s1">An El train.</s>
       </meta>
    </scene>
-   <scene end="" id="sc60" start="">
+   <scene end="01:07:46" id="sc60" start="01:07:20">
       <sceneheader>INT.  HOTEL LAFAYETTE (MATRIX) - DAY</sceneheader>
       <meta id="sc60m1">
          <s id="sc60m1s1">The room is empty, heavy curtains covering windows.</s>
@@ -3073,7 +3073,7 @@
          <s id="sc60d2s2">Let's go.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc61" start="">
+   <scene end="01:09:18" id="sc61" start="01:08:55">
       <sceneheader>INT.  STAIRWELL (MATRIX) - DAY</sceneheader>
       <meta id="sc61m1">
          <s id="sc61m1s1">Neo follows the others down the stairwell that winds around an antique elevator shaft.</s>
@@ -3244,7 +3244,7 @@
          <s id="sc67d5s2">Among the other Potentials.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc68" start="">
+   <scene end="01:12:32" id="sc68" start="01:11:00">
       <sceneheader>INT.  ROOM OF POTENTIALS (MATRIX) - DAY</sceneheader>
       <meta id="sc68m1">
          <s id="sc68m1s1">Neo enters and finally understands the attention given to his age.</s>
@@ -3287,7 +3287,7 @@
          <s id="sc68m5s1">Spoon Boy smiles.</s>
       </meta>
    </scene>
-   <scene end="" id="sc69" start="">
+   <scene end="01:12:45" id="sc69" start="01:12:33">
       <sceneheader>INT.  SHRINE (MATRIX) - DAY</sceneheader>
       <meta id="sc69m1">
          <s id="sc69m1s1">Neo enters nervously.</s>
@@ -3310,7 +3310,7 @@
          <s id="sc69m3s2">A second door leads into --</s>
       </meta>
    </scene>
-   <scene end="" id="sc70" start="">
+   <scene end="01:17:25" id="sc70" start="01:12:46">
       <sceneheader>INT.  ORACLE'S CHAMBERS (MATRIX) - DAY</sceneheader>
       <meta id="sc70m1">
          <s id="sc70m1s1">It looks like a suburban tract house.</s>
@@ -3463,7 +3463,7 @@
          <s id="sc70d29s1">Make a believer out of you yet.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc71" start="">
+   <scene end="01:17:49" id="sc71" start="01:17:26">
       <sceneheader>INT.  ANTECHAMBER (MATRIX) - DAY</sceneheader>
       <meta id="sc71m1">
          <s id="sc71m1s1">Morpheus rises from a bench as the Priestess escorts Neo out.</s>
@@ -3516,7 +3516,7 @@
          <s id="sc74m1s1">Apoc opens the side door and they enter the hotel.</s>
       </meta>
    </scene>
-   <scene end="" id="sc75" start="">
+   <scene end="01:18:05" id="sc75" start="01:18:00">
       <sceneheader>INT.  ROOM 1313 (MATRIX) - DAY</sceneheader>
       <meta id="sc75m1">
          <s id="sc75m1s1">Mouse's CELLULAR RINGS.</s>
@@ -3537,7 +3537,7 @@
          <s id="sc75d4s1">Let's get to work.</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc76" start="">
+   <scene end="01:18:51" id="sc76" start="01:18:30">
       <sceneheader>INT.  HOTEL LAFAYETTE (MATRIX) - DAY</sceneheader>
       <meta id="sc76m1">
          <s id="sc76m1s1">Light filters down the throat of the building through a caged skylight at the top of the open elevator shaft.</s>
@@ -3553,7 +3553,7 @@
          <s id="sc76m2s1">Those words stop the others dead in their tracks.</s>
       </meta>
    </scene>
-   <scene end="" id="sc77" start="">
+   <scene end="01:18:54" id="sc77" start="01:18:52">
       <sceneheader>INT.  MAIN DECK</sceneheader>
       <meta id="sc77m1">
          <s id="sc77m1s1">The monitors suddenly glitch as though the Matrix had an electronic seizure.</s>
@@ -3563,7 +3563,7 @@
          <s id="sc77d1s2">Oh, shit!</s>
       </dialogue>
    </scene>
-   <scene end="" id="sc78" start="">
+   <scene end="01:19:20" id="sc78" start="01:18:55">
       <sceneheader>INT.  HOTEL LAFAYETTE (MATRIX) - DAY</sceneheader>
       <meta id="sc78m1">
          <s id="sc78m1s1">Trinity turns around, her face tight.</s>
