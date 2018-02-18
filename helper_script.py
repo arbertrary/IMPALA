@@ -196,13 +196,6 @@ def genre_set():
         print(genreset)
 
 
-def move_subs_with_genres():
-    for film in os.listdir("all_subtitles"):
-        path = os.path.join("all_subtitles", film)
-
-        tree = ET.parse(path)
-
-
 def scene_counter(directory):
     with open("filmliste.txt") as f:
         filme = f.read().splitlines(keepends=False)
@@ -229,25 +222,19 @@ def check_scene_count():
             print(filename, len(scenes))
 
 
-
-
-
 def main():
-    with open("correlation.txt") as file:
-        text = file.read().split("\n\n")
+    path = os.path.join(BASE_DIR, "manually_annotated/the-matrix_man_TODO.xml")
 
-        temp = []
-        for t in text:
-            temp.append(t.split("\n"))
+    tree = ET.parse(path)
+    scenes = tree.findall("scene")
+    for scene in scenes:
+        if scene.get("start") == "" and scene.get("end") == "":
+            # scene.pop("start")
+            # scene.pop("end")
+            del scene.attrib["start"]
+            del scene.attrib["end"]
 
-        temp.sort(key=lambda x: x[0])
-
-    # test = list(map(lambda y: "\n\n".join(list(map(lambda x: "\n".join(x), y))), temp))
-    test = "\n\n".join(list(map(lambda x: "\n".join(x), temp)))
-    print(test)
-
-    with open("correlation_alph.txt", "w") as newfile:
-        newfile.write(test)
+    tree.write(path)
 
 
 
