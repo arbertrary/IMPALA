@@ -1,0 +1,38 @@
+-- 5 movies Vader correlation --
+
+neg:
+spearman:  0.12401503973794774 
+p-value:  0.0002116665590304538
+pearson:  0.1338918155676841 
+p-value:  6.272970691019453e-05
+kendall's tau:  0.08619974504194299 
+p-value:  0.0001620242182308772 
+
+neu: 
+spearman:  -0.06618588377080828 
+p-value:  0.04864625798087643
+pearson:  -0.052000587613073745 
+p-value:  0.12151456496718441
+kendall's tau:  -0.04658893599716898 
+p-value:  0.03930730607205958 
+
+
+pos:
+spearman:  -0.18538278194478489 
+p-value:  2.624456430557926e-08
+pearson:  -0.1106199113691264 
+p-value:  0.0009603426017607339
+kendall's tau:  -0.1274034892766878 
+p-value:  5.4781668678924205e-08 
+
+
+compound:
+spearman:  -0.03850495169062533 
+p-value:  0.25169975923603105
+pearson:  -0.08233987655668423 
+p-value:  0.01411255481195902
+kendall's tau:  -0.02769793936400879 
+p-value:  0.22050075407846292 
+
+
+obviously sind bei neutral und compound keine vernünftige korrelation möglich weil's in beide richtungen geht

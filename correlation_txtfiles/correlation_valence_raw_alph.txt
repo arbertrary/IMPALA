@@ -1,3 +1,5 @@
+# Whereas with arousal I chose to take max audio and max arousal, here because i wanted the same correlation (see hypothesis) i took max audio and min valence
+
 --- 5mv_raw_max_audio_max_sentiment.csv ---
 sample size:  884
 spearman:  -0.12855045295347703 
@@ -16,14 +18,14 @@ p-value:  8.897795018868497e-08
 kendall's tau:  -0.11799342761291173 
 p-value:  1.5074314831724798e-07 
 
---- blade_raw_max_audio_max_sentiment.csv ---
+--- blade_raw_max_audio_min_sentiment.csv ---
 sample size:  73
-spearman:  0.09249798541743567 
-p-value:  0.43637249059132377
-pearson:  -0.11802066574381662 
-p-value:  0.3200059681652667
-kendall's tau:  0.0606354889728939 
-p-value:  0.4539574791887351 
+spearman:  -0.17682058761777253 
+p-value:  0.13452351134029383
+pearson:  -0.22238836672756246 
+p-value:  0.05861806828528743
+kendall's tau:  -0.11611441025428136 
+p-value:  0.15212041032073936 
 
 --- blade_raw_mean_audio_mean_sentiment.csv ---
 sample size:  73
@@ -34,14 +36,14 @@ p-value:  1.1220084383034491e-05
 kendall's tau:  -0.2656012176560122 
 p-value:  0.0008870086938484857 
 
---- hellboy_raw_max_audio_max_sentiment.csv ---
+--- hellboy_raw_max_audio_min_sentiment.csv ---
 sample size:  176
-spearman:  0.1002862588003873 
-p-value:  0.1854006118979135
-pearson:  0.08802279225772904 
-p-value:  0.24536152297945038
-kendall's tau:  0.06165862108782083 
-p-value:  0.2287465369108771 
+spearman:  -0.1654915586973814 
+p-value:  0.028163065717854558
+pearson:  -0.17101094086332005 
+p-value:  0.023250481118209453
+kendall's tau:  -0.11421319631036995 
+p-value:  0.02527201323126097 
 
 --- hellboy_raw_mean_audio_mean_sentiment.csv ---
 sample size:  176
@@ -52,14 +54,14 @@ p-value:  0.021874562723930454
 kendall's tau:  -0.14532467532467533 
 p-value:  0.004190788053918685 
 
---- predator_raw_max_audio_max_sentiment.csv ---
+--- predator_raw_max_audio_min_sentiment.csv ---
 sample size:  113
-spearman:  0.011463251295291889 
-p-value:  0.9040830340989224
-pearson:  0.05920946963765671 
-p-value:  0.5333147206375097
-kendall's tau:  0.004494194155097599 
-p-value:  0.9445395709059979 
+spearman:  -0.07812389952887737 
+p-value:  0.410796456285737
+pearson:  -0.0745272072969121 
+p-value:  0.4327360078600193
+kendall's tau:  -0.05141394396557982 
+p-value:  0.42266110259279666 
 
 --- predator_raw_mean_audio_mean_sentiment.csv ---
 sample size:  113
@@ -70,14 +72,14 @@ p-value:  0.7998496838173829
 kendall's tau:  0.006637168141592919 
 p-value:  0.9169985235058712 
 
---- scream_raw_max_audio_max_sentiment.csv ---
+--- scream_raw_max_audio_min_sentiment.csv ---
 sample size:  95
-spearman:  0.017056709637228648 
-p-value:  0.869684443544726
-pearson:  0.016185497641482628 
-p-value:  0.8762864651866689
-kendall's tau:  0.011659610196542014 
-p-value:  0.8693977823121227 
+spearman:  -0.1537524632242454 
+p-value:  0.13685225772862167
+pearson:  -0.16391459416145418 
+p-value:  0.11245658169534273
+kendall's tau:  -0.09976954906928324 
+p-value:  0.1566654852469325 
 
 --- scream_raw_mean_audio_mean_sentiment.csv ---
 sample size:  95
@@ -88,14 +90,14 @@ p-value:  0.06764922276993252
 kendall's tau:  -0.17446808510638298 
 p-value:  0.012260533773344514 
 
---- starwars_raw_max_audio_max_sentiment.csv ---
+--- starwars_raw_max_audio_min_sentiment.csv ---
 sample size:  427
-spearman:  -0.17739957276918591 
-p-value:  0.0002293334586781265
-pearson:  -0.15695113476127123 
-p-value:  0.0011382568482999663
-kendall's tau:  -0.12189391545590506 
-p-value:  0.00021706732947171075 
+spearman:  -0.006944758970571029 
+p-value:  0.8862211505188684
+pearson:  0.0017700272132570205 
+p-value:  0.9709087028823993
+kendall's tau:  -0.006743183894569012 
+p-value:  0.8379647957143004 
 
 --- starwars_raw_mean_audio_mean_sentiment.csv ---
 sample size:  427
