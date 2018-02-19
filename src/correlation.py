@@ -37,10 +37,10 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
         temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[1]]
         if len(temp_audio) != 0:
             # Variante 1: avg über die gesamte szene
-            # scene_audio.append(np.mean(temp_audio))
+            scene_audio.append(np.mean(temp_audio))
 
             # variante 2: max der gesamten szene
-            scene_audio.append(np.max(temp_audio))
+            # scene_audio.append(np.max(temp_audio))
 
             # variante 3: average des 75% percentile
             # perc = np.percentile(temp_audio, 75)
@@ -260,7 +260,7 @@ def main():
     script4 = os.path.join(BASE_DIR, "manually_annotated", "scream_man.xml")
     script5 = os.path.join(BASE_DIR, "manually_annotated", "star-wars-4_man.xml")
     script6 = os.path.join(BASE_DIR, "manually_annotated", "the-matrix_man.xml")
-    
+
     subs1 = os.path.join(BASE_DIR, "data_subtitles/", "blade_subs.xml")
     subs2 = os.path.join(BASE_DIR, "data_subtitles/", "hellboy_subs.xml")
     subs3 = os.path.join(BASE_DIR, "data_subtitles/", "predator_subs.xml")
@@ -272,40 +272,43 @@ def main():
     audio3 = os.path.join(BASE_DIR, "audio_csvfiles", "predator.csv")
     audio4 = os.path.join(BASE_DIR, "audio_csvfiles", "scream_ger.csv")
     audio5 = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
+    audio6 = os.path.join(BASE_DIR, "audio_csvfiles", "the-matrix.csv")
 
-    data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5)]
+    data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5), (script6, audio6)]
     data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5)]
 
-    # csvpath = "starwars_raw_max_audio_min_sentiment.csv"
-    # create_audio_sent_csv(audio5, script5, dest_csv_path=csvpath)
-    # for d in data:
-    #     create_audio_sent_csv(d[1], d[0], dest_csv_path="5mv_raw_mean_audio_mean_Vader.csv", sent_method="Vader")
+    # csvpath = "matrix_raw_mean_audio_mean_sentiment.csv"
+    # create_audio_sent_csv(audio6, script6, dest_csv_path=csvpath)
+    for d in data:
+        create_audio_sent_csv(d[1], d[0], dest_csv_path="6mv_raw_mean_audio_mean_Vader.csv", sent_method="Vader")
     # plot_from_csv(csvpath, 3)
 
-    test = []
-    for file in os.listdir(os.path.join(BASE_DIR, "audiosent_csv_raw")):
-        path = os.path.join(BASE_DIR, "audiosent_csv_raw", file)
-
-        if path == "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/audiosent_csvfiles/experimental":
-            continue
-        # print(file)
-        corr = correlation(path, raw=True)
-        test.append((corr, file))
+    # test = []
+    # for file in os.listdir(os.path.join(BASE_DIR, "audiosent_csv_raw")):
+    #     path = os.path.join(BASE_DIR, "audiosent_csv_raw", file)
+    #
+    #     if path == "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/audiosent_csvfiles/experimental":
+    #         continue
+    #     # print(file)
+    #     corr = correlation(path, raw=True)
+    #     test.append((corr, file))
     #
     test = []
-    test.append(correlation("5mv_raw_mean_audio_mean_Vader.csv", raw=True))
+    test.append(correlation("6mv_raw_mean_audio_mean_Vader.csv", raw=True))
     test.sort(key=lambda x: x[1])
+    print(test)
     for t in test:
-        print(t[0])
-        print(t[1])
-        print(t[2])
+        print("---", "6mv_raw_mean_audio_mean_Vader.csv", "---")
+        print("spearman: ", t[0][0], "\np-value: ", t[0][1])
+        print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+        print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
 
-    for t in test:
-        print("---", t[1], "---")
-        print("sample size: ", t[0][-1])
-        print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
-        print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
-        print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
+    # for t in test:
+    #     print("---", t[1], "---")
+    #     print("sample size: ", t[0][-1])
+    #     print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
+    #     print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
+    #     print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
 
 
 if __name__ == '__main__':

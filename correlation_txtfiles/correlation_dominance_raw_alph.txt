@@ -1,5 +1,14 @@
 # Whereas with arousal I chose to take max audio and max arousal, here because i wanted the same correlation (see hypothesis) i took max audio and min dominance
 
+--- 6mv_raw_mean_audio_mean_Warriner.csv ---
+sample size: 1027
+spearman:  -0.14475517508440167 
+p-value:  3.195293926434358e-06
+pearson:  -0.1501053890418438 
+p-value:  1.352046040972489e-06
+kendall's tau:  -0.09817478802191257 
+p-value:  2.4657322387388476e-06 
+
 --- 5mv_raw_max_audio_max_sentiment.csv ---
 sample size:  884
 spearman:  -0.1466566848636259 
@@ -106,4 +115,13 @@ p-value:  0.028654647928939785
 pearson:  -0.1102839897642148 
 p-value:  0.02265624989017904
 kendall's tau:  -0.07047348894223328 
-p-value:  0.029610457551322023 
+p-value:  0.029610457551322023
+
+--- matrix_raw_mean_audio_mean_sentiment.csv ---
+sample size: 143
+spearman:  -0.20978632114730947 
+p-value:  1.4883926988260755e-08
+pearson:  -0.23067221819043243 
+p-value:  4.330362474750533e-10
+kendall's tau:  -0.1459738982316932 
+p-value:  6.324543614281183e-09 

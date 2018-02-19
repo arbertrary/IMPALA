@@ -52,9 +52,9 @@ class ImpalaSent:
         else:
 
             # Variante 1: avg über die gesamte szene
-            # valence = np.mean(valence_scores)
-            # arousal = np.mean(arousal_scores)
-            # dominance = np.mean(dominance_scores)
+            valence = np.mean(valence_scores)
+            arousal = np.mean(arousal_scores)
+            dominance = np.mean(dominance_scores)
 
             # Variante 2: max der gesamten Szene
             # valence = np.max(valence_scores)
@@ -67,9 +67,9 @@ class ImpalaSent:
             # arousal = np.mean(temp)
 
             # variante 4: min der gesamten szene
-            arousal = np.min(arousal_scores)
-            valence = np.min(valence_scores)
-            dominance = np.min(dominance_scores)
+            # arousal = np.min(arousal_scores)
+            # valence = np.min(valence_scores)
+            # dominance = np.min(dominance_scores)
 
             sent_dict = {"valence": valence, "arousal": arousal, "dominance": dominance}
             return sent_dict

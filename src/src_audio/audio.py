@@ -170,10 +170,10 @@ def main():
     audio3 = os.path.join(BASE_DIR, "data_audio", "scream_ger.wav")
     audio4 = os.path.join(BASE_DIR, "data_audio", "hellboy.wav")
     audio5 = os.path.join(BASE_DIR, "data_audio", "predator.wav")
-
+    audio6 = os.path.join(BASE_DIR, "data_audio", "the-matrix.wav")
 
     # test = partition_audiofeature(audio2)
-    data = [audio1, audio2, audio3, audio4, audio5]
+    data = [audio6]
     time = datetime.now()
 
     for d in data:

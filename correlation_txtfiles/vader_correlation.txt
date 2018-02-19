@@ -16,7 +16,6 @@ p-value:  0.12151456496718441
 kendall's tau:  -0.04658893599716898 
 p-value:  0.03930730607205958 
 
-
 pos:
 spearman:  -0.18538278194478489 
 p-value:  2.624456430557926e-08
@@ -24,7 +23,6 @@ pearson:  -0.1106199113691264
 p-value:  0.0009603426017607339
 kendall's tau:  -0.1274034892766878 
 p-value:  5.4781668678924205e-08 
-
 
 compound:
 spearman:  -0.03850495169062533 
@@ -36,3 +34,21 @@ p-value:  0.22050075407846292
 
 
 obviously sind bei neutral und compound keine vernünftige korrelation möglich weil's in beide richtungen geht
+
+6 movies:
+
+neg:
+spearman:  0.14630775050263967 
+p-value:  2.3872331837422795e-06
+pearson:  0.15301330070911595 
+p-value:  7.963152393674824e-07
+kendall's tau:  0.10160209499008904 
+p-value:  1.6281246549204453e-06 
+
+pos:
+spearman:  -0.1773470176965205 
+p-value:  9.863221551188093e-09
+pearson:  -0.11125710158745353 
+p-value:  0.0003447021835783297
+kendall's tau:  -0.12319263572241788 
+p-value:  1.4481117745747843e-08 

@@ -1,3 +1,12 @@
+--- 6mv_raw_mean_audio_mean_Warriner.csv ---
+sample size: 1027
+spearman:  0.2591128783819794 
+p-value:  3.223729500207201e-17
+pearson:  0.202293233655508 
+p-value:  6.040876120108311e-11
+kendall's tau:  0.17568446127258983 
+p-value:  3.4469532201249106e-17 
+
 --- 5mv_raw_max_audio_max_sentiment.csv ---
 sample size:  884
 spearman:  0.023021554969056605 
@@ -105,3 +114,12 @@ pearson:  0.12887815083044565
 p-value:  0.00766553631991336
 kendall's tau:  0.12173827060327637 
 p-value:  0.00017156423533005736 
+
+--- matrix_raw_mean_audio_mean_sentiment.csv ---
+sample size: 143
+spearman:  0.2677328540004596 
+p-value:  0.0012260641404759744
+pearson:  0.28224252497573765 
+p-value:  0.0006373175775090795
+kendall's tau:  0.1842805082241702 
+p-value:  0.0010926617084192896 
