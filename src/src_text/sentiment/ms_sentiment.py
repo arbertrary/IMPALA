@@ -4,9 +4,20 @@ from datetime import datetime
 from typing import List, Tuple, Dict
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from src.src_text.sentiment.sentiment import ImpalaSent
-from src.src_text.preprocessing.moviescript import get_full_scenes, get_scenes_man_annotated
+from src.src_text.preprocessing.moviescript import get_full_scenes, get_scenes_man_annotated, get_all_sentences
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
+
+
+def sentence_sentiment(xml_path: str):
+    sentiment = ImpalaSent()
+    sentences = get_all_sentences(xml_path)
+    scores = []
+    for s in sentences:
+        score = sentiment.score(s)
+        scores.append(score)
+
+    return scores
 
 
 def scenesentiment(xml_path: str) -> List[Tuple[float, float, float, float]]:
@@ -85,7 +96,6 @@ def plot_scenesentiment(sentiment_values: List):
     ya = [a[2].get("joy") for a in sentiment_values]
     yd = [d[2].get("negative") for d in sentiment_values]
 
-
     plt.subplot(311)
     plt.plot(x, yv)
     plt.xlim(x[0], x[-1])
@@ -103,9 +113,6 @@ def plot_scenesentiment(sentiment_values: List):
     plt.xlabel("time")
     plt.plot(x, yd)
     plt.xlim(x[0], x[-1])
-
-
-
 
     # nur mal zum Merken, damit ich nicht wieder googlen muss
     # plt.plot_date(x, yd, "-")

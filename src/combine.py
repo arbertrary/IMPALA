@@ -113,7 +113,6 @@ def combine(audio_csv: str, xml_path: str, scenelevel=True):
     # fig.savefig(img_path, dpi=300, format="png")
 
 
-
 def main():
     time = datetime.now()
 
@@ -137,7 +136,6 @@ def main():
 
     time2 = datetime.now()
     diff = time2 - time
-
 
     data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5)]
     data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5)]

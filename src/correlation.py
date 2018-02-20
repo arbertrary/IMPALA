@@ -10,10 +10,11 @@ import csv
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import soundfile as sf
 import librosa
 from scipy import stats
-from src.src_audio.audio import normalize
-from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
+from src.src_audio.audio import normalize, partition_audiofeature
+from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated, sentence_sentiment
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
@@ -51,7 +52,7 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
             # scene_audio.append(np.min(temp_audio))
 
     print(len(scene_audio))
-    scene_audio = librosa.util.normalize(np.array(scene_audio))
+    # scene_audio = librosa.util.normalize(np.array(scene_audio))
     # scene_audio = normalize(scene_audio)
     data = pd.DataFrame(scene_audio)
     print(data.describe())
@@ -123,7 +124,7 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
                     [start, end, score.get("neg"), score.get("neu"), score.get("pos"), score.get("compound"), level])
 
 
-def correlation(csv_path: str, raw=False):
+def correlation(csv_path: str, column:int, raw=False):
     with open(csv_path) as csvfile:
         reader = csv.reader(csvfile)
 
@@ -132,11 +133,11 @@ def correlation(csv_path: str, raw=False):
 
         for row in reader:
             if row[0] != "Scene Start":
-                if row[4] == "nan":
+                if row[2] == "nan":
                     continue
 
                 # sentiment.append(float("%.3f"%(float(row[3]))))
-                sentiment.append(float(row[4]))
+                sentiment.append(float(row[column]))
 
                 if raw:
                     # audio.append(float("%.3f"%(float(row[-1]))))
@@ -254,61 +255,61 @@ def plot_from_csv(csv_path: str, classes: int):
 
 
 def main():
-    script1 = os.path.join(BASE_DIR, "manually_annotated", "blade_man.xml")
-    script2 = os.path.join(BASE_DIR, "manually_annotated", "hellboy_man.xml")
-    script3 = os.path.join(BASE_DIR, "manually_annotated", "predator_man.xml")
-    script4 = os.path.join(BASE_DIR, "manually_annotated", "scream_man.xml")
-    script5 = os.path.join(BASE_DIR, "manually_annotated", "star-wars-4_man.xml")
-    script6 = os.path.join(BASE_DIR, "manually_annotated", "the-matrix_man.xml")
+    script1 = os.path.join(BASE_DIR, "data/manually_annotated", "blade_man.xml")
+    script2 = os.path.join(BASE_DIR, "data/manually_annotated", "hellboy_man.xml")
+    script3 = os.path.join(BASE_DIR, "data/manually_annotated", "predator_man.xml")
+    script4 = os.path.join(BASE_DIR, "data/manually_annotated", "scream_man.xml")
+    script5 = os.path.join(BASE_DIR, "data/manually_annotated", "star-wars-4_man.xml")
+    script6 = os.path.join(BASE_DIR, "data/manually_annotated", "the-matrix_man.xml")
 
-    subs1 = os.path.join(BASE_DIR, "data_subtitles/", "blade_subs.xml")
-    subs2 = os.path.join(BASE_DIR, "data_subtitles/", "hellboy_subs.xml")
-    subs3 = os.path.join(BASE_DIR, "data_subtitles/", "predator_subs.xml")
-    subs4 = os.path.join(BASE_DIR, "data_subtitles/", "scream_subs.xml")
-    subs5 = os.path.join(BASE_DIR, "data_subtitles/", "star-wars-4_subs.xml")
+    subs1 = os.path.join(BASE_DIR, "data/data_subtitles/", "blade_subs.xml")
+    subs2 = os.path.join(BASE_DIR, "data/data_subtitles/", "hellboy_subs.xml")
+    subs3 = os.path.join(BASE_DIR, "data/data_subtitles/", "predator_subs.xml")
+    subs4 = os.path.join(BASE_DIR, "data/data_subtitles/", "scream_subs.xml")
+    subs5 = os.path.join(BASE_DIR, "data/data_subtitles/", "star-wars-4_subs.xml")
+    subs6 = os.path.join(BASE_DIR, "data/data_subtitles/", "the-matrix_subs.xml")
 
-    audio1 = os.path.join(BASE_DIR, "audio_csvfiles", "blade.csv")
-    audio2 = os.path.join(BASE_DIR, "audio_csvfiles", "hellboy.csv")
-    audio3 = os.path.join(BASE_DIR, "audio_csvfiles", "predator.csv")
-    audio4 = os.path.join(BASE_DIR, "audio_csvfiles", "scream_ger.csv")
-    audio5 = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
-    audio6 = os.path.join(BASE_DIR, "audio_csvfiles", "the-matrix.csv")
+    audio1 = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
+    audio2 = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
+    audio3 = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
+    audio4 = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
+    audio5 = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
+    audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles", "the-matrix.csv")
 
-    data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5), (script6, audio6)]
-    data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5)]
+    data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
+            (script6, audio6)]
+    data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    # csvpath = "matrix_raw_mean_audio_mean_sentiment.csv"
-    # create_audio_sent_csv(audio6, script6, dest_csv_path=csvpath)
     # for d in data:
-    #     create_audio_sent_csv(d[1], d[0], dest_csv_path="6mv_raw_mean_audio_mean_Vader.csv", sent_method="Vader")
-    # plot_from_csv(csvpath, 3)
+    #     path = d[1].replace(".csv", "_test.csv")
+    #     create_audio_sent_csv(d[1], d[0], dest_csv_path=path, sent_method="Warriner")
 
     # test = []
-    # for file in os.listdir(os.path.join(BASE_DIR, "audiosent_csv_raw")):
-    #     path = os.path.join(BASE_DIR, "audiosent_csv_raw", file)
+    # for file in os.listdir(os.path.join(BASE_DIR, "data/audiosent_csvfiles")):
+    #     path = os.path.join(BASE_DIR, "data/audiosent_csvfiles", file)
     #
-    #     if path == "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/audiosent_csvfiles/experimental":
+    #     if path == "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/data/audiosent_csvfiles/experimental":
     #         continue
-    #     # print(file)
-    #     corr = correlation(path, raw=True)
-    #     test.append((corr, file))
+    #     elif "max" in path:
+    #         continue
+    #     corr = correlation(path, raw=False)
+    #     test.append((corr, path))
     #
-    test = []
-    test.append(correlation("6mv_raw_mean_audio_mean_Vader.csv", raw=True))
-    test.sort(key=lambda x: x[1])
-    print(test)
-    for t in test:
-        print("---", "6mv_raw_mean_audio_mean_Vader.csv", "---")
-        print("spearman: ", t[0][0], "\np-value: ", t[0][1])
-        print("pearson: ", t[1][0], "\np-value: ", t[1][1])
-        print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
-
     # for t in test:
     #     print("---", t[1], "---")
     #     print("sample size: ", t[0][-1])
     #     print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
     #     print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
     #     print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
+
+    test = []
+    test.append(correlation("star-wars-4_test.csv",3, raw=True))
+    test.sort(key=lambda x: x[1])
+    for t in test:
+        print("---", "blade_test.csv", "---")
+        print("spearman: ", t[0][0], "\np-value: ", t[0][1])
+        print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+        print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
 
 
 if __name__ == '__main__':

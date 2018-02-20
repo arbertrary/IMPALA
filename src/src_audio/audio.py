@@ -89,11 +89,8 @@ def partition_audiofeature(path: str, interval_seconds: float = 1.0):
     :param interval_seconds: duration of intervals in seconds as float. defaults to 1s"""
     duration = sf.info(path).duration
     energy = get_energy(path)
-    print(duration)
-    print(len(energy))
 
     time_per_frame = np.divide(duration, len(energy))
-    print(time_per_frame)
 
     energy_times = []
     time = 0
@@ -111,8 +108,6 @@ def partition_audiofeature(path: str, interval_seconds: float = 1.0):
             duration = 0
             temp = []
 
-    print(len(energy_times))
-    print(energy_times[-1])
     return energy_times
 
 
