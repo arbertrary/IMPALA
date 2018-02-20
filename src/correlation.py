@@ -279,8 +279,8 @@ def main():
 
     # csvpath = "matrix_raw_mean_audio_mean_sentiment.csv"
     # create_audio_sent_csv(audio6, script6, dest_csv_path=csvpath)
-    for d in data:
-        create_audio_sent_csv(d[1], d[0], dest_csv_path="6mv_raw_mean_audio_mean_Vader.csv", sent_method="Vader")
+    # for d in data:
+    #     create_audio_sent_csv(d[1], d[0], dest_csv_path="6mv_raw_mean_audio_mean_Vader.csv", sent_method="Vader")
     # plot_from_csv(csvpath, 3)
 
     # test = []

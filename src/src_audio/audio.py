@@ -166,24 +166,37 @@ def blockwise_processing(path):
 
 def main():
     audio1 = os.path.join(BASE_DIR, "data_audio", "blade.wav")
-    audio2 = os.path.join(BASE_DIR, "data_audio", "star-wars-4.wav")
-    audio3 = os.path.join(BASE_DIR, "data_audio", "scream_ger.wav")
-    audio4 = os.path.join(BASE_DIR, "data_audio", "hellboy.wav")
-    audio5 = os.path.join(BASE_DIR, "data_audio", "predator.wav")
+    audio2 = os.path.join(BASE_DIR, "data_audio", "hellboy.wav")
+    audio3 = os.path.join(BASE_DIR, "data_audio", "predator.wav")
+    audio4 = os.path.join(BASE_DIR, "data_audio", "scream_ger.wav")
+    audio5 = os.path.join(BASE_DIR, "data_audio", "star-wars-4.wav")
     audio6 = os.path.join(BASE_DIR, "data_audio", "the-matrix.wav")
+
+    audio1csv = os.path.join(BASE_DIR, "audio_csvfiles", "blade.csv")
+    audio2csv = os.path.join(BASE_DIR, "audio_csvfiles", "hellboy.csv")
+    audio3csv = os.path.join(BASE_DIR, "audio_csvfiles", "predator.csv")
+    audio4csv = os.path.join(BASE_DIR, "audio_csvfiles", "scream_ger.csv")
+    audio5csv = os.path.join(BASE_DIR, "audio_csvfiles", "star-wars-4.csv")
 
     # test = partition_audiofeature(audio2)
     data = [audio6]
     time = datetime.now()
 
-    for d in data:
-        name = os.path.split(d)[1].replace(".wav", ".csv")
-        energy = partition_audiofeature(d)
+    energy = get_energy(audio5)
 
-        with open(name, "w") as csvfile:
-            writer = csv.writer(csvfile)
-            for e in energy:
-                writer.writerow([e[0], e[1]])
+    with open(audio5csv) as csvfile:
+        reader = csv.reader(csvfile)
+        audio = []
+        time = []
+        for row in reader:
+            time.append(float(row[0]))
+            audio.append(float(row[1]))
+
+    plt.subplot(211)
+    plt.plot(energy)
+    plt.subplot(212)
+    plt.plot(time, audio)
+    plt.show()
 
     time2 = datetime.now()
     diff = time2 - time
