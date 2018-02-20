@@ -4,6 +4,7 @@ IMPALA: **I**dentifying **M**ovie **P**lot events by **A**na<b>L</b>ysing sentim
 **Project Structure:**
 ===
 **data:** All files that are used as data-input like subtitles, movie scripts, audio etc
+===
 
 **audio_csvfiles:** Raw audio energy of single movies partitioned into 1 second intervals
 
