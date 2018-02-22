@@ -124,7 +124,69 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
                     [start, end, score.get("neg"), score.get("neu"), score.get("pos"), score.get("compound"), level])
 
 
-def correlation(csv_path: str, column:int, raw=False):
+def create_raw_csv(script_path: str,audio_path: str, dest_csv_path: str):
+    ts = scenesentiment_for_man_annotated(script_path, "Warriner")
+    tsV = scenesentiment_for_man_annotated(script_path, "Vader")
+
+    partitions = []
+    with open(audio_path) as audio_csv:
+        reader = csv.reader(audio_csv)
+        for row in reader:
+            partitions.append((float(row[0]), float(row[1])))
+
+    scene_audio = []
+    for t in ts:
+        temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[1]]
+        if len(temp_audio) != 0:
+            scene_audio.append(np.mean(temp_audio))
+
+    scene_audio = librosa.util.normalize(np.array(scene_audio))
+    data = pd.DataFrame(scene_audio)
+    print(data.describe())
+    if not os.path.isfile(dest_csv_path):
+        mode = "w"
+    elif os.stat(dest_csv_path).st_size == 0:
+        mode = "w"
+    else:
+        mode = "a"
+
+    with open(dest_csv_path, mode) as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
+
+        if mode == "w":
+            writer.writerow(
+                ["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Vader neg", "Vader neu", "Vader pos",
+                 "Vader compound", "Audio Level"])
+        for i, t in enumerate(scene_audio):
+            # level = t
+
+            if t <= 0.33:
+                level = "silent"
+            elif 0.33 < t <= 0.66:
+                level = "medium"
+            else:
+                level = "loud"
+
+            # if t <= 0.25:
+            #     level = "silent"
+            # elif 0.25 < t <= 0.5:
+            #     level = "medium"
+            # elif 0.5 < t <= 0.75:
+            #     level = "loud"
+            # else:
+            #     level = "loudest"
+
+            start = ts[i][0]
+            end = ts[i][1]
+            score = ts[i][2]
+            scoreV = tsV[i][2]
+
+            writer.writerow(
+                [start, end, score.get("valence"), score.get("arousal"), score.get("dominance"), scoreV.get("neg"),
+                 scoreV.get("neu"), scoreV.get("pos"), scoreV.get("compound"), level])
+
+
+def correlation(csv_path: str, column: int, raw=False):
     with open(csv_path) as csvfile:
         reader = csv.reader(csvfile)
 
@@ -280,7 +342,10 @@ def main():
             (script6, audio6)]
     data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    # for d in data:
+    for d in data:
+        name = os.path.basename(d[1]).replace(".csv", "_3lv_mean_audio_sentiment.csv")
+        # name = "6mv_4lv_mean_audio_sentiment.csv"
+        create_raw_csv(d[0], d[1], name)
     #     path = d[1].replace(".csv", "_test.csv")
     #     create_audio_sent_csv(d[1], d[0], dest_csv_path=path, sent_method="Warriner")
 
@@ -302,14 +367,14 @@ def main():
     #     print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
     #     print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
 
-    test = []
-    test.append(correlation("star-wars-4_test.csv",3, raw=True))
-    test.sort(key=lambda x: x[1])
-    for t in test:
-        print("---", "blade_test.csv", "---")
-        print("spearman: ", t[0][0], "\np-value: ", t[0][1])
-        print("pearson: ", t[1][0], "\np-value: ", t[1][1])
-        print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
+    # test = []
+    # test.append(correlation("star-wars-4_test.csv", 3, raw=True))
+    # test.sort(key=lambda x: x[1])
+    # for t in test:
+    #     print("---", "blade_test.csv", "---")
+    #     print("spearman: ", t[0][0], "\np-value: ", t[0][1])
+    #     print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+    #     print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
 
 
 if __name__ == '__main__':
