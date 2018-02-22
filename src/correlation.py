@@ -10,7 +10,9 @@ import csv
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import random
 import soundfile as sf
+import itertools
 import librosa
 from scipy import stats
 from src.src_audio.audio import normalize, partition_audiofeature
@@ -20,7 +22,7 @@ from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str, sent_method: str = "Warriner"):
+def create_audio_sent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_method: str = "Warriner"):
     if sent_method not in {"Warriner", "NRC", "Vader"}:
         raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
 
@@ -34,12 +36,14 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
             partitions.append((float(row[0]), float(row[1])))
 
     scene_audio = []
+    scene_sentiment = []
     for t in ts:
         temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[1]]
+
         if len(temp_audio) != 0:
             # Variante 1: avg über die gesamte szene
             scene_audio.append(np.mean(temp_audio))
-
+            scene_sentiment.append(t)
             # variante 2: max der gesamten szene
             # scene_audio.append(np.max(temp_audio))
 
@@ -50,12 +54,10 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
 
             # variante 4: min der gesamten szene
             # scene_audio.append(np.min(temp_audio))
-
-    print(len(scene_audio))
     # scene_audio = librosa.util.normalize(np.array(scene_audio))
     # scene_audio = normalize(scene_audio)
     data = pd.DataFrame(scene_audio)
-    print(data.describe())
+    # print(data.describe())
 
     if not os.path.isfile(dest_csv_path):
         mode = "w"
@@ -63,9 +65,6 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
         mode = "w"
     else:
         mode = "a"
-
-    print(len(scene_audio))
-    print(len(ts))
 
     with open(dest_csv_path, mode) as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
@@ -80,7 +79,8 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
             elif sent_method == "Vader":
                 writer.writerow(["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"])
         for i, t in enumerate(scene_audio):
-            level = t
+
+            # level = t
             # level = "nan"
             # if t <= 1:
             #     level = "silent"
@@ -98,18 +98,18 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
             # else:
             #     level = "loud"
 
-            # if t <= 0.25:
-            #     level = "silent"
-            # elif 0.25 < t <= 0.5:
-            #     level = "medium"
-            # elif 0.5 < t <= 0.75:
-            #     level = "loud"
-            # else:
-            #     level = "loudest"
+            if t <= 0.25:
+                level = "silent"
+            elif 0.25 < t <= 0.5:
+                level = "medium"
+            elif 0.5 < t <= 0.75:
+                level = "loud"
+            else:
+                level = "loudest"
 
-            start = ts[i][0]
-            end = ts[i][1]
-            score = ts[i][2]
+            start = scene_sentiment[i][0]
+            end = scene_sentiment[i][1]
+            score = scene_sentiment[i][2]
 
             if sent_method == "Warriner":
                 writer.writerow([start, end, score.get("valence"), score.get("arousal"), score.get("dominance"), level])
@@ -122,68 +122,6 @@ def create_audio_sent_csv(audio_path: str, script_path: str, dest_csv_path: str,
             elif sent_method == "Vader":
                 writer.writerow(
                     [start, end, score.get("neg"), score.get("neu"), score.get("pos"), score.get("compound"), level])
-
-
-def create_raw_csv(script_path: str,audio_path: str, dest_csv_path: str):
-    ts = scenesentiment_for_man_annotated(script_path, "Warriner")
-    tsV = scenesentiment_for_man_annotated(script_path, "Vader")
-
-    partitions = []
-    with open(audio_path) as audio_csv:
-        reader = csv.reader(audio_csv)
-        for row in reader:
-            partitions.append((float(row[0]), float(row[1])))
-
-    scene_audio = []
-    for t in ts:
-        temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[1]]
-        if len(temp_audio) != 0:
-            scene_audio.append(np.mean(temp_audio))
-
-    scene_audio = librosa.util.normalize(np.array(scene_audio))
-    data = pd.DataFrame(scene_audio)
-    print(data.describe())
-    if not os.path.isfile(dest_csv_path):
-        mode = "w"
-    elif os.stat(dest_csv_path).st_size == 0:
-        mode = "w"
-    else:
-        mode = "a"
-
-    with open(dest_csv_path, mode) as csvfile:
-        writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
-
-        if mode == "w":
-            writer.writerow(
-                ["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Vader neg", "Vader neu", "Vader pos",
-                 "Vader compound", "Audio Level"])
-        for i, t in enumerate(scene_audio):
-            # level = t
-
-            if t <= 0.33:
-                level = "silent"
-            elif 0.33 < t <= 0.66:
-                level = "medium"
-            else:
-                level = "loud"
-
-            # if t <= 0.25:
-            #     level = "silent"
-            # elif 0.25 < t <= 0.5:
-            #     level = "medium"
-            # elif 0.5 < t <= 0.75:
-            #     level = "loud"
-            # else:
-            #     level = "loudest"
-
-            start = ts[i][0]
-            end = ts[i][1]
-            score = ts[i][2]
-            scoreV = tsV[i][2]
-
-            writer.writerow(
-                [start, end, score.get("valence"), score.get("arousal"), score.get("dominance"), scoreV.get("neg"),
-                 scoreV.get("neu"), scoreV.get("pos"), scoreV.get("compound"), level])
 
 
 def correlation(csv_path: str, column: int, raw=False):
@@ -224,6 +162,8 @@ def correlation(csv_path: str, column: int, raw=False):
         # plt.ylabel("Number of Data Points")
         # plt.xlabel("Audio Energy")
         # plt.show()
+        # random.shuffle(sentiment)
+        # random.shuffle(audio)
 
         # print(csv_path)
         # rho = stats.mstats.spearmanr(sentiment, audio)
@@ -342,30 +282,37 @@ def main():
             (script6, audio6)]
     data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    for d in data:
-        name = os.path.basename(d[1]).replace(".csv", "_3lv_mean_audio_sentiment.csv")
-        # name = "6mv_4lv_mean_audio_sentiment.csv"
-        create_raw_csv(d[0], d[1], name)
-    #     path = d[1].replace(".csv", "_test.csv")
-    #     create_audio_sent_csv(d[1], d[0], dest_csv_path=path, sent_method="Warriner")
+    # name = "6mv_4lv_mean_audio_Warriner.csv"
+    # for d in data:
+        # name = os.path.basename(d[1]).replace(".csv", "_3lv_mean_audio_Warriner.csv")
+        # create_audio_sent_csv(d[0], d[1], name, sent_method="Warriner")
+    # path = d[1].replace(".csv", "_test.csv")
+    # create_audio_sent_csv(d[1], d[0], dest_csv_path=path, sent_method="Warriner")
 
-    # test = []
-    # for file in os.listdir(os.path.join(BASE_DIR, "data/audiosent_csvfiles")):
-    #     path = os.path.join(BASE_DIR, "data/audiosent_csvfiles", file)
-    #
-    #     if path == "/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/data/audiosent_csvfiles/experimental":
-    #         continue
-    #     elif "max" in path:
-    #         continue
-    #     corr = correlation(path, raw=False)
-    #     test.append((corr, path))
-    #
-    # for t in test:
-    #     print("---", t[1], "---")
-    #     print("sample size: ", t[0][-1])
-    #     print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
-    #     print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
-    #     print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
+    test = []
+
+    for file in os.listdir(os.path.join(BASE_DIR, "data/audiosent_csvfiles")):
+        path = os.path.join(BASE_DIR, "data/audiosent_csvfiles", file)
+
+        if "6mv" in path:
+            if "Vader" in path:
+                ind = [2, 3, 4, 5]
+                names = ["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"]
+            else:
+                ind = [2, 3, 4]
+                names = ["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"]
+
+            for i in ind:
+                corr = correlation(path, i, raw=False)
+                test.append((corr, path, names[i]))
+
+    for t in test:
+        print("---", os.path.basename(t[1]), "---")
+        print(t[2])
+        # print("sample size: ", t[0][-1])
+        print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
+        # print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
+        print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
 
     # test = []
     # test.append(correlation("star-wars-4_test.csv", 3, raw=True))
