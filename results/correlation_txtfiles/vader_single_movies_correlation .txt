@@ -1,0 +1,168 @@
+--- predator_raw_mean_audio_Vader.csv ---
+neg
+spearman:  0.1011023800970857 
+p-value:  0.28664230137093927
+kendall's tau:  0.06939342998599193 
+p-value:  0.2780401815603022 
+
+--- predator_raw_mean_audio_Vader.csv ---
+neu
+spearman:  -0.03986923782213009 
+p-value:  0.6750185823559616
+kendall's tau:  -0.03914126452247207 
+p-value:  0.5398912450323013 
+
+--- predator_raw_mean_audio_Vader.csv ---
+pos
+spearman:  -0.13320340344412607 
+p-value:  0.15957450720009722
+kendall's tau:  -0.08968975482656703 
+p-value:  0.1715902612500645 
+
+--- predator_raw_mean_audio_Vader.csv ---
+compound
+spearman:  -0.04598642929461308 
+p-value:  0.6286249232082697
+kendall's tau:  -0.031826521052310236 
+p-value:  0.6179164993998527 
+
+--- blade_raw_mean_audio_Vader.csv ---
+neg
+spearman:  -0.04816866074388162 
+p-value:  0.6857091105388016
+kendall's tau:  -0.0349727318995333 
+p-value:  0.6669497581257277 
+
+--- blade_raw_mean_audio_Vader.csv ---
+neu
+spearman:  0.12915024653095714 
+p-value:  0.2761613655998174
+kendall's tau:  0.07265864163480325 
+p-value:  0.3653304720901559 
+
+--- blade_raw_mean_audio_Vader.csv ---
+pos
+spearman:  -0.21274613643168538 
+p-value:  0.07075001425950322
+kendall's tau:  -0.13912017282025618 
+p-value:  0.08563656651241598 
+
+--- blade_raw_mean_audio_Vader.csv ---
+compound
+spearman:  -0.053005171632346124 
+p-value:  0.6560501167960695
+kendall's tau:  -0.030546190288339783 
+p-value:  0.7031124395559574 
+
+--- star-wars-4_raw_mean_audio_Vader.csv ---
+neg
+spearman:  0.15708770873322642 
+p-value:  0.001067549101220986
+kendall's tau:  0.10952670105249851 
+p-value:  0.0010284892835365613 
+
+--- star-wars-4_raw_mean_audio_Vader.csv ---
+neu
+spearman:  -0.10506452790157736 
+p-value:  0.02919073895147936
+kendall's tau:  -0.0701484193200332 
+p-value:  0.03228769590952077 
+
+--- star-wars-4_raw_mean_audio_Vader.csv ---
+pos
+spearman:  -0.20048594571983283 
+p-value:  2.7558876309903208e-05
+kendall's tau:  -0.14282975723860958 
+p-value:  4.02396500406617e-05 
+
+--- star-wars-4_raw_mean_audio_Vader.csv ---
+compound
+spearman:  -0.09785427551307678 
+p-value:  0.04230745489929927
+kendall's tau:  -0.06992782154925524 
+p-value:  0.033157601601183 
+
+--- scream_ger_raw_mean_audio_Vader.csv ---
+neg
+spearman:  0.12218271454472247 
+p-value:  0.23817929157900003
+kendall's tau:  0.07789020744999706 
+p-value:  0.2645218130242357 
+
+--- scream_ger_raw_mean_audio_Vader.csv ---
+neu
+spearman:  0.04297703476253552 
+p-value:  0.6792153214730248
+kendall's tau:  0.027172791231587733 
+p-value:  0.6972192532246103 
+
+--- scream_ger_raw_mean_audio_Vader.csv ---
+pos
+spearman:  -0.2216477301164525 
+p-value:  0.030874816889247925
+kendall's tau:  -0.15021392367778222 
+p-value:  0.03276892408984485 
+
+--- scream_ger_raw_mean_audio_Vader.csv ---
+compound
+spearman:  -0.15965313186558566 
+p-value:  0.12224059989391221
+kendall's tau:  -0.1035062229389852 
+p-value:  0.1374392472691633 
+
+--- hellboy_raw_mean_audio_Vader.csv ---
+neg
+spearman:  0.17037684233243797 
+p-value:  0.023774514994685345
+kendall's tau:  0.11558933850194132 
+p-value:  0.02481279235758409 
+
+--- hellboy_raw_mean_audio_Vader.csv ---
+neu
+spearman:  0.0090535017383694 
+p-value:  0.9050734343623943
+kendall's tau:  0.00646923699152281 
+p-value:  0.8991505191951376 
+
+--- hellboy_raw_mean_audio_Vader.csv ---
+pos
+spearman:  -0.17294270779382862 
+p-value:  0.021714853695403553
+kendall's tau:  -0.11709909623590346 
+p-value:  0.024308718154531814 
+
+--- hellboy_raw_mean_audio_Vader.csv ---
+compound
+spearman:  -0.29027140083027847 
+p-value:  9.309281121030449e-05
+kendall's tau:  -0.20309868705112047 
+p-value:  6.848896213972318e-05 
+
+--- the-matrix_raw_mean_audio_Vader.csv ---
+neg
+spearman:  0.2814615261368352 
+p-value:  0.0006607625904563215
+kendall's tau:  0.18444024735686468 
+p-value:  0.0012712322215503462 
+
+--- the-matrix_raw_mean_audio_Vader.csv ---
+neu
+spearman:  -0.04677342275214599 
+p-value:  0.5790837872260198
+kendall's tau:  -0.03346017656081194 
+p-value:  0.5560427821719403 
+
+--- the-matrix_raw_mean_audio_Vader.csv ---
+pos
+spearman:  -0.21134981050210044 
+p-value:  0.01128056491660732
+kendall's tau:  -0.13571624061002432 
+p-value:  0.020720458178555563 
+
+--- the-matrix_raw_mean_audio_Vader.csv ---
+compound
+spearman:  -0.35423137838552016 
+p-value:  1.4222126041404371e-05
+kendall's tau:  -0.24435164599373452 
+p-value:  1.6874315532994042e-05 
+

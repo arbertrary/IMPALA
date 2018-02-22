@@ -80,7 +80,7 @@ def create_audio_sent_csv(script_path: str, audio_path: str, dest_csv_path: str,
                 writer.writerow(["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"])
         for i, t in enumerate(scene_audio):
 
-            # level = t
+            level = t
             # level = "nan"
             # if t <= 1:
             #     level = "silent"
@@ -98,14 +98,14 @@ def create_audio_sent_csv(script_path: str, audio_path: str, dest_csv_path: str,
             # else:
             #     level = "loud"
 
-            if t <= 0.25:
-                level = "silent"
-            elif 0.25 < t <= 0.5:
-                level = "medium"
-            elif 0.5 < t <= 0.75:
-                level = "loud"
-            else:
-                level = "loudest"
+            # if t <= 0.25:
+            #     level = "silent"
+            # elif 0.25 < t <= 0.5:
+            #     level = "medium"
+            # elif 0.5 < t <= 0.75:
+            #     level = "loud"
+            # else:
+            #     level = "loudest"
 
             start = scene_sentiment[i][0]
             end = scene_sentiment[i][1]
@@ -203,7 +203,7 @@ def plot_from_csv(csv_path: str, classes: int):
                 x2.append(float(row[3]))
                 x3.append(float(row[4]))
 
-                i = 3
+                i = 2
 
                 if row[-1] == "silent":
                     y.append(1)
@@ -251,9 +251,19 @@ def plot_from_csv(csv_path: str, classes: int):
     # plt.scatter(x3, y)
     # plt.xlabel("Dominance")
     # plt.ylabel("Audio level")
-    # plt.show()
-    img_path = csv_path.replace(".csv", ".png")
-    plt.savefig(img_path, dpi=300)
+    plt.show()
+    # img_path = csv_path.replace(".csv", ".png")
+    # plt.savefig(img_path, dpi=300)
+
+
+def main2():
+    for file in os.listdir(os.path.join(BASE_DIR, "data/audiosent_csvfiles")):
+        if file == "experimental" or not "normalized" in file:
+            continue
+
+        path = os.path.join(BASE_DIR, "data/audiosent_csvfiles", file)
+        print("\n", os.path.basename(path))
+        plot_from_csv(path, 4)
 
 
 def main():
@@ -284,17 +294,18 @@ def main():
 
     # name = "6mv_4lv_mean_audio_Warriner.csv"
     # for d in data:
-        # name = os.path.basename(d[1]).replace(".csv", "_3lv_mean_audio_Warriner.csv")
-        # create_audio_sent_csv(d[0], d[1], name, sent_method="Warriner")
+    #     name = os.path.basename(d[1]).replace(".csv", "_raw_mean_audio_Warriner.csv")
+    #     create_audio_sent_csv(d[0], d[1], name, sent_method="Warriner")
     # path = d[1].replace(".csv", "_test.csv")
     # create_audio_sent_csv(d[1], d[0], dest_csv_path=path, sent_method="Warriner")
 
     test = []
 
-    for file in os.listdir(os.path.join(BASE_DIR, "data/audiosent_csvfiles")):
-        path = os.path.join(BASE_DIR, "data/audiosent_csvfiles", file)
+    for file in os.listdir(os.path.join(BASE_DIR, "data/audiosent_csv_raw/single_movies")):
+        path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/single_movies", file)
 
-        if "6mv" in path:
+        # if "6mv" in path:
+        if "Vader" in path:
             if "Vader" in path:
                 ind = [2, 3, 4, 5]
                 names = ["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"]
@@ -303,7 +314,7 @@ def main():
                 names = ["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"]
 
             for i in ind:
-                corr = correlation(path, i, raw=False)
+                corr = correlation(path, i, raw=True)
                 test.append((corr, path, names[i]))
 
     for t in test:
@@ -325,4 +336,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main2()
