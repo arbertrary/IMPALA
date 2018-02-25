@@ -63,10 +63,19 @@ def get_subtitles(path: str) -> List[Tuple[float, float, str]]:
                 starttime = datetime.strptime(starttime_string, '%H:%M:%S,%f')
                 start = (starttime - beginning).total_seconds()
 
+
             elif child.tag == "time" and str(child.get("id")).endswith("E"):
                 endtime_string = child.get("value")
                 endtime = datetime.strptime(endtime_string, '%H:%M:%S,%f')
                 end = (endtime - beginning).total_seconds()
+                if start == 0 or end == 0:
+                    continue
+                else:
+                    sent_tuple = (start, end, dialogue.strip())
+                    temp_dialogue.append(sent_tuple)
+                    dialogue = ""
+                    start = 0
+                    end = 0
             else:
                 word = str(child.text)
                 if word.endswith("'"):
@@ -78,14 +87,14 @@ def get_subtitles(path: str) -> List[Tuple[float, float, str]]:
                         dialogue = dialogue + word + " "
 
         # if starttime_string == "" or endtime_string == "":
-        if start == 0 or end == 0:
-            continue
-        else:
-            sent_tuple = (start, end, dialogue.strip())
-            temp_dialogue.append(sent_tuple)
-            dialogue = ""
-            start = 0
-            end = 0
+        # if start == 0 or end == 0:
+        #     continue
+        # else:
+        #     sent_tuple = (start, end, dialogue.strip())
+        #     temp_dialogue.append(sent_tuple)
+        #     # dialogue = ""
+        #     start = 0
+        #     end = 0
 
     subtitles = __same_time_dialogue(temp_dialogue)
     return subtitles
@@ -151,7 +160,14 @@ def check_correctness(path: str):
 
 def main():
     path = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4_subs.xml")
-    print(get_subtitles(path))
+    # path = os.path.join(BASE_DIR, "src/testfiles", "blade_subs.xml")
+
+    # print(get_subtitles(path))
+
+    check_correctness(path)
+    test = get_subtitles(path)
+    for t in test:
+        print(t)
 
 
 if __name__ == '__main__':

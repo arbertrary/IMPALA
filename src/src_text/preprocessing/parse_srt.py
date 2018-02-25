@@ -36,14 +36,15 @@ def srt_to_xml(srt_path: str, dest_path: str):
                 time = lines[1].split(" --> ")
                 start = time[0].strip()
                 end = time[1].strip()
-                start_id = "T" + str(time_id) + "S"
-                end_id = "T" + str(time_id) + "E"
+
 
                 # print(start)
                 # print(end)
 
                 dialogue = sent_tokenize(" ".join(lines[2:]))
                 for sentence in dialogue:
+                    start_id = "T" + str(time_id) + "S"
+                    end_id = "T" + str(time_id) + "E"
                     w_id = 1
                     s = ET.SubElement(root, "s", id=str(s_id))
                     ET.SubElement(s, "time", id=start_id, value=start)
@@ -66,13 +67,76 @@ def srt_to_xml(srt_path: str, dest_path: str):
         f.write(xmlstr)
 
 
+
+def edit_opus_xml(xml_path: str):
+    tree = ET.parse(xml_path)
+
+    sentences = tree.findall("s")
+
+    current_start = ""
+    current_end = ""
+
+
+    for s in sentences:
+        s_id = s.get("id")
+        start_id = "T"+s_id+"S"
+        end_id = "T"+s_id+"E"
+
+        times = s.findall("time")
+        if len(times) == 2:
+            print(times[0].get("id"))
+            times[0].set("id", start_id)
+
+            times[1].set("id", end_id)
+            current_start = times[0].get("value")
+        elif len(times) == 1 and times[0].get("id").endswith("S"):
+            times[0].set("id", start_id)
+            current_start = times[0].get("value")
+        elif len(times) == 1 and times[0].get("id").endswith("E"):
+            times[0].set("id", end_id)
+            start = ET.Element("time", {"id": start_id, "value": current_start})
+            s.insert(0, start)
+        else:
+            start = ET.Element("time", {"id": start_id, "value": current_start})
+            s.insert(0, start)
+
+    # sentences = tree.findall("s")
+    # for s in reversed(sentences):
+    #     s_id = s.get("id")
+    #     start_id = "T" + s_id + "S"
+    #     end_id = "T" + s_id + "E"
+    #
+    #     times = s.findall("time")
+    #
+    #     if len(times) == 2:
+    #         # times[0].set("id", start_id)
+    #         # times[1].set("id", end_id)
+    #         # current_start = times[0].get("value")
+    #         current_end = times[1].get("value")
+    #         continue
+    #
+    #     elif len(times) == 1 and times[0].get("id").endswith("S"):
+    #         times[0].set("id", start_id)
+    #         end = ET.Element("time", {"id": end_id, "value": current_end})
+    #         print("test")
+    #
+    #         s.insert(len(list(s)),end)
+    #     elif len(times) == 1 and times[0].get("id").endswith("E"):
+    #         times[0].set("id", end_id)
+    #         current_end = times[0].get("value")
+    #     else:
+    #         end = ET.Element("time", {"id": end_id, "value": current_end})
+    #         s.insert(len(list(s)),end)
+
+    tree.write("test.xml")
+
+
 def main():
     """main"""
-    # srt_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.srt")
-    # dest_path = os.path.join(PAR_DIR, DATA_DIR, "blade-trinity_subs.xml")
-    srt_path = os.path.join(BASE_DIR, "src/testfiles/" "scream_subs.srt")
-    dest_path = os.path.join(BASE_DIR, "src/testfiles/", "scream_subs.xml")
-    srt_to_xml(srt_path, dest_path)
+    dir = os.path.join(BASE_DIR, "src/testfiles")
+    path = os.path.join(BASE_DIR, "src/testfiles/", "star-wars-4_subs.xml")
+    # edit_opus_xml(path)
+    edit_opus_xml(path)
 
 
 if __name__ == '__main__':

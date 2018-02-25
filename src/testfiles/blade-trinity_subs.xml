@@ -161,7 +161,7 @@
       <time id="T13E" value="00:03:20,178"/>
    </s>
    <s id="14">
-      <time id="T13S" value="00:03:17,717"/>
+      <time id="T14S" value="00:03:17,717"/>
       <w id="14.1">This</w>
       <w id="14.2">seems</w>
       <w id="14.3">like</w>
@@ -169,7 +169,7 @@
       <w id="14.5">dead</w>
       <w id="14.6">end</w>
       <w id="14.7">.</w>
-      <time id="T13E" value="00:03:20,178"/>
+      <time id="T14E" value="00:03:20,178"/>
    </s>
    <s id="15">
       <time id="T15S" value="00:03:20,262"/>
@@ -218,10 +218,10 @@
       <time id="T20E" value="00:03:43,368"/>
    </s>
    <s id="21">
-      <time id="T20S" value="00:03:40,657"/>
+      <time id="T21S" value="00:03:40,657"/>
       <w id="21.1">Aah</w>
       <w id="21.2">!</w>
-      <time id="T20E" value="00:03:43,368"/>
+      <time id="T21E" value="00:03:43,368"/>
    </s>
    <s id="22">
       <time id="T22S" value="00:03:43,451"/>
@@ -232,9 +232,9 @@
       <time id="T22E" value="00:03:45,287"/>
    </s>
    <s id="23">
-      <time id="T22S" value="00:03:43,451"/>
+      <time id="T23S" value="00:03:43,451"/>
       <w id="23.1">!</w>
-      <time id="T22E" value="00:03:45,287"/>
+      <time id="T23E" value="00:03:45,287"/>
    </s>
    <s id="24">
       <time id="T24S" value="00:03:55,046"/>
@@ -261,11 +261,11 @@
       <time id="T26E" value="00:06:18,732"/>
    </s>
    <s id="27">
-      <time id="T26S" value="00:06:17,355"/>
+      <time id="T27S" value="00:06:17,355"/>
       <w id="27.1">Heading</w>
       <w id="27.2">westbound</w>
       <w id="27.3">.</w>
-      <time id="T26E" value="00:06:18,732"/>
+      <time id="T27E" value="00:06:18,732"/>
    </s>
    <s id="28">
       <time id="T28S" value="00:06:18,767"/>
@@ -292,10 +292,10 @@
       <time id="T30E" value="00:08:39,414"/>
    </s>
    <s id="31">
-      <time id="T30S" value="00:08:37,579"/>
+      <time id="T31S" value="00:08:37,579"/>
       <w id="31.1">Pull</w>
       <w id="31.2">!</w>
-      <time id="T30E" value="00:08:39,414"/>
+      <time id="T31E" value="00:08:39,414"/>
    </s>
    <s id="32">
       <time id="T32S" value="00:08:40,707"/>
@@ -561,12 +561,12 @@
       <time id="T59E" value="00:12:01,491"/>
    </s>
    <s id="60">
-      <time id="T59S" value="00:11:58,697"/>
+      <time id="T60S" value="00:11:58,697"/>
       <w id="60.1">You</w>
       <w id="60.2">remember</w>
       <w id="60.3">those</w>
       <w id="60.4">?</w>
-      <time id="T59E" value="00:12:01,491"/>
+      <time id="T60E" value="00:12:01,491"/>
    </s>
    <s id="61">
       <time id="T61S" value="00:12:01,533"/>
@@ -614,12 +614,12 @@
       <time id="T63E" value="00:12:08,957"/>
    </s>
    <s id="64">
-      <time id="T63S" value="00:12:06,621"/>
+      <time id="T64S" value="00:12:06,621"/>
       <w id="64.1">-</w>
       <w id="64.2">Thank</w>
       <w id="64.3">you</w>
       <w id="64.4">.</w>
-      <time id="T63E" value="00:12:08,957"/>
+      <time id="T64E" value="00:12:08,957"/>
    </s>
    <s id="65">
       <time id="T65S" value="00:12:09,082"/>
@@ -687,7 +687,7 @@
       <time id="T70E" value="00:12:21,052"/>
    </s>
    <s id="71">
-      <time id="T70S" value="00:12:19,259"/>
+      <time id="T71S" value="00:12:19,259"/>
       <w id="71.1">Hey</w>
       <w id="71.2">,</w>
       <w id="71.3">we</w>
@@ -695,7 +695,7 @@
       <w id="71.5">a</w>
       <w id="71.6">lead</w>
       <w id="71.7">.</w>
-      <time id="T70E" value="00:12:21,052"/>
+      <time id="T71E" value="00:12:21,052"/>
    </s>
    <s id="72">
       <time id="T72S" value="00:12:21,136"/>
@@ -753,11 +753,11 @@
       <time id="T76E" value="00:13:03,219"/>
    </s>
    <s id="77">
-      <time id="T76S" value="00:13:01,509"/>
+      <time id="T77S" value="00:13:01,509"/>
       <w id="77.1">Just</w>
       <w id="77.2">feeding</w>
       <w id="77.3">.</w>
-      <time id="T76E" value="00:13:03,219"/>
+      <time id="T77E" value="00:13:03,219"/>
    </s>
    <s id="78">
       <time id="T78S" value="00:13:03,303"/>
@@ -794,7 +794,7 @@
       <time id="T80E" value="00:13:09,809"/>
    </s>
    <s id="81">
-      <time id="T80S" value="00:13:06,598"/>
+      <time id="T81S" value="00:13:06,598"/>
       <w id="81.1">He</w>
       <w id="81.2">allowed</w>
       <w id="81.3">us</w>
@@ -803,7 +803,7 @@
       <w id="81.6">him</w>
       <w id="81.7">in</w>
       <w id="81.8">.</w>
-      <time id="T80E" value="00:13:09,809"/>
+      <time id="T81E" value="00:13:09,809"/>
    </s>
    <s id="82">
       <time id="T82S" value="00:13:09,851"/>
@@ -1152,12 +1152,12 @@
       <time id="T110E" value="00:16:20,333"/>
    </s>
    <s id="111">
-      <time id="T110S" value="00:16:17,539"/>
+      <time id="T111S" value="00:16:17,539"/>
       <w id="111.1">What</w>
       <w id="111.2">about</w>
       <w id="111.3">him</w>
       <w id="111.4">?</w>
-      <time id="T110E" value="00:16:20,333"/>
+      <time id="T111E" value="00:16:20,333"/>
    </s>
    <s id="112">
       <time id="T112S" value="00:16:20,709"/>
@@ -1230,12 +1230,12 @@
       <time id="T117E" value="00:16:43,398"/>
    </s>
    <s id="118">
-      <time id="T117S" value="00:16:40,896"/>
+      <time id="T118S" value="00:16:40,896"/>
       <w id="118.1">You</w>
       <w id="118.2">'re</w>
       <w id="118.3">famous</w>
       <w id="118.4">.</w>
-      <time id="T117E" value="00:16:43,398"/>
+      <time id="T118E" value="00:16:43,398"/>
    </s>
    <s id="119">
       <time id="T119S" value="00:16:43,481"/>
@@ -1280,14 +1280,14 @@
       <time id="T122E" value="00:16:51,197"/>
    </s>
    <s id="123">
-      <time id="T122S" value="00:16:49,529"/>
+      <time id="T123S" value="00:16:49,529"/>
       <w id="123.1">-</w>
       <w id="123.2">Well</w>
       <w id="123.3">,</w>
       <w id="123.4">you</w>
       <w id="123.5">should</w>
       <w id="123.6">.</w>
-      <time id="T122E" value="00:16:51,197"/>
+      <time id="T123E" value="00:16:51,197"/>
    </s>
    <s id="124">
       <time id="T124S" value="00:16:51,281"/>
@@ -1349,7 +1349,7 @@
       <time id="T128E" value="00:17:06,796"/>
    </s>
    <s id="129">
-      <time id="T128S" value="00:17:03,960"/>
+      <time id="T129S" value="00:17:03,960"/>
       <w id="129.1">Do</w>
       <w id="129.2">n't</w>
       <w id="129.3">you</w>
@@ -1359,7 +1359,7 @@
       <w id="129.7">'re</w>
       <w id="129.8">doing</w>
       <w id="129.9">?</w>
-      <time id="T128E" value="00:17:06,796"/>
+      <time id="T129E" value="00:17:06,796"/>
    </s>
    <s id="130">
       <time id="T130S" value="00:17:06,880"/>
@@ -1373,10 +1373,10 @@
       <time id="T130E" value="00:17:09,966"/>
    </s>
    <s id="131">
-      <time id="T130S" value="00:17:06,880"/>
+      <time id="T131S" value="00:17:06,880"/>
       <w id="131.1">Campaign</w>
       <w id="131.2">.</w>
-      <time id="T130E" value="00:17:09,966"/>
+      <time id="T131E" value="00:17:09,966"/>
    </s>
    <s id="132">
       <time id="T132S" value="00:17:10,050"/>
@@ -1528,11 +1528,11 @@
       <time id="T142E" value="00:17:45,460"/>
    </s>
    <s id="143">
-      <time id="T142S" value="00:17:42,958"/>
+      <time id="T143S" value="00:17:42,958"/>
       <w id="143.1">Got</w>
       <w id="143.2">it</w>
       <w id="143.3">!</w>
-      <time id="T142E" value="00:17:45,460"/>
+      <time id="T143E" value="00:17:45,460"/>
    </s>
    <s id="144">
       <time id="T144S" value="00:17:46,378"/>
@@ -1549,7 +1549,7 @@
       <time id="T145E" value="00:17:51,299"/>
    </s>
    <s id="146">
-      <time id="T145S" value="00:17:47,462"/>
+      <time id="T146S" value="00:17:47,462"/>
       <w id="146.1">Looks</w>
       <w id="146.2">like</w>
       <w id="146.3">we</w>
@@ -1559,7 +1559,7 @@
       <w id="146.7">combo</w>
       <w id="146.8">meal</w>
       <w id="146.9">!</w>
-      <time id="T145E" value="00:17:51,299"/>
+      <time id="T146E" value="00:17:51,299"/>
    </s>
    <s id="147">
       <time id="T147S" value="00:18:05,522"/>
@@ -1616,10 +1616,10 @@
       <time id="T152E" value="00:19:25,477"/>
    </s>
    <s id="153">
-      <time id="T152S" value="00:19:23,183"/>
+      <time id="T153S" value="00:19:23,183"/>
       <w id="153.1">No</w>
       <w id="153.2">!</w>
-      <time id="T152E" value="00:19:25,477"/>
+      <time id="T153E" value="00:19:25,477"/>
    </s>
    <s id="154">
       <time id="T154S" value="00:19:26,686"/>
@@ -1854,11 +1854,11 @@
       <time id="T178E" value="00:25:42,312"/>
    </s>
    <s id="179">
-      <time id="T178S" value="00:25:39,768"/>
+      <time id="T179S" value="00:25:39,768"/>
       <w id="179.1">-</w>
       <w id="179.2">Mm-hmm</w>
       <w id="179.3">.</w>
-      <time id="T178E" value="00:25:42,312"/>
+      <time id="T179E" value="00:25:42,312"/>
    </s>
    <s id="180">
       <time id="T180S" value="00:25:42,938"/>
@@ -1904,16 +1904,16 @@
       <time id="T184E" value="00:25:55,158"/>
    </s>
    <s id="185">
-      <time id="T184S" value="00:25:52,822"/>
+      <time id="T185S" value="00:25:52,822"/>
       <w id="185.1">Forty</w>
       <w id="185.2">?</w>
-      <time id="T184E" value="00:25:55,158"/>
+      <time id="T185E" value="00:25:55,158"/>
    </s>
    <s id="186">
-      <time id="T184S" value="00:25:52,822"/>
+      <time id="T186S" value="00:25:52,822"/>
       <w id="186.1">Fifty</w>
       <w id="186.2">?</w>
-      <time id="T184E" value="00:25:55,158"/>
+      <time id="T186E" value="00:25:55,158"/>
    </s>
    <s id="187">
       <time id="T187S" value="00:25:56,493"/>
@@ -1948,7 +1948,7 @@
       <time id="T190E" value="00:26:08,004"/>
    </s>
    <s id="191">
-      <time id="T190S" value="00:26:04,167"/>
+      <time id="T191S" value="00:26:04,167"/>
       <w id="191.1">And</w>
       <w id="191.2">by</w>
       <w id="191.3">``</w>
@@ -1961,7 +1961,7 @@
       <w id="191.10">,</w>
       <w id="191.11">right</w>
       <w id="191.12">?</w>
-      <time id="T190E" value="00:26:08,004"/>
+      <time id="T191E" value="00:26:08,004"/>
    </s>
    <s id="192">
       <time id="T192S" value="00:26:12,425"/>
@@ -2183,14 +2183,14 @@
       <time id="T208E" value="00:27:16,573"/>
    </s>
    <s id="209">
-      <time id="T208S" value="00:27:12,569"/>
+      <time id="T209S" value="00:27:12,569"/>
       <w id="209.1">You</w>
       <w id="209.2">know</w>
       <w id="209.3">who</w>
       <w id="209.4">that</w>
       <w id="209.5">is</w>
       <w id="209.6">.</w>
-      <time id="T208E" value="00:27:16,573"/>
+      <time id="T209E" value="00:27:16,573"/>
    </s>
    <s id="210">
       <time id="T210S" value="00:27:16,608"/>
@@ -2384,14 +2384,14 @@
       <time id="T227E" value="00:28:31,731"/>
    </s>
    <s id="228">
-      <time id="T227S" value="00:28:30,021"/>
+      <time id="T228S" value="00:28:30,021"/>
       <w id="228.1">That</w>
       <w id="228.2">man</w>
       <w id="228.3">is</w>
       <w id="228.4">my</w>
       <w id="228.5">prisoner</w>
       <w id="228.6">.</w>
-      <time id="T227E" value="00:28:31,731"/>
+      <time id="T228E" value="00:28:31,731"/>
    </s>
    <s id="229">
       <time id="T229S" value="00:28:31,815"/>
@@ -2420,7 +2420,7 @@
       <time id="T230E" value="00:28:36,403"/>
    </s>
    <s id="231">
-      <time id="T230S" value="00:28:34,150"/>
+      <time id="T231S" value="00:28:34,150"/>
       <w id="231.1">We</w>
       <w id="231.2">'re</w>
       <w id="231.3">in</w>
@@ -2428,7 +2428,7 @@
       <w id="231.5">jurisdiction</w>
       <w id="231.6">now</w>
       <w id="231.7">.</w>
-      <time id="T230E" value="00:28:36,403"/>
+      <time id="T231E" value="00:28:36,403"/>
    </s>
    <s id="232">
       <time id="T232S" value="00:28:36,486"/>
@@ -2460,7 +2460,7 @@
       <time id="T233E" value="00:28:40,907"/>
    </s>
    <s id="234">
-      <time id="T233S" value="00:28:38,989"/>
+      <time id="T234S" value="00:28:38,989"/>
       <w id="234.1">-</w>
       <w id="234.2">The</w>
       <w id="234.3">call</w>
@@ -2469,7 +2469,7 @@
       <w id="234.6">been</w>
       <w id="234.7">made</w>
       <w id="234.8">.</w>
-      <time id="T233E" value="00:28:40,907"/>
+      <time id="T234E" value="00:28:40,907"/>
    </s>
    <s id="235">
       <time id="T235S" value="00:28:40,949"/>
@@ -2968,12 +2968,12 @@
       <time id="T279E" value="00:32:25,173"/>
    </s>
    <s id="280">
-      <time id="T279S" value="00:32:22,671"/>
+      <time id="T280S" value="00:32:22,671"/>
       <w id="280.1">-</w>
       <w id="280.2">Hannibal</w>
       <w id="280.3">King</w>
       <w id="280.4">!</w>
-      <time id="T279E" value="00:32:25,173"/>
+      <time id="T280E" value="00:32:25,173"/>
    </s>
    <s id="281">
       <time id="T281S" value="00:32:29,177"/>
@@ -2985,13 +2985,13 @@
       <time id="T281E" value="00:32:30,679"/>
    </s>
    <s id="282">
-      <time id="T281S" value="00:32:29,177"/>
+      <time id="T282S" value="00:32:29,177"/>
       <w id="282.1">This</w>
       <w id="282.2">is</w>
       <w id="282.3">your</w>
       <w id="282.4">rescue</w>
       <w id="282.5">.</w>
-      <time id="T281E" value="00:32:30,679"/>
+      <time id="T282E" value="00:32:30,679"/>
    </s>
    <s id="283">
       <time id="T283S" value="00:33:19,436"/>
@@ -3054,7 +3054,7 @@
       <time id="T291E" value="00:34:57,867"/>
    </s>
    <s id="292">
-      <time id="T291S" value="00:34:56,658"/>
+      <time id="T292S" value="00:34:56,658"/>
       <w id="292.1">Whoa</w>
       <w id="292.2">,</w>
       <w id="292.3">whoa</w>
@@ -3063,7 +3063,7 @@
       <w id="292.6">,</w>
       <w id="292.7">whoa</w>
       <w id="292.8">!</w>
-      <time id="T291E" value="00:34:57,867"/>
+      <time id="T292E" value="00:34:57,867"/>
    </s>
    <s id="293">
       <time id="T293S" value="00:34:57,951"/>
@@ -3147,12 +3147,12 @@
       <time id="T301E" value="00:36:22,827"/>
    </s>
    <s id="302">
-      <time id="T301S" value="00:36:20,575"/>
+      <time id="T302S" value="00:36:20,575"/>
       <w id="302.1">We</w>
       <w id="302.2">'re</w>
       <w id="302.3">fucked</w>
       <w id="302.4">.</w>
-      <time id="T301E" value="00:36:22,827"/>
+      <time id="T302E" value="00:36:22,827"/>
    </s>
    <s id="303">
       <time id="T303S" value="00:36:22,911"/>
@@ -3177,11 +3177,11 @@
       <time id="T305E" value="00:36:49,521"/>
    </s>
    <s id="306">
-      <time id="T305S" value="00:36:47,811"/>
+      <time id="T306S" value="00:36:47,811"/>
       <w id="306.1">Come</w>
       <w id="306.2">on</w>
       <w id="306.3">!</w>
-      <time id="T305E" value="00:36:49,521"/>
+      <time id="T306E" value="00:36:49,521"/>
    </s>
    <s id="307">
       <time id="T307S" value="00:37:04,119"/>
@@ -3278,7 +3278,7 @@
       <time id="T316E" value="00:37:43,325"/>
    </s>
    <s id="317">
-      <time id="T316S" value="00:37:39,779"/>
+      <time id="T317S" value="00:37:39,779"/>
       <w id="317.1">I</w>
       <w id="317.2">was</w>
       <w id="317.3">born</w>
@@ -3287,7 +3287,7 @@
       <w id="317.6">of</w>
       <w id="317.7">wedlock</w>
       <w id="317.8">.</w>
-      <time id="T316E" value="00:37:43,325"/>
+      <time id="T317E" value="00:37:43,325"/>
    </s>
    <s id="318">
       <time id="T318S" value="00:37:45,410"/>
@@ -3441,7 +3441,7 @@
       <time id="T330E" value="00:38:27,953"/>
    </s>
    <s id="331">
-      <time id="T330S" value="00:38:24,532"/>
+      <time id="T331S" value="00:38:24,532"/>
       <w id="331.1">Sounds</w>
       <w id="331.2">like</w>
       <w id="331.3">rejects</w>
@@ -3451,7 +3451,7 @@
       <w id="331.7">morning</w>
       <w id="331.8">cartoon</w>
       <w id="331.9">.</w>
-      <time id="T330E" value="00:38:27,953"/>
+      <time id="T331E" value="00:38:27,953"/>
    </s>
    <s id="332">
       <time id="T332S" value="00:38:28,036"/>
@@ -3618,21 +3618,21 @@
       <time id="T345E" value="00:39:06,992"/>
    </s>
    <s id="346">
-      <time id="T345S" value="00:39:04,781"/>
+      <time id="T346S" value="00:39:04,781"/>
       <w id="346.1">What</w>
       <w id="346.2">is</w>
       <w id="346.3">that</w>
       <w id="346.4">?</w>
-      <time id="T345E" value="00:39:06,992"/>
+      <time id="T346E" value="00:39:06,992"/>
    </s>
    <s id="347">
-      <time id="T345S" value="00:39:04,781"/>
+      <time id="T347S" value="00:39:04,781"/>
       <w id="347.1">``</w>
       <w id="347.2">Fuck</w>
       <w id="347.3">you</w>
       <w id="347.4">.</w>
       <w id="347.5">''</w>
-      <time id="T345E" value="00:39:06,992"/>
+      <time id="T347E" value="00:39:06,992"/>
    </s>
    <s id="348">
       <time id="T348S" value="00:39:07,075"/>
@@ -3658,7 +3658,7 @@
       <time id="T349E" value="00:39:11,580"/>
    </s>
    <s id="350">
-      <time id="T349S" value="00:39:09,244"/>
+      <time id="T350S" value="00:39:09,244"/>
       <w id="350.1">Y'all</w>
       <w id="350.2">think</w>
       <w id="350.3">this</w>
@@ -3666,7 +3666,7 @@
       <w id="350.5">a</w>
       <w id="350.6">joke</w>
       <w id="350.7">?</w>
-      <time id="T349E" value="00:39:11,580"/>
+      <time id="T350E" value="00:39:11,580"/>
    </s>
    <s id="351">
       <time id="T351S" value="00:39:11,621"/>
@@ -3894,14 +3894,14 @@
       <time id="T370E" value="00:40:12,182"/>
    </s>
    <s id="371">
-      <time id="T370S" value="00:40:10,263"/>
+      <time id="T371S" value="00:40:10,263"/>
       <w id="371.1">You</w>
       <w id="371.2">need</w>
       <w id="371.3">a</w>
       <w id="371.4">time</w>
       <w id="371.5">out</w>
       <w id="371.6">?</w>
-      <time id="T370E" value="00:40:12,182"/>
+      <time id="T371E" value="00:40:12,182"/>
    </s>
    <s id="372">
       <time id="T372S" value="00:40:12,265"/>
@@ -4063,7 +4063,7 @@
       <time id="T386E" value="00:41:01,273"/>
    </s>
    <s id="387">
-      <time id="T386S" value="00:40:56,935"/>
+      <time id="T387S" value="00:40:56,935"/>
       <w id="387.1">She</w>
       <w id="387.2">blew</w>
       <w id="387.3">'em</w>
@@ -4074,7 +4074,7 @@
       <w id="387.8">shitstorm</w>
       <w id="387.9">sweepstakes</w>
       <w id="387.10">.</w>
-      <time id="T386E" value="00:41:01,273"/>
+      <time id="T387E" value="00:41:01,273"/>
    </s>
    <s id="388">
       <time id="T388S" value="00:41:01,815"/>
@@ -4290,10 +4290,10 @@
       <time id="T406E" value="00:42:05,260"/>
    </s>
    <s id="407">
-      <time id="T406S" value="00:42:03,293"/>
+      <time id="T407S" value="00:42:03,293"/>
       <w id="407.1">BLADE</w>
       <w id="407.2">BABA</w>
-      <time id="T406E" value="00:42:05,260"/>
+      <time id="T407E" value="00:42:05,260"/>
    </s>
    <s id="408">
       <time id="T408S" value="00:42:05,295"/>
@@ -5476,13 +5476,13 @@
       <time id="T504E" value="00:48:00,442"/>
    </s>
    <s id="505">
-      <time id="T504S" value="00:47:57,230"/>
+      <time id="T505S" value="00:47:57,230"/>
       <w id="505.1">Super-size</w>
       <w id="505.2">me</w>
       <w id="505.3">,</w>
       <w id="505.4">sweetheart</w>
       <w id="505.5">.</w>
-      <time id="T504E" value="00:48:00,442"/>
+      <time id="T505E" value="00:48:00,442"/>
    </s>
    <s id="506">
       <time id="T506S" value="00:48:02,903"/>
@@ -5602,10 +5602,10 @@
       <time id="T515E" value="00:48:29,304"/>
    </s>
    <s id="516">
-      <time id="T515S" value="00:48:27,135"/>
+      <time id="T516S" value="00:48:27,135"/>
       <w id="516.1">Sorry</w>
       <w id="516.2">.</w>
-      <time id="T515E" value="00:48:29,304"/>
+      <time id="T516E" value="00:48:29,304"/>
    </s>
    <s id="517">
       <time id="T517S" value="00:48:29,387"/>
@@ -5636,11 +5636,11 @@
       <time id="T518E" value="00:48:34,351"/>
    </s>
    <s id="519">
-      <time id="T518S" value="00:48:32,307"/>
+      <time id="T519S" value="00:48:32,307"/>
       <w id="519.1">-</w>
       <w id="519.2">Yes</w>
       <w id="519.3">.</w>
-      <time id="T518E" value="00:48:34,351"/>
+      <time id="T519E" value="00:48:34,351"/>
    </s>
    <s id="520">
       <time id="T520S" value="00:48:35,936"/>
@@ -5701,12 +5701,12 @@
       <time id="T523E" value="00:48:46,821"/>
    </s>
    <s id="524">
-      <time id="T523S" value="00:48:44,486"/>
+      <time id="T524S" value="00:48:44,486"/>
       <w id="524.1">Kinda</w>
       <w id="524.2">doubt</w>
       <w id="524.3">it</w>
       <w id="524.4">.</w>
-      <time id="T523E" value="00:48:46,821"/>
+      <time id="T524E" value="00:48:46,821"/>
    </s>
    <s id="525">
       <time id="T525S" value="00:48:46,905"/>
@@ -5716,10 +5716,10 @@
       <time id="T525E" value="00:48:50,408"/>
    </s>
    <s id="526">
-      <time id="T525S" value="00:48:46,905"/>
+      <time id="T526S" value="00:48:46,905"/>
       <w id="526.1">Maybe</w>
       <w id="526.2">.</w>
-      <time id="T525E" value="00:48:50,408"/>
+      <time id="T526E" value="00:48:50,408"/>
    </s>
    <s id="527">
       <time id="T527S" value="00:48:51,117"/>
@@ -6068,10 +6068,10 @@
       <time id="T554E" value="00:50:47,400"/>
    </s>
    <s id="555">
-      <time id="T554S" value="00:50:45,565"/>
+      <time id="T555S" value="00:50:45,565"/>
       <w id="555.1">Aah</w>
       <w id="555.2">!</w>
-      <time id="T554E" value="00:50:47,400"/>
+      <time id="T555E" value="00:50:47,400"/>
    </s>
    <s id="556">
       <time id="T556S" value="00:50:53,198"/>
@@ -6097,26 +6097,26 @@
       <time id="T557E" value="00:50:58,078"/>
    </s>
    <s id="558">
-      <time id="T557S" value="00:50:55,784"/>
+      <time id="T558S" value="00:50:55,784"/>
       <w id="558.1">No</w>
       <w id="558.2">,</w>
       <w id="558.3">no</w>
       <w id="558.4">!</w>
-      <time id="T557E" value="00:50:58,078"/>
+      <time id="T558E" value="00:50:58,078"/>
    </s>
    <s id="559">
-      <time id="T557S" value="00:50:55,784"/>
+      <time id="T559S" value="00:50:55,784"/>
       <w id="559.1">Please</w>
       <w id="559.2">,</w>
       <w id="559.3">please</w>
       <w id="559.4">!</w>
-      <time id="T557E" value="00:50:58,078"/>
+      <time id="T559E" value="00:50:58,078"/>
    </s>
    <s id="560">
-      <time id="T557S" value="00:50:55,784"/>
+      <time id="T560S" value="00:50:55,784"/>
       <w id="560.1">Please</w>
       <w id="560.2">.</w>
-      <time id="T557E" value="00:50:58,078"/>
+      <time id="T560E" value="00:50:58,078"/>
    </s>
    <s id="561">
       <time id="T561S" value="00:50:58,161"/>
@@ -6147,11 +6147,11 @@
       <time id="T563E" value="00:51:02,874"/>
    </s>
    <s id="564">
-      <time id="T563S" value="00:51:01,081"/>
+      <time id="T564S" value="00:51:01,081"/>
       <w id="564.1">I</w>
       <w id="564.2">swear</w>
       <w id="564.3">!</w>
-      <time id="T563E" value="00:51:02,874"/>
+      <time id="T564E" value="00:51:02,874"/>
    </s>
    <s id="565">
       <time id="T565S" value="00:51:02,958"/>
@@ -6162,16 +6162,16 @@
       <time id="T565E" value="00:51:05,126"/>
    </s>
    <s id="566">
-      <time id="T565S" value="00:51:02,958"/>
+      <time id="T566S" value="00:51:02,958"/>
       <w id="566.1">Please</w>
       <w id="566.2">!</w>
-      <time id="T565E" value="00:51:05,126"/>
+      <time id="T566E" value="00:51:05,126"/>
    </s>
    <s id="567">
-      <time id="T565S" value="00:51:02,958"/>
+      <time id="T567S" value="00:51:02,958"/>
       <w id="567.1">Please</w>
       <w id="567.2">!</w>
-      <time id="T565E" value="00:51:05,126"/>
+      <time id="T567E" value="00:51:05,126"/>
    </s>
    <s id="568">
       <time id="T568S" value="00:51:09,965"/>
@@ -6208,11 +6208,11 @@
       <time id="T571E" value="00:51:16,680"/>
    </s>
    <s id="572">
-      <time id="T571S" value="00:51:15,178"/>
+      <time id="T572S" value="00:51:15,178"/>
       <w id="572.1">Come</w>
       <w id="572.2">on</w>
       <w id="572.3">!</w>
-      <time id="T571E" value="00:51:16,680"/>
+      <time id="T572E" value="00:51:16,680"/>
    </s>
    <s id="573">
       <time id="T573S" value="00:51:20,892"/>
@@ -6232,12 +6232,12 @@
       <time id="T574E" value="00:51:27,190"/>
    </s>
    <s id="575">
-      <time id="T574S" value="00:51:24,771"/>
+      <time id="T575S" value="00:51:24,771"/>
       <w id="575.1">You</w>
       <w id="575.2">paged</w>
       <w id="575.3">me</w>
       <w id="575.4">.</w>
-      <time id="T574E" value="00:51:27,190"/>
+      <time id="T575E" value="00:51:27,190"/>
    </s>
    <s id="576">
       <time id="T576S" value="00:51:28,692"/>
@@ -6306,14 +6306,14 @@
       <time id="T582E" value="00:51:42,831"/>
    </s>
    <s id="583">
-      <time id="T582S" value="00:51:40,870"/>
+      <time id="T583S" value="00:51:40,870"/>
       <w id="583.1">Have</w>
       <w id="583.2">a</w>
       <w id="583.3">little</w>
       <w id="583.4">share</w>
       <w id="583.5">time</w>
       <w id="583.6">?</w>
-      <time id="T582E" value="00:51:42,831"/>
+      <time id="T583E" value="00:51:42,831"/>
    </s>
    <s id="584">
       <time id="T584S" value="00:51:42,873"/>
@@ -6323,7 +6323,7 @@
       <time id="T584E" value="00:51:45,250"/>
    </s>
    <s id="585">
-      <time id="T584S" value="00:51:42,873"/>
+      <time id="T585S" value="00:51:42,873"/>
       <w id="585.1">Get</w>
       <w id="585.2">in</w>
       <w id="585.3">touch</w>
@@ -6332,7 +6332,7 @@
       <w id="585.6">inner</w>
       <w id="585.7">child</w>
       <w id="585.8">?</w>
-      <time id="T584E" value="00:51:45,250"/>
+      <time id="T585E" value="00:51:45,250"/>
    </s>
    <s id="586">
       <time id="T586S" value="00:51:45,333"/>
@@ -6475,12 +6475,12 @@
       <time id="T597E" value="00:53:18,009"/>
    </s>
    <s id="598">
-      <time id="T597S" value="00:53:15,840"/>
+      <time id="T598S" value="00:53:15,840"/>
       <w id="598.1">Time</w>
       <w id="598.2">for</w>
       <w id="598.3">payback</w>
       <w id="598.4">.</w>
-      <time id="T597E" value="00:53:18,009"/>
+      <time id="T598E" value="00:53:18,009"/>
    </s>
    <s id="599">
       <time id="T599S" value="00:53:18,093"/>
@@ -6521,12 +6521,12 @@
       <time id="T602E" value="00:53:27,227"/>
    </s>
    <s id="603">
-      <time id="T602S" value="00:53:25,517"/>
+      <time id="T603S" value="00:53:25,517"/>
       <w id="603.1">It</w>
       <w id="603.2">'s</w>
       <w id="603.3">Drake</w>
       <w id="603.4">!</w>
-      <time id="T602E" value="00:53:27,227"/>
+      <time id="T603E" value="00:53:27,227"/>
    </s>
    <s id="604">
       <time id="T604S" value="00:53:33,441"/>
@@ -6601,13 +6601,13 @@
       <time id="T611E" value="00:55:24,344"/>
    </s>
    <s id="612">
-      <time id="T611S" value="00:55:21,841"/>
+      <time id="T612S" value="00:55:21,841"/>
       <w id="612.1">Oh</w>
       <w id="612.2">,</w>
       <w id="612.3">my</w>
       <w id="612.4">God</w>
       <w id="612.5">!</w>
-      <time id="T611E" value="00:55:24,344"/>
+      <time id="T612E" value="00:55:24,344"/>
    </s>
    <s id="613">
       <time id="T613S" value="00:55:24,427"/>
@@ -6625,17 +6625,17 @@
       <time id="T614E" value="00:55:29,474"/>
    </s>
    <s id="615">
-      <time id="T614S" value="00:55:26,638"/>
+      <time id="T615S" value="00:55:26,638"/>
       <w id="615.1">No</w>
       <w id="615.2">!</w>
-      <time id="T614E" value="00:55:29,474"/>
+      <time id="T615E" value="00:55:29,474"/>
    </s>
    <s id="616">
-      <time id="T614S" value="00:55:26,638"/>
+      <time id="T616S" value="00:55:26,638"/>
       <w id="616.1">My</w>
       <w id="616.2">baby</w>
       <w id="616.3">!</w>
-      <time id="T614E" value="00:55:29,474"/>
+      <time id="T616E" value="00:55:29,474"/>
    </s>
    <s id="617">
       <time id="T617S" value="00:56:29,075"/>
@@ -6982,13 +6982,13 @@
       <time id="T647E" value="00:58:11,136"/>
    </s>
    <s id="648">
-      <time id="T647S" value="00:58:09,551"/>
+      <time id="T648S" value="00:58:09,551"/>
       <w id="648.1">We</w>
       <w id="648.2">'re</w>
       <w id="648.3">gon</w>
       <w id="648.4">na</w>
       <w id="648.5">-</w>
-      <time id="T647E" value="00:58:11,136"/>
+      <time id="T648E" value="00:58:11,136"/>
    </s>
    <s id="649">
       <time id="T649S" value="00:58:11,219"/>
@@ -6997,10 +6997,10 @@
       <time id="T649E" value="00:58:13,471"/>
    </s>
    <s id="650">
-      <time id="T649S" value="00:58:11,219"/>
+      <time id="T650S" value="00:58:11,219"/>
       <w id="650.1">God</w>
       <w id="650.2">!</w>
-      <time id="T649E" value="00:58:13,471"/>
+      <time id="T650E" value="00:58:13,471"/>
    </s>
    <s id="651">
       <time id="T651S" value="00:58:13,513"/>
@@ -7026,11 +7026,11 @@
       <time id="T652E" value="00:58:16,975"/>
    </s>
    <s id="653">
-      <time id="T652S" value="00:58:15,932"/>
+      <time id="T653S" value="00:58:15,932"/>
       <w id="653.1">Hold</w>
       <w id="653.2">on</w>
       <w id="653.3">.</w>
-      <time id="T652E" value="00:58:16,975"/>
+      <time id="T653E" value="00:58:16,975"/>
    </s>
    <s id="654">
       <time id="T654S" value="00:58:17,183"/>
@@ -7044,13 +7044,13 @@
       <time id="T654E" value="00:58:18,852"/>
    </s>
    <s id="655">
-      <time id="T654S" value="00:58:17,183"/>
+      <time id="T655S" value="00:58:17,183"/>
       <w id="655.1">What</w>
       <w id="655.2">are</w>
       <w id="655.3">you</w>
       <w id="655.4">doing</w>
       <w id="655.5">?</w>
-      <time id="T654E" value="00:58:18,852"/>
+      <time id="T655E" value="00:58:18,852"/>
    </s>
    <s id="656">
       <time id="T656S" value="00:58:18,887"/>
@@ -7256,7 +7256,7 @@
       <time id="T675E" value="01:00:00,203"/>
    </s>
    <s id="676">
-      <time id="T675S" value="00:59:57,617"/>
+      <time id="T676S" value="00:59:57,617"/>
       <w id="676.1">Say</w>
       <w id="676.2">we</w>
       <w id="676.3">wipe</w>
@@ -7265,7 +7265,7 @@
       <w id="676.6">the</w>
       <w id="676.7">vampires</w>
       <w id="676.8">.</w>
-      <time id="T675E" value="01:00:00,203"/>
+      <time id="T676E" value="01:00:00,203"/>
    </s>
    <s id="677">
       <time id="T677S" value="01:00:00,287"/>
@@ -7597,14 +7597,14 @@
       <time id="T711E" value="01:02:49,831"/>
    </s>
    <s id="712">
-      <time id="T711S" value="01:02:47,787"/>
+      <time id="T712S" value="01:02:47,787"/>
       <w id="712.1">They-</w>
       <w id="712.2">they</w>
       <w id="712.3">'ll</w>
       <w id="712.4">kill</w>
       <w id="712.5">me</w>
       <w id="712.6">.</w>
-      <time id="T711E" value="01:02:49,831"/>
+      <time id="T712E" value="01:02:49,831"/>
    </s>
    <s id="713">
       <time id="T713S" value="01:02:49,915"/>
@@ -7614,7 +7614,7 @@
       <time id="T713E" value="01:02:52,042"/>
    </s>
    <s id="714">
-      <time id="T713S" value="01:02:49,915"/>
+      <time id="T714S" value="01:02:49,915"/>
       <w id="714.1">Motherfucker</w>
       <w id="714.2">,</w>
       <w id="714.3">I</w>
@@ -7622,7 +7622,7 @@
       <w id="714.5">kill</w>
       <w id="714.6">you</w>
       <w id="714.7">.</w>
-      <time id="T713E" value="01:02:52,042"/>
+      <time id="T714E" value="01:02:52,042"/>
    </s>
    <s id="715">
       <time id="T715S" value="01:02:52,125"/>
@@ -7937,14 +7937,14 @@
       <time id="T743E" value="01:05:08,803"/>
    </s>
    <s id="744">
-      <time id="T743S" value="01:05:06,301"/>
+      <time id="T744S" value="01:05:06,301"/>
       <w id="744.1">Ca</w>
       <w id="744.2">n't</w>
       <w id="744.3">you</w>
       <w id="744.4">see</w>
       <w id="744.5">that</w>
       <w id="744.6">?</w>
-      <time id="T743E" value="01:05:08,803"/>
+      <time id="T744E" value="01:05:08,803"/>
    </s>
    <s id="745">
       <time id="T745S" value="01:05:09,346"/>
@@ -8037,13 +8037,13 @@
       <time id="T755E" value="01:06:10,156"/>
    </s>
    <s id="756">
-      <time id="T755S" value="01:06:07,195"/>
+      <time id="T756S" value="01:06:07,195"/>
       <w id="756.1">See</w>
       <w id="756.2">?</w>
-      <time id="T755E" value="01:06:10,156"/>
+      <time id="T756E" value="01:06:10,156"/>
    </s>
    <s id="757">
-      <time id="T755S" value="01:06:07,195"/>
+      <time id="T757S" value="01:06:07,195"/>
       <w id="757.1">I</w>
       <w id="757.2">turned</w>
       <w id="757.3">my</w>
@@ -8051,7 +8051,7 @@
       <w id="757.5">on</w>
       <w id="757.6">you</w>
       <w id="757.7">.</w>
-      <time id="T755E" value="01:06:10,156"/>
+      <time id="T757E" value="01:06:10,156"/>
    </s>
    <s id="758">
       <time id="T758S" value="01:06:10,198"/>
@@ -8061,14 +8061,14 @@
       <time id="T758E" value="01:06:12,909"/>
    </s>
    <s id="759">
-      <time id="T758S" value="01:06:10,198"/>
+      <time id="T759S" value="01:06:10,198"/>
       <w id="759.1">You</w>
       <w id="759.2">win</w>
       <w id="759.3">.</w>
-      <time id="T758E" value="01:06:12,909"/>
+      <time id="T759E" value="01:06:12,909"/>
    </s>
    <s id="760">
-      <time id="T758S" value="01:06:10,198"/>
+      <time id="T760S" value="01:06:10,198"/>
       <w id="760.1">-</w>
       <w id="760.2">One</w>
       <w id="760.3">more</w>
@@ -8076,7 +8076,7 @@
       <w id="760.5">one</w>
       <w id="760.6">more</w>
       <w id="760.7">.</w>
-      <time id="T758E" value="01:06:12,909"/>
+      <time id="T760E" value="01:06:12,909"/>
    </s>
    <s id="761">
       <time id="T761S" value="01:06:12,993"/>
@@ -8239,11 +8239,11 @@
       <time id="T774E" value="01:07:37,869"/>
    </s>
    <s id="775">
-      <time id="T774S" value="01:07:35,283"/>
+      <time id="T775S" value="01:07:35,283"/>
       <w id="775.1">Go</w>
       <w id="775.2">on</w>
       <w id="775.3">.</w>
-      <time id="T774E" value="01:07:37,869"/>
+      <time id="T775E" value="01:07:37,869"/>
    </s>
    <s id="776">
       <time id="T776S" value="01:10:15,402"/>
@@ -8318,9 +8318,9 @@
       <time id="T785E" value="01:13:39,147"/>
    </s>
    <s id="786">
-      <time id="T785S" value="01:13:37,562"/>
+      <time id="T786S" value="01:13:37,562"/>
       <w id="786.1">!</w>
-      <time id="T785E" value="01:13:39,147"/>
+      <time id="T786E" value="01:13:39,147"/>
    </s>
    <s id="787">
       <time id="T787S" value="01:13:39,231"/>
@@ -8338,9 +8338,9 @@
       <time id="T788E" value="01:13:43,151"/>
    </s>
    <s id="789">
-      <time id="T788S" value="01:13:40,607"/>
+      <time id="T789S" value="01:13:40,607"/>
       <w id="789.1">!</w>
-      <time id="T788E" value="01:13:43,151"/>
+      <time id="T789E" value="01:13:43,151"/>
    </s>
    <s id="790">
       <time id="T790S" value="01:13:46,363"/>
@@ -8663,10 +8663,10 @@
       <time id="T818E" value="01:15:45,941"/>
    </s>
    <s id="819">
-      <time id="T818S" value="01:15:44,940"/>
+      <time id="T819S" value="01:15:44,940"/>
       <w id="819.1">Fuck</w>
       <w id="819.2">!</w>
-      <time id="T818E" value="01:15:45,941"/>
+      <time id="T819E" value="01:15:45,941"/>
    </s>
    <s id="820">
       <time id="T820S" value="01:15:46,024"/>
@@ -8718,10 +8718,10 @@
       <time id="T823E" value="01:16:01,456"/>
    </s>
    <s id="824">
-      <time id="T823S" value="01:15:59,663"/>
+      <time id="T824S" value="01:15:59,663"/>
       <w id="824.1">There</w>
       <w id="824.2">.</w>
-      <time id="T823E" value="01:16:01,456"/>
+      <time id="T824E" value="01:16:01,456"/>
    </s>
    <s id="825">
       <time id="T825S" value="01:16:11,049"/>
@@ -8949,13 +8949,13 @@
       <time id="T843E" value="01:18:23,890"/>
    </s>
    <s id="844">
-      <time id="T843S" value="01:18:21,888"/>
+      <time id="T844S" value="01:18:21,888"/>
       <w id="844.1">I</w>
       <w id="844.2">'ll</w>
       <w id="844.3">be</w>
       <w id="844.4">fine</w>
       <w id="844.5">.</w>
-      <time id="T843E" value="01:18:23,890"/>
+      <time id="T844E" value="01:18:23,890"/>
    </s>
    <s id="845">
       <time id="T845S" value="01:18:26,518"/>
@@ -9278,7 +9278,7 @@
       <time id="T868E" value="01:20:53,582"/>
    </s>
    <s id="869">
-      <time id="T868S" value="01:20:49,202"/>
+      <time id="T869S" value="01:20:49,202"/>
       <w id="869.1">We</w>
       <w id="869.2">just</w>
       <w id="869.3">did</w>
@@ -9291,7 +9291,7 @@
       <w id="869.10">test</w>
       <w id="869.11">it</w>
       <w id="869.12">.</w>
-      <time id="T868E" value="01:20:53,582"/>
+      <time id="T869E" value="01:20:53,582"/>
    </s>
    <s id="870">
       <time id="T870S" value="01:20:56,126"/>
@@ -9832,11 +9832,11 @@
       <time id="T919E" value="01:25:05,959"/>
    </s>
    <s id="920">
-      <time id="T919S" value="01:25:04,791"/>
+      <time id="T920S" value="01:25:04,791"/>
       <w id="920.1">-</w>
       <w id="920.2">Yeah</w>
       <w id="920.3">.</w>
-      <time id="T919E" value="01:25:05,959"/>
+      <time id="T920E" value="01:25:05,959"/>
    </s>
    <s id="921">
       <time id="T921S" value="01:25:09,254"/>
@@ -10168,11 +10168,11 @@
       <time id="T949E" value="01:27:58,882"/>
    </s>
    <s id="950">
-      <time id="T949S" value="01:27:56,838"/>
+      <time id="T950S" value="01:27:56,838"/>
       <w id="950.1">-</w>
       <w id="950.2">Yeah</w>
       <w id="950.3">.</w>
-      <time id="T949E" value="01:27:58,882"/>
+      <time id="T950E" value="01:27:58,882"/>
    </s>
    <s id="951">
       <time id="T951S" value="01:27:58,924"/>
@@ -10184,14 +10184,14 @@
       <time id="T951E" value="01:28:00,425"/>
    </s>
    <s id="952">
-      <time id="T951S" value="01:27:58,924"/>
+      <time id="T952S" value="01:27:58,924"/>
       <w id="952.1">-</w>
       <w id="952.2">Drake</w>
       <w id="952.3">'s</w>
       <w id="952.4">got</w>
       <w id="952.5">her</w>
       <w id="952.6">.</w>
-      <time id="T951E" value="01:28:00,425"/>
+      <time id="T952E" value="01:28:00,425"/>
    </s>
    <s id="953">
       <time id="T953S" value="01:28:00,467"/>
@@ -10256,7 +10256,7 @@
       <time id="T961E" value="01:30:28,031"/>
    </s>
    <s id="962">
-      <time id="T961S" value="01:30:25,946"/>
+      <time id="T962S" value="01:30:25,946"/>
       <w id="962.1">Let</w>
       <w id="962.2">'s</w>
       <w id="962.3">get</w>
@@ -10265,7 +10265,7 @@
       <w id="962.6">of</w>
       <w id="962.7">here</w>
       <w id="962.8">.</w>
-      <time id="T961E" value="01:30:28,031"/>
+      <time id="T962E" value="01:30:28,031"/>
    </s>
    <s id="963">
       <time id="T963S" value="01:30:28,156"/>
@@ -10348,14 +10348,14 @@
       <time id="T971E" value="01:31:12,868"/>
    </s>
    <s id="972">
-      <time id="T971S" value="01:31:10,657"/>
+      <time id="T972S" value="01:31:10,657"/>
       <w id="972.1">There</w>
       <w id="972.2">'s</w>
       <w id="972.3">a</w>
       <w id="972.4">pretty</w>
       <w id="972.5">smile</w>
       <w id="972.6">.</w>
-      <time id="T971E" value="01:31:12,868"/>
+      <time id="T972E" value="01:31:12,868"/>
    </s>
    <s id="973">
       <time id="T973S" value="01:31:13,451"/>
@@ -10536,14 +10536,14 @@
       <time id="T995E" value="01:39:46,673"/>
    </s>
    <s id="996">
-      <time id="T995S" value="01:39:45,171"/>
+      <time id="T996S" value="01:39:45,171"/>
       <w id="996.1">Give</w>
       <w id="996.2">it</w>
       <w id="996.3">up</w>
       <w id="996.4">,</w>
       <w id="996.5">King</w>
       <w id="996.6">.</w>
-      <time id="T995E" value="01:39:46,673"/>
+      <time id="T996E" value="01:39:46,673"/>
    </s>
    <s id="997">
       <time id="T997S" value="01:39:47,215"/>
@@ -10554,12 +10554,12 @@
       <time id="T997E" value="01:39:49,509"/>
    </s>
    <s id="998">
-      <time id="T997S" value="01:39:47,215"/>
+      <time id="T998S" value="01:39:47,215"/>
       <w id="998.1">Give</w>
       <w id="998.2">it</w>
       <w id="998.3">up</w>
       <w id="998.4">.</w>
-      <time id="T997E" value="01:39:49,509"/>
+      <time id="T998E" value="01:39:49,509"/>
    </s>
    <s id="999">
       <time id="T999S" value="01:39:49,551"/>
@@ -10702,5 +10702,956 @@
       <w id="1012.4">wins</w>
       <w id="1012.5">.</w>
       <time id="T1012E" value="01:41:07,295"/>
+   </s>
+   <s id="1013">
+      <time id="T1013S" value="01:44:35,420"/>
+      <w id="1013.1">Y</w>
+      <w id="1013.2">o</w>
+      <w id="1013.3">,</w>
+      <w id="1013.4">yo</w>
+      <time id="T1013E" value="01:44:37,005"/>
+   </s>
+   <s id="1014">
+      <time id="T1014S" value="01:44:37,088"/>
+      <w id="1014.1">It</w>
+      <w id="1014.2">'s</w>
+      <w id="1014.3">the</w>
+      <w id="1014.4">feast</w>
+      <w id="1014.5">of</w>
+      <w id="1014.6">the</w>
+      <w id="1014.7">blood</w>
+      <time id="T1014E" value="01:44:39,090"/>
+   </s>
+   <s id="1015">
+      <time id="T1015S" value="01:44:39,174"/>
+      <w id="1015.1">Unleash</w>
+      <w id="1015.2">the</w>
+      <w id="1015.3">beast</w>
+      <w id="1015.4">within</w>
+      <time id="T1015E" value="01:44:40,759"/>
+   </s>
+   <s id="1016">
+      <time id="T1016S" value="01:44:40,800"/>
+      <w id="1016.1">I</w>
+      <w id="1016.2">walk</w>
+      <w id="1016.3">around</w>
+      <w id="1016.4">with</w>
+      <w id="1016.5">the</w>
+      <w id="1016.6">strength</w>
+      <w id="1016.7">of</w>
+      <w id="1016.8">a</w>
+      <w id="1016.9">hundred</w>
+      <w id="1016.10">men</w>
+      <time id="T1016E" value="01:44:43,720"/>
+   </s>
+   <s id="1017">
+      <time id="T1017S" value="01:44:44,471"/>
+      <w id="1017.1">You</w>
+      <w id="1017.2">best</w>
+      <w id="1017.3">run</w>
+      <w id="1017.4">before</w>
+      <w id="1017.5">I</w>
+      <w id="1017.6">count</w>
+      <w id="1017.7">to</w>
+      <w id="1017.8">ten</w>
+      <time id="T1017E" value="01:44:46,348"/>
+   </s>
+   <s id="1018">
+      <time id="T1018S" value="01:44:46,431"/>
+      <w id="1018.1">Blood</w>
+      <w id="1018.2">dripping</w>
+      <w id="1018.3">from</w>
+      <w id="1018.4">my</w>
+      <w id="1018.5">canine</w>
+      <w id="1018.6">like</w>
+      <w id="1018.7">a</w>
+      <w id="1018.8">fountain</w>
+      <w id="1018.9">pen</w>
+      <time id="T1018E" value="01:44:49,601"/>
+   </s>
+   <s id="1019">
+      <time id="T1019S" value="01:44:49,684"/>
+      <w id="1019.1">The</w>
+      <w id="1019.2">shape-shifting</w>
+      <w id="1019.3">mirror</w>
+      <w id="1019.4">image</w>
+      <w id="1019.5">flash</w>
+      <w id="1019.6">phototype</w>
+      <time id="T1019E" value="01:44:52,562"/>
+   </s>
+   <s id="1020">
+      <time id="T1020S" value="01:44:52,604"/>
+      <w id="1020.1">The</w>
+      <w id="1020.2">everlasting</w>
+      <w id="1020.3">vision</w>
+      <w id="1020.4">,</w>
+      <w id="1020.5">the</w>
+      <w id="1020.6">red</w>
+      <w id="1020.7">battle</w>
+      <w id="1020.8">type</w>
+      <time id="T1020E" value="01:44:55,690"/>
+   </s>
+   <s id="1021">
+      <time id="T1021S" value="01:45:26,555"/>
+      <w id="1021.1">Try</w>
+      <w id="1021.2">to</w>
+      <w id="1021.3">use</w>
+      <w id="1021.4">my</w>
+      <w id="1021.5">name</w>
+      <w id="1021.6">,</w>
+      <w id="1021.7">that</w>
+      <w id="1021.8">'s</w>
+      <w id="1021.9">fatal</w>
+      <time id="T1021E" value="01:45:29,474"/>
+   </s>
+   <s id="1022">
+      <time id="T1022S" value="01:45:29,558"/>
+      <w id="1022.1">Tried</w>
+      <w id="1022.2">to</w>
+      <w id="1022.3">claim</w>
+      <w id="1022.4">my</w>
+      <w id="1022.5">fame</w>
+      <w id="1022.6">,</w>
+      <w id="1022.7">but</w>
+      <w id="1022.8">that</w>
+      <w id="1022.9">'s</w>
+      <w id="1022.10">fatal</w>
+      <time id="T1022E" value="01:45:32,477"/>
+   </s>
+   <s id="1023">
+      <time id="T1023S" value="01:45:32,519"/>
+      <w id="1023.1">About</w>
+      <w id="1023.2">to</w>
+      <w id="1023.3">raise</w>
+      <w id="1023.4">the</w>
+      <w id="1023.5">pain</w>
+      <w id="1023.6">,</w>
+      <w id="1023.7">that</w>
+      <w id="1023.8">'s</w>
+      <w id="1023.9">fatal</w>
+      <time id="T1023E" value="01:45:35,522"/>
+   </s>
+   <s id="1024">
+      <time id="T1024S" value="01:45:35,605"/>
+      <w id="1024.1">Bite</w>
+      <w id="1024.2">through</w>
+      <w id="1024.3">your</w>
+      <w id="1024.4">jugular</w>
+      <w id="1024.5">vein</w>
+      <w id="1024.6">,</w>
+      <w id="1024.7">that</w>
+      <w id="1024.8">'s</w>
+      <w id="1024.9">fatal</w>
+      <time id="T1024E" value="01:45:38,817"/>
+   </s>
+   <s id="1025">
+      <time id="T1025S" value="01:45:38,900"/>
+      <w id="1025.1">Walk</w>
+      <w id="1025.2">with</w>
+      <w id="1025.3">me</w>
+      <w id="1025.4">,</w>
+      <w id="1025.5">come</w>
+      <w id="1025.6">on</w>
+      <w id="1025.7">,</w>
+      <w id="1025.8">walk</w>
+      <w id="1025.9">with</w>
+      <w id="1025.10">me</w>
+      <time id="T1025E" value="01:45:40,819"/>
+   </s>
+   <s id="1026">
+      <time id="T1026S" value="01:45:40,902"/>
+      <w id="1026.1">Come</w>
+      <w id="1026.2">on</w>
+      <w id="1026.3">,</w>
+      <w id="1026.4">walk</w>
+      <w id="1026.5">with</w>
+      <w id="1026.6">me</w>
+      <w id="1026.7">,</w>
+      <w id="1026.8">come</w>
+      <w id="1026.9">on</w>
+      <w id="1026.10">,</w>
+      <w id="1026.11">walk</w>
+      <w id="1026.12">with</w>
+      <w id="1026.13">me</w>
+      <time id="T1026E" value="01:45:43,780"/>
+   </s>
+   <s id="1027">
+      <time id="T1027S" value="01:45:43,947"/>
+      <w id="1027.1">Come</w>
+      <w id="1027.2">on</w>
+      <w id="1027.3">,</w>
+      <w id="1027.4">walk</w>
+      <w id="1027.5">with</w>
+      <w id="1027.6">me</w>
+      <w id="1027.7">,</w>
+      <w id="1027.8">come</w>
+      <w id="1027.9">on</w>
+      <w id="1027.10">,</w>
+      <w id="1027.11">walk</w>
+      <w id="1027.12">with</w>
+      <w id="1027.13">me</w>
+      <time id="T1027E" value="01:45:46,950"/>
+   </s>
+   <s id="1028">
+      <time id="T1028S" value="01:45:47,033"/>
+      <w id="1028.1">Come</w>
+      <w id="1028.2">on</w>
+      <w id="1028.3">,</w>
+      <w id="1028.4">walk</w>
+      <w id="1028.5">with</w>
+      <w id="1028.6">me</w>
+      <w id="1028.7">,</w>
+      <w id="1028.8">walk</w>
+      <w id="1028.9">with</w>
+      <w id="1028.10">me</w>
+      <time id="T1028E" value="01:45:50,203"/>
+   </s>
+   <s id="1029">
+      <time id="T1029S" value="01:45:50,287"/>
+      <w id="1029.1">I</w>
+      <w id="1029.2">strike</w>
+      <w id="1029.3">back</w>
+      <w id="1029.4">with</w>
+      <w id="1029.5">a</w>
+      <w id="1029.6">vengeance</w>
+      <w id="1029.7">,</w>
+      <w id="1029.8">The</w>
+      <w id="1029.9">father</w>
+      <w id="1029.10">,</w>
+      <w id="1029.11">your</w>
+      <w id="1029.12">descendants</w>
+      <time id="T1029E" value="01:45:53,707"/>
+   </s>
+   <s id="1030">
+      <time id="T1030S" value="01:45:53,790"/>
+      <w id="1030.1">And</w>
+      <w id="1030.2">I</w>
+      <w id="1030.3">ca</w>
+      <w id="1030.4">n't</w>
+      <w id="1030.5">be</w>
+      <w id="1030.6">deflected</w>
+      <w id="1030.7">by</w>
+      <w id="1030.8">your</w>
+      <w id="1030.9">silver</w>
+      <w id="1030.10">cross</w>
+      <w id="1030.11">pendants</w>
+      <time id="T1030E" value="01:45:56,960"/>
+   </s>
+   <s id="1031">
+      <time id="T1031S" value="01:45:57,043"/>
+      <w id="1031.1">Bloody</w>
+      <w id="1031.2">holy</w>
+      <w id="1031.3">water</w>
+      <w id="1031.4">,</w>
+      <w id="1031.5">you</w>
+      <w id="1031.6">made</w>
+      <w id="1031.7">the</w>
+      <w id="1031.8">false</w>
+      <w id="1031.9">images</w>
+      <time id="T1031E" value="01:45:59,880"/>
+   </s>
+   <s id="1032">
+      <time id="T1032S" value="01:45:59,921"/>
+      <w id="1032.1">What</w>
+      <w id="1032.2">'s</w>
+      <w id="1032.3">waiting</w>
+      <w id="1032.4">for</w>
+      <w id="1032.5">the</w>
+      <w id="1032.6">sickle</w>
+      <w id="1032.7">?</w>
+      <time id="T1032E" value="01:46:02,883"/>
+   </s>
+   <s id="1033">
+      <time id="T1033S" value="01:45:59,921"/>
+      <w id="1033.1">You</w>
+      <w id="1033.2">'re</w>
+      <w id="1033.3">like</w>
+      <w id="1033.4">the</w>
+      <w id="1033.5">nemesis</w>
+      <time id="T1033E" value="01:46:02,883"/>
+   </s>
+   <s id="1034">
+      <time id="T1034S" value="01:46:02,924"/>
+      <w id="1034.1">Sting</w>
+      <w id="1034.2">like</w>
+      <w id="1034.3">the</w>
+      <w id="1034.4">scorpion</w>
+      <w id="1034.5">,</w>
+      <w id="1034.6">strike</w>
+      <w id="1034.7">with</w>
+      <w id="1034.8">the</w>
+      <w id="1034.9">force</w>
+      <w id="1034.10">again</w>
+      <time id="T1034E" value="01:46:06,094"/>
+   </s>
+   <s id="1035">
+      <time id="T1035S" value="01:46:06,177"/>
+      <w id="1035.1">My</w>
+      <w id="1035.2">blood</w>
+      <w id="1035.3">in</w>
+      <w id="1035.4">those</w>
+      <w id="1035.5">who</w>
+      <w id="1035.6">revitalize</w>
+      <w id="1035.7">the</w>
+      <w id="1035.8">corpse</w>
+      <w id="1035.9">I</w>
+      <w id="1035.10">'m</w>
+      <w id="1035.11">in</w>
+      <time id="T1035E" value="01:46:09,639"/>
+   </s>
+   <s id="1036">
+      <time id="T1036S" value="01:46:09,723"/>
+      <w id="1036.1">And</w>
+      <w id="1036.2">the</w>
+      <w id="1036.3">last</w>
+      <w id="1036.4">thing</w>
+      <w id="1036.5">,</w>
+      <w id="1036.6">they</w>
+      <w id="1036.7">said</w>
+      <w id="1036.8">the</w>
+      <w id="1036.9">dead</w>
+      <w id="1036.10">would</w>
+      <w id="1036.11">walk</w>
+      <w id="1036.12">again</w>
+      <time id="T1036E" value="01:46:12,642"/>
+   </s>
+   <s id="1037">
+      <time id="T1037S" value="01:46:12,726"/>
+      <w id="1037.1">The</w>
+      <w id="1037.2">blind</w>
+      <w id="1037.3">,</w>
+      <w id="1037.4">deaf</w>
+      <w id="1037.5">and</w>
+      <w id="1037.6">the</w>
+      <w id="1037.7">dumb</w>
+      <w id="1037.8">will</w>
+      <w id="1037.9">talk</w>
+      <w id="1037.10">again</w>
+      <time id="T1037E" value="01:46:15,770"/>
+   </s>
+   <s id="1038">
+      <time id="T1038S" value="01:46:15,812"/>
+      <w id="1038.1">Try</w>
+      <w id="1038.2">to</w>
+      <w id="1038.3">use</w>
+      <w id="1038.4">my</w>
+      <w id="1038.5">name</w>
+      <w id="1038.6">,</w>
+      <w id="1038.7">that</w>
+      <w id="1038.8">'s</w>
+      <w id="1038.9">fatal</w>
+      <time id="T1038E" value="01:46:18,273"/>
+   </s>
+   <s id="1039">
+      <time id="T1039S" value="01:46:18,398"/>
+      <w id="1039.1">Trying</w>
+      <w id="1039.2">to</w>
+      <w id="1039.3">claim</w>
+      <w id="1039.4">my</w>
+      <w id="1039.5">fame</w>
+      <w id="1039.6">,</w>
+      <w id="1039.7">that</w>
+      <w id="1039.8">'s</w>
+      <w id="1039.9">fatal</w>
+      <time id="T1039E" value="01:46:21,818"/>
+   </s>
+   <s id="1040">
+      <time id="T1040S" value="01:46:21,902"/>
+      <w id="1040.1">About</w>
+      <w id="1040.2">to</w>
+      <w id="1040.3">raise</w>
+      <w id="1040.4">the</w>
+      <w id="1040.5">pain</w>
+      <w id="1040.6">,</w>
+      <w id="1040.7">that</w>
+      <w id="1040.8">'s</w>
+      <w id="1040.9">fatal</w>
+      <time id="T1040E" value="01:46:24,487"/>
+   </s>
+   <s id="1041">
+      <time id="T1041S" value="01:46:24,571"/>
+      <w id="1041.1">Bite</w>
+      <w id="1041.2">through</w>
+      <w id="1041.3">your</w>
+      <w id="1041.4">jugular</w>
+      <w id="1041.5">vein</w>
+      <w id="1041.6">,</w>
+      <w id="1041.7">that</w>
+      <w id="1041.8">'s</w>
+      <w id="1041.9">fatal</w>
+      <time id="T1041E" value="01:46:27,616"/>
+   </s>
+   <s id="1042">
+      <time id="T1042S" value="01:47:05,362"/>
+      <w id="1042.1">You</w>
+      <w id="1042.2">do</w>
+      <w id="1042.3">n't</w>
+      <w id="1042.4">even</w>
+      <w id="1042.5">know</w>
+      <w id="1042.6">me</w>
+      <time id="T1042E" value="01:47:08,281"/>
+   </s>
+   <s id="1043">
+      <time id="T1043S" value="01:47:08,323"/>
+      <w id="1043.1">You</w>
+      <w id="1043.2">ca</w>
+      <w id="1043.3">n't</w>
+      <w id="1043.4">even</w>
+      <w id="1043.5">see</w>
+      <w id="1043.6">me</w>
+      <time id="T1043E" value="01:47:11,284"/>
+   </s>
+   <s id="1044">
+      <time id="T1044S" value="01:47:11,326"/>
+      <w id="1044.1">Friendlier</w>
+      <w id="1044.2">than</w>
+      <w id="1044.3">daylight</w>
+      <time id="T1044E" value="01:47:13,954"/>
+   </s>
+   <s id="1045">
+      <time id="T1045S" value="01:47:14,037"/>
+      <w id="1045.1">Now</w>
+      <w id="1045.2">I</w>
+      <w id="1045.3">'m</w>
+      <w id="1045.4">back</w>
+      <w id="1045.5">,</w>
+      <w id="1045.6">now</w>
+      <w id="1045.7">I</w>
+      <w id="1045.8">'m</w>
+      <w id="1045.9">back</w>
+      <w id="1045.10">again</w>
+      <time id="T1045E" value="01:47:16,915"/>
+   </s>
+   <s id="1046">
+      <time id="T1046S" value="01:47:16,998"/>
+      <w id="1046.1">Do</w>
+      <w id="1046.2">n't</w>
+      <w id="1046.3">be</w>
+      <w id="1046.4">scared</w>
+      <w id="1046.5">,</w>
+      <w id="1046.6">baby</w>
+      <time id="T1046E" value="01:47:19,876"/>
+   </s>
+   <s id="1047">
+      <time id="T1047S" value="01:47:19,960"/>
+      <w id="1047.1">Ca</w>
+      <w id="1047.2">n't</w>
+      <w id="1047.3">you</w>
+      <w id="1047.4">see</w>
+      <w id="1047.5">I</w>
+      <w id="1047.6">'m</w>
+      <w id="1047.7">thirsty</w>
+      <w id="1047.8">?</w>
+      <time id="T1047E" value="01:47:23,171"/>
+   </s>
+   <s id="1048">
+      <time id="T1048S" value="01:47:23,255"/>
+      <w id="1048.1">Friends</w>
+      <w id="1048.2">of</w>
+      <w id="1048.3">the</w>
+      <w id="1048.4">daylight</w>
+      <time id="T1048E" value="01:47:25,840"/>
+   </s>
+   <s id="1049">
+      <time id="T1049S" value="01:47:25,966"/>
+      <w id="1049.1">Let</w>
+      <w id="1049.2">me</w>
+      <w id="1049.3">drink</w>
+      <w id="1049.4">,</w>
+      <w id="1049.5">let</w>
+      <w id="1049.6">me</w>
+      <w id="1049.7">drink</w>
+      <w id="1049.8">,</w>
+      <w id="1049.9">my</w>
+      <w id="1049.10">friend</w>
+      <time id="T1049E" value="01:47:29,094"/>
+   </s>
+   <s id="1050">
+      <time id="T1050S" value="01:47:29,177"/>
+      <w id="1050.1">Do</w>
+      <w id="1050.2">n't</w>
+      <w id="1050.3">be</w>
+      <w id="1050.4">scared</w>
+      <w id="1050.5">,</w>
+      <w id="1050.6">baby</w>
+      <time id="T1050E" value="01:47:31,972"/>
+   </s>
+   <s id="1051">
+      <time id="T1051S" value="01:47:32,055"/>
+      <w id="1051.1">Do</w>
+      <w id="1051.2">n't</w>
+      <w id="1051.3">be</w>
+      <w id="1051.4">afraid</w>
+      <time id="T1051E" value="01:47:34,933"/>
+   </s>
+   <s id="1052">
+      <time id="T1052S" value="01:47:34,975"/>
+      <w id="1052.1">Friends</w>
+      <w id="1052.2">of</w>
+      <w id="1052.3">the</w>
+      <w id="1052.4">daylight</w>
+      <time id="T1052E" value="01:47:37,811"/>
+   </s>
+   <s id="1053">
+      <time id="T1053S" value="01:47:37,894"/>
+      <w id="1053.1">And</w>
+      <w id="1053.2">I</w>
+      <w id="1053.3">'m</w>
+      <w id="1053.4">back</w>
+      <w id="1053.5">,</w>
+      <w id="1053.6">and</w>
+      <w id="1053.7">I</w>
+      <w id="1053.8">'m</w>
+      <w id="1053.9">back</w>
+      <w id="1053.10">again</w>
+      <time id="T1053E" value="01:47:40,897"/>
+   </s>
+   <s id="1054">
+      <time id="T1054S" value="01:47:40,939"/>
+      <w id="1054.1">Never</w>
+      <w id="1054.2">going</w>
+      <w id="1054.3">nowhere</w>
+      <time id="T1054E" value="01:47:43,859"/>
+   </s>
+   <s id="1055">
+      <time id="T1055S" value="01:47:43,942"/>
+      <w id="1055.1">You</w>
+      <w id="1055.2">ca</w>
+      <w id="1055.3">n't</w>
+      <w id="1055.4">run</w>
+      <w id="1055.5">from</w>
+      <w id="1055.6">me</w>
+      <time id="T1055E" value="01:47:47,153"/>
+   </s>
+   <s id="1056">
+      <time id="T1056S" value="01:47:47,237"/>
+      <w id="1056.1">Day</w>
+      <w id="1056.2">or</w>
+      <w id="1056.3">night</w>
+      <w id="1056.4">,</w>
+      <w id="1056.5">baby</w>
+      <time id="T1056E" value="01:47:49,865"/>
+   </s>
+   <s id="1057">
+      <time id="T1057S" value="01:47:49,948"/>
+      <w id="1057.1">Can</w>
+      <w id="1057.2">I</w>
+      <w id="1057.3">drink</w>
+      <w id="1057.4">,</w>
+      <w id="1057.5">can</w>
+      <w id="1057.6">I</w>
+      <w id="1057.7">drink</w>
+      <w id="1057.8">again</w>
+      <w id="1057.9">?</w>
+      <time id="T1057E" value="01:47:53,994"/>
+   </s>
+   <s id="1058">
+      <time id="T1058S" value="01:47:54,452"/>
+      <w id="1058.1">Yeah</w>
+      <time id="T1058E" value="01:47:56,329"/>
+   </s>
+   <s id="1059">
+      <time id="T1059S" value="01:47:56,788"/>
+      <w id="1059.1">Yeah</w>
+      <time id="T1059E" value="01:48:01,293"/>
+   </s>
+   <s id="1060">
+      <time id="T1060S" value="01:48:01,835"/>
+      <w id="1060.1">Can</w>
+      <w id="1060.2">we</w>
+      <w id="1060.3">drink</w>
+      <w id="1060.4">,</w>
+      <w id="1060.5">can</w>
+      <w id="1060.6">we</w>
+      <w id="1060.7">drink</w>
+      <w id="1060.8">,</w>
+      <w id="1060.9">my</w>
+      <w id="1060.10">friend</w>
+      <w id="1060.11">?</w>
+      <time id="T1060E" value="01:48:05,463"/>
+   </s>
+   <s id="1061">
+      <time id="T1061S" value="01:48:05,547"/>
+      <w id="1061.1">Do</w>
+      <w id="1061.2">n't</w>
+      <w id="1061.3">be</w>
+      <w id="1061.4">scared</w>
+      <w id="1061.5">,</w>
+      <w id="1061.6">baby</w>
+      <time id="T1061E" value="01:48:08,383"/>
+   </s>
+   <s id="1062">
+      <time id="T1062S" value="01:48:08,550"/>
+      <w id="1062.1">Do</w>
+      <w id="1062.2">n't</w>
+      <w id="1062.3">be</w>
+      <w id="1062.4">scared</w>
+      <w id="1062.5">,</w>
+      <w id="1062.6">baby</w>
+      <time id="T1062E" value="01:48:11,011"/>
+   </s>
+   <s id="1063">
+      <time id="T1063S" value="01:48:11,052"/>
+      <w id="1063.1">Ca</w>
+      <w id="1063.2">n't</w>
+      <w id="1063.3">you</w>
+      <w id="1063.4">see</w>
+      <w id="1063.5">I</w>
+      <w id="1063.6">'m</w>
+      <w id="1063.7">thirsty</w>
+      <w id="1063.8">?</w>
+      <time id="T1063E" value="01:48:13,680"/>
+   </s>
+   <s id="1064">
+      <time id="T1064S" value="01:48:13,763"/>
+      <w id="1064.1">And</w>
+      <w id="1064.2">I</w>
+      <w id="1064.3">'m</w>
+      <w id="1064.4">back</w>
+      <w id="1064.5">,</w>
+      <w id="1064.6">and</w>
+      <w id="1064.7">I</w>
+      <w id="1064.8">'m</w>
+      <w id="1064.9">back</w>
+      <w id="1064.10">again</w>
+      <time id="T1064E" value="01:48:16,099"/>
+   </s>
+   <s id="1065">
+      <time id="T1065S" value="01:48:16,183"/>
+      <w id="1065.1">First</w>
+      <w id="1065.2">things</w>
+      <w id="1065.3">first</w>
+      <w id="1065.4">,</w>
+      <w id="1065.5">man</w>
+      <w id="1065.6">,</w>
+      <w id="1065.7">you</w>
+      <w id="1065.8">ca</w>
+      <w id="1065.9">n't</w>
+      <w id="1065.10">fight</w>
+      <w id="1065.11">the</w>
+      <w id="1065.12">thirst</w>
+      <time id="T1065E" value="01:48:18,852"/>
+   </s>
+   <s id="1066">
+      <time id="T1066S" value="01:48:18,935"/>
+      <w id="1066.1">You</w>
+      <w id="1066.2">ca</w>
+      <w id="1066.3">n't</w>
+      <w id="1066.4">call</w>
+      <w id="1066.5">the</w>
+      <w id="1066.6">doctor</w>
+      <w id="1066.7">,</w>
+      <w id="1066.8">you</w>
+      <w id="1066.9">ca</w>
+      <w id="1066.10">n't</w>
+      <w id="1066.11">call</w>
+      <w id="1066.12">the</w>
+      <w id="1066.13">nurse</w>
+      <time id="T1066E" value="01:48:21,855"/>
+   </s>
+   <s id="1067">
+      <time id="T1067S" value="01:48:21,938"/>
+      <w id="1067.1">You</w>
+      <w id="1067.2">got</w>
+      <w id="1067.3">that</w>
+      <w id="1067.4">Louis</w>
+      <w id="1067.5">logo</w>
+      <w id="1067.6">on</w>
+      <w id="1067.7">the</w>
+      <w id="1067.8">side</w>
+      <w id="1067.9">of</w>
+      <w id="1067.10">your</w>
+      <w id="1067.11">purse</w>
+      <time id="T1067E" value="01:48:24,649"/>
+   </s>
+   <s id="1068">
+      <time id="T1068S" value="01:48:24,733"/>
+      <w id="1068.1">And</w>
+      <w id="1068.2">those</w>
+      <w id="1068.3">tight</w>
+      <w id="1068.4">minis</w>
+      <w id="1068.5">about</w>
+      <w id="1068.6">to</w>
+      <w id="1068.7">make</w>
+      <w id="1068.8">me</w>
+      <w id="1068.9">burst</w>
+      <time id="T1068E" value="01:48:27,944"/>
+   </s>
+   <s id="1069">
+      <time id="T1069S" value="01:48:28,028"/>
+      <w id="1069.1">I</w>
+      <w id="1069.2">ca</w>
+      <w id="1069.3">n't</w>
+      <w id="1069.4">think</w>
+      <w id="1069.5">,</w>
+      <w id="1069.6">let</w>
+      <w id="1069.7">me</w>
+      <w id="1069.8">sink</w>
+      <w id="1069.9">into</w>
+      <w id="1069.10">your</w>
+      <w id="1069.11">jugular</w>
+      <time id="T1069E" value="01:48:30,947"/>
+   </s>
+   <s id="1070">
+      <time id="T1070S" value="01:48:30,989"/>
+      <w id="1070.1">Come</w>
+      <w id="1070.2">have</w>
+      <w id="1070.3">a</w>
+      <w id="1070.4">drink</w>
+      <w id="1070.5">with</w>
+      <w id="1070.6">the</w>
+      <w id="1070.7">thirsty</w>
+      <w id="1070.8">love</w>
+      <w id="1070.9">guzzler</w>
+      <time id="T1070E" value="01:48:33,909"/>
+   </s>
+   <s id="1071">
+      <time id="T1071S" value="01:48:33,950"/>
+      <w id="1071.1">From</w>
+      <w id="1071.2">the</w>
+      <w id="1071.3">dark</w>
+      <w id="1071.4">side</w>
+      <w id="1071.5">,</w>
+      <w id="1071.6">baby</w>
+      <w id="1071.7">,</w>
+      <w id="1071.8">do</w>
+      <w id="1071.9">n't</w>
+      <w id="1071.10">be</w>
+      <w id="1071.11">afraid</w>
+      <time id="T1071E" value="01:48:36,453"/>
+   </s>
+   <s id="1072">
+      <time id="T1072S" value="01:48:36,494"/>
+      <w id="1072.1">You</w>
+      <w id="1072.2">ca</w>
+      <w id="1072.3">n't</w>
+      <w id="1072.4">fight</w>
+      <w id="1072.5">the</w>
+      <w id="1072.6">thirst</w>
+      <w id="1072.7">nor</w>
+      <w id="1072.8">escape</w>
+      <w id="1072.9">the</w>
+      <w id="1072.10">plague</w>
+      <time id="T1072E" value="01:48:39,873"/>
+   </s>
+   <s id="1073">
+      <time id="T1073S" value="01:48:39,915"/>
+      <w id="1073.1">I</w>
+      <w id="1073.2">'ve</w>
+      <w id="1073.3">been</w>
+      <w id="1073.4">scopin</w>
+      <w id="1073.5">'</w>
+      <w id="1073.6">ya</w>
+      <w id="1073.7">hoping</w>
+      <w id="1073.8">you</w>
+      <w id="1073.9">'d</w>
+      <w id="1073.10">be</w>
+      <w id="1073.11">open</w>
+      <w id="1073.12">to</w>
+      <time id="T1073E" value="01:48:43,084"/>
+   </s>
+   <s id="1074">
+      <time id="T1074S" value="01:48:43,126"/>
+      <w id="1074.1">Take</w>
+      <w id="1074.2">a</w>
+      <w id="1074.3">sip</w>
+      <w id="1074.4">of</w>
+      <w id="1074.5">the</w>
+      <w id="1074.6">potion</w>
+      <w id="1074.7">'cause</w>
+      <w id="1074.8">it</w>
+      <w id="1074.9">'s</w>
+      <w id="1074.10">overdue</w>
+      <time id="T1074E" value="01:48:46,087"/>
+   </s>
+   <s id="1075">
+      <time id="T1075S" value="01:48:46,171"/>
+      <w id="1075.1">It</w>
+      <w id="1075.2">'s</w>
+      <w id="1075.3">not</w>
+      <w id="1075.4">your</w>
+      <w id="1075.5">ordinary</w>
+      <w id="1075.6">,</w>
+      <w id="1075.7">it</w>
+      <w id="1075.8">'s</w>
+      <w id="1075.9">a</w>
+      <w id="1075.10">special</w>
+      <w id="1075.11">brew</w>
+      <time id="T1075E" value="01:48:49,174"/>
+   </s>
+   <s id="1076">
+      <time id="T1076S" value="01:48:49,257"/>
+      <w id="1076.1">In</w>
+      <w id="1076.2">the</w>
+      <w id="1076.3">heat</w>
+      <w id="1076.4">of</w>
+      <w id="1076.5">the</w>
+      <w id="1076.6">night</w>
+      <w id="1076.7">,</w>
+      <w id="1076.8">I</w>
+      <w id="1076.9">will</w>
+      <w id="1076.10">rescue</w>
+      <w id="1076.11">you</w>
+      <time id="T1076E" value="01:48:52,093"/>
+   </s>
+   <s id="1077">
+      <time id="T1077S" value="01:48:53,553"/>
+      <w id="1077.1">Never</w>
+      <w id="1077.2">going</w>
+      <w id="1077.3">nowhere</w>
+      <time id="T1077E" value="01:48:56,056"/>
+   </s>
+   <s id="1078">
+      <time id="T1078S" value="01:48:56,139"/>
+      <w id="1078.1">You</w>
+      <w id="1078.2">ca</w>
+      <w id="1078.3">n't</w>
+      <w id="1078.4">run</w>
+      <w id="1078.5">from</w>
+      <w id="1078.6">me</w>
+      <time id="T1078E" value="01:48:59,351"/>
+   </s>
+   <s id="1079">
+      <time id="T1079S" value="01:48:59,392"/>
+      <w id="1079.1">Day</w>
+      <w id="1079.2">or</w>
+      <w id="1079.3">night</w>
+      <w id="1079.4">,</w>
+      <w id="1079.5">baby</w>
+      <time id="T1079E" value="01:49:02,187"/>
+   </s>
+   <s id="1080">
+      <time id="T1080S" value="01:49:02,229"/>
+      <w id="1080.1">Can</w>
+      <w id="1080.2">I</w>
+      <w id="1080.3">drink</w>
+      <w id="1080.4">,</w>
+      <w id="1080.5">can</w>
+      <w id="1080.6">I</w>
+      <w id="1080.7">drink</w>
+      <w id="1080.8">again</w>
+      <w id="1080.9">?</w>
+      <time id="T1080E" value="01:49:06,024"/>
+   </s>
+   <s id="1081">
+      <time id="T1081S" value="01:49:06,858"/>
+      <w id="1081.1">Yeah</w>
+      <time id="T1081E" value="01:49:08,318"/>
+   </s>
+   <s id="1082">
+      <time id="T1082S" value="01:49:08,944"/>
+      <w id="1082.1">Yeah</w>
+      <time id="T1082E" value="01:49:13,532"/>
+   </s>
+   <s id="1083">
+      <time id="T1083S" value="01:49:14,115"/>
+      <w id="1083.1">Can</w>
+      <w id="1083.2">we</w>
+      <w id="1083.3">drink</w>
+      <w id="1083.4">,</w>
+      <w id="1083.5">can</w>
+      <w id="1083.6">we</w>
+      <w id="1083.7">drink</w>
+      <w id="1083.8">,</w>
+      <w id="1083.9">my</w>
+      <w id="1083.10">friend</w>
+      <w id="1083.11">?</w>
+      <time id="T1083E" value="01:49:17,619"/>
+   </s>
+   <s id="1084">
+      <time id="T1084S" value="01:49:17,702"/>
+      <w id="1084.1">Do</w>
+      <w id="1084.2">n't</w>
+      <w id="1084.3">be</w>
+      <w id="1084.4">scared</w>
+      <w id="1084.5">,</w>
+      <w id="1084.6">baby</w>
+      <time id="T1084E" value="01:49:20,372"/>
+   </s>
+   <s id="1085">
+      <time id="T1085S" value="01:49:20,539"/>
+      <w id="1085.1">Do</w>
+      <w id="1085.2">n't</w>
+      <w id="1085.3">be</w>
+      <w id="1085.4">scared</w>
+      <w id="1085.5">,</w>
+      <w id="1085.6">baby</w>
+      <time id="T1085E" value="01:49:23,500"/>
+   </s>
+   <s id="1086">
+      <time id="T1086S" value="01:49:23,583"/>
+      <w id="1086.1">Ca</w>
+      <w id="1086.2">n't</w>
+      <w id="1086.3">you</w>
+      <w id="1086.4">see</w>
+      <w id="1086.5">I</w>
+      <w id="1086.6">'m</w>
+      <w id="1086.7">thirsty</w>
+      <w id="1086.8">?</w>
+      <time id="T1086E" value="01:49:26,127"/>
+   </s>
+   <s id="1087">
+      <time id="T1087S" value="01:49:26,211"/>
+      <w id="1087.1">And</w>
+      <w id="1087.2">I</w>
+      <w id="1087.3">'m</w>
+      <w id="1087.4">back</w>
+      <w id="1087.5">,</w>
+      <w id="1087.6">and</w>
+      <w id="1087.7">I</w>
+      <w id="1087.8">'m</w>
+      <w id="1087.9">back</w>
+      <w id="1087.10">again</w>
+      <time id="T1087E" value="01:49:29,422"/>
+   </s>
+   <s id="1088">
+      <time id="T1088S" value="01:49:29,506"/>
+      <w id="1088.1">Allow</w>
+      <w id="1088.2">me</w>
+      <w id="1088.3">a</w>
+      <w id="1088.4">parting</w>
+      <w id="1088.5">gift</w>
+      <w id="1088.6">.</w>
+      <time id="T1088E" value="01:49:31,925"/>
+   </s>
+   <s id="1089">
+      <time id="T1089S" value="01:49:33,009"/>
+      <w id="1089.1">But</w>
+      <w id="1089.2">remember</w>
+      <w id="1089.3">this</w>
+      <w id="1089.4">.</w>
+      <time id="T1089E" value="01:49:34,803"/>
+   </s>
+   <s id="1090">
+      <time id="T1090S" value="01:49:35,512"/>
+      <w id="1090.1">Sooner</w>
+      <w id="1090.2">or</w>
+      <w id="1090.3">later</w>
+      <w id="1090.4">,</w>
+      <time id="T1090E" value="01:49:38,765"/>
+   </s>
+   <s id="1091">
+      <time id="T1091S" value="01:49:38,849"/>
+      <w id="1091.1">the</w>
+      <w id="1091.2">thirst</w>
+      <w id="1091.3">will</w>
+      <w id="1091.4">always</w>
+      <w id="1091.5">win</w>
+      <w id="1091.6">.</w>
+      <time id="T1091E" value="01:49:42,394"/>
+   </s>
+   <s id="1092">
+      <time id="T1092S" value="01:50:02,455"/>
+      <w id="1092.1">And</w>
+      <w id="1092.2">I</w>
+      <w id="1092.3">'m</w>
+      <w id="1092.4">back</w>
+      <w id="1092.5">,</w>
+      <w id="1092.6">and</w>
+      <w id="1092.7">I</w>
+      <w id="1092.8">'m</w>
+      <w id="1092.9">back</w>
+      <w id="1092.10">again</w>
+      <time id="T1092E" value="01:50:05,417"/>
    </s>
 </document>
