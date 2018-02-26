@@ -19,27 +19,6 @@ p-value:  0.5431560605504513
 kendall's tau:  -0.04524582848400098 
 p-value:  0.5160464817627313 
 
---- blade_raw_mean_audio_Warriner.csv ---
-Valence
-spearman:  -0.3982475626311243 
-p-value:  0.0004840435268683823
-kendall's tau:  -0.2656012176560122 
-p-value:  0.0008870086938484857 
-
---- blade_raw_mean_audio_Warriner.csv ---
-Arousal
-spearman:  0.14411329137356538 
-p-value:  0.22382722606540711
-kendall's tau:  0.08904109589041097 
-p-value:  0.26511328497815523 
-
---- blade_raw_mean_audio_Warriner.csv ---
-Dominance
-spearman:  -0.3684437862520055 
-p-value:  0.0013399374752643956
-kendall's tau:  -0.2488584474885845 
-p-value:  0.0018421434762691106 
-
 --- star-wars-4_raw_mean_audio_Warriner.csv ---
 Valence
 spearman:  -0.26006812521493444 

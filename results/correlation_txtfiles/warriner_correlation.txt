@@ -1,4 +1,6 @@
 --- 6mv_raw_mean_audio_Warriner.csv ---
+sample size 1027
+
 Valence
 spearman:  -0.2661815908646006 
 p-value:  4.066973725770713e-18
@@ -25,14 +27,12 @@ p-value:  5.139398243783688e-16
 kendall's tau:  -0.17036934398865927 
 p-value:  2.949350593378375e-16 
 
---- 6mv_raw_mean_audio_normalized_Warriner.csv ---
 Arousal
 spearman:  0.2928940673146136 
 p-value:  9.16580956228937e-22
 kendall's tau:  0.1982956212730122 
 p-value:  1.811205745436052e-21 
 
---- 6mv_raw_mean_audio_normalized_Warriner.csv ---
 Dominance
 spearman:  -0.19740361149240265 
 p-value:  1.7553105588833773e-10

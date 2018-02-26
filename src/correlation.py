@@ -18,6 +18,7 @@ from scipy import stats
 from src.src_audio.audio import normalize, partition_audiofeature
 from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated, sentence_sentiment
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
+from src.src_text.sentiment.sentiment import ImpalaSent
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
@@ -124,6 +125,71 @@ def create_audio_sent_csv(script_path: str, audio_path: str, dest_csv_path: str,
                     [start, end, score.get("neg"), score.get("neu"), score.get("pos"), score.get("compound"), level])
 
 
+def correlation_plaintext(fountain_script: str, audio_path: str, sent_method: str = "Warriner"):
+    lol = lambda lst, sz: [lst[i:i + sz] for i in range(0, len(lst), sz)]
+    lol2 = lambda lst, sz: [np.mean(lst[i:i + sz]) for i in range(0, len(lst), sz)]
+
+    n = 170
+    with open(fountain_script) as textfile:
+        text = textfile.read()
+        l = len(text)
+        section_length = int(l / n)
+        test = lol(text, section_length)
+
+    audio = []
+    with open(audio_path) as audio_csv:
+        reader = csv.reader(audio_csv)
+        for row in reader:
+            audio.append(float(row[1]))
+
+        la = len(audio)
+        audiosection_length = int(la / n)
+        partitions = lol2(audio, audiosection_length)
+
+
+    sentiment = ImpalaSent()
+
+    sent = [sentiment.score(x) for x in test]
+    sent = sent[0:n]
+    partitions = partitions[0:n]
+
+    with open("test3.csv", "a") as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
+
+        for index, item in enumerate(sent):
+            writer.writerow([item.get("valence"), item.get("arousal"), item.get("dominance"), partitions[index]])
+
+
+    # rho = stats.spearmanr(sent, partitions)
+    # tau = stats.kendalltau(sent, partitions)
+
+
+    # i = 0
+    # n = 10000
+    # greater = 0
+    # less = 0
+    # for index, p in enumerate(itertools.permutations(sent)):
+    #     if index > n:
+    #         break
+    #
+    #     # shuffled = np.random.shuffle(sent)
+    #     # test = stats.spearmanr(shuffled, partitions)
+    #     test = stats.spearmanr(p, partitions)
+    #     if test[0] >= rho[0]:
+    #         greater += 1
+    #     else:
+    #         less += 1
+    #
+    # print("korrelation größer gleich rho: ", greater/n)
+    # print("korrelation kleiner rho: ", less/n)
+
+    # print("Arousal")
+    # print("spearman: ", rho[0])
+    # print("p-value: ", rho[1])
+    # print("kendall's tau: ", tau[0])
+    # print("p-value: ", tau[1])
+
+
 def correlation(csv_path: str, column: int, raw=False):
     with open(csv_path) as csvfile:
         reader = csv.reader(csvfile)
@@ -176,7 +242,23 @@ def correlation(csv_path: str, column: int, raw=False):
         # print("spearman: ", rho)
         # print("pearson: ", p)
         # print("kendall's tau: ", tau, "\n")
-
+        # n = 10000
+        #
+        # greater = 0
+        # less = 0
+        # for index, p in enumerate(itertools.permutations(sentiment)):
+        #     if index > n:
+        #         break
+        #
+        #     # shuffled = np.random.shuffle(sent)
+        #     # test = stats.spearmanr(shuffled, partitions)
+        #     test = stats.spearmanr(p, audio)
+        #     if test[0] >= rho[0]:
+        #         greater += 1
+        #     else:
+        #         less += 1
+        # print("korrelation größer gleich rho: ", greater / n)
+        # print("korrelation kleiner rho: ", less / n)
         return rho, p, tau, len(sentiment)
 
 
@@ -257,13 +339,33 @@ def plot_from_csv(csv_path: str, classes: int):
 
 
 def main2():
-    for file in os.listdir(os.path.join(BASE_DIR, "data/audiosent_csvfiles")):
-        if file == "experimental" or not "normalized" in file:
-            continue
+    script1 = os.path.join(BASE_DIR, "data/all_moviescripts", "blade.txt")
+    script2 = os.path.join(BASE_DIR, "data/all_moviescripts", "hellboy.txt")
+    script3 = os.path.join(BASE_DIR, "data/all_moviescripts", "predator.txt")
+    script4 = os.path.join(BASE_DIR, "data/all_moviescripts", "scream.txt")
+    script5 = os.path.join(BASE_DIR, "data/all_moviescripts", "star-wars-4.txt")
+    script6 = os.path.join(BASE_DIR, "data/all_moviescripts", "the-matrix.txt")
 
-        path = os.path.join(BASE_DIR, "data/audiosent_csvfiles", file)
-        print("\n", os.path.basename(path))
-        plot_from_csv(path, 4)
+    audio1 = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
+    audio2 = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
+    audio3 = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
+    audio4 = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
+    audio5 = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
+    audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles", "the-matrix.csv")
+
+    data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
+            (script6, audio6)]
+
+    # for d in data:
+    #     correlation_plaintext(d[0], d[1], "Warriner")
+
+    test = []
+    test.append(correlation("test3.csv", 2, raw=True))
+    test.sort(key=lambda x: x[1])
+    for t in test:
+        print("spearman: ", t[0][0], "\np-value: ", t[0][1])
+        print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+        print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
 
 
 def main():
@@ -305,25 +407,29 @@ def main():
         path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/single_movies", file)
 
         # if "6mv" in path:
-        if "Vader" in path:
-            if "Vader" in path:
-                ind = [2, 3, 4, 5]
-                names = ["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"]
-            else:
-                ind = [2, 3, 4]
-                names = ["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"]
+        # if "Vader" in path:
+        #     if "Vader" in path:
+        #         ind = [2, 3, 4, 5]
+        #         names = ["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"]
+        #     else:
+        #         ind = [2, 3, 4]
+        #         names = ["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"]
+        #
+        #     for i in ind:
+        #         corr = correlation(path, i, raw=True)
+        #         test.append((corr, path, names[i]))
 
-            for i in ind:
-                corr = correlation(path, i, raw=True)
-                test.append((corr, path, names[i]))
+        if "Warriner" in path:
+            print(file)
+            corr = correlation(path, 3, raw=True)
 
-    for t in test:
-        print("---", os.path.basename(t[1]), "---")
-        print(t[2])
-        # print("sample size: ", t[0][-1])
-        print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
-        # print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
-        print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
+    # for t in test:
+    #     print("---", os.path.basename(t[1]), "---")
+    #     print(t[2])
+    #     # print("sample size: ", t[0][-1])
+    #     print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
+    #     # print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
+    #     print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
 
     # test = []
     # test.append(correlation("star-wars-4_test.csv", 3, raw=True))

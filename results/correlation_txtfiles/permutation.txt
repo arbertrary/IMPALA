@@ -1,0 +1,57 @@
+For the first 10000 permutations of itertools.permutations
+Sentiment: Warriner Arousal
+Audio: raw
+
+For the fountain-scripts, the arrays are split into 100 partitions.
+
+
+blade.txt
+korrelation größer gleich rho:  0.2765
+korrelation kleiner rho:  0.7236
+
+hellboy.txt
+korrelation größer gleich rho:  0.9469
+korrelation kleiner rho:  0.0532
+
+predator.txt
+korrelation größer gleich rho:  0.4634
+korrelation kleiner rho:  0.5367
+
+scream.txt
+korrelation größer gleich rho:  0.9526
+korrelation kleiner rho:  0.0475
+
+star-wars-4.txt
+korrelation größer gleich rho:  0.2095
+korrelation kleiner rho:  0.7906
+
+the-matrix.txt
+korrelation größer gleich rho:  0.2942
+korrelation kleiner rho:  0.7059
+
+
+Partitioned into scenes:
+
+blade_raw_mean_audio_Warriner.csv
+korrelation größer gleich rho:  0.0205
+korrelation kleiner rho:  0.9796
+
+hellboy_raw_mean_audio_Warriner.csv
+korrelation größer gleich rho:  0.5312
+korrelation kleiner rho:  0.4689
+
+predator_raw_mean_audio_Warriner.csv
+korrelation größer gleich rho:  0.1088
+korrelation kleiner rho:  0.8913
+
+scream_ger_raw_mean_audio_Warriner.csv
+korrelation größer gleich rho:  0.7561
+korrelation kleiner rho:  0.244
+
+star-wars-4_raw_mean_audio_Warriner.csv
+korrelation größer gleich rho:  0.1827
+korrelation kleiner rho:  0.8174
+
+the-matrix_raw_mean_audio_Warriner.csv
+korrelation größer gleich rho:  0.2239
+korrelation kleiner rho:  0.7762

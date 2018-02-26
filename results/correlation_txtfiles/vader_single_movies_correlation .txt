@@ -26,34 +26,6 @@ p-value:  0.6286249232082697
 kendall's tau:  -0.031826521052310236 
 p-value:  0.6179164993998527 
 
---- blade_raw_mean_audio_Vader.csv ---
-neg
-spearman:  -0.04816866074388162 
-p-value:  0.6857091105388016
-kendall's tau:  -0.0349727318995333 
-p-value:  0.6669497581257277 
-
---- blade_raw_mean_audio_Vader.csv ---
-neu
-spearman:  0.12915024653095714 
-p-value:  0.2761613655998174
-kendall's tau:  0.07265864163480325 
-p-value:  0.3653304720901559 
-
---- blade_raw_mean_audio_Vader.csv ---
-pos
-spearman:  -0.21274613643168538 
-p-value:  0.07075001425950322
-kendall's tau:  -0.13912017282025618 
-p-value:  0.08563656651241598 
-
---- blade_raw_mean_audio_Vader.csv ---
-compound
-spearman:  -0.053005171632346124 
-p-value:  0.6560501167960695
-kendall's tau:  -0.030546190288339783 
-p-value:  0.7031124395559574 
-
 --- star-wars-4_raw_mean_audio_Vader.csv ---
 neg
 spearman:  0.15708770873322642 
