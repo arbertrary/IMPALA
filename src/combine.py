@@ -6,6 +6,7 @@ import soundfile as sf
 import numpy as np
 from matplotlib import pyplot as plt
 from datetime import datetime, timedelta
+import src.utility as util
 from matplotlib import dates
 from src.src_audio.audio import get_energy
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
@@ -19,27 +20,6 @@ from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
 """
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
-
-
-def sliding_window(inputlist: list, win_size: int):
-    windows = []
-    current_mean = []
-
-    for index, score in enumerate(inputlist):
-        if index + win_size <= len(inputlist):
-            temp = inputlist[index:index + win_size]
-            current_mean = np.mean(temp)
-            windows.append(current_mean)
-        else:
-            temp = inputlist[index:]
-            i = len(temp)
-            while i < win_size:
-                temp.append(current_mean)
-                i += 1
-            current_mean = np.mean(temp)
-            windows.append(current_mean)
-
-    return windows
 
 
 def combine(audio_csv: str, xml_path: str, scenelevel=True):
@@ -63,12 +43,12 @@ def combine(audio_csv: str, xml_path: str, scenelevel=True):
     print("Audio time: ", audio_time[-1])
     print("sentiment time: ", sent_time[-1])
 
-    audio_windows = sliding_window(audio, 10)
+    audio_windows = util.sliding_window(audio, 10)
 
     if scenelevel:
         sentiment_windows = arousal
     else:
-        sentiment_windows = sliding_window(arousal, 10)
+        sentiment_windows = util.sliding_window(arousal, 10)
 
     fig, ax1 = plt.subplots()
     # fig.set_canvas(plt.gcf().canvas)
