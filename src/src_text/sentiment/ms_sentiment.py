@@ -1,5 +1,6 @@
 import os
 import matplotlib.pyplot as plt
+import src.utility as util
 from datetime import datetime
 from typing import List, Tuple, Dict
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
@@ -87,6 +88,20 @@ def scenesentiment_for_man_annotated(xml_path: str, sent_method: str = "Warriner
     sentiment_tuples.sort(key=lambda tup: tup[0])
 
     return sentiment_tuples
+
+
+def plaintext_sentiment(fountain_path: os.path, n_parts: int, sent_method: str = "Warriner"):
+    sentiment = ImpalaSent()
+
+    with open(fountain_path) as textfile:
+        text = textfile.read()
+
+        section_length = int(len(text) / n_parts)
+        sections = util.part(text, section_length)
+
+    sections = [sentiment.score(x) for x in sections]
+
+    return sections
 
 
 def plot_scenesentiment(sentiment_values: List):
