@@ -1,0 +1,57 @@
+
+unnormalized.
+---------------------
+not found sentences = 5.0
+VALENCE
+spearman:  -0.27079498888391623 
+p-value:  8.725701033368825e-19
+pearson:  -0.2641289475090109 
+p-value:  6.4492966856329704e-18
+kendall's tau:  -0.1859040704280161 
+p-value:  3.953496294050353e-19
+
+AROUSAL
+spearman:  0.32504267604935017 
+p-value:  8.513745451888463e-27
+pearson:  0.3456170074611475 
+p-value:  2.6893105068469578e-30
+kendall's tau:  0.21990786116248753 
+p-value:  3.972715815476294e-26
+
+
+not found sentences = avg (val = 5.06, arousal =4.21, dom = 5.18)
+VALENCE
+spearman:  -0.2703858213121517 
+p-value:  9.88161001521326e-19
+pearson:  -0.2636795563655688 
+p-value:  7.365451194660364e-18
+kendall's tau:  -0.18571055933999928 
+p-value:  4.2979306125789265e-19 
+
+AROUSAL
+spearman:  0.3217848072648475 
+p-value:  2.8859096099361146e-26
+pearson:  0.34046858394216206 
+p-value:  2.1408883595953784e-29
+kendall's tau:  0.21766276947200489 
+p-value:  1.2490857931500134e-25 
+
+normalized. 
+---------------------
+not found sentences = 5.0
+spearman:  -0.2533400041277982 
+p-value:  1.4593435945896506e-16
+pearson:  -0.24767022001094058 
+p-value:  7.094602784644955e-16
+kendall's tau:  -0.17321771305822647 
+p-value:  8.209265339721527e-17 
+
+
+
+not found sentences = avg (val = 5.06, arousal =4.21, dom = 5.18)
+spearman:  -0.2529760164934923 
+p-value:  1.617198599274946e-16
+pearson:  -0.2473469170380008 
+p-value:  7.754832728654874e-16
+kendall's tau:  -0.17303182868690348 
+p-value:  8.847857695308226e-17 

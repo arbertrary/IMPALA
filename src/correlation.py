@@ -21,19 +21,48 @@ from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
     plaintext_sentiment
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 from src.src_text.sentiment.sentiment import ImpalaSent
+from src.src_text.preprocessing.moviescript import get_scenes_unannotated
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
+fountain1 = os.path.join(BASE_DIR, "data/all_moviescripts", "blade.txt")
+fountain2 = os.path.join(BASE_DIR, "data/all_moviescripts", "hellboy.txt")
+fountain3 = os.path.join(BASE_DIR, "data/all_moviescripts", "predator.txt")
+fountain4 = os.path.join(BASE_DIR, "data/all_moviescripts", "scream.txt")
+fountain5 = os.path.join(BASE_DIR, "data/all_moviescripts", "star-wars-4.txt")
+fountain6 = os.path.join(BASE_DIR, "data/all_moviescripts", "the-matrix.txt")
 
-def create_audio_sent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_method: str = "Warriner"):
+audio1 = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
+audio2 = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
+audio3 = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
+audio4 = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
+audio5 = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
+audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles", "the-matrix.csv")
+
+script1 = os.path.join(BASE_DIR, "data/manually_annotated", "blade_man.xml")
+script2 = os.path.join(BASE_DIR, "data/manually_annotated", "hellboy_man.xml")
+script3 = os.path.join(BASE_DIR, "data/manually_annotated", "predator_man.xml")
+script4 = os.path.join(BASE_DIR, "data/manually_annotated", "scream_man.xml")
+script5 = os.path.join(BASE_DIR, "data/manually_annotated", "star-wars-4_man.xml")
+script6 = os.path.join(BASE_DIR, "data/manually_annotated", "the-matrix_man.xml")
+
+subs1 = os.path.join(BASE_DIR, "data/data_subtitles/", "blade_subs.xml")
+subs2 = os.path.join(BASE_DIR, "data/data_subtitles/", "hellboy_subs.xml")
+subs3 = os.path.join(BASE_DIR, "data/data_subtitles/", "predator_subs.xml")
+subs4 = os.path.join(BASE_DIR, "data/data_subtitles/", "scream_subs.xml")
+subs5 = os.path.join(BASE_DIR, "data/data_subtitles/", "star-wars-4_subs.xml")
+subs6 = os.path.join(BASE_DIR, "data/data_subtitles/", "the-matrix_subs.xml")
+
+
+def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_method: str = "Warriner", **kwargs):
     if sent_method not in {"Warriner", "NRC", "Vader"}:
         raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
 
-    ts = scenesentiment_for_man_annotated(script_path, sent_method)
-    print("warriner lengtht", len(ts))
-    ts2 = scenesentiment_for_man_annotated(script_path, sent_method="Vader")
-    print("vader length:", len(ts2))
-    # ts = subtitle_sentiment(script_path, sent_method)
+    # ts = scenesentiment_for_man_annotated(script_path, sent_method)
+    # ts2 = scenesentiment_for_man_annotated(script_path, sent_method="Vader")
+    # print("vader length:", len(ts2))
+    ts = subtitle_sentiment(script_path, sent_method)
+    print("warriner length", len(ts))
     partitions = []
 
     with open(audio_path) as audio_csv:
@@ -47,23 +76,11 @@ def create_audio_sent_csv(script_path: str, audio_path: str, dest_csv_path: str,
         temp_audio = [x[1] for x in partitions if t[0] <= x[0] <= t[1]]
 
         if len(temp_audio) != 0:
-            # Variante 1: avg über die gesamte szene
             scene_audio.append(np.mean(temp_audio))
             scene_sentiment.append(t)
-            # variante 2: max der gesamten szene
-            # scene_audio.append(np.max(temp_audio))
 
-            # variante 3: average des 75% percentile
-            # perc = np.percentile(temp_audio, 75)
-            # temp = [x for x in temp_audio if x > perc]
-            # scene_audio.append(np.mean(temp))
-
-            # variante 4: min der gesamten szene
-            # scene_audio.append(np.min(temp_audio))
-    # scene_audio = librosa.util.normalize(np.array(scene_audio))
-    # scene_audio = normalize(scene_audio)
-    data = pd.DataFrame(scene_audio)
-    # print(data.describe())
+    if kwargs.get("normalized"):
+        scene_audio = librosa.util.normalize(np.array(scene_audio))
 
     if not os.path.isfile(dest_csv_path):
         mode = "w"
@@ -84,35 +101,9 @@ def create_audio_sent_csv(script_path: str, audio_path: str, dest_csv_path: str,
                      "Positive", "Sadness", "Surprise", "Trust", "Audio Level"])
             elif sent_method == "Vader":
                 writer.writerow(["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"])
+
         for i, t in enumerate(scene_audio):
-
             level = t
-            # level = "nan"
-            # if t <= 1:
-            #     level = "silent"
-            # elif 1 < t <= 2:
-            #     level = "medium"
-            # elif 2 < t <= 3:
-            #     level = "loud"
-            # else:
-            #     level = "loud"
-
-            # if t <= 0.33:
-            #     level = "silent"
-            # elif 0.33 < t <= 0.66:
-            #     level = "medium"
-            # else:
-            #     level = "loud"
-
-            # if t <= 0.25:
-            #     level = "silent"
-            # elif 0.25 < t <= 0.5:
-            #     level = "medium"
-            # elif 0.5 < t <= 0.75:
-            #     level = "loud"
-            # else:
-            #     level = "loudest"
-
             start = scene_sentiment[i][0]
             end = scene_sentiment[i][1]
             score = scene_sentiment[i][2]
@@ -130,7 +121,7 @@ def create_audio_sent_csv(script_path: str, audio_path: str, dest_csv_path: str,
                     [start, end, score.get("neg"), score.get("neu"), score.get("pos"), score.get("compound"), level])
 
 
-def correlation_plaintext(fountain_script: str, audio_path: str, n_sections: int, sent_method: str = "Warriner"):
+def fountain_audiosent_csv(fountain_script: str, audio_path: str, n_sections: int, sent_method: str = "Warriner"):
     sent_sections = plaintext_sentiment(fountain_script, n_sections)
 
     audio = []
@@ -146,39 +137,41 @@ def correlation_plaintext(fountain_script: str, audio_path: str, n_sections: int
     sent = sent_sections[0:n_sections]
     partitions = partitions[0:n_sections]
 
-    with open("test.csv", "a") as csvfile:
+    with open("test2.csv", "a") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
 
         for index, item in enumerate(sent):
             writer.writerow([item.get("valence"), item.get("arousal"), item.get("dominance"), partitions[index]])
 
-    # rho = stats.spearmanr(sent, partitions)
-    # tau = stats.kendalltau(sent, partitions)
 
-    # i = 0
-    # n = 10000
-    # greater = 0
-    # less = 0
-    # for index, p in enumerate(itertools.permutations(sent)):
-    #     if index > n:
-    #         break
-    #
-    #     # shuffled = np.random.shuffle(sent)
-    #     # test = stats.spearmanr(shuffled, partitions)
-    #     test = stats.spearmanr(p, partitions)
-    #     if test[0] >= rho[0]:
-    #         greater += 1
-    #     else:
-    #         less += 1
-    #
-    # print("korrelation größer gleich rho: ", greater/n)
-    # print("korrelation kleiner rho: ", less/n)
+def audiosent_scenes_wo_time(xml_path: str, audio_path: str):
+    sentiment = ImpalaSent()
 
-    # print("Arousal")
-    # print("spearman: ", rho[0])
-    # print("p-value: ", rho[1])
-    # print("kendall's tau: ", tau[0])
-    # print("p-value: ", tau[1])
+    scenes = get_scenes_unannotated(xml_path)
+    scenesentiment = [sentiment.score(" ".join(x)) for x in scenes]
+
+    audio = []
+    with open(audio_path) as audio_csv:
+        reader = csv.reader(audio_csv)
+        for row in reader:
+            audio.append(float(row[1]))
+
+        la = len(audio)
+        audiosection_length = int(la / len(scenes))
+        partitions = [np.mean(x) for x in util.part(audio, audiosection_length)]
+
+    scenesentiment = scenesentiment[0:len(scenes)]
+    partitions = partitions[0:len(scenes)]
+
+    with open("test.csv", "a") as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
+
+        for index, item in enumerate(scenesentiment):
+            writer.writerow([item.get("valence"), item.get("arousal"), item.get("dominance"), partitions[index]])
+
+    # rho = stats.spearmanr(scenesentiment, partitions)
+    # p = stats.pearsonr(scenesentiment, partitions)
+    # tau = stats.kendalltau(scenesentiment, partitions)
 
 
 def correlation(csv_path: str, column: int, raw=False):
@@ -330,67 +323,47 @@ def plot_from_csv(csv_path: str, classes: int):
 
 
 def main2():
-    script1 = os.path.join(BASE_DIR, "data/all_moviescripts", "blade.txt")
-    script2 = os.path.join(BASE_DIR, "data/all_moviescripts", "hellboy.txt")
-    script3 = os.path.join(BASE_DIR, "data/all_moviescripts", "predator.txt")
-    script4 = os.path.join(BASE_DIR, "data/all_moviescripts", "scream.txt")
-    script5 = os.path.join(BASE_DIR, "data/all_moviescripts", "star-wars-4.txt")
-    script6 = os.path.join(BASE_DIR, "data/all_moviescripts", "the-matrix.txt")
+    data = [(fountain1, audio1), (fountain2, audio2), (fountain3, audio3), (fountain4, audio4), (fountain5, audio5),
+            (fountain6, audio6)]
+    data2 = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
+             (script6, audio6)]
 
-    audio1 = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
-    audio2 = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
-    audio3 = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
-    audio4 = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
-    audio5 = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
-    audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles", "the-matrix.csv")
+    data3 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
-            (script6, audio6)]
+    for d in data3:
+        # fountain_audiosent_csv(d[0], d[1], 200, "Warriner")
+        # audiosent_scenes_wo_time(d[0], d[1])
+        audiosent_csv(d[0], d[1], "test4.csv")
 
-    # for d in data:
-    #     correlation_plaintext(d[0], d[1], 170, "Warriner")
+    indices = [2, 3, 4]
+    for i in indices:
+        test = []
+        if i == 2:
+            print("Valence")
+        elif i == 3:
+            print("Arousal")
+        else:
+            print("Dominance")
 
-    test = []
-    test.append(correlation("test.csv", 2, raw=True))
-    test.sort(key=lambda x: x[1])
-    for t in test:
-        print("spearman: ", t[0][0], "\np-value: ", t[0][1])
-        print("pearson: ", t[1][0], "\np-value: ", t[1][1])
-        print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
+        test.append(correlation("test4.csv", i, raw=True))
+        test.sort(key=lambda x: x[1])
+
+        for t in test:
+            print("spearman: ", t[0][0], "\np-value: ", t[0][1])
+            # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+            print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
 
 
 def main():
-    script1 = os.path.join(BASE_DIR, "data/manually_annotated", "blade_man.xml")
-    script2 = os.path.join(BASE_DIR, "data/manually_annotated", "hellboy_man.xml")
-    script3 = os.path.join(BASE_DIR, "data/manually_annotated", "predator_man.xml")
-    script4 = os.path.join(BASE_DIR, "data/manually_annotated", "scream_man.xml")
-    script5 = os.path.join(BASE_DIR, "data/manually_annotated", "star-wars-4_man.xml")
-    script6 = os.path.join(BASE_DIR, "data/manually_annotated", "the-matrix_man.xml")
-
-    subs1 = os.path.join(BASE_DIR, "data/data_subtitles/", "blade_subs.xml")
-    subs2 = os.path.join(BASE_DIR, "data/data_subtitles/", "hellboy_subs.xml")
-    subs3 = os.path.join(BASE_DIR, "data/data_subtitles/", "predator_subs.xml")
-    subs4 = os.path.join(BASE_DIR, "data/data_subtitles/", "scream_subs.xml")
-    subs5 = os.path.join(BASE_DIR, "data/data_subtitles/", "star-wars-4_subs.xml")
-    subs6 = os.path.join(BASE_DIR, "data/data_subtitles/", "the-matrix_subs.xml")
-
-    audio1 = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
-    audio2 = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
-    audio3 = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
-    audio4 = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
-    audio5 = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
-    audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles", "the-matrix.csv")
-
     data = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
             (script6, audio6)]
     data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    name = "6mv_raw_Warriner_unnorm.csv"
-    # for d in data:
-    # name = os.path.basename(d[1]).replace(".csv", "_raw_mean_audio_Warriner.csv")
-    # create_audio_sent_csv(d[0], d[1], name, sent_method="Warriner")
-    # path = d[1].replace(".csv", "_test.csv")
-    # create_audio_sent_csv(d[1], d[0], dest_csv_path=path, sent_method="Warriner")
+    name = "test.csv"
+    for d in data:
+        # name = os.path.basename(d[1]).replace(".csv", "_raw_mean_audio_Warriner.csv")
+        audiosent_csv(d[0], d[1], name, sent_method="Warriner")  # path = d[1].replace(".csv", "_test.csv")
+    # audiosent_csv(d[1], d[0], dest_csv_path=path, sent_method="Warriner")
 
     test = []
 
@@ -423,7 +396,7 @@ def main():
     #     print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
 
     test = []
-    test.append(correlation(name, 2, raw=True))
+    test.append(correlation(name, 3, raw=True))
     test.sort(key=lambda x: x[1])
     for t in test:
         print("spearman: ", t[0][0], "\np-value: ", t[0][1])
