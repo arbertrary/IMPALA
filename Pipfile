@@ -17,6 +17,7 @@ pysoundfile = "*"
 pandas = "*"
 scikit-learn = "*"
 numpy = "*"
+wordcloud = "*"
 
 
 [dev-packages]
