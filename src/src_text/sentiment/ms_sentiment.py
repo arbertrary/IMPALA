@@ -5,14 +5,14 @@ from datetime import datetime
 from typing import List, Tuple, Dict
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from src.src_text.sentiment.sentiment import ImpalaSent
-from src.src_text.preprocessing.moviescript import get_full_scenes, get_scenes_man_annotated, get_all_sentences
+import src.src_text.preprocessing.moviescript as ms
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
 def sentence_sentiment(xml_path: str):
     sentiment = ImpalaSent()
-    sentences = get_all_sentences(xml_path)
+    sentences = ms.get_all_sentences(xml_path)
     scores = []
     for s in sentences:
         score = sentiment.score(s)
@@ -26,7 +26,7 @@ def scenesentiment(xml_path: str) -> List[Tuple[float, float, float, float]]:
 
     sentiment = ImpalaSent()
 
-    scenes = get_full_scenes(xml_path)
+    scenes = ms.get_full_scenes(xml_path)
     beginning = datetime.strptime("00:00:00", '%H:%M:%S')
 
     sentiment_tuples = []
@@ -58,7 +58,7 @@ def scenesentiment_for_man_annotated(xml_path: str, sent_method: str = "Warriner
     else:
         sentiment = ImpalaSent(sent_method)
 
-    scenes = get_scenes_man_annotated(xml_path)
+    scenes = ms.get_scenes_man_annotated(xml_path)
     beginning = datetime.strptime("00:00:00", '%H:%M:%S')
 
     sentiment_tuples = []
@@ -96,8 +96,7 @@ def plaintext_sentiment(fountain_path: os.path, n_parts: int, sent_method: str =
     with open(fountain_path) as textfile:
         text = textfile.read()
 
-        section_length = int(len(text) / n_parts)
-        sections = util.part(text, section_length)
+        sections = util.split(text, n_parts)
 
     sections = [sentiment.score(x) for x in sections]
 

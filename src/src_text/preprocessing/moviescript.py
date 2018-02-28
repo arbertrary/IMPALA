@@ -108,7 +108,7 @@ def get_characters(xml_path: str) -> Set[str]:
     """:returns the movie characters"""
     tree = ET.parse(xml_path)
 
-    characters = set(char.get("name") for char in tree.iter("dialogue"))
+    characters = set(str(char.get("name")).lower() for char in tree.iter("dialogue"))
 
     return characters
 

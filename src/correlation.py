@@ -131,16 +131,17 @@ def fountain_audiosent_csv(fountain_script: str, audio_path: str, n_sections: in
             audio.append(float(row[1]))
 
         la = len(audio)
-        audiosection_length = int(la / n_sections)
-        partitions = [np.mean(x) for x in util.part(audio, audiosection_length)]
+        # audiosection_length = int(la / n_sections)
+        # partitions = [np.mean(x) for x in util.part(audio, audiosection_length)]
+        partitions = [np.mean(x) for x in util.split(audio, n_sections)]
 
-    sent = sent_sections[0:n_sections]
-    partitions = partitions[0:n_sections]
+    # sent = sent_sections[0:n_sections]
+    # partitions = partitions[0:n_sections]
 
-    with open("test2.csv", "a") as csvfile:
+    with open("test.csv", "a") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
 
-        for index, item in enumerate(sent):
+        for index, item in enumerate(sent_sections):
             writer.writerow([item.get("valence"), item.get("arousal"), item.get("dominance"), partitions[index]])
 
 
@@ -330,22 +331,22 @@ def main2():
 
     data3 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    for d in data3:
-        # fountain_audiosent_csv(d[0], d[1], 200, "Warriner")
-        # audiosent_scenes_wo_time(d[0], d[1])
-        audiosent_csv(d[0], d[1], "test4.csv")
+    # for d in data:
+    #     fountain_audiosent_csv(d[0], d[1], 200, "Warriner")
+    # audiosent_scenes_wo_time(d[0], d[1])
+    # audiosent_csv(d[0], d[1], "test4.csv")
 
-    indices = [2, 3, 4]
+    indices = [0, 1, 2]
     for i in indices:
         test = []
-        if i == 2:
+        if i == 0:
             print("Valence")
-        elif i == 3:
+        elif i == 1:
             print("Arousal")
         else:
             print("Dominance")
 
-        test.append(correlation("test4.csv", i, raw=True))
+        test.append(correlation("test.csv", i, raw=True))
         test.sort(key=lambda x: x[1])
 
         for t in test:

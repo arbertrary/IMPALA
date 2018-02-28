@@ -6,6 +6,7 @@
 Nur die Szenen ohne timecodes.
 Annahme: szenen sind alle gleich lang
 ------------------------------------------
+test.csv
 sample size: 1327
 
 Valence
@@ -29,6 +30,7 @@ p-value:  5.1044192068436615e-08
 
 plain text fountain, jeweils aufgeteilt in 200 sections
 ------------------------------------------
+test2.csv
 sample size: 1200
 
 Valence
@@ -52,6 +54,7 @@ p-value:  7.084027558891511e-06
 
 szenen mit time codes:
 ------------------------------------------
+test3.csv
 sample size: 1032
 
 Valence
@@ -75,6 +78,7 @@ p-value:  6.714044362865453e-14
 
 nur die untertitel:
 ------------------------------------------
+test4.csv
 sample size: 6523
 Valence
 spearman:  -0.051934576595393606 
