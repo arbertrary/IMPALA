@@ -159,6 +159,14 @@ def blockwise_processing(path):
     return asdf
 
 
+def write_audiocsv(audio_path: str, dest_path: str):
+    energy = partition_audiofeature(audio_path)
+    with open(dest_path, "w") as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
+        for e in energy:
+            writer.writerow([e[0], e[1]])
+
+
 def main():
     audio1 = os.path.join(BASE_DIR, "data/data_audio", "blade.wav")
     audio2 = os.path.join(BASE_DIR, "data/data_audio", "hellboy.wav")
@@ -166,39 +174,15 @@ def main():
     audio4 = os.path.join(BASE_DIR, "data/data_audio", "scream_ger.wav")
     audio5 = os.path.join(BASE_DIR, "data/data_audio", "star-wars-4.wav")
     audio6 = os.path.join(BASE_DIR, "data/data_audio", "the-matrix.wav")
+    testaudio = os.path.join(BASE_DIR, "data/data_audio", "selfiefromhell.wav")
+
+    data = ["blade.wav", "hellboy.wav", "predator.wav", "scream_ger.wav", "star-wars-4.wav", "the-matrix.wav"]
 
     audio1csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
     audio2csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
     audio3csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
     audio4csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
     audio5csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
-
-    # test = partition_audiofeature(audio2)
-    data = [audio6]
-    time = datetime.now()
-    info = sf.info(audio5, verbose=True)
-    print(info)
-
-    # energy = get_energy(audio5)
-    #
-    # with open(audio5csv) as csvfile:
-    #     reader = csv.reader(csvfile)
-    #     audio = []
-    #     time = []
-    #     for row in reader:
-    #         time.append(float(row[0]))
-    #         audio.append(float(row[1]))
-    #
-    # plt.subplot(211)
-    # plt.plot(energy)
-    # plt.subplot(212)
-    # plt.plot(time, audio)
-    # plt.show()
-    #
-    # time2 = datetime.now()
-    # diff = time2 - time
-    #
-    # print(diff)
 
 
 if __name__ == '__main__':

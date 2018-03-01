@@ -35,6 +35,9 @@ def subtitle_sentiment(xml_path: str, sent_method: str = "Warriner") -> List[Tup
 
         if all(score.get(x) == -1 for x in score):
             continue
+        if score == {"valence": 5.06, "arousal": 4.21, "dominance": 5.18}:
+            print("lul")
+            continue
 
         start = round(s[0])
         end = round(s[1])
@@ -69,8 +72,6 @@ def plot_stuff(path):
     plt.plot(joy, ".")
     plt.tight_layout()
     plt.show()
-
-
 
 
 def main():
