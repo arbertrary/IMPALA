@@ -4,6 +4,8 @@ import src.src_text.preprocessing.moviescript as ms
 import src.src_text.preprocessing.subtitles as subs
 import csv
 import numpy as np
+import pandas as pd
+import seaborn as sns
 import src.utility as util
 from wordcloud import WordCloud
 from collections import Counter
@@ -12,7 +14,7 @@ from nltk.corpus import stopwords
 from src.src_text.sentiment.sentiment import ImpalaSent
 from src.src_text.sentiment.ms_sentiment import plaintext_sentiment
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 script1 = os.path.join(BASE_DIR, "data/manually_annotated", "blade_man.xml")
 script2 = os.path.join(BASE_DIR, "data/manually_annotated", "hellboy_man.xml")
@@ -46,7 +48,8 @@ data = [fountain1, fountain2, fountain3, fountain4, fountain5, fountain6]
 data2 = [script1, script2, script3, script4, script5, script6]
 data3 = [(subs1, script1), (subs2, script2), (subs3, script3), (subs4, script4), (subs5, script5), (subs6, script6)]
 data4 = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
-            (script6, audio6)]
+         (script6, audio6)]
+
 
 def audio_stufftemp(audio_path):
     with open(audio_path) as csvfile:
@@ -112,6 +115,30 @@ def section_sentiment(fountain_path):
     # arousal = [x.get("arousal") for x in test]
     # plt.plot(arousal)
     # plt.show()
+
+
+def section_audio():
+    newdir = os.path.join(BASE_DIR, "data/audio_csvfiles")
+    yes = 0
+    no = 0
+
+    for file in os.listdir(newdir):
+        path = os.path.join(newdir, file)
+
+        with open(path) as csvfile:
+            reader = csv.reader(csvfile)
+            audio = []
+            for row in reader:
+                audio.append(float(row[-1]))
+        audio = [np.mean(x) for x in util.split(audio, 5)]
+
+        if audio[-1] > audio[0]:
+            yes += 1
+        else:
+            no += 1
+
+    print("audio in last section louder than in first section: ", yes, "filme")
+    print("audio in last section more silent than in first section: ", no, "filme")
 
 
 def word_count(xml_path):
@@ -209,6 +236,19 @@ def histograms():
     # img_path = "histogram.png"
     # plt.savefig(img_path, dpi=300)
 
+
+def regression_plot(csvfile):
+    """In the simplest invocation, both functions draw a scatterplot of two variables, x and y,
+    and then fit the regression model y ~ x
+    and plot the resulting regression line and a 95% confidence interval for that regression:"""
+    dataframe = pd.read_csv(csvfile)
+    # print(dataframe)
+    sns.regplot(y="Dominance", x="Arousal", data=dataframe)
+    plt.title("Scatter Plot with Regression line for 1031 scenes from 6 movies")
+    plt.tight_layout()
+    plt.show()
+
+
 def main():
     # word_count(script1)
     # word_count(script2)
@@ -217,9 +257,9 @@ def main():
     # word_count(script5)
     # word_count(script6)
     # histograms()
-    for d in data4:
-        audio_stufftemp(d[1])
-
+    # for d in data4:
+    #     audio_stufftemp(d[1])
+    section_audio()
     # for d in data:
     #     section_sentiment(d)
     # section_sentiment(fountain1)
