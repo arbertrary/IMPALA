@@ -45,7 +45,8 @@ audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles", "the-matrix.csv")
 data = [fountain1, fountain2, fountain3, fountain4, fountain5, fountain6]
 data2 = [script1, script2, script3, script4, script5, script6]
 data3 = [(subs1, script1), (subs2, script2), (subs3, script3), (subs4, script4), (subs5, script5), (subs6, script6)]
-
+data4 = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
+            (script6, audio6)]
 
 def audio_stufftemp(audio_path):
     with open(audio_path) as csvfile:
@@ -55,7 +56,11 @@ def audio_stufftemp(audio_path):
         for row in reader:
             audio.append(float(row[-1]))
 
-        audio = len()
+        audio = [np.mean(a) for a in util.split(audio, 5)]
+        # print(audio)
+        # print(audio)
+        plt.plot(audio)
+        plt.show()
 
 
 def section_sentiment(fountain_path):
@@ -180,27 +185,29 @@ def histograms():
     plt.suptitle("Histograms for Sentiment and Audio of 6 movies (1027 scenes)")
     plt.subplot(221)
     plt.xlabel("Score")
-    plt.ylabel("Count")
+    plt.ylabel("# of data points")
     plt.title("Valence")
     plt.hist(valence)
     plt.subplot(222)
     plt.xlabel("Score")
-    plt.ylabel("Count")
+    plt.ylabel("# of data points")
     plt.title("Arousal")
     plt.hist(arousal)
     plt.subplot(223)
     plt.hist(dominance)
     plt.xlabel("Score")
-    plt.ylabel("Count")
+    plt.ylabel("# of data points")
     plt.title("Dominance")
     plt.subplot(224)
     plt.xlabel("Audio Energy")
-    plt.ylabel("Count")
+    plt.ylabel("# of data points")
     plt.title("Audio")
     plt.hist(audio)
 
+    plt.tight_layout()
     plt.show()
-
+    # img_path = "histogram.png"
+    # plt.savefig(img_path, dpi=300)
 
 def main():
     # word_count(script1)
@@ -210,10 +217,12 @@ def main():
     # word_count(script5)
     # word_count(script6)
     # histograms()
+    for d in data4:
+        audio_stufftemp(d[1])
 
     # for d in data:
     #     section_sentiment(d)
-    section_sentiment(fountain1)
+    # section_sentiment(fountain1)
 
 
 if __name__ == '__main__':
