@@ -18,6 +18,7 @@ pandas = "*"
 scikit-learn = "*"
 numpy = "*"
 wordcloud = "*"
+seaborn = "*"
 
 
 [dev-packages]
