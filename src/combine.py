@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 from datetime import datetime, timedelta
 import src.utility as util
 from matplotlib import dates
-from src.src_audio.audio import get_energy
+from src.src_audio.audio import get_feature
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
 

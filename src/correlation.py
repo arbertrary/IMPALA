@@ -39,6 +39,13 @@ audio4 = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
 audio5 = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
 audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles", "the-matrix.csv")
 
+tuning1 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "blade_tuning.csv")
+tuning2 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "hellboy_tuning.csv")
+tuning3 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "predator_tuning.csv")
+tuning4 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "scream_ger_tuning.csv")
+tuning5 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "star-wars-4_tuning.csv")
+tuning6 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "the-matrix_tuning.csv")
+
 script1 = os.path.join(BASE_DIR, "data/manually_annotated", "blade_man.xml")
 script2 = os.path.join(BASE_DIR, "data/manually_annotated", "hellboy_man.xml")
 script3 = os.path.join(BASE_DIR, "data/manually_annotated", "predator_man.xml")
@@ -58,9 +65,9 @@ def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_me
     if sent_method not in {"Warriner", "NRC", "Vader", "combined"}:
         raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
 
-    # ts = scenesentiment_for_man_annotated(script_path)
+    ts = scenesentiment_for_man_annotated(script_path, sent_method)
     # ts2 = scenesentiment_for_man_annotated(script_path, sent_method="Vader")
-    ts = subtitle_sentiment(script_path, sent_method)
+    # ts = subtitle_sentiment(script_path, sent_method)
     print("warriner length", len(ts))
     partitions = []
 
@@ -216,7 +223,7 @@ def correlation(csv_path: str, column: int, raw=True):
                         audio.append(3)
                     else:
                         audio.append(4)
-
+        print(sentiment)
         # rho = stats.mstats.spearmanr(sentiment, audio)
         rho = stats.spearmanr(sentiment, audio)
         # p = stats.mstats.pearsonr(sentiment, audio)
@@ -331,17 +338,24 @@ def plot_from_csv(csv_path: str, classes: int):
 
 
 def main2():
-    data = [(fountain1, audio1), (fountain2, audio2), (fountain3, audio3), (fountain4, audio4), (fountain5, audio5),
-            (fountain6, audio6)]
-    data2 = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
-             (script6, audio6)]
+    data_fountain = [(fountain1, audio1), (fountain2, audio2), (fountain3, audio3), (fountain4, audio4),
+                     (fountain5, audio5),
+                     (fountain6, audio6)]
+    data_fountain_tune = [(fountain1, tuning1), (fountain2, tuning2), (fountain3, tuning3), (fountain4, tuning4),
+                          (fountain5, tuning5),
+                          (fountain6, tuning6)]
 
+    data_script = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
+                   (script6, audio6)]
+    data_script_tune = [(script1, tuning1), (script2, tuning2), (script3, tuning3), (script4, tuning4),
+                        (script5, tuning5),
+                        (script6, tuning6)]
     data3 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    for d in data:
-        fountain_audiosent_csv(d[0], d[1], 200, "test2.csv")
-    # audiosent_scenes_wo_time(d[0], d[1])
-    # audiosent_csv(d[0], d[1], "test4.csv")
+    for d in data_script_tune:
+        # fountain_audiosent_csv(d[0], d[1], 200, "test.csv")
+        # audiosent_scenes_wo_time(d[0], d[1])
+        audiosent_csv(d[0], d[1], "test2.csv")
 
     indices = [0, 1, 2]
     for i in indices:
@@ -367,9 +381,9 @@ def main():
             (script6, audio6)]
     data2 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    name = "test3.csv"
-    # for d in data2:
-    #     audiosent_csv(d[0], d[1], name, normalized=True)
+    name = "nrc_test.csv"
+    # for d in data:
+    #     audiosent_csv(d[0], d[1], name, normalized=False, sent_method="NRC")
     #     audiosent_scenes_wo_time(d[0], d[1], name)
 
     # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw/6mv_mean_audio_raw_combined_sent.csv")
@@ -378,7 +392,7 @@ def main():
     test.sort(key=lambda x: x[1])
     for t in test:
         print("spearman: ", t[0][0], "\np-value: ", t[0][1])
-        # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+        print("pearson: ", t[1][0], "\np-value: ", t[1][1])
         print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
 
     test = []
@@ -413,4 +427,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main2()
