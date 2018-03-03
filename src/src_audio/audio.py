@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import librosa
 import librosa.display
 import soundfile as sf
+import src.utility as util
 from datetime import datetime
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
@@ -41,26 +42,34 @@ def rms_energy(audio_path: str):
     plt.show()
 
 
-def get_energy(path: str, block_size: int = 2048) -> np.array:
+def get_feature(path: str, feature: str, block_size: int = 2048) -> np.array:
     """Calculates the rms energy for an audio file by blockwise reading.
     :param path: path of audio file
     :param block_size: default 2048 frames per block
     :returns np.array"""
+
+    if feature not in ["energy", "tuning"]:
+        raise ValueError("Wrong audio feature")
+
     block_gen = sf.blocks(path, blocksize=block_size)
 
-    energy_list = []
+    result_list = []
 
     for y in block_gen:
         S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
         # rms = librosa.feature.rmse(S=S)
-        rms = librosa.feature.rmse(y=y)
-        m = np.mean(rms)
-        energy_list.append(m)
+
+        if feature == "energy":
+            rms = librosa.feature.rmse(y=y)
+            result = np.mean(rms)
+        else:
+            result = librosa.estimate_tuning(y)
+
+        result_list.append(result)
 
     block_gen.close()
-    # energy = librosa.util.normalize(np.array(energy_list))
-    energy = np.array(energy_list)
-    return energy
+    # energy = np.array(result_list)
+    return np.array(result_list)
 
 
 def normalize(energy: np.array):
@@ -83,36 +92,41 @@ def normalize(energy: np.array):
     return test2
 
 
-def partition_audiofeature(path: str, interval_seconds: float = 1.0):
+def partition_audiofeature(path: str, feature: str, interval_seconds: float = 1.0):
     """Partitions (currently) die energy of an audio file into intervals.
     :param path: audio file path
     :param interval_seconds: duration of intervals in seconds as float. defaults to 1s"""
     duration = sf.info(path).duration
-    energy = get_energy(path)
 
-    time_per_frame = np.divide(duration, len(energy))
+    feature = get_feature(path, feature)
+    time_per_frame = np.divide(duration, len(feature))
 
-    energy_times = []
+    feature_times = []
     time = 0
     duration = 0
     temp = []
-    for frame in energy:
+    for frame in feature:
         if duration < interval_seconds:
             duration += time_per_frame
             time += time_per_frame
             temp.append(frame)
         else:
-            energy_times.append((round(time), np.mean(temp)))
-            # energy_times.append((time, temp))
+            feature_times.append((round(time), np.mean(temp)))
+            # feature_times.append((time, temp))
             time += time_per_frame
             duration = 0
             temp = []
 
-    return energy_times
+    # x = [x[0] for x in feature_times]
+    # y = [y[1] for y in feature_times]
+    # plt.plot(x, y)
+    # plt.tight_layout()
+    # plt.show()
+    return feature_times
 
 
 def __plot_energy(energy: np.array):
-    """Helper function to plot the audio energy calculated in get_energy"""
+    """Helper function to plot the audio energy calculated in get_feature"""
     # plt.figure()
     plt.subplot(211)
     plt.title("")
@@ -140,30 +154,35 @@ def blockwise_processing(path):
     i = 1
     for y in block_gen:
         # Varianten:
-
         # D = librosa.magphase(librosa.stft(y, window=np.ones))[0]
         # D = librosa.stft(y)
-        D = librosa.feature.melspectrogram(y=y)
+        # D = librosa.feature.melspectrogram(y=y)
         # D = librosa.feature.melspectrogram(y=y, sr=22050, n_mels=256)
         # a = librosa.amplitude_to_db(D)
-        a = librosa.power_to_db(D)
+        # a = librosa.power_to_db(D)
         # a = librosa.feature.mfcc(y=y, sr=22050)
+        # test = [np.mean(x) for x in a]
 
-        test = [np.mean(x) for x in a]
+        test = librosa.estimate_tuning(y)
 
         testlist.append(test)
-    print(np.array(testlist).T.shape)
-    asdf = np.array(testlist).T
+
     block_gen.close()
+    return np.array(testlist)
+    # testlist = util.sliding_window(testlist, 1000)
+    # plt.plot(testlist)
+    # plt.ylim(-0.5, 0.5)
+    # plt.xlim(0,len(testlist))
+    # plt.tight_layout()
+    # plt.show()
+    # return asdf
 
-    return asdf
 
-
-def write_audiocsv(audio_path: str, dest_path: str):
-    energy = partition_audiofeature(audio_path)
+def write_audiocsv(audio_path: str, dest_path: str, feature: str):
+    feature = partition_audiofeature(audio_path, feature)
     with open(dest_path, "w") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
-        for e in energy:
+        for e in feature:
             writer.writerow([e[0], e[1]])
 
 
@@ -183,6 +202,14 @@ def main():
     audio3csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
     audio4csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
     audio5csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
+
+    for d in data:
+        new_name = d.replace(".wav", "_tuning.csv")
+        path = os.path.join(BASE_DIR, "data/data_audio", d)
+        write_audiocsv(path, new_name, feature="tuning")
+
+    # blockwise_processing(audio5)
+    # partition_audiofeature(testaudio, "tuning")
 
 
 if __name__ == '__main__':
