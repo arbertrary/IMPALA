@@ -223,7 +223,7 @@ def correlation(csv_path: str, column: int, raw=True):
                         audio.append(3)
                     else:
                         audio.append(4)
-        print(sentiment)
+        # print(sentiment)
         # rho = stats.mstats.spearmanr(sentiment, audio)
         rho = stats.spearmanr(sentiment, audio)
         # p = stats.mstats.pearsonr(sentiment, audio)
@@ -352,22 +352,26 @@ def main2():
                         (script6, tuning6)]
     data3 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
 
-    for d in data_script_tune:
-        # fountain_audiosent_csv(d[0], d[1], 200, "test.csv")
-        # audiosent_scenes_wo_time(d[0], d[1])
-        audiosent_csv(d[0], d[1], "test2.csv")
+    # for d in data_script:
+    #     # fountain_audiosent_csv(d[0], d[1], 200, "test.csv")
+    #     # audiosent_scenes_wo_time(d[0], d[1])
+    #     audio_dir = os.path.dirname(d[1])
+    #     filename = "rolloff/"+ os.path.basename(d[1]).replace(".csv", "_rolloff.csv")
+    #     path = os.path.join(audio_dir, filename)
+    #
+    #     audiosent_csv(d[0], path, "test.csv")
 
-    indices = [0, 1, 2]
+    indices = [2, 3, 4]
     for i in indices:
         test = []
-        if i == 0:
+        if i == 2:
             print("Valence")
-        elif i == 1:
+        elif i == 3:
             print("Arousal")
         else:
             print("Dominance")
 
-        test.append(correlation("test2.csv", i, raw=True))
+        test.append(correlation("test.csv", i, raw=True))
         test.sort(key=lambda x: x[1])
 
         for t in test:

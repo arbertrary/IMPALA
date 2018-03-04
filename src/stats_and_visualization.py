@@ -243,7 +243,7 @@ def regression_plot(csvfile):
     and plot the resulting regression line and a 95% confidence interval for that regression:"""
     dataframe = pd.read_csv(csvfile)
     # print(dataframe)
-    sns.regplot(y="Tuning", x="Valence", data=dataframe)
+    sns.regplot(y="RolloffFreq", x="Arousal", data=dataframe)
     plt.title("Scatter Plot with Regression line for 1024 scenes from 6 movies")
     plt.tight_layout()
     plt.show()
@@ -260,7 +260,7 @@ def main():
     # for d in data4:
     #     audio_stufftemp(d[1])
     # section_audio()
-    path = os.path.join(BASE_DIR, "src/test2.csv")
+    path = os.path.join(BASE_DIR, "src/test.csv")
     regression_plot(path)
     # for d in data:
     #     section_sentiment(d)
