@@ -5,14 +5,12 @@ p-value:  0.014745544309811608
 kendall's tau:  -0.17446808510638298 
 p-value:  0.012260533773344514 
 
---- scream_ger_raw_mean_audio_Warriner.csv ---
 Arousal
 spearman:  0.11529955207166853 
 p-value:  0.2658633664215733
 kendall's tau:  0.08353863381858902 
 p-value:  0.23043899215600505 
 
---- scream_ger_raw_mean_audio_Warriner.csv ---
 Dominance
 spearman:  -0.06315811575527108 
 p-value:  0.5431560605504513
@@ -26,14 +24,12 @@ p-value:  4.969769252797375e-08
 kendall's tau:  -0.1755753741055473 
 p-value:  5.982623429960606e-08 
 
---- star-wars-4_raw_mean_audio_Warriner.csv ---
 Arousal
 spearman:  0.2852148783731871 
 p-value:  1.954991373444047e-09
 kendall's tau:  0.19026621770829114 
 p-value:  4.28578166850586e-09 
 
---- star-wars-4_raw_mean_audio_Warriner.csv ---
 Dominance
 spearman:  -0.22094478842595835 
 p-value:  4.040244539636017e-06
@@ -47,14 +43,12 @@ p-value:  5.261427109774361e-05
 kendall's tau:  -0.20272727272727273 
 p-value:  6.483781853193955e-05 
 
---- hellboy_raw_mean_audio_Warriner.csv ---
 Arousal
 spearman:  0.22094443151248752 
 p-value:  0.003211026098708599
 kendall's tau:  0.14474495932821949 
 p-value:  0.004345615125092481 
 
---- hellboy_raw_mean_audio_Warriner.csv ---
 Dominance
 spearman:  -0.2344155844155844 
 p-value:  0.0017393657378130365
@@ -68,14 +62,12 @@ p-value:  0.5144110343098616
 kendall's tau:  -0.037610619469026545 
 p-value:  0.5548198671213086 
 
---- predator_raw_mean_audio_Warriner.csv ---
 Arousal
 spearman:  0.20942843835251848 
 p-value:  0.025997367018206805
 kendall's tau:  0.13495575221238937 
 p-value:  0.034086779273435265 
 
---- predator_raw_mean_audio_Warriner.csv ---
 Dominance
 spearman:  -0.1144038192827201 
 p-value:  0.22759640624630673
@@ -89,14 +81,12 @@ p-value:  0.00223387356303966
 kendall's tau:  -0.17118936243365912 
 p-value:  0.0024182425410459465 
 
---- the-matrix_raw_mean_audio_Warriner.csv ---
 Arousal
 spearman:  0.2677328540004596 
 p-value:  0.0012260641404759744
 kendall's tau:  0.1842805082241702 
 p-value:  0.0010926617084192896 
 
---- the-matrix_raw_mean_audio_Warriner.csv ---
 Dominance
 spearman:  -0.20978632114730947 
 p-value:  0.011913020893733355

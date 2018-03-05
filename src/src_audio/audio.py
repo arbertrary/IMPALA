@@ -65,8 +65,10 @@ def get_feature(path: str, feature: str, block_size: int = 2048) -> np.array:
         elif feature == "tuning":
             result = librosa.estimate_tuning(y)
         else:
-            rolloff = librosa.feature.spectral_rolloff(y)
-            result = np.mean(rolloff.T)
+            # rolloff = librosa.feature.spectral_rolloff(y)
+            # result = np.mean(rolloff.T)
+            freq = librosa.feature.spectral_centroid(y)
+            result = np.mean(freq.T)
 
         result_list.append(result)
 
@@ -103,6 +105,7 @@ def partition_audiofeature(path: str, feature: str, interval_seconds: float = 1.
 
     feature = get_feature(path, feature)
     time_per_frame = np.divide(duration, len(feature))
+    print(time_per_frame)
 
     feature_times = []
     time = 0
@@ -198,8 +201,9 @@ def main():
     audio6 = os.path.join(BASE_DIR, "data/data_audio", "the-matrix.wav")
     testaudio = os.path.join(BASE_DIR, "data/data_audio", "selfiefromhell.wav")
     # testaudio = os.path.join(BASE_DIR, "src/testfiles", "testaudio.wav")
+    # testaudio = os.path.join(BASE_DIR, "src/testfiles", "testaudio2.wav")
 
-    data = ["blade.wav", "hellboy.wav", "predator.wav", "scream_ger.wav", "star-wars-4.wav", "the-matrix.wav"]
+    data = [audio1, audio2, audio3, audio4, audio5, audio6]
 
     audio1csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
     audio2csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
@@ -208,38 +212,47 @@ def main():
     audio5csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
 
     # for d in data:
-    #     new_name = d.replace(".wav", "_rolloff.csv")
+    #     new_name = d.replace(".wav", "1024.csv")
     #     path = os.path.join(BASE_DIR, "data/data_audio", d)
-    #     write_audiocsv(path, new_name, feature="rolloff")
+    #     write_audiocsv(path, new_name, feature="energy")
 
-    # blockwise_processing(testaudio)
-    # partition_audiofeature(testaudio, "rolloff")
-    # rms_energy(testaudio)
-
-    # y, sr = librosa.load(testaudio)
-    # rolloff = librosa.feature.spectral_rolloff(y,sr)
+    # time = datetime.now()
+    #
+    # y,sr = librosa.load(testaudio)
+    # test = librosa.feature.spectral_centroid(y)
+    # # plt.plot(test.T)
+    # plt.semilogy(test.T)
+    # plt.show()
+    # time2 = datetime.now()
+    # diff = time2 - time
+    #
+    # print(diff)
 
     plt.figure()
-    plt.suptitle("Roll-off frequency, Energy and Tuning Deviation for \"Selfie From Hell\"")
+    plt.suptitle("Spectral centroid frequency, Energy and Tuning Deviation for \"Selfie From Hell \"")
     plt.subplot(311)
-    rolloff = get_feature(testaudio, "rolloff")
-    # plt.semilogy(rolloff)
-    plt.semilogy(rolloff.T, label='Roll-off frequency')
+    freq = get_feature(testaudio, "frequency")
+    plt.semilogy(freq.T, label='Spectral centroid frequency')
+    # plt.plot(freq.T, label='Spectral centroid frequency')
+
     plt.ylabel('Hz')
+    plt.xlabel("Blocks")
     # plt.xticks([])
-    plt.xlim([0, rolloff.shape[-1]])
+    plt.xlim([0, freq.shape[-1]])
     plt.legend()
     plt.subplot(312)
-    energy = get_feature(testaudio,"energy")
+    energy = get_feature(testaudio, "energy")
     plt.semilogy(energy, label="RMS Energy")
     plt.ylabel("Energy")
+    plt.xlabel("Blocks")
     plt.xlim(0, len(energy))
     plt.legend()
     plt.subplot(313)
     tuning = get_feature(testaudio, "tuning")
     tuning = util.sliding_window(list(tuning), 10)
-    plt.plot(tuning, label="Estimated tuning deviation from A440")
+    plt.plot(tuning, label="Estimated tuning deviation from A440 (smoothed)")
     plt.ylabel("Tuning deviation")
+    plt.xlabel("Blocks")
     plt.xlim(0, len(tuning))
     plt.legend()
     plt.tight_layout()
