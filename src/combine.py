@@ -283,9 +283,10 @@ def main():
 
     time = datetime.now()
 
-    for d in data_fountain:
-        name = os.path.basename(d[1]).replace(".txt", "test.csv")
-        fountain_audiosent_csv(d[0], d[1], n_sections=200, dest_path=name)
+    audiosent_csv(subs1, "blade_test.csv", "combine_test2.csv")
+    # for d in data_fountain:
+    #     name = os.path.basename(d[1]).replace(".txt", "test.csv")
+    #     fountain_audiosent_csv(d[0], d[1], n_sections=200, dest_path=name)
 
     time2 = datetime.now()
     diff = time2 - time
