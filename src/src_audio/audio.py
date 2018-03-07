@@ -54,7 +54,7 @@ def rms_energy(audio_path: str):
     plt.show()
 
 
-def get_feature(path: str, feature: str, block_size: int = 2048) -> np.array:
+def get_feature(path: str, feature: str, block_size: int = 2048, n_mfcc=20) -> np.array:
     """Calculates the rms energy for an audio file by blockwise reading.
     :param path: path of audio file
     :param block_size: default 2048 frames per block
@@ -66,24 +66,26 @@ def get_feature(path: str, feature: str, block_size: int = 2048) -> np.array:
     block_gen = sf.blocks(path, blocksize=block_size)
 
     result_list = []
-
+    test = []
     for y in block_gen:
+        test.append(y)
         S = librosa.magphase(librosa.stft(y, window=np.ones))[0]
-        # rms = librosa.feature.rmse(S=S)
 
         if feature == "energy":
-            rms = librosa.feature.rmse(y=y)
+            rms = librosa.feature.rmse(S=S)
+            # rms = librosa.feature.rmse(y=y)
             result = np.mean(rms)
         elif feature == "tuning":
-            result = librosa.estimate_tuning(y)
+            result = librosa.estimate_tuning(y, fmin=50.0, fmax=2000.0)
         elif feature == "mfcc":
-            mfccs = librosa.feature.mfcc(y, n_mfcc=4)
+            mfccs = librosa.feature.mfcc(y, n_mfcc=n_mfcc)
             result = [np.mean(x) for x in mfccs]
-        else:
+        elif feature == "centroid":
             # rolloff = librosa.feature.spectral_rolloff(y)
             # result = np.mean(rolloff.T)
-            # freq = librosa.feature.spectral_centroid(y)
-            # result = np.mean(freq.T)
+            freq = librosa.feature.spectral_centroid(y)
+            result = np.mean(freq.T)
+        else:
             pitches, magnitude = librosa.piptrack(y)
             print(pitches.shape)
             result = [np.mean(x) for x in pitches]
@@ -92,6 +94,8 @@ def get_feature(path: str, feature: str, block_size: int = 2048) -> np.array:
 
         result_list.append(result)
     block_gen.close()
+
+    plt.show()
 
     if feature== "mfcc":
         # at this point, r is in the same shape as when directly calling librosa.feature.mfccs
@@ -134,7 +138,6 @@ def partition_audiofeature(path: str, feature: str, interval_seconds: float = 1.
     feature = get_feature(path, feature)
     time_per_frame = np.divide(duration, len(feature))
     # print(time_per_frame)
-
     feature_times = []
     time = 0
     duration = 0
@@ -160,18 +163,32 @@ def partition_audiofeature(path: str, feature: str, interval_seconds: float = 1.
     return feature_times
 
 
-def __plot_energy(energy: np.array):
+def __plot_energy(energy: np.array, duration):
     """Helper function to plot the audio energy calculated in get_feature"""
-    # plt.figure()
-    plt.subplot(211)
-    plt.title("")
+    block_dur = duration/len(energy)
+    time = 0
+    x = []
+    for e in energy:
+        x.append(time)
+        time+=block_dur
+
+
+    minor_ticks = np.arange(0, x[-1],5)
+
+    plt.figure(figsize=(15,5))
+    # plt.subplot(211)
+    plt.title("Audio Energy for \"Selfie From Hell\"")
     # plt.semilogy(times, energy, color="b", label="RMS Energy")
     # plt.semilogy(energy, color="b", label="RMS Energy")
-    plt.plot(energy)
-    plt.legend(loc='best')
+    # plt.plot(energy)
+    # plt.semilogy(x, energy, label="RMS Energy")
+    plt.plot(x, energy, label="RMS Energy")
 
-    plt.xlim(0, len(energy))
-    plt.xlabel("seconds")
+    plt.legend(loc='best')
+    plt.xticks(minor_ticks)
+    plt.xlim(x[0], x[-1])
+    plt.ylabel("Hz")
+    plt.xlabel("Seconds")
 
     plt.tight_layout()
 
@@ -229,8 +246,8 @@ def main():
     audio5 = os.path.join(BASE_DIR, "data/data_audio", "star-wars-4.wav")
     audio6 = os.path.join(BASE_DIR, "data/data_audio", "the-matrix.wav")
     testaudio = os.path.join(BASE_DIR, "data/data_audio", "selfiefromhell.wav")
-    # testaudio = os.path.join(BASE_DIR, "src/testfiles", "testaudio.wav")
-    # testaudio = os.path.join(BASE_DIR, "src/testfiles", "testaudio2.wav")
+    # testaudio = os.path.join(BASE_DIR, "src/testfiles", "220_440_880.wav")
+    testaudio = os.path.join(BASE_DIR, "src/testfiles", "880_Sine_wave.mp3")
 
     data = [audio1, audio2, audio3, audio4, audio5, audio6]
 
@@ -247,7 +264,43 @@ def main():
 
     # test = partition_audiofeature(testaudio, feature="energy", interval_seconds=0.5)
     # print(test)
-    # energy = get_feature(testaudio, feature="energy")
+    # feature = get_feature(testaudio, feature="centroid")
+    # duration = sf.info(testaudio).duration
+
+    # feature = get_feature(testaudio, feature="mfcc", n_mfcc=4)
+    # feature2 = get_feature(testaudio, feature="centroid")
+    # feature2 = get_feature(testaudio, feature="energy")
+    # feature3 = get_feature(testaudio, feature="tuning")
+    # feature3 = util.sliding_window(list(feature3), 10)
+
+
+    y,sr = librosa.load(testaudio)
+    tuning = librosa.estimate_tuning(y,sr)
+    print(tuning)
+    # feature = librosa.feature.mfcc(y,sr)
+    # feature2 = librosa.feature.spectral_centroid(y,sr)
+    #
+    # pitches, magnitude = librosa.piptrack(y)
+    # librosa.display.specshow(pitches)
+    # plt.show()
+
+    # plt.figure()
+    # plt.subplot(211)
+    # plt.title("Spectral Centroids of \"Selfie From Hell\"")
+    # plt.plot(feature2.T)
+    # plt.ylabel("Frequency")
+    # plt.xlabel("Frames")
+    # plt.xlim(0, len(feature2))
+    # plt.subplot(212)
+    # plt.title("MFCC Spectrogram of \"Selfie From Hell\"")
+    # print(len(feature3))
+    # plt.plot(feature3)
+    # # plt.xlim(0,len(feature3))
+    # # librosa.display.specshow(feature, x_axis="frames")
+    # # plt.xlabel("")
+    # # plt.colorbar(orientation="horizontal")
+    # plt.show()
+
     # freq = get_feature(testaudio, feature="frequency")
     # mfccs = get_feature(testaudio, feature="mfcc")
     # print(mfccs.shape)
@@ -255,11 +308,11 @@ def main():
 
 
     # rms_energy(testaudio)
-    y, sr = librosa.load(testaudio)
-    pitches, magnitude = librosa.piptrack(y,sr)
 
-    print(pitches.shape, magnitude.shape)
-    print(np.max(pitches[400]))
+    # pitches, magnitude = librosa.piptrack(y,sr)
+    #
+    # print(pitches.shape, magnitude.shape)
+    # print(np.max(pitches[400]))
 
     # time = datetime.now()
     #
