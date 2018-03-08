@@ -29,10 +29,10 @@ def rms_energy(audio_path: str):
     # rms = librosa.feature.spectral_centroid(S=S)
     test = librosa.amplitude_to_db(S, ref=np.max)
 
-    mfccs = librosa.feature.mfcc(y,sr)
+    mfccs = librosa.feature.mfcc(y, sr)
     print(mfccs.shape)
 
-    mfccs = librosa.feature.mfcc(y,sr, n_mfcc=4)
+    mfccs = librosa.feature.mfcc(y, sr, n_mfcc=4)
     print(mfccs.T[0])
     print(mfccs.shape)
     print(np.max(mfccs[0]), np.min(mfccs[0]))
@@ -97,13 +97,13 @@ def get_feature(path: str, feature: str, block_size: int = 2048, n_mfcc=20) -> n
 
     plt.show()
 
-    if feature== "mfcc":
+    if feature == "mfcc":
         # at this point, r is in the same shape as when directly calling librosa.feature.mfccs
         # on the entire audio file
         # but is this even necessary?
         # ich meine im endeffekt will ich ja eh die 4 mfccs pro frame
         # also wär's doch sinnvoller das garnicht wieder zu transponieren...
-        r= np.transpose(np.array(result_list))
+        r = np.transpose(np.array(result_list))
     else:
         r = np.array(result_list)
     return r
@@ -133,27 +133,61 @@ def partition_audiofeature(path: str, feature: str, interval_seconds: float = 1.
     """Partitions (currently) die energy of an audio file into intervals.
     :param path: audio file path
     :param interval_seconds: duration of intervals in seconds as float. defaults to 1s"""
-    duration = sf.info(path).duration
+    file_duration = sf.info(path).duration
 
-    feature = get_feature(path, feature)
-    time_per_frame = np.divide(duration, len(feature))
-    # print(time_per_frame)
+    feature_data = get_feature(path, feature, n_mfcc=4)
+    print(feature_data.shape)
     feature_times = []
     time = 0
     duration = 0
     temp = []
-    for frame in feature:
-        if duration < interval_seconds:
-            duration += time_per_frame
-            time += time_per_frame
-            temp.append(frame)
-        else:
-            # feature_times.append((round(time), np.mean(temp)))
-            time = float("{0:.3f}".format(time))
-            feature_times.append((time, np.mean(temp)))
-            time += time_per_frame
+    if feature == "mfcc":
+        time_per_frame = np.divide(file_duration, len(feature_data.T))
+        print(time_per_frame)
+        all_mfccs = []
+        time_list = []
+        for index, mfcc in enumerate(feature_data):
+            time = 0
             duration = 0
             temp = []
+            current_mfcc = []
+
+            for frame in mfcc:
+                if duration < interval_seconds:
+                    duration += time_per_frame
+                    time += time_per_frame
+                    temp.append(frame)
+                else:
+                    time_stamp = float("{0:.3f}".format(time))
+                    if index == 0:
+                        time_list.append(time_stamp)
+
+                    current_mfcc.append(np.mean(temp))
+                    time += time_per_frame
+                    duration = 0
+                    temp = []
+
+            all_mfccs.append(current_mfcc)
+
+        results = [time_list, all_mfccs[0], all_mfccs[1], all_mfccs[2], all_mfccs[3]]
+        print(np.array(results).shape)
+        for r in results:
+            print(len(r))
+    else:
+        time_per_frame = np.divide(file_duration, len(feature_data))
+        print(time_per_frame)
+        for frame in feature_data:
+            if duration < interval_seconds:
+                duration += time_per_frame
+                time += time_per_frame
+                temp.append(frame)
+            else:
+                # feature_times.append((round(time), np.mean(temp)))
+                time = float("{0:.3f}".format(time))
+                feature_times.append((time, np.mean(temp)))
+                time += time_per_frame
+                duration = 0
+                temp = []
 
     # x = [x[0] for x in feature_times]
     # y = [y[1] for y in feature_times]
@@ -165,17 +199,16 @@ def partition_audiofeature(path: str, feature: str, interval_seconds: float = 1.
 
 def __plot_energy(energy: np.array, duration):
     """Helper function to plot the audio energy calculated in get_feature"""
-    block_dur = duration/len(energy)
+    block_dur = duration / len(energy)
     time = 0
     x = []
     for e in energy:
         x.append(time)
-        time+=block_dur
+        time += block_dur
 
+    minor_ticks = np.arange(0, x[-1], 5)
 
-    minor_ticks = np.arange(0, x[-1],5)
-
-    plt.figure(figsize=(15,5))
+    plt.figure(figsize=(15, 5))
     # plt.subplot(211)
     plt.title("Audio Energy for \"Selfie From Hell\"")
     # plt.semilogy(times, energy, color="b", label="RMS Energy")
@@ -247,7 +280,7 @@ def main():
     audio6 = os.path.join(BASE_DIR, "data/data_audio", "the-matrix.wav")
     testaudio = os.path.join(BASE_DIR, "data/data_audio", "selfiefromhell.wav")
     # testaudio = os.path.join(BASE_DIR, "src/testfiles", "220_440_880.wav")
-    testaudio = os.path.join(BASE_DIR, "src/testfiles", "880_Sine_wave.mp3")
+    # testaudio = os.path.join(BASE_DIR, "src/testfiles", "880_Sine_wave.mp3")
 
     data = [audio1, audio2, audio3, audio4, audio5, audio6]
 
@@ -273,10 +306,16 @@ def main():
     # feature3 = get_feature(testaudio, feature="tuning")
     # feature3 = util.sliding_window(list(feature3), 10)
 
+    time = datetime.now()
+    test = partition_audiofeature(testaudio, feature="mfcc")
 
-    y,sr = librosa.load(testaudio)
-    tuning = librosa.estimate_tuning(y,sr)
-    print(tuning)
+    time2 = datetime.now()
+    diff = time2 - time
+
+    print(diff)
+    # y,sr = librosa.load(testaudio)
+    # tuning = librosa.estimate_tuning(y,sr)
+    # print(tuning)
     # feature = librosa.feature.mfcc(y,sr)
     # feature2 = librosa.feature.spectral_centroid(y,sr)
     #
@@ -306,7 +345,6 @@ def main():
     # print(mfccs.shape)
     # piptrack = get_feature(testaudio, feature="piptrack")
 
-
     # rms_energy(testaudio)
 
     # pitches, magnitude = librosa.piptrack(y,sr)
@@ -321,10 +359,6 @@ def main():
     # # plt.plot(test.T)
     # plt.semilogy(test.T)
     # plt.show()
-    # time2 = datetime.now()
-    # diff = time2 - time
-    #
-    # print(diff)
 
     # plt.figure()
     # plt.suptitle("Spectral centroid frequency, Energy and Tuning Deviation for \"Selfie From Hell \"")
