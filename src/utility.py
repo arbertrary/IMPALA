@@ -1,30 +1,9 @@
 import numpy as np
 
 
-# def part(lst, sz): return [lst[i:i + sz] for i in range(0, len(lst), sz)]
-#
-#
-# def partition(lst, sections: int):
-#     sz = int(len(lst) / sections)
-#     newlist = [lst[i:i + sz] for i in range(0, len(lst), sz)]
-#
-#     newlist = newlist[0:sections]
-#
-#     return newlist
-#
-#
-# def chunkIt(seq, num):
-#     avg = len(seq) / float(num)
-#     out = []
-#     last = 0.0
-#
-#     while last < len(seq):
-#         out.append(seq[int(last):int(last + avg)])
-#         last += avg
-#
-#     return out
-
 def split(a, n):
+    """Splits list into n parts of roughly equal size.
+    to prevent that there is one "rest" element"""
     k, m = divmod(len(a), n)
     return (a[i * k + min(i, m):(i + 1) * k + min(i + 1, m)] for i in range(n))
 
@@ -48,3 +27,9 @@ def sliding_window(inputlist: list, win_size: int):
             windows.append(current_mean)
 
     return windows
+
+
+def mean_normalize(energy: np.array):
+    mean = np.mean(energy)
+    test2 = [x / mean for x in energy]
+    return test2
