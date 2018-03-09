@@ -60,7 +60,7 @@ def correlation(csv_path: str, column: int, raw=True):
 
         for row in reader:
             if row[0] != "Scene Start":
-                if row[2] == "nan":
+                if row[column] == "nan":
                     continue
 
                 sentiment.append(float(row[column]))
@@ -192,32 +192,36 @@ def plot_from_csv(csv_path: str, classes: int):
 
 def main():
     # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw/6mv_mean_audio_raw_combined_sent.csv")
-    # test = []
-    # test.append(correlation("combined_subs.csv", 3, raw=True))
-    # test.sort(key=lambda x: x[1])
-    # for t in test:
-    #     print("spearman: ", t[0][0], "\np-value: ", t[0][1])
-    #     # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
-    #     print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
-
+    csvfile = "6mv_audiosent_mfcc4.csv"
     test = []
-    for file in os.listdir(os.path.join(BASE_DIR, "src/testfiles")):
-        path = os.path.join(BASE_DIR, "src/testfiles", file)
-        ind = [0, 1, 2]
-        names = ["Valence", "Arousal", "Dominance"]
-
-        if ".csv" in path:
-            for i in ind:
-                corr = correlation(path, i, raw=True)
-                test.append((corr, path, names[i]))
-
+    # test.append(correlation("new_partitiontest.csv", 3, raw=True))
+    indices = [2,3,4]
+    for i in indices:
+        test.append(correlation(csvfile, i, raw=True))
+    # test.sort(key=lambda x: x[1])
     for t in test:
-        print("---", os.path.basename(t[1]), "---")
-        print(t[2])
-        # print("sample size: ", t[0][-1])
-        print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
-        # print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
-        print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
+        print("spearman: ", t[0][0], "\np-value: ", t[0][1])
+        # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+        print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
+
+    # test = []
+    # for file in os.listdir(os.path.join(BASE_DIR, "src/testfiles")):
+    #     path = os.path.join(BASE_DIR, "src/testfiles", file)
+    #     ind = [0, 1, 2]
+    #     names = ["Valence", "Arousal", "Dominance"]
+    #
+    #     if ".csv" in path:
+    #         for i in ind:
+    #             corr = correlation(path, i, raw=True)
+    #             test.append((corr, path, names[i]))
+    #
+    # for t in test:
+    #     print("---", os.path.basename(t[1]), "---")
+    #     print(t[2])
+    #     # print("sample size: ", t[0][-1])
+    #     print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
+    #     # print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
+    #     print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
 
 
 if __name__ == '__main__':

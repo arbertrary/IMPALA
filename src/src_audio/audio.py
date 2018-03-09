@@ -118,7 +118,7 @@ def partition_feature(path: str, feature: str, interval_seconds: float = 1.0, **
 
     feature_data = get_feature(path, feature, **kwargs)
     n_part = round(file_duration / interval_seconds)
-
+    time_per_frame = np.divide(file_duration, len(feature_data))
     feature_times = []
     time = 0.0
     if feature == "mfcc":
@@ -134,9 +134,10 @@ def partition_feature(path: str, feature: str, interval_seconds: float = 1.0, **
     else:
         partitions = list(util.split(feature_data, n_part))
         for p in partitions:
-            print(len(p))
+            # timestamp = float("{0:.3f}".format(time))
             feature_times.append((time, np.mean(p)))
             time += interval_seconds
+            # time += len(p)*time_per_frame
 
     return feature_times
 
@@ -152,22 +153,62 @@ def partition_old(path: str, feature: str, interval_seconds: float = 1.0):
     time = 0
     duration = 0
     temp = []
-    time_per_frame = np.divide(file_duration, len(feature_data))
-    print(time_per_frame)
-    for frame in feature_data:
-        if duration < interval_seconds:
-            duration += time_per_frame
-            time += time_per_frame
-            temp.append(frame)
-        else:
-            # feature_times.append((round(time), np.mean(temp)))
-            timestamp = float("{0:.3f}".format(time))
-            feature_times.append((timestamp, np.mean(temp)))
-            time += time_per_frame
-            duration = 0
-            temp = []
 
-    return feature_times
+    if feature == "mfcc":
+        time_per_frame = np.divide(file_duration, len(feature_data.T))
+
+        mfccs = []
+        times = []
+        indices = []
+
+        for index, coeff in enumerate(feature_data):
+            current_coeff = []
+            if index == 0:
+                for i, frame in enumerate(coeff):
+                    if duration < interval_seconds:
+                        temp.append(frame)
+                        indices.append(i)
+                        duration += time_per_frame
+                        time += time_per_frame
+                    else:
+                        temp.append(frame)
+                        indices.append(i)
+                        timestamp = float("{0:.3f}".format(time))
+                        times.append((timestamp, indices))
+                        current_coeff.append(np.mean(temp))
+                        time += time_per_frame
+                        duration = 0
+                        indices = []
+                        temp = []
+            else:
+                for t in times:
+                    value = coeff[t[1][0]:t[1][-1] + 1]
+                    current_coeff.append(np.mean(value))
+            mfccs.append(current_coeff)
+        print([len(x[1]) for x in times])
+        mfccs = np.transpose(mfccs)
+
+        for index, t in enumerate(times):
+            feature_times.append((t[0], mfccs[index]))
+
+        return feature_times
+    else:
+        time_per_frame = np.divide(file_duration, len(feature_data))
+
+        for frame in feature_data:
+            if duration < interval_seconds:
+                temp.append(frame)
+                duration += time_per_frame
+                time += time_per_frame
+            else:
+                temp.append(frame)
+                timestamp = float("{0:.3f}".format(time))
+                feature_times.append((timestamp, np.mean(temp)))
+                time += time_per_frame
+                duration = 0
+                temp = []
+
+        return feature_times
 
 
 def __plot_feature(feature: np.array, duration):
@@ -231,11 +272,20 @@ def blockwise_processing(path):
 
 
 def write_audiocsv(audio_path: str, dest_path: str, feature: str):
-    feature = partition_old(audio_path, feature, interval_seconds=0.5)
+    feature_data = partition_old(audio_path, feature)
+    # feature = partition_feature(audio_path, feature)
     with open(dest_path, "w") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
-        for e in feature:
-            writer.writerow([e[0], e[1]])
+        if feature == "mfcc":
+            for e in feature_data:
+                temp = [e[0]]
+                for x in e[1]:
+                    temp.append(x)
+
+                writer.writerow(temp)
+        else:
+            for e in feature_data:
+                writer.writerow([e[0], e[1]])
 
 
 def main():
@@ -246,10 +296,10 @@ def main():
     audio5 = os.path.join(BASE_DIR, "data/data_audio", "star-wars-4.wav")
     audio6 = os.path.join(BASE_DIR, "data/data_audio", "the-matrix.wav")
     testaudio = os.path.join(BASE_DIR, "data/data_audio", "selfiefromhell.wav")
-    testaudio = os.path.join(BASE_DIR, "src/testfiles", "220_440_880_1760.wav")
+    # testaudio = os.path.join(BASE_DIR, "src/testfiles", "220_440_880_1760.wav")
     # testaudio = os.path.join(BASE_DIR, "src/testfiles", "440_880_1760.wav")
 
-    data = [audio1, audio2, audio3, audio4, audio5, audio6]
+    data = [audio2, audio3, audio4, audio5, audio6]
 
     audio1csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
     audio2csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
@@ -258,12 +308,13 @@ def main():
     audio5csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
 
     time = datetime.now()
-    # test = partition_feature(testaudio, feature="mfcc", interval_seconds=0.5, n_mfcc=4)
-    test = get_feature(testaudio, feature="tuning")
-    test = util.sliding_window(list(test), 10)
-    duration = sf.info(testaudio).duration
-    __plot_feature(test, duration)
-    # test2 = partition_old(testaudio, feature="energy", interval_seconds=0.5)
+    # test = partition_old(testaudio, feature="mfcc")
+    # test = partition_feature(testaudio, feature="mfcc")
+    # write_audiocsv(audio1, "blade_mfcc.csv", feature="mfcc")
+    for d in data:
+        newfile = os.path.basename(d).replace(".wav", "_mfcc.csv")
+        write_audiocsv(d, newfile, feature="mfcc")
+    # write_audiocsv(testaudio, "test2.csv", feature="energy")
     # print(len(test), len(test2))
     # print(test)
     # print(test2)
