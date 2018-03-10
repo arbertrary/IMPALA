@@ -41,7 +41,9 @@ def scenesentiment(xml_path: str) -> List[Tuple[float, float, float, float]]:
         valence = score.get("valence")
         arousal = score.get("arousal")
         dominance = score.get("dominance")
-        if valence != -1:
+        if all(score.get(x) == -1 for x in score):
+            continue
+        else:
             sentiment_tuples.append((time_sec, score))
 
     sentiment_tuples.sort(key=lambda tup: tup[0])
