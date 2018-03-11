@@ -48,8 +48,8 @@ class ImpalaSent:
         la = len(arousal_scores)
         ld = len(dominance_scores)
         if lv == 0 or la == 0 or ld == 0:
-            # return {"valence": -1, "arousal": -1, "dominance": -1}
-            return {"valence": 5.06, "arousal": 4.21, "dominance": 5.18}
+            return {"valence": -1, "arousal": -1, "dominance": -1}
+            # return {"valence": 5.06, "arousal": 4.21, "dominance": 5.18}
             # return {"valence": 5.0, "arousal": 5.0, "dominance": 5.0}
         else:
 

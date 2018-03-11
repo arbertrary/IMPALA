@@ -5829,7 +5829,8 @@
       <dialogue id="sc142d40" name="HENRY">
          <s id="sc142d40s1">No.</s>
       </dialogue>
-     <scene id="sc143" start="01:45:45" end="01:46:13">
+   </scene>
+   <scene id="sc143" start="01:45:45" end="01:46:13">
       <sceneheader>INT. BACK TO INDY</sceneheader>
       <meta id="sc143m1">
          <s id="sc143m1s1">holding the Grail Diary, reading once again, his fedora now covered in cobwebs.</s>
@@ -6146,6 +6147,7 @@
          <s id="sc149d23s2">But the Grail cannot pass beyond the Great Seal.</s>
          <s id="sc149d23s3">That is the boundary and the price of immortality.</s>
       </dialogue>
+   </scene>
    <scene id="sc150" start="01:54:27" end="01:57:08">
       <sceneheader>INT. BACK TO TO BRODY AND SALLAH who attend to Henry awaiting Indy's return.</sceneheader>
       <meta id="sc150m1">

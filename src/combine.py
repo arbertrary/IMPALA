@@ -12,6 +12,7 @@ from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 from src.src_text.sentiment.sentiment import ImpalaSent
 from src.src_text.preprocessing.moviescript import get_scenes_unannotated
+from src import data_script, data_fountain, data_subs
 
 """Idee:
 - scenes mit time codes aus moviescript get_full_scenes
@@ -27,9 +28,12 @@ def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_me
     if sent_method not in {"Warriner", "NRC", "Vader", "combined"}:
         raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
 
-    ts = scenesentiment_for_man_annotated(script_path, sent_method="Warriner")
-    ts2 = scenesentiment_for_man_annotated(script_path, sent_method="Vader")
-    # ts = subtitle_sentiment(script_path, sent_method)
+    if sent_method == "combined":
+        ts = scenesentiment_for_man_annotated(script_path, sent_method="Warriner")
+        ts2 = scenesentiment_for_man_annotated(script_path, sent_method="Vader")
+    else:
+        # ts = subtitle_sentiment(script_path, sent_method)
+        ts = scenesentiment_for_man_annotated(script_path, sent_method)
     print("warriner length", len(ts))
     partitions = []
 
@@ -47,10 +51,11 @@ def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_me
         if len(temp_audio) != 0:
             scene_audio.append(np.mean(temp_audio))
             scene_sentiment.append(t)
-            scene_sentiment2.append(ts2[index])
+            if sent_method == "combined":
+                scene_sentiment2.append(ts2[index])
 
-    print(len(ts), len(scene_sentiment))
-    print(len(ts2), len(scene_sentiment2))
+    # print(len(ts), len(scene_sentiment))
+    # print(len(ts2), len(scene_sentiment2))
 
     if kwargs.get("normalized"):
         scene_audio = librosa.util.normalize(np.array(scene_audio))
@@ -85,7 +90,8 @@ def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_me
             start = scene_sentiment[i][0]
             end = scene_sentiment[i][1]
             score = scene_sentiment[i][2]
-            score2 = scene_sentiment2[i][2]
+            if sent_method == "combined":
+                score2 = scene_sentiment2[i][2]
             # score2 = None
 
             if sent_method == "Warriner":
@@ -232,61 +238,19 @@ def plot_audiosent(audio_csv: str, xml_path: str, scenelevel=True):
 
 
 def main():
-    fountain1 = os.path.join(BASE_DIR, "data/all_moviescripts", "blade.txt")
-    fountain2 = os.path.join(BASE_DIR, "data/all_moviescripts", "hellboy.txt")
-    fountain3 = os.path.join(BASE_DIR, "data/all_moviescripts", "predator.txt")
-    fountain4 = os.path.join(BASE_DIR, "data/all_moviescripts", "scream.txt")
-    fountain5 = os.path.join(BASE_DIR, "data/all_moviescripts", "star-wars-4.txt")
-    fountain6 = os.path.join(BASE_DIR, "data/all_moviescripts", "the-matrix.txt")
-
-    audio1 = os.path.join(BASE_DIR, "data/audio_csvfiles/mfcc", "blade.csv")
-    audio2 = os.path.join(BASE_DIR, "data/audio_csvfiles/mfcc", "hellboy.csv")
-    audio3 = os.path.join(BASE_DIR, "data/audio_csvfiles/mfcc", "predator.csv")
-    audio4 = os.path.join(BASE_DIR, "data/audio_csvfiles/mfcc", "scream_ger.csv")
-    audio5 = os.path.join(BASE_DIR, "data/audio_csvfiles/mfcc", "star-wars-4.csv")
-    audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles/mfcc", "the-matrix.csv")
-
-    tuning1 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "blade_tuning.csv")
-    tuning2 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "hellboy_tuning.csv")
-    tuning3 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "predator_tuning.csv")
-    tuning4 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "scream_ger_tuning.csv")
-    tuning5 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "star-wars-4_tuning.csv")
-    tuning6 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "the-matrix_tuning.csv")
-
-    script1 = os.path.join(BASE_DIR, "data/manually_annotated", "blade_man.xml")
-    script2 = os.path.join(BASE_DIR, "data/manually_annotated", "hellboy_man.xml")
-    script3 = os.path.join(BASE_DIR, "data/manually_annotated", "predator_man.xml")
-    script4 = os.path.join(BASE_DIR, "data/manually_annotated", "scream_man.xml")
-    script5 = os.path.join(BASE_DIR, "data/manually_annotated", "star-wars-4_man.xml")
-    script6 = os.path.join(BASE_DIR, "data/manually_annotated", "the-matrix_man.xml")
-
-    subs1 = os.path.join(BASE_DIR, "data/data_subtitles/", "blade_subs.xml")
-    subs2 = os.path.join(BASE_DIR, "data/data_subtitles/", "hellboy_subs.xml")
-    subs3 = os.path.join(BASE_DIR, "data/data_subtitles/", "predator_subs.xml")
-    subs4 = os.path.join(BASE_DIR, "data/data_subtitles/", "scream_subs.xml")
-    subs5 = os.path.join(BASE_DIR, "data/data_subtitles/", "star-wars-4_subs.xml")
-    subs6 = os.path.join(BASE_DIR, "data/data_subtitles/", "the-matrix_subs.xml")
-
-    data_fountain = [(fountain1, audio1), (fountain2, audio2), (fountain3, audio3), (fountain4, audio4),
-                     (fountain5, audio5),
-                     (fountain6, audio6)]
-    data_fountain_tune = [(fountain1, tuning1), (fountain2, tuning2), (fountain3, tuning3), (fountain4, tuning4),
-                          (fountain5, tuning5),
-                          (fountain6, tuning6)]
-
-    data_script = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
-                   (script6, audio6)]
-    data_script_tune = [(script1, tuning1), (script2, tuning2), (script3, tuning3), (script4, tuning4),
-                        (script5, tuning5),
-                        (script6, tuning6)]
-    data3 = [(subs1, audio1), (subs2, audio2), (subs3, audio3), (subs4, audio4), (subs5, audio5), (subs6, audio6)]
-
     time = datetime.now()
 
     for d in data_script:
-        name = d[1].replace(".csv", "_mfcc.csv")
-        audiosent_csv(d[0], name, "6mv_audiosent_mfcc4.csv", sent_method="Warriner")
-        # fountain_audiosent_csv(d[0], d[1], 200, "fountain_new_partitiontest.csv")
+        if "star" in d[0]:
+            continue
+        base = os.path.basename(d[1])
+        # name = d[1].replace(base, "spectral_centroid/")+ base.replace(".csv", "_centroid.csv")
+        # name = d[1].replace(base, "tuning/")+ base.replace(".csv", "_tuning.csv")
+        name = d[1].replace(base, "energy/"+base)
+
+        # audiosent_scenes_wo_time(d[0], d[1], "7mv_audiosent_scenes_wo_time_Warriner.csv")
+        audiosent_csv(d[0], name, "7mv_audiosent_ohne_StarWars.csv", sent_method="Warriner")
+        # fountain_audiosent_csv(d[0], d[1], 200, "7mv_fountain_audiosent.csv")
 
     time2 = datetime.now()
     diff = time2 - time

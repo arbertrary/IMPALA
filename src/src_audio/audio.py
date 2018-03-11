@@ -295,25 +295,39 @@ def main():
     audio4 = os.path.join(BASE_DIR, "data/data_audio", "scream_ger.wav")
     audio5 = os.path.join(BASE_DIR, "data/data_audio", "star-wars-4.wav")
     audio6 = os.path.join(BASE_DIR, "data/data_audio", "the-matrix.wav")
+    audio7 = os.path.join(BASE_DIR, "data/data_audio", "indiana-jones-3_ger.wav")
     testaudio = os.path.join(BASE_DIR, "data/data_audio", "selfiefromhell.wav")
     # testaudio = os.path.join(BASE_DIR, "src/testfiles", "220_440_880_1760.wav")
     # testaudio = os.path.join(BASE_DIR, "src/testfiles", "440_880_1760.wav")
 
-    data = [audio2, audio3, audio4, audio5, audio6]
+    data = [audio1,audio2, audio3, audio4, audio5, audio6, audio7]
 
     audio1csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
     audio2csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
     audio3csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
     audio4csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
     audio5csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
+    audio7csv = os.path.join(BASE_DIR, "data/audio_csvfiles/new_partitioning", "indiana-jones-3_ger.csv")
 
     time = datetime.now()
     # test = partition_old(testaudio, feature="mfcc")
     # test = partition_feature(testaudio, feature="mfcc")
     # write_audiocsv(audio1, "blade_mfcc.csv", feature="mfcc")
     for d in data:
-        newfile = os.path.basename(d).replace(".wav", "_mfcc.csv")
-        write_audiocsv(d, newfile, feature="mfcc")
+        newfile = os.path.basename(d).replace(".wav", "_tuning.csv")
+        write_audiocsv(d, newfile, feature="tuning")
+
+
+    # with open(audio7csv) as csvfile:
+    #     reader = csv.reader(csvfile)
+    #     test = []
+    #     for row in reader:
+    #         test.append(float(row[-1]))
+    #
+    #     plt.plot(test)
+    #     plt.show()
+
+
     # write_audiocsv(testaudio, "test2.csv", feature="energy")
     # print(len(test), len(test2))
     # print(test)

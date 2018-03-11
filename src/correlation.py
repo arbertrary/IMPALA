@@ -191,15 +191,39 @@ def plot_from_csv(csv_path: str, classes: int):
 
 
 def main():
-    # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw/6mv_mean_audio_raw_combined_sent.csv")
-    csvfile = "6mv_audiosent_mfcc4.csv"
+    # csvfile = "7mv_audiosent_Warriner.csv"
+    # csvfile = "7mv_audiosent_normalized_Warriner.csv"
+    # csvfile = "7mv_fountain_audiosent.csv"
+    # csvfile = "7mv_audiosent_subs_Warriner.csv"
+    csvfile = "7mv_audiosent_ohne_StarWars.csv"
+
+    # csvfile = "7mv_audiosent_Vader.csv"
+    # csvfile = "7mv_audiosent_normalized_Vader.csv"
+    # csvfile = "7mv_audiosent_scenes_wo_time_Warriner.csv"
+    # csvfile = "7mv_audiosent_tuning_Warriner.csv"
+    # csvfile = "7mv_audiosent_centroid_Warriner.csv"
     test = []
-    # test.append(correlation("new_partitiontest.csv", 3, raw=True))
-    indices = [2,3,4]
+    indices = [2, 3, 4]
+    # indices = [0,1,2]
+    # indices = [2,3,4,5]
+    # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw", csvfile)
     for i in indices:
         test.append(correlation(csvfile, i, raw=True))
     # test.sort(key=lambda x: x[1])
-    for t in test:
+
+    for i, t in enumerate(test):
+        if i == 0:
+            print("Valence")
+            # print("neg")
+        elif i == 1:
+            print("Arousal")
+            # print("neu")
+        elif i ==2:
+            # print("pos")
+            print("Dominance")
+        else:
+            print("compound")
+
         print("spearman: ", t[0][0], "\np-value: ", t[0][1])
         # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
         print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
