@@ -10,19 +10,21 @@ from sklearn.preprocessing import PolynomialFeatures
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
 
-dataframe = pandas.read_csv("6mv_mean_audio_raw_combined_sent.csv")
+path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_Warriner.csv")
+dataframe = pandas.read_csv(path)
+
 # dataframe = pandas.read_csv("6mv_mean_audio_raw_normalized_combined.csv")
 
 dataset = dataframe.values
-# X = dataset[:, np.newaxis, 3]
-X = dataset[:,1:6]
-# print(X)
+X = dataset[:, np.newaxis, 0]
+# X = dataset[:,2:4]
+print(X)
 # y = dataset[:,9]
-y = dataset[:, 9]
+y = dataset[:,5]
 
-# print(y)
+print(y)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # regr = linear_model.LinearRegression()
 regr = linear_model.Ridge(alpha=.5)
@@ -57,9 +59,9 @@ print("Variance: %.2f" % explained_variance_score(y_test, y_pred))
 # Plot outputs
 plt.scatter(X_test, y_test, color='black')
 plt.plot(X_test, y_pred, color='blue', linewidth=3)
-plt.xlabel("Scene Time Code in Seconds")
+plt.xlabel("Time Code of Scene in Seconds")
 plt.ylabel("Audio Energy")
-plt.xticks(())
-plt.yticks(())
+# plt.xticks(())
+# plt.yticks(())
 
 plt.show()

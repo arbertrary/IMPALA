@@ -1,97 +1,93 @@
-- Für alle 6 filme
-- nicht gefundene texte: valence 5.06, arousal 4.21, dominance 5.18
+- Für alle 7 filme
 - audio = rohe werte ohne normalisierung
 - audio über die ganze section gemittelt
 
 Nur die Szenen ohne timecodes.
 Annahme: szenen sind alle gleich lang
 ------------------------------------------
-sample size: 1327
+sample size: 1482
 
 Valence
-spearman:  -0.10574619564250168 
-p-value:  0.0001137036781479122
-kendall's tau:  -0.07169313549830886 
-p-value:  9.150852609358137e-05 
+spearman:  -0.11532467540224114 
+p-value:  8.557625724721287e-06
+kendall's tau:  -0.07805397715076993 
+p-value:  6.742639137540565e-06 
 
 Arousal
-spearman:  0.1374460052195903 
-p-value:  5.007191318538035e-07
-kendall's tau:  0.09043477690266814 
-p-value:  8.028075896681252e-07
+spearman:  0.13793385982397868 
+p-value:  9.765967948005391e-08
+kendall's tau:  0.0908427333324978 
+p-value:  1.6124079169840973e-07 
 
 Dominance
-spearman:  -0.11634053092878562 
-p-value:  2.1521208440878516e-05
-kendall's tau:  -0.07785338830462939 
-p-value:  2.155680684955664e-05 
+spearman:  -0.12295602712540381 
+p-value:  2.0600971803006106e-06
+kendall's tau:  -0.08262704260343391 
+p-value:  1.8854191888688632e-06 
 
 
 plain text fountain, jeweils aufgeteilt in 200 sections
 ------------------------------------------
-sample size: 1200
+sample size: 1400
 
 Valence
-spearman:  -0.1527622847595271 
-p-value:  1.051651801240318e-07
-kendall's tau:  -0.10302517247172904 
-p-value:  9.015466624062504e-08 
+spearman:  -0.1430023299385371 
+p-value:  7.721557197236722e-08
+kendall's tau:  -0.0963653407472845 
+p-value:  6.601023480700997e-08 
 
 Arousal
-spearman:  0.1569265622727619 
-p-value:  4.646885775919328e-08
-kendall's tau:  0.10492266782072658 
-p-value:  5.2104431054616337e-08 
+spearman:  0.15325184775168776 
+p-value:  8.257681940021377e-09
+kendall's tau:  0.1026696729087413 
+p-value:  8.658892433187888e-09 
 
 Dominance
-spearman:  -0.12118659341612831 
-p-value:  2.5630631610681464e-05
-kendall's tau:  -0.08198700435119222 
-p-value:  2.1004820876170624e-05 
-
+spearman:  -0.10860765352182301 
+p-value:  4.6581735452817604e-05
+kendall's tau:  -0.07299559273677846 
+p-value:  4.281872858351182e-05 
 
 szenen mit time codes:
 ------------------------------------------
-sample size: 1032
+sample size 1162
 
 Valence
-spearman:  -0.2703858213121517 
-p-value:  9.88161001521326e-19
-kendall's tau:  -0.18571055933999928 
-p-value:  4.2979306125789265e-19 
+spearman:  -0.2844639451286182 
+p-value:  4.533561086991912e-23
+kendall's tau:  -0.19535149210110814 
+p-value:  1.9932837386733368e-23 
 
 Arousal
-spearman:  0.3217848072648475 
-p-value:  2.8859096099361146e-26
-kendall's tau:  0.21766276947200489 
-p-value:  1.2490857931500134e-25
+spearman:  0.33417968519394375 
+p-value:  1.033012356693085e-31
+kendall's tau:  0.2274106378595987 
+p-value:  3.6628414944935914e-31 
 
 Dominance
-spearman:  -0.22529934348377995 
-p-value:  2.4850430892163e-13
-kendall's tau:  -0.1552438401386672 
-p-value:  8.393180455692996e-14 
+spearman:  -0.2380555409303648 
+p-value:  1.9575960272293202e-16
+kendall's tau:  -0.1637269889447695 
+p-value:  6.340878366794928e-17 
 
 
 nur die untertitel:
-(untertitel, bei denen der sentiment wert "simuliert"
-wurde, wurden ignoriert
 ------------------------------------------
-sample size: 5369
+sample size: 5619
 Valence
-spearman:  -0.07602747338644006 
-p-value:  2.438980964117637e-08
-kendall's tau:  -0.050790422536303975 
-p-value:  2.46995207541233e-08 
+spearman:  -0.06580368117126072 
+p-value:  7.937536385895533e-07
+kendall's tau:  -0.0439417615299174 
+p-value:  8.030138366502626e-07 
 
 Arousal
-spearman:  0.05639409780494972 
-p-value:  3.5569899212527204e-05
-kendall's tau:  0.03810747404668863 
-p-value:  2.896013482987214e-05  
+spearman:  0.03338089705659669 
+p-value:  0.012336411717827619
+kendall's tau:  0.022520256736310605 
+p-value:  0.011469650625508145 
 
 Dominance
-spearman:  -0.03363739086452806 
-p-value:  0.013707000716046571
-kendall's tau:  -0.02235509231186833 
-p-value:  0.014138556458715769 
+spearman:  -0.02982773760326302 
+p-value:  0.025359180800504214
+kendall's tau:  -0.019821962485776397 
+p-value:  0.02602807654892412 

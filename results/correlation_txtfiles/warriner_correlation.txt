@@ -1,41 +1,45 @@
---- 6mv_raw_mean_audio_Warriner.csv ---
-sample size 1027
+--- 7mv raw Audio Energy Warriner Sentiment ---
+sample size 1162
 
 Valence
-spearman:  -0.2661815908646006 
-p-value:  4.066973725770713e-18
-kendall's tau:  -0.1826307553583474 
-p-value:  1.8863868419803836e-18 
+spearman:  -0.2844639451286182 
+p-value:  4.533561086991912e-23
+kendall's tau:  -0.19535149210110814 
+p-value:  1.9932837386733368e-23 
 
 Arousal
-spearman:  0.3196252188147857 
-p-value:  7.990669430955567e-26
-kendall's tau:  0.21625125538026307 
-p-value:  3.152103380810415e-25 
+spearman:  0.33417968519394375 
+p-value:  1.033012356693085e-31
+kendall's tau:  0.2274106378595987 
+p-value:  3.6628414944935914e-31 
 
 Dominance
-spearman:  -0.22076667752472004 
-p-value:  8.384695911896854e-13
-kendall's tau:  -0.15203953526964084 
-p-value:  2.96962622677086e-13 
+spearman:  -0.2380555409303648 
+p-value:  1.9575960272293202e-16
+kendall's tau:  -0.1637269889447695 
+p-value:  6.340878366794928e-17 
 
 
---- 6mv_raw_mean_audio_normalized_Warriner.csv ---
+--- 7mv normalized Audio Energy Warriner Sentiment ---
 Valence
-spearman:  -0.2493076431116124 
-p-value:  5.139398243783688e-16
-kendall's tau:  -0.17036934398865927 
-p-value:  2.949350593378375e-16 
+spearman:  -0.2495867964194833 
+p-value:  5.830957436960003e-18
+kendall's tau:  -0.17015538759147522 
+p-value:  3.724772242193587e-18 
 
 Arousal
-spearman:  0.2928940673146136 
-p-value:  9.16580956228937e-22
-kendall's tau:  0.1982956212730122 
-p-value:  1.811205745436052e-21 
+spearman:  0.30067949019278345 
+p-value:  1.0443228764425096e-25
+kendall's tau:  0.20353444382113087 
+p-value:  2.7260409789844244e-25 
 
 Dominance
-spearman:  -0.19740361149240265 
-p-value:  1.7553105588833773e-10
-kendall's tau:  -0.13416259196936572 
-p-value:  1.2119100495881543e-10 
+spearman:  -0.19940167305019452 
+p-value:  6.9390383411082985e-12
+kendall's tau:  -0.1352534817463959 
+p-value:  5.022057961105129e-12 
+
+
+
+
 
