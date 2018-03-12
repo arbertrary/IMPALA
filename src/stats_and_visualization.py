@@ -13,42 +13,11 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 from src.src_text.sentiment.sentiment import ImpalaSent
 from src.src_text.sentiment.ms_sentiment import plaintext_sentiment
+from src import data_script, data_fountain, data_subs
+
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
-script1 = os.path.join(BASE_DIR, "data/manually_annotated", "blade_man.xml")
-script2 = os.path.join(BASE_DIR, "data/manually_annotated", "hellboy_man.xml")
-script3 = os.path.join(BASE_DIR, "data/manually_annotated", "predator_man.xml")
-script4 = os.path.join(BASE_DIR, "data/manually_annotated", "scream_man.xml")
-script5 = os.path.join(BASE_DIR, "data/manually_annotated", "star-wars-4_man.xml")
-script6 = os.path.join(BASE_DIR, "data/manually_annotated", "the-matrix_man.xml")
-
-subs1 = os.path.join(BASE_DIR, "data/data_subtitles/", "blade_subs.xml")
-subs2 = os.path.join(BASE_DIR, "data/data_subtitles/", "hellboy_subs.xml")
-subs3 = os.path.join(BASE_DIR, "data/data_subtitles/", "predator_subs.xml")
-subs4 = os.path.join(BASE_DIR, "data/data_subtitles/", "scream_subs.xml")
-subs5 = os.path.join(BASE_DIR, "data/data_subtitles/", "star-wars-4_subs.xml")
-subs6 = os.path.join(BASE_DIR, "data/data_subtitles/", "the-matrix_subs.xml")
-
-fountain1 = os.path.join(BASE_DIR, "data/all_moviescripts", "blade.txt")
-fountain2 = os.path.join(BASE_DIR, "data/all_moviescripts", "hellboy.txt")
-fountain3 = os.path.join(BASE_DIR, "data/all_moviescripts", "predator.txt")
-fountain4 = os.path.join(BASE_DIR, "data/all_moviescripts", "scream.txt")
-fountain5 = os.path.join(BASE_DIR, "data/all_moviescripts", "star-wars-4.txt")
-fountain6 = os.path.join(BASE_DIR, "data/all_moviescripts", "the-matrix.txt")
-
-audio1 = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
-audio2 = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
-audio3 = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
-audio4 = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
-audio5 = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
-audio6 = os.path.join(BASE_DIR, "data/audio_csvfiles", "the-matrix.csv")
-
-data = [fountain1, fountain2, fountain3, fountain4, fountain5, fountain6]
-data2 = [script1, script2, script3, script4, script5, script6]
-data3 = [(subs1, script1), (subs2, script2), (subs3, script3), (subs4, script4), (subs5, script5), (subs6, script6)]
-data4 = [(script1, audio1), (script2, audio2), (script3, audio3), (script4, audio4), (script5, audio5),
-         (script6, audio6)]
 
 
 def audio_stufftemp(audio_path):
@@ -76,8 +45,27 @@ def section_sentiment(fountain_path):
 
     aro_greatest = 0
     aro_not = 0
+    genre_dict = {}
 
+    with open(os.path.join(BASE_DIR, "allgenres2.txt")) as genrefile:
+        genres = genrefile.read().splitlines(keepends=False)
+        for g in genres:
+            temp = g.split(":")
+            genre_dict[temp[0]] = temp[1].split(",")
+
+    aro_good_genres = []
+    aro_bad_genres = []
+
+    val_good_genres = []
+    val_bad_genres = []
+
+    dom_good_genres = []
+    dom_bad_genres = []
+    # i = 1
     for script in os.listdir(fountain_dir):
+        # if i == 10:
+        #     break
+        # i+=1
         path = os.path.join(fountain_dir, script)
         print(path)
         test = plaintext_sentiment(path, 5)
@@ -85,29 +73,60 @@ def section_sentiment(fountain_path):
         valence = [x.get("valence") for x in test]
         dominance = [x.get("dominance") for x in test]
 
+        name = script.replace(".txt", "")
+
         if arousal[-1] > arousal[0]:
             aro_greatest += 1
-        elif arousal[-1] != np.max(arousal):
+            for g in genre_dict.get(name):
+                aro_bad_genres.append(g)
+
+        elif arousal[-1] <= arousal[0]:
+            for g in genre_dict.get(name):
+                aro_good_genres.append(g)
             aro_not += 1
+
+
 
         if valence[-1] < valence[0]:
             last_v_smallest += 1
-        elif valence[-1] != np.min(valence):
+            for g in genre_dict.get(name):
+                val_bad_genres.append(g)
+        elif valence[-1] >= valence[0]:
             last_v_not_smallest += 1
+            for g in genre_dict.get(name):
+                val_good_genres.append(g)
+
 
         if dominance[-1] < dominance[0]:
             last_d_smallest += 1
-        elif dominance[-1] != np.min(dominance):
+            for g in genre_dict.get(name):
+                dom_bad_genres.append(g)
+        elif dominance[-1] >= dominance[0]:
             last_d_not_smallest += 1
+            for g in genre_dict.get(name):
+                dom_good_genres.append(g)
 
     print("ende mehr arousal als erste section:", aro_greatest, "filme")
+    print("Genres:", Counter(aro_bad_genres))
+    print("\n")
     print("ende nicht mehr arousal:", aro_not, "filme")
-
+    print("Genres:", Counter(aro_good_genres))
+    print("\n")
     print("ende weniger valence als erste section:", last_v_smallest, "filme")
+    print("Genres:", Counter(val_bad_genres))
+    print("\n")
     print("ende nicht weniger valence:", last_v_not_smallest, "filme")
-
+    print("Genres:", Counter(val_good_genres))
+    print("\n")
     print("ende weniger dominance als erste section:", last_d_smallest, "filme")
+    print("Genres:", Counter(dom_bad_genres))
+    print("\n")
     print("ende nicht weniger dominance als erste section:", last_d_not_smallest, "filme")
+    print("Genres:", Counter(dom_good_genres))
+
+
+
+
 
     # test = plaintext_sentiment(fountain_path, 10)
     # print(len(test))
@@ -149,7 +168,7 @@ def word_count(xml_path):
     # sentences = ms.get_all_sentences(xml_path)
     # text = " ".join(sentences)
 
-    sentences = subs.get_subtitles(subs6)
+    sentences = subs.get_subtitles(data_subs[5][0])
     text = " ".join([x[-1] for x in sentences])
 
     test = []
@@ -168,13 +187,16 @@ def word_count(xml_path):
     print(test)
 
 
-def warriner_wordcloud(xml_path):
+def warriner_wordcloud(xml_path, subs_path):
     sentiment = ImpalaSent()
 
     stop = stopwords.words("english")
     chars = ms.get_characters(xml_path)
     sentences = ms.get_all_sentences(xml_path)
     text = " ".join(sentences)
+
+    # sentences = subs.get_subtitles(subs_path)
+    # text = " ".join([x[-1] for x in sentences])
 
     words = []
     for word in word_tokenize(text):
@@ -250,23 +272,20 @@ def regression_plot(csvfile, x):
 
 
 def main():
-    # word_count(script1)
-    # word_count(script2)
-    # word_count(script3)
-    # word_count(script4)
-    # word_count(script5)
-    # word_count(script6)
+    section_sentiment("asdf")
+    # warriner_wordcloud(data_script[3][0], data_subs[3][0])
+    # word_count(data_script[5][0])
     # histograms()
     # for d in data4:
     #     audio_stufftemp(d[1])
     # section_audio()
-    test = ["Valence", "Arousal", "Dominance"]
-    for t in test:
-        # path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_Warriner.csv")
-        path = "7mv_audiosent_ohne_StarWars.csv"
-
-        regression_plot(path, t)
-    plt.show()
+    # test = ["Valence", "Arousal", "Dominance"]
+    # for t in test:
+    #     # path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_Warriner.csv")
+    #     path = "7mv_audiosent_ohne_StarWars.csv"
+    #
+    #     regression_plot(path, t)
+    # plt.show()
 
     # for d in data:
     #     section_sentiment(d)

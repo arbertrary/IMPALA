@@ -11,16 +11,17 @@ from sklearn.preprocessing import PolynomialFeatures
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
 
 path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_Warriner.csv")
+path = os.path.join(BASE_DIR, "src/6mv_mfcc_combined.csv")
 dataframe = pandas.read_csv(path)
 
 # dataframe = pandas.read_csv("6mv_mean_audio_raw_normalized_combined.csv")
 
 dataset = dataframe.values
-X = dataset[:, np.newaxis, 0]
-# X = dataset[:,2:4]
+X = dataset[:, np.newaxis, 5]
+# X = dataset[:,5:9]
 print(X)
 # y = dataset[:,9]
-y = dataset[:,5]
+y = dataset[:,3]
 
 print(y)
 
