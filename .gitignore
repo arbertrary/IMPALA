@@ -6,14 +6,11 @@
 *.wav
 
 #data folders
-all_subtitles/
-all_moviescripts/
-data_moviescripts/
-data_subtitles/
-data_xml/
-data_xml_annotated/
+subtitles_xml/
+moviescripts_fountain/
+moviescripts_xml/
+moviescripts_xml_time/
 data_audio/
-checked_subtitles/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

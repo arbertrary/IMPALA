@@ -9,7 +9,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os
 
 
 def rename_subs():
-    all_subtitles = os.path.join(BASE_DIR, "all_subtitles")
+    all_subtitles = os.path.join(BASE_DIR, "subtitles_xml")
     test = os.listdir(all_subtitles)
     filename = test[0]
     print(os.path.join(all_subtitles, filename))
@@ -22,7 +22,7 @@ def rename_subs():
 
 
 def parse_all():
-    all_moviescripts = os.path.join(BASE_DIR, "all_moviescripts")
+    all_moviescripts = os.path.join(BASE_DIR, "moviescripts_fountain")
     dest_dir = os.path.join(BASE_DIR, "xml_moviescripts")
     list_dest_dir = os.listdir(dest_dir)
     for filename in os.listdir(all_moviescripts):

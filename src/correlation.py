@@ -15,12 +15,12 @@ from scipy import stats
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
-fountain1 = os.path.join(BASE_DIR, "data/all_moviescripts", "blade.txt")
-fountain2 = os.path.join(BASE_DIR, "data/all_moviescripts", "hellboy.txt")
-fountain3 = os.path.join(BASE_DIR, "data/all_moviescripts", "predator.txt")
-fountain4 = os.path.join(BASE_DIR, "data/all_moviescripts", "scream.txt")
-fountain5 = os.path.join(BASE_DIR, "data/all_moviescripts", "star-wars-4.txt")
-fountain6 = os.path.join(BASE_DIR, "data/all_moviescripts", "the-matrix.txt")
+fountain1 = os.path.join(BASE_DIR, "data/moviescripts_fountain", "blade.txt")
+fountain2 = os.path.join(BASE_DIR, "data/moviescripts_fountain", "hellboy.txt")
+fountain3 = os.path.join(BASE_DIR, "data/moviescripts_fountain", "predator.txt")
+fountain4 = os.path.join(BASE_DIR, "data/moviescripts_fountain", "scream.txt")
+fountain5 = os.path.join(BASE_DIR, "data/moviescripts_fountain", "star-wars-4.txt")
+fountain6 = os.path.join(BASE_DIR, "data/moviescripts_fountain", "the-matrix.txt")
 
 audio1 = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
 audio2 = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
@@ -36,12 +36,12 @@ tuning4 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "scream_ger_tunin
 tuning5 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "star-wars-4_tuning.csv")
 tuning6 = os.path.join(BASE_DIR, "data/audio_csvfiles/tuning", "the-matrix_tuning.csv")
 
-script1 = os.path.join(BASE_DIR, "data/manually_annotated", "blade_man.xml")
-script2 = os.path.join(BASE_DIR, "data/manually_annotated", "hellboy_man.xml")
-script3 = os.path.join(BASE_DIR, "data/manually_annotated", "predator_man.xml")
-script4 = os.path.join(BASE_DIR, "data/manually_annotated", "scream_man.xml")
-script5 = os.path.join(BASE_DIR, "data/manually_annotated", "star-wars-4_man.xml")
-script6 = os.path.join(BASE_DIR, "data/manually_annotated", "the-matrix_man.xml")
+script1 = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually", "blade_man.xml")
+script2 = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually", "hellboy_man.xml")
+script3 = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually", "predator_man.xml")
+script4 = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually", "scream_man.xml")
+script5 = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually", "star-wars-4_man.xml")
+script6 = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually", "the-matrix_man.xml")
 
 subs1 = os.path.join(BASE_DIR, "data/data_subtitles/", "blade_subs.xml")
 subs2 = os.path.join(BASE_DIR, "data/data_subtitles/", "hellboy_subs.xml")

@@ -15,9 +15,7 @@ from src.src_text.sentiment.sentiment import ImpalaSent
 from src.src_text.sentiment.ms_sentiment import plaintext_sentiment
 from src import data_script, data_fountain, data_subs
 
-
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
-
 
 
 def audio_stufftemp(audio_path):
@@ -36,7 +34,7 @@ def audio_stufftemp(audio_path):
 
 
 def section_sentiment(fountain_path):
-    fountain_dir = os.path.join(BASE_DIR, "data/all_moviescripts")
+    fountain_dir = os.path.join(BASE_DIR, "data/moviescripts_fountain")
     last_v_smallest = 0
     last_v_not_smallest = 0
 
@@ -85,8 +83,6 @@ def section_sentiment(fountain_path):
                 aro_good_genres.append(g)
             aro_not += 1
 
-
-
         if valence[-1] < valence[0]:
             last_v_smallest += 1
             for g in genre_dict.get(name):
@@ -95,7 +91,6 @@ def section_sentiment(fountain_path):
             last_v_not_smallest += 1
             for g in genre_dict.get(name):
                 val_good_genres.append(g)
-
 
         if dominance[-1] < dominance[0]:
             last_d_smallest += 1
@@ -123,10 +118,6 @@ def section_sentiment(fountain_path):
     print("\n")
     print("ende nicht weniger dominance als erste section:", last_d_not_smallest, "filme")
     print("Genres:", Counter(dom_good_genres))
-
-
-
-
 
     # test = plaintext_sentiment(fountain_path, 10)
     # print(len(test))
@@ -212,7 +203,7 @@ def warriner_wordcloud(xml_path, subs_path):
 
 
 def histograms():
-    path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/6mv_raw_mean_audio_normalized_Warriner.csv")
+    path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_normalized_Warriner.csv")
     # path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/6mv_raw_mean_audio_Vader.csv")
 
     with open(path) as csvfile:
@@ -231,7 +222,7 @@ def histograms():
             dominance.append(float(row[4]))
             audio.append(float(row[-1]))
 
-    plt.suptitle("Histograms for Sentiment and Audio of 6 movies (1027 scenes)")
+    plt.suptitle("Histograms for Sentiment and Audio of 7 movies (1162 scenes)")
     plt.subplot(221)
     plt.xlabel("Score")
     plt.ylabel("# of data points")
@@ -272,24 +263,7 @@ def regression_plot(csvfile, x):
 
 
 def main():
-    section_sentiment("asdf")
-    # warriner_wordcloud(data_script[3][0], data_subs[3][0])
-    # word_count(data_script[5][0])
-    # histograms()
-    # for d in data4:
-    #     audio_stufftemp(d[1])
-    # section_audio()
-    # test = ["Valence", "Arousal", "Dominance"]
-    # for t in test:
-    #     # path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_Warriner.csv")
-    #     path = "7mv_audiosent_ohne_StarWars.csv"
-    #
-    #     regression_plot(path, t)
-    # plt.show()
-
-    # for d in data:
-    #     section_sentiment(d)
-    # section_sentiment(fountain1)
+    histograms()
 
 
 if __name__ == '__main__':

@@ -246,7 +246,7 @@ def main():
         base = os.path.basename(d[1])
         # name = d[1].replace(base, "spectral_centroid/")+ base.replace(".csv", "_centroid.csv")
         # name = d[1].replace(base, "tuning/")+ base.replace(".csv", "_tuning.csv")
-        name = d[1].replace(base, "energy/"+base)
+        name = d[1].replace(base, "energy/" + base)
 
         # audiosent_scenes_wo_time(d[0], d[1], "7mv_audiosent_scenes_wo_time_Warriner.csv")
         audiosent_csv(d[0], name, "7mv_audiosent_ohne_StarWars.csv", sent_method="Warriner")

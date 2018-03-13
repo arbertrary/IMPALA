@@ -8,7 +8,7 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.multiclass import OneVsOneClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
-from sklearn.model_selection import KFold
+from sklearn.model_selection import KFold, train_test_split
 from sklearn.model_selection import cross_validate, cross_val_score, cross_val_predict
 from sklearn.metrics import confusion_matrix, f1_score
 
@@ -107,12 +107,13 @@ def vader_cat():
 
 def classify():
     dataframe = pandas.read_csv("new_genres.csv")
+    dataframe = pandas.read_csv("nrccategorical.csv")
     dataset = dataframe.values
 
-    X = dataset[:, 1:10]
-    # print(X)
-    y = dataset[:, 10]
-
+    X = dataset[:, 1:11]
+    print(X)
+    y = dataset[:, 11]
+    print(y)
     kf = KFold(n_splits=10)
     kf.get_n_splits(X)
     print(kf)
@@ -124,7 +125,7 @@ def classify():
     #     X_train, X_test = X[train_index], X[test_index]
     #     y_train, y_test = y[train_index], y[test_index]
 
-    X_train, X_test, y_train, y_test = X[:700], X[700:], y[:700], y[700:]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     svc = SVC(C=1, kernel="linear")
     # test = svc.fit(X_train, y_train).score(X_test, y_test)
 
@@ -139,6 +140,8 @@ def classify():
     print(y_scores)
     print(y_some_digit_pred)
 
+    y_pred = sgd_clf.predict(X_test)
+    print(confusion_matrix(y_test_comedy, y_pred))
     import numpy as np
 
     # shuffle_index = np.random.permutation(699)

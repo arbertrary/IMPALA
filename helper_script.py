@@ -127,7 +127,7 @@ def move_subtitles():
         filmliste = filme.read().splitlines(keepends=False)
         # print(filmliste)
 
-    subs_dir = os.path.join(BASE_DIR, "all_subtitles")
+    subs_dir = os.path.join(BASE_DIR, "subtitles_xml")
 
     for film in filmliste:
         filename = film + "_subs.xml"
@@ -171,7 +171,7 @@ def annotate_genres_to_subs():
 
         tree.write(path)
 
-    # path = os.path.join("all_subtitles", "blade_subs.xml")
+    # path = os.path.join("subtitles_xml", "blade_subs.xml")
     # tree = ET.parse(path)
     # root = tree.getroot()
     # # test = ET.SubElement(root, "genre").text = "testgenre"
@@ -223,7 +223,7 @@ def check_scene_count():
 
 
 def main():
-    path = os.path.join(BASE_DIR, "manually_annotated/the-matrix_man_TODO.xml")
+    path = os.path.join(BASE_DIR, "moviescripts_xml_time_manually/the-matrix_man_TODO.xml")
 
     tree = ET.parse(path)
     scenes = tree.findall("scene")

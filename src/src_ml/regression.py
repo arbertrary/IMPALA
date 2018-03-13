@@ -4,24 +4,24 @@ import os
 import matplotlib.pyplot as plt
 
 from sklearn import datasets, linear_model
-from sklearn.metrics import mean_squared_error, r2_score, explained_variance_score
+from sklearn.metrics import mean_squared_error, r2_score, explained_variance_score, f1_score
 from sklearn.model_selection import train_test_split, KFold
 from sklearn.preprocessing import PolynomialFeatures
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
 
 path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_Warriner.csv")
-path = os.path.join(BASE_DIR, "src/6mv_mfcc_combined.csv")
+# path = os.path.join(BASE_DIR, "src/6mv_mfcc_combined.csv")
 dataframe = pandas.read_csv(path)
 
 # dataframe = pandas.read_csv("6mv_mean_audio_raw_normalized_combined.csv")
 
 dataset = dataframe.values
-X = dataset[:, np.newaxis, 5]
+X = dataset[:, np.newaxis, 3]
 # X = dataset[:,5:9]
 print(X)
 # y = dataset[:,9]
-y = dataset[:,3]
+y = dataset[:, 5]
 
 print(y)
 
@@ -55,7 +55,6 @@ print("Mean squared error: %.2f" % mean_squared_error(y_test, y_pred))
 # Explained variance score: 1 is perfect prediction
 print('R^2 score: %.2f' % r2_score(y_test, y_pred))
 print("Variance: %.2f" % explained_variance_score(y_test, y_pred))
-
 
 # Plot outputs
 plt.scatter(X_test, y_test, color='black')

@@ -100,7 +100,7 @@ def write_warriner_csv():
 
 
 def write_new_csv():
-    directory = os.path.join(BASE_DIR, "all_moviescripts")
+    directory = os.path.join(BASE_DIR, "moviescripts_fountain")
     sentiment = ImpalaSent()
     with open("allgenres2.txt") as file:
         films = file.read().splitlines(keepends=False)

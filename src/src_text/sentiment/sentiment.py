@@ -114,7 +114,7 @@ class ImpalaSent:
 
 
 def warriner_dict():
-    path = os.path.join(BASE_DIR, "src/src_text/lexicons/", "WarrinerRatings.csv")
+    path = os.path.join(BASE_DIR, "src/src_text/sentiment/lexicons/", "WarrinerRatings.csv")
 
     lexicon = {}
     with open(path, newline='') as csvfile:
@@ -136,7 +136,7 @@ def warriner_dict():
 
 
 def nrc_dict():
-    path = os.path.join(BASE_DIR, "src/src_text/lexicons/", "NRC_EmoLex.txt")
+    path = os.path.join(BASE_DIR, "src/src_text/sentiment/lexicons/", "NRC_EmoLex.txt")
 
     lexicon = {}
     with open(path, newline='') as csvfile:
@@ -158,7 +158,7 @@ def nrc_dict():
 
 
 def sentiwordnet_dict():
-    path = os.path.join(BASE_DIR, "src/src_text/lexicons/", "SentiWordNet.txt")
+    path = os.path.join(BASE_DIR, "src/src_text/sentiment/lexicons/", "SentiWordNet.txt")
 
     lexicon = {}
     with open(path, newline='') as csvfile:
@@ -181,20 +181,6 @@ def sentiwordnet_dict():
 
 def main():
     test = ImpalaSent()
-    # test = ImpalaSent("SentiWordNet")
-    # test = ImpalaSent()
-    print(test.score("Hey, this really is a shit fucking sentence!"))
-
-    # test2 = ImpalaSent("SentiWordNet")
-    # print(test2.score("happy"))
-
-    # test3 = ImpalaSent("NRC")
-    # print(test3.lexicon.get("happy"))
-    # print(test3.lexicon.get("death"))
-    # print(test3.score("Hey, this really is a shit fucking sentence!"))
-    # PAR_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
-    # DATA_DIR = os.path.join(PAR_DIR, "lexicons")
-    # print(DATA_DIR)
 
 
 if __name__ == '__main__':
