@@ -1,5 +1,6 @@
 import pandas
 import csv
+import numpy as np
 import warnings
 import matplotlib.pyplot as plt
 
@@ -116,7 +117,6 @@ def classify_comedy():
     y = dataset[:, 10]
     # print(X)
     # print(y)
-
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     y_train_comedy = (y_train == "Comedy")
@@ -134,10 +134,39 @@ def classify_comedy():
     print(f1_score(y_test_comedy, y_pred))
 
 
+def classify_comedy_kfold():
+    # Jeder film hat 9 werte
+    # z.B. für Valence: 29% der gefundenen wörter sind positiv, 63% der wörter sind eher neutral, 8% sind negativ usw
+    dataframe = pandas.read_csv("new_genres.csv")
+    dataset = dataframe.values
+
+    X = dataset[:, 1:10]
+    y = dataset[:, 10]
+    # print(X)
+    # print(y)
+
+    y_comedy = (y == "Comedy")
+    sgd_clf = SGDClassifier(random_state=4)
+    f1scores = []
+    kf = KFold(n_splits=10)
+    for train_index, test_index in kf.split(X):
+        X_train, X_test = X[train_index], X[test_index]
+        y_train_comedy, y_test_comedy = y_comedy[train_index], y_comedy[test_index]
+        sgd_clf.fit(X_train, y_train_comedy)
+        y_pred = sgd_clf.predict(X_test)
+
+        # print(confusion_matrix(y_test_comedy, y_pred))
+        # print(precision_score(y_test_comedy, y_pred))
+        # print(recall_score(y_test_comedy, y_pred))
+        # print(f1_score(y_test_comedy, y_pred))
+        f1scores.append(f1_score(y_test_comedy, y_pred))
+
+    print(np.mean(f1scores))
+
+
 def main():
     classify_comedy()
-    # preprocess()
-    # nrc_cat()
+    # classify_comedy_kfold()
 
 
 if __name__ == '__main__':
