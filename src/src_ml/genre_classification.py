@@ -10,7 +10,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.model_selection import KFold, train_test_split
 from sklearn.model_selection import cross_validate, cross_val_score, cross_val_predict
-from sklearn.metrics import confusion_matrix, f1_score
+from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
+from sklearn.base import clone
 
 
 def nrc_cat():
@@ -105,29 +106,18 @@ def vader_cat():
                     writer.writerow([row[0], neg_value, pos_value, neu_value, row[5]])
 
 
-def classify():
+def classify_comedy():
+    # Jeder film hat 9 werte
+    # z.B. für Valence: 29% der gefundenen wörter sind positiv, 63% der wörter sind eher neutral, 8% sind negativ usw
     dataframe = pandas.read_csv("new_genres.csv")
-    dataframe = pandas.read_csv("nrccategorical.csv")
     dataset = dataframe.values
 
-    X = dataset[:, 1:11]
-    print(X)
-    y = dataset[:, 11]
-    print(y)
-    kf = KFold(n_splits=10)
-    kf.get_n_splits(X)
-    print(kf)
-    testfilm = X[859]
-    print(dataset[859])
-
-    # for train_index, test_index in kf.split(X):
-    #     print("TRAIN:", train_index, "TEST:", test_index)
-    #     X_train, X_test = X[train_index], X[test_index]
-    #     y_train, y_test = y[train_index], y[test_index]
+    X = dataset[:, 1:10]
+    y = dataset[:, 10]
+    # print(X)
+    # print(y)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    svc = SVC(C=1, kernel="linear")
-    # test = svc.fit(X_train, y_train).score(X_test, y_test)
 
     y_train_comedy = (y_train == "Comedy")
     y_test_comedy = (y_test == "Comedy")
@@ -135,32 +125,17 @@ def classify():
     sgd_clf = SGDClassifier(random_state=42)
     sgd_clf.fit(X_train, y_train_comedy)
 
-    y_scores = sgd_clf.decision_function([testfilm])
-    y_some_digit_pred = (y_scores > 200)
-    print(y_scores)
-    print(y_some_digit_pred)
+    # print(cross_val_score(sgd_clf, X_train, y_train_comedy, cv=3, scoring="accuracy"))
 
-    y_pred = sgd_clf.predict(X_test)
+    y_pred = cross_val_predict(sgd_clf, X_test, y_test_comedy, cv=3)
     print(confusion_matrix(y_test_comedy, y_pred))
-    import numpy as np
-
-    # shuffle_index = np.random.permutation(699)
-    # # X_train, y_train = X_train[shuffle_index], y_train[shuffle_index]
-    #
-    # from sklearn.linear_model import SGDClassifier
-    #
-    # sgd_clf = SGDClassifier(random_state=42)
-    # sgd_clf.fit(X_train, y_train)
-    #
-    # print(sgd_clf.predict([testfilm]))
-    #
-    # some_digit_scores = sgd_clf.decision_function([testfilm])
-    # print(some_digit_scores)
-    # print(sgd_clf.classes_)
+    print(precision_score(y_test_comedy, y_pred))
+    print(recall_score(y_test_comedy, y_pred))
+    print(f1_score(y_test_comedy, y_pred))
 
 
 def main():
-    classify()
+    classify_comedy()
     # preprocess()
     # nrc_cat()
 
