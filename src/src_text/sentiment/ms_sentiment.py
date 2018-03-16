@@ -27,6 +27,7 @@ def scenesentiment(xml_path: str) -> List[Tuple[float, float, float, float]]:
     sentiment = ImpalaSent()
 
     scenes = ms.get_full_scenes(xml_path)
+    characters = ms.get_characters(xml_path)
     beginning = datetime.strptime("00:00:00", '%H:%M:%S')
 
     sentiment_tuples = []
@@ -36,7 +37,7 @@ def scenesentiment(xml_path: str) -> List[Tuple[float, float, float, float]]:
 
         sentences = scene[1]
         text = " ".join(sentences)
-        score = sentiment.score(text)
+        score = sentiment.score(text, stopwords=characters)
 
         valence = score.get("valence")
         arousal = score.get("arousal")
@@ -61,6 +62,7 @@ def scenesentiment_for_man_annotated(xml_path: str, sent_method: str = "Warriner
         sentiment = ImpalaSent(sent_method)
 
     scenes = ms.get_scenes_man_annotated(xml_path)
+    characters = ms.get_characters(xml_path)
     beginning = datetime.strptime("00:00:00", '%H:%M:%S')
 
     sentiment_tuples = []
@@ -76,7 +78,7 @@ def scenesentiment_for_man_annotated(xml_path: str, sent_method: str = "Warriner
         sentences = scene[2]
         text = " ".join(sentences)
         if sent_method == "Warriner":
-            score = sentiment.score(text)
+            score = sentiment.score(text, stopwords=characters)
         elif sent_method == "NRC":
             score = sentiment.nrc_score(text)
         elif sent_method == "Vader":
@@ -142,10 +144,10 @@ def plot_scenesentiment(sentiment_values: List):
 def main():
     # print("Hello")
     path = os.path.join(BASE_DIR, "src/testfiles/")
-    sw = os.path.join(path, "star-wars-4_annotated.xml")
-    sw_man = os.path.join(path, "star-wars-4_man.xml")
+    xml_file = os.path.join(path, "blade_manually.xml")
+    # sw_man = os.path.join(path, "star-wars-4_man.xml")
 
-    a = scenesentiment_for_man_annotated(sw_man, "NRC")
+    a = scenesentiment_for_man_annotated(xml_file, "Warriner")
     plot_scenesentiment(a)
     print(a)
 

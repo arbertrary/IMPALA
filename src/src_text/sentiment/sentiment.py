@@ -22,7 +22,7 @@ class ImpalaSent:
         else:
             raise ValueError("Not a valid method!")
 
-    def score(self, text: str):
+    def score(self, text: str, **kwargs):
         """:returns Dict with key= valence, arousal or dominance and value= avg of all values in text
                 if no word in text is found in the Warriner lexicon, return -1 for each value
             :raises ValueError if used with an ImpalaSent instance with a sentiment lexicon other than Warriner"""
@@ -30,10 +30,16 @@ class ImpalaSent:
             raise ValueError("Tried to get the Warriner score from an instance of ImpalaSent with a different lexicon")
         words = word_tokenize(text)
 
+        if kwargs.get("stopwords"):
+            stop = kwargs.get("stopwords")
+
         valence_scores = []
         arousal_scores = []
         dominance_scores = []
         for word in words:
+            if kwargs.get("stopwords") and word.lower() in kwargs.get("stopwords"):
+                continue
+
             score = self.lexicon.get(word.lower())
             if score:
                 v = score.get("valence")
@@ -181,6 +187,7 @@ def sentiwordnet_dict():
 
 def main():
     test = ImpalaSent()
+    print(test.score("blade"))
 
 
 if __name__ == '__main__':
