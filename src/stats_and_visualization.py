@@ -178,27 +178,63 @@ def word_count(xml_path):
     print(test)
 
 
-def warriner_wordcloud(xml_path, subs_path):
+def warriner_wordcloud(xml_path):  # , subs_path):
     sentiment = ImpalaSent()
 
     stop = stopwords.words("english")
-    chars = ms.get_characters(xml_path)
-    sentences = ms.get_all_sentences(xml_path)
-    text = " ".join(sentences)
+    high = []
+    medium = []
+    low = []
+    # directory = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually")
+    # directory = os.path.join(BASE_DIR, "data/moviescripts_xml_time")
+    directory = os.path.join(BASE_DIR, "data/moviescripts_xml")
 
-    # sentences = subs.get_subtitles(subs_path)
-    # text = " ".join([x[-1] for x in sentences])
+    for file in os.listdir(directory):
+        xml_path = os.path.join(directory, file)
+        chars = ms.get_characters(xml_path)
+        sentences = ms.get_all_sentences(xml_path)
+        text = " ".join(sentences)
 
-    words = []
-    for word in word_tokenize(text):
-        score = sentiment.lexicon.get(word.lower())
-        if score and word.lower() not in stop and word.lower() not in chars:
-            words.append(word)
+        # sentences = subs.get_subtitles(subs_path)
+        # text = " ".join([x[-1] for x in sentences])
 
-    wordcloud = WordCloud().generate(" ".join(words))
+
+        words = []
+        sent = "dominance"
+        for w in word_tokenize(text):
+            word = w.lower()
+            score = sentiment.lexicon.get(word)
+            if score and word not in stop and word not in chars:
+                if score.get(sent) < 3.67:
+                    low.append(word)
+                elif 3.67 <= score.get(sent) < 6.33:
+                    medium.append(word)
+                else:
+                    high.append(word)
+
+                words.append(word)
+
+    c = Counter(high)
+    print(c)
+    wc1 = WordCloud(background_color="white",width=800, height=450,collocations=False).generate(" ".join(high))
+    wc2 = WordCloud(background_color="white",width=800, height=450,collocations=False).generate(" ".join(medium))
+    wc3 = WordCloud(background_color="white",width=800, height=450,collocations=False).generate(" ".join(low))
+
+    wc1.to_file("high_"+sent+".png")
+    wc2.to_file("medium_"+sent+".png")
+    wc3.to_file("low_"+sent+".png")
+
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    plt.subplot(311)
+    plt.imshow(wc1, interpolation="bilinear")
     plt.axis("off")
+    plt.subplot(312)
+    plt.imshow(wc2, interpolation="bilinear")
+    plt.axis("off")
+    plt.subplot(313)
+    plt.imshow(wc3, interpolation="bilinear")
+    plt.axis("off")
+    plt.tight_layout()
     plt.show()
 
 
@@ -257,13 +293,16 @@ def regression_plot(csvfile, x):
     dataframe = pd.read_csv(csvfile)
     # print(dataframe)
     plt.figure()
-    sns.regplot(y="Audio Level", x=x, data=dataframe)
+    sns.regplot(y="Audio Energy", x=x, data=dataframe)
     plt.title("Scatter Plot with Regression line for 1162 scenes from 7 movies")
     plt.tight_layout()
+    plt.show()
 
 
 def main():
-    histograms()
+    # histograms()
+    # warriner_wordcloud("/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/blade_manually.xml")
+    regression_plot(os.path.join(BASE_DIR, "data/audiosent_csv_raw/single movies/indiana-jones-3_ger_audiosent_Warriner.csv"), "Arousal")
 
 
 if __name__ == '__main__':

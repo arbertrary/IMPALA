@@ -24,7 +24,7 @@ from src import data_script, data_fountain, data_subs
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_method: str = "Warriner", **kwargs):
+def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, feature_column=-1, sent_method: str = "Warriner", **kwargs):
     if sent_method not in {"Warriner", "NRC", "Vader", "combined"}:
         raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
 
@@ -40,7 +40,7 @@ def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, sent_me
     with open(audio_path) as audio_csv:
         reader = csv.reader(audio_csv)
         for row in reader:
-            partitions.append((float(row[0]), float(row[1])))
+            partitions.append((float(row[0]), float(row[feature_column])))
 
     scene_audio = []
     scene_sentiment = []
@@ -241,15 +241,17 @@ def main():
     time = datetime.now()
 
     for d in data_script:
-        if "star" in d[0]:
-            continue
         base = os.path.basename(d[1])
         # name = d[1].replace(base, "spectral_centroid/")+ base.replace(".csv", "_centroid.csv")
         # name = d[1].replace(base, "tuning/")+ base.replace(".csv", "_tuning.csv")
-        name = d[1].replace(base, "energy/" + base)
+        # name = d[1].replace(base, "energy/"+base)
 
+        name = d[1].replace(base, "mfcc/")+base.replace(".csv", "_mfcc.csv")
+        # new_csv = base.replace(".csv", "_sent_centroid.csv")
+        new_csv = "7mv_mfcc4.csv"
+
+        audiosent_csv(d[0], name, new_csv,feature_column=4, sent_method="Warriner")
         # audiosent_scenes_wo_time(d[0], d[1], "7mv_audiosent_scenes_wo_time_Warriner.csv")
-        audiosent_csv(d[0], name, "7mv_audiosent_ohne_StarWars.csv", sent_method="Warriner")
         # fountain_audiosent_csv(d[0], d[1], 200, "7mv_fountain_audiosent.csv")
 
     time2 = datetime.now()

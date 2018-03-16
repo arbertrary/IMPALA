@@ -66,7 +66,7 @@ def correlation(csv_path: str, column: int, raw=True):
                 sentiment.append(float(row[column]))
 
                 if raw:
-                    audio.append(float(row[-1]))
+                    audio.append(float(row[5]))
                 else:
                     if row[-1] == "silent":
                         audio.append(1)
@@ -191,62 +191,48 @@ def plot_from_csv(csv_path: str, classes: int):
 
 
 def main():
-    # csvfile = "7mv_audiosent_Warriner.csv"
-    # csvfile = "7mv_audiosent_normalized_Warriner.csv"
-    # csvfile = "7mv_fountain_audiosent.csv"
-    # csvfile = "7mv_audiosent_subs_Warriner.csv"
-    csvfile = "7mv_audiosent_ohne_StarWars.csv"
+    directory = os.path.join(BASE_DIR, "data/audiosent_csv_raw/single movies")
 
-    # csvfile = "7mv_audiosent_Vader.csv"
-    # csvfile = "7mv_audiosent_normalized_Vader.csv"
-    # csvfile = "7mv_audiosent_scenes_wo_time_Warriner.csv"
-    # csvfile = "7mv_audiosent_tuning_Warriner.csv"
-    # csvfile = "7mv_audiosent_centroid_Warriner.csv"
-    test = []
-    indices = [2, 3, 4]
-    # indices = [0,1,2]
-    # indices = [2,3,4,5]
-    # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw", csvfile)
-    for i in indices:
-        test.append(correlation(csvfile, i, raw=True))
-    # test.sort(key=lambda x: x[1])
+    a =[]
+    v = []
+    d =[]
+    for file in os.listdir(directory):
+        csvfile = os.path.join(directory,file)
+        print(file)
+        test = []
+        indices = [2, 3, 4]
+        # indices = [0,1,2]
+        # indices = [2,3,4,5]
+        # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw", csvfile)
+        for i in indices:
+            test.append(correlation(csvfile, i, raw=True))
+        # test.sort(key=lambda x: x[1])
 
-    for i, t in enumerate(test):
-        if i == 0:
-            print("Valence")
-            # print("neg")
-        elif i == 1:
-            print("Arousal")
-            # print("neu")
-        elif i ==2:
-            # print("pos")
-            print("Dominance")
-        else:
-            print("compound")
+        for i, t in enumerate(test):
+            if i == 0:
+                print("Valence")
+                v.append(t[0][0])
 
-        print("spearman: ", t[0][0], "\np-value: ", t[0][1])
-        # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
-        print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
+                # print("neg")
+            elif i == 1:
+                print("Arousal")
+                a.append(t[0][0])
+                # print("neu")
+            elif i ==2:
+                # print("pos")
+                print("Dominance")
+                d.append(t[0][0])
 
-    # test = []
-    # for file in os.listdir(os.path.join(BASE_DIR, "src/testfiles")):
-    #     path = os.path.join(BASE_DIR, "src/testfiles", file)
-    #     ind = [0, 1, 2]
-    #     names = ["Valence", "Arousal", "Dominance"]
-    #
-    #     if ".csv" in path:
-    #         for i in ind:
-    #             corr = correlation(path, i, raw=True)
-    #             test.append((corr, path, names[i]))
-    #
-    # for t in test:
-    #     print("---", os.path.basename(t[1]), "---")
-    #     print(t[2])
-    #     # print("sample size: ", t[0][-1])
-    #     print("spearman: ", t[0][0][0], "\np-value: ", t[0][0][1])
-    #     # print("pearson: ", t[0][1][0], "\np-value: ", t[0][1][1])
-    #     print("kendall's tau: ", t[0][2][0], "\np-value: ", t[0][2][1], "\n")
+            else:
+                print("compound")
 
+            print("spearman: ", t[0][0], "\np-value: ", t[0][1])
+            # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+            print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
+
+    print(np.mean(v))
+    print(np.mean(a))
+    print(np.mean(d))
 
 if __name__ == '__main__':
     main()

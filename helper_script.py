@@ -5,10 +5,13 @@ Moving files and stuff
 import os
 import re
 import shutil
+import numpy as np
+import soundfile as sf
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from src.src_text.preprocessing.moviescript import get_full_scenes
 
+from datetime import datetime
 from nltk import word_tokenize
 from src.src_text.preprocessing.subtitles import check_correctness
 
@@ -215,26 +218,51 @@ def scene_counter(directory):
 
 
 def check_scene_count():
-    for filename in os.listdir("data_xml"):
-        tree = ET.parse(os.path.join("data_xml", filename))
+    lengths = []
+    time_code_scenes = []
+    not_continuous = []
+
+    for filename in os.listdir("data/moviescripts_xml_time"):
+        times = []
+        tree = ET.parse(os.path.join("data/moviescripts_xml_time", filename))
         scenes = tree.findall("scene")
-        if len(scenes) < 20:
-            print(filename, len(scenes))
+        counter = 0
+        for s in scenes:
+            if s.get("time_avg"):
+                times.append(s.get("time_avg"))
+                counter += 1
+
+
+        currenttime = datetime.strptime("00:00:00", '%H:%M:%S')
+        for time in times:
+            t = datetime.strptime(time, '%H:%M:%S')
+
+            if t < currenttime:
+                # print(currenttime, t)
+                not_continuous.append(filename)
+                break
+            currenttime = t
+        lengths.append(len(scenes))
+        time_code_scenes.append(counter)
+
+    print(np.mean(lengths))
+    print(np.mean(time_code_scenes))
+    print(len(not_continuous))
+    print(not_continuous)
 
 
 def main():
-    path = os.path.join(BASE_DIR, "moviescripts_xml_time_manually/the-matrix_man_TODO.xml")
+    check_scene_count()
+    # dir = "/media/armin/Seagate Expansion Drive/Filme_Audio_NoCredits"
+    # durations = []
+    # for file in os.listdir(dir):
+    #     path = os.path.join(dir, file)
+    #     d = sf.info(path).duration
+    #     durations.append(d)
+    #
+    # print(np.mean(durations))
 
-    tree = ET.parse(path)
-    scenes = tree.findall("scene")
-    for scene in scenes:
-        if scene.get("start") == "" and scene.get("end") == "":
-            # scene.pop("start")
-            # scene.pop("end")
-            del scene.attrib["start"]
-            del scene.attrib["end"]
 
-    tree.write(path)
 
 
 
