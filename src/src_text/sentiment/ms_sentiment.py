@@ -10,23 +10,12 @@ import src.src_text.preprocessing.moviescript as ms
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
-def sentence_sentiment(xml_path: str):
-    sentiment = ImpalaSent()
-    sentences = ms.get_all_sentences(xml_path)
-    scores = []
-    for s in sentences:
-        score = sentiment.score(s)
-        scores.append(score)
-
-    return scores
-
-
-def scenesentiment(xml_path: str) -> List[Tuple[float, float, float, float]]:
+def scenesentiment_auto_annotated(xml_path: str) -> List[Tuple[float, float, float, float]]:
     """Plan: sentiment für komplette szenen; plotten in zwei unterschiedlichen graphen. Valence and arousal"""
 
     sentiment = ImpalaSent()
 
-    scenes = ms.get_full_scenes(xml_path)
+    scenes = ms.get_scenes_auto_annotated(xml_path)
     characters = ms.get_characters(xml_path)
     beginning = datetime.strptime("00:00:00", '%H:%M:%S')
 
@@ -39,9 +28,6 @@ def scenesentiment(xml_path: str) -> List[Tuple[float, float, float, float]]:
         text = " ".join(sentences)
         score = sentiment.score(text, stopwords=characters)
 
-        valence = score.get("valence")
-        arousal = score.get("arousal")
-        dominance = score.get("dominance")
         if all(score.get(x) == -1 for x in score):
             continue
         else:
@@ -52,7 +38,7 @@ def scenesentiment(xml_path: str) -> List[Tuple[float, float, float, float]]:
     return sentiment_tuples
 
 
-def scenesentiment_for_man_annotated(xml_path: str, sent_method: str = "Warriner") -> List[Tuple[float, float, Dict]]:
+def scenesentiment_man_annotated(xml_path: str, sent_method: str = "Warriner") -> List[Tuple[float, float, Dict]]:
     """:returns List of Tuples of [scene-starttime in seconds, scene-endtime in seconds, sentiment scores:Dict"""
     if sent_method not in {"Warriner", "NRC", "Vader"}:
         raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
@@ -87,7 +73,7 @@ def scenesentiment_for_man_annotated(xml_path: str, sent_method: str = "Warriner
         if all(score.get(x) == -1 for x in score):
             continue
         else:
-            sentiment_tuples.append((start, end, score))
+            sentiment_tuples.append((start, end, score, scene[-1]))
 
     sentiment_tuples.sort(key=lambda tup: tup[0])
 
@@ -107,48 +93,13 @@ def plaintext_sentiment(fountain_path: os.path, n_parts: int, sent_method: str =
     return sections
 
 
-def plot_scenesentiment(sentiment_values: List):
-    x = [s[0] for s in sentiment_values]
-    # x = dates.date2num(x)
-    yv = [v[2].get("anger") for v in sentiment_values]
-    ya = [a[2].get("joy") for a in sentiment_values]
-    yd = [d[2].get("negative") for d in sentiment_values]
-
-    plt.subplot(311)
-    plt.plot(x, yv)
-    plt.xlim(x[0], x[-1])
-    plt.ylabel("anger")
-    plt.xlabel("time")
-
-    plt.subplot(312)
-    plt.ylabel("joy")
-    plt.xlabel("time")
-    plt.plot(x, ya)
-    plt.xlim(x[0], x[-1])
-
-    plt.subplot(313)
-    plt.ylabel("negative")
-    plt.xlabel("time")
-    plt.plot(x, yd)
-    plt.xlim(x[0], x[-1])
-
-    # nur mal zum Merken, damit ich nicht wieder googlen muss
-    # plt.plot_date(x, yd, "-")
-    # plt.gca().xaxis.set_major_locator(dates.MinuteLocator(byminute=range(0, 60, 10)))
-    # plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%H:%M:%S'))
-
-    plt.tight_layout()
-    plt.show()
-
-
 def main():
     # print("Hello")
     path = os.path.join(BASE_DIR, "src/testfiles/")
     xml_file = os.path.join(path, "blade_manually.xml")
     # sw_man = os.path.join(path, "star-wars-4_man.xml")
 
-    a = scenesentiment_for_man_annotated(xml_file, "Warriner")
-    plot_scenesentiment(a)
+    a = scenesentiment_man_annotated(xml_file, "Warriner")
     print(a)
 
 

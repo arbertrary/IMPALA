@@ -3,44 +3,55 @@
 import numpy as np
 from datetime import datetime
 import os
+import pandas as pd
 import csv
 import matplotlib.pyplot as plt
 import librosa
 import src.utility as util
-from src.src_text.sentiment.ms_sentiment import scenesentiment_for_man_annotated, sentence_sentiment, \
-    plaintext_sentiment
+from src.src_text.sentiment.ms_sentiment import scenesentiment_man_annotated, plaintext_sentiment
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 from src.src_text.sentiment.sentiment import ImpalaSent
-from src.src_text.preprocessing.moviescript import get_scenes_unannotated
+from src.src_text.preprocessing.moviescript import get_scenes
 from src import data_script, data_fountain, data_subs
-
-"""Idee:
-- scenes mit time codes aus moviescript get_full_scenes
-- energy aus audio_analysis (noch nicht in Intervalle eingeteilt)
-- nimm die time codes der Szenen um die energy aufzuteilen
-- plotte beides über der gleichen Zeitachse
-"""
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, feature_column=-1, sent_method: str = "Warriner", **kwargs):
+def audiosent_csv(script_path: str, audio_csv: str, dest_csv_path: str, feature_column: str,
+                  sent_method: str = "Warriner", subtitles: bool = False, **kwargs):
     if sent_method not in {"Warriner", "NRC", "Vader", "combined"}:
-        raise ValueError("Incorrect sentiment method. Choose \"Warriner\" or \"NRC\"!")
+        raise ValueError(
+            "Incorrect sentiment method. Choose 'Warriner', 'Vader', 'NRC' or 'combined' (Warriner+Vader)!")
 
     if sent_method == "combined":
-        ts = scenesentiment_for_man_annotated(script_path, sent_method="Warriner")
-        ts2 = scenesentiment_for_man_annotated(script_path, sent_method="Vader")
-    else:
-        # ts = subtitle_sentiment(script_path, sent_method)
-        ts = scenesentiment_for_man_annotated(script_path, sent_method)
-    print("warriner length", len(ts))
-    partitions = []
+        if subtitles:
+            raise ValueError("Sorry, not yet implemented for subtitles!")
+        ts = scenesentiment_man_annotated(script_path, sent_method="Warriner")
+        ts2 = scenesentiment_man_annotated(script_path, sent_method="Vader")
+        temp = []
+        for s in ts:
+            for t in ts2:
+                if s[-1] == t[-1] and s[0] == t[0] and s[1] == t[1]:
+                    temp.append(t)
+        ts2 = temp
 
-    with open(audio_path) as audio_csv:
-        reader = csv.reader(audio_csv)
-        for row in reader:
-            partitions.append((float(row[0]), float(row[feature_column])))
+    else:
+        if subtitles:
+            ts = subtitle_sentiment(script_path, sent_method)
+        else:
+            ts = scenesentiment_man_annotated(script_path, sent_method)
+
+    df = pd.read_csv(audio_csv)
+    time = df.get("Time").values
+    try:
+        feature = df.get(feature_column).values
+    except AttributeError as error:
+        raise ValueError(
+            """Incorrect audio feature. 
+            Choose 'Audio Energy', 'Spectral Centroid' 
+            or 'mfccN' with N for the n-th mel-frequency cepstral coefficient!""") from error
+
+    partitions = list(zip(time, feature))
 
     scene_audio = []
     scene_sentiment = []
@@ -53,9 +64,6 @@ def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, feature
             scene_sentiment.append(t)
             if sent_method == "combined":
                 scene_sentiment2.append(ts2[index])
-
-    # print(len(ts), len(scene_sentiment))
-    # print(len(ts2), len(scene_sentiment2))
 
     if kwargs.get("normalized"):
         scene_audio = librosa.util.normalize(np.array(scene_audio))
@@ -72,18 +80,18 @@ def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, feature
 
         if mode == "w":
             if sent_method == "Warriner":
-                writer.writerow(["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Audio Level"])
+                writer.writerow(["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", feature_column])
             elif sent_method == "NRC":
                 writer.writerow(
                     ["Scene Start", "Scene End", "Anger", "Anticipation", "Disgust", "Fear", "Joy", "Negative",
-                     "Positive", "Sadness", "Surprise", "Trust", "Audio Level"])
+                     "Positive", "Sadness", "Surprise", "Trust", feature_column])
             elif sent_method == "Vader":
-                writer.writerow(["Scene Start", "Scene End", "neg", "neu", "pos", "compound", "Audio Level"])
+                writer.writerow(["Scene Start", "Scene End", "neg", "neu", "pos", "compound", feature_column])
             elif sent_method == "combined":
                 writer.writerow(
                     ["Scene Start", "Scene End", "Valence", "Arousal", "Dominance", "Vader neg", "Vader neu",
                      "Vader pos", "Vader compound",
-                     "Audio Level"])
+                     feature_column])
 
         for i, t in enumerate(scene_audio):
             level = t
@@ -111,23 +119,20 @@ def audiosent_csv(script_path: str, audio_path: str, dest_csv_path: str, feature
                      score2.get("neu"), score2.get("pos"), score2.get("compound"), level])
 
 
-def fountain_audiosent_csv(fountain_script: str, audio_path: str, n_sections: int, dest_path: str,
-                           sent_method: str = "Warriner"):
+def fountain_audiosent_csv(fountain_script: str, audio_csv: str,  n_sections: int, dest_path: str,
+                           feature_column: str,sent_method: str = "Warriner"):
     sent_sections = plaintext_sentiment(fountain_script, n_sections)
 
-    audio = []
-    with open(audio_path) as audio_csv:
-        reader = csv.reader(audio_csv)
-        for row in reader:
-            audio.append(float(row[1]))
+    df = pd.read_csv(audio_csv)
+    try:
+        audio = df.get(feature_column).values
+    except AttributeError as error:
+        raise ValueError(
+            """Incorrect audio feature. 
+            Choose 'Audio Energy', 'Spectral Centroid' 
+            or 'mfccN' with N for the n-th mel-frequency cepstral coefficient!""") from error
 
-        la = len(audio)
-        # audiosection_length = int(la / n_sections)
-        # partitions = [np.mean(x) for x in util.part(audio, audiosection_length)]
-        partitions = [np.mean(x) for x in util.split(audio, n_sections)]
-
-    # sent = sent_sections[0:n_sections]
-    # partitions = partitions[0:n_sections]
+    partitions = [np.mean(x) for x in util.split(audio, n_sections)]
 
     with open(dest_path, "a") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
@@ -136,39 +141,33 @@ def fountain_audiosent_csv(fountain_script: str, audio_path: str, n_sections: in
             writer.writerow([item.get("valence"), item.get("arousal"), item.get("dominance"), partitions[index]])
 
 
-def audiosent_scenes_wo_time(xml_path: str, audio_path: str, dest_path: str):
+def audiosent_scenes_wo_time(xml_path: str, audio_csv: str, dest_path: str, feature_column:str):
     sentiment = ImpalaSent()
 
-    scenes = get_scenes_unannotated(xml_path)
-    scenesentiment = [sentiment.score(" ".join(x)) for x in scenes]
+    scenes = get_scenes(xml_path)
+    scene_sentiment = [sentiment.score(" ".join(x)) for x in scenes]
 
-    audio = []
-    with open(audio_path) as audio_csv:
-        reader = csv.reader(audio_csv)
-        for row in reader:
-            audio.append(float(row[1]))
+    df = pd.read_csv(audio_csv)
+    try:
+        audio = df.get(feature_column).values
+    except AttributeError as error:
+        raise ValueError(
+            """Incorrect audio feature. 
+            Choose 'Audio Energy', 'Spectral Centroid' 
+            or 'mfccN' with N for the n-th mel-frequency cepstral coefficient!""") from error
 
-        la = len(audio)
-        # audiosection_length = int(la / len(scenes))
-        partitions = [np.mean(x) for x in util.split(audio, len(scenes))]
-
-    # scenesentiment = scenesentiment[0:len(scenes)]
-    # partitions = partitions[0:len(scenes)]
+    partitions = [np.mean(x) for x in util.split(audio, len(scenes))]
 
     with open(dest_path, "a") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
 
-        for index, item in enumerate(scenesentiment):
+        for index, item in enumerate(scene_sentiment):
             writer.writerow([item.get("valence"), item.get("arousal"), item.get("dominance"), partitions[index]])
-
-    # rho = stats.spearmanr(scenesentiment, partitions)
-    # p = stats.pearsonr(scenesentiment, partitions)
-    # tau = stats.kendalltau(scenesentiment, partitions)
 
 
 def plot_audiosent(audio_csv: str, xml_path: str, scenelevel=True):
     if scenelevel:
-        sentiment = scenesentiment_for_man_annotated(xml_path, "Warriner")
+        sentiment = scenesentiment_man_annotated(xml_path, "Warriner")
     else:
         sentiment = subtitle_sentiment(xml_path)
 
@@ -240,19 +239,17 @@ def plot_audiosent(audio_csv: str, xml_path: str, scenelevel=True):
 def main():
     time = datetime.now()
 
-    for d in data_script:
+    for d in data_subs:
         base = os.path.basename(d[1])
         # name = d[1].replace(base, "spectral_centroid/")+ base.replace(".csv", "_centroid.csv")
         # name = d[1].replace(base, "tuning/")+ base.replace(".csv", "_tuning.csv")
-        # name = d[1].replace(base, "energy/"+base)
-
-        name = d[1].replace(base, "mfcc/")+base.replace(".csv", "_mfcc.csv")
-        # new_csv = base.replace(".csv", "_sent_centroid.csv")
-        new_csv = "7mv_mfcc4.csv"
-
-        audiosent_csv(d[0], name, new_csv,feature_column=4, sent_method="Warriner")
-        # audiosent_scenes_wo_time(d[0], d[1], "7mv_audiosent_scenes_wo_time_Warriner.csv")
-        # fountain_audiosent_csv(d[0], d[1], 200, "7mv_fountain_audiosent.csv")
+        name = d[1].replace(base, "energy/" + base)
+        # name = d[1].replace(base, "mfcc/")+base.replace(".csv", "_mfcc.csv")
+        # new_csv = base.replace(".csv", "_sent_vader.csv")
+        new_csv = "test3.csv"
+        audiosent_csv(d[0], name, new_csv, feature_column="Audio Energy", sent_method="combined", subtitles=True)
+        # audiosent_scenes_wo_time(d[0], name, new_csv, feature_column="Audio Energy")
+        # fountain_audiosent_csv(d[0], name, 200, new_csv,feature_column="Audio Energy")
 
     time2 = datetime.now()
     diff = time2 - time

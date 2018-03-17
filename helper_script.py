@@ -9,7 +9,7 @@ import numpy as np
 import soundfile as sf
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
-from src.src_text.preprocessing.moviescript import get_full_scenes
+from src.src_text.preprocessing.moviescript import get_scenes_auto_annotated
 
 from datetime import datetime
 from nltk import word_tokenize

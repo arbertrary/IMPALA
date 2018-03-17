@@ -39,7 +39,7 @@ def main():
     print(get_all_sentences(dest_path))
 
 
-def get_full_scenes(xml_path: str) -> List[Tuple[str, List[str]]]:
+def get_scenes_auto_annotated(xml_path: str) -> List[Tuple[str, List[str]]]:
     """:returns List of all scenes. (List consisting of time code and a list of all sentences in that scene)"""
     tree = ET.parse(xml_path)
     scenes = []
@@ -74,11 +74,11 @@ def get_scenes_man_annotated(xml_path: str) -> List[Tuple[str, str, List[str]]]:
         else:
             continue
 
-        scenes.append((time, end, sentences))
+        scenes.append((time, end, sentences, scene.get("id")))
     return scenes
 
 
-def get_scenes_unannotated(xml_path: str) -> List[List[str]]:
+def get_scenes(xml_path: str) -> List[List[str]]:
     tree = ET.parse(xml_path)
     scenes = []
     for scene in tree.findall("scene"):

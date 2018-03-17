@@ -19,6 +19,7 @@ a-few-good-men:Crime,Drama,Mystery,Thriller
 a-most-violent-year:Action,Crime,Drama
 a-nightmare-on-elm-street:Comedy,Horror,Mystery
 a-perfect-world:Action,Crime,Drama
+a-serious-man:Comedy
 a-walk-to-remember:Drama,Romance
 above-the-law:Action
 absolute-power:Thriller,Crime,Drama
@@ -35,6 +36,7 @@ alien-resurrection:Action,Horror,Sci-Fi,Thriller
 alien-vs.-predator:Action,Horror,Sci-Fi,Thriller
 aliens:Action,Horror,Sci-Fi,Thriller
 all-about-steve:Comedy
+all-the-king's-men:Drama
 alone-in-the-dark:Action,Horror,Thriller
 amadeus:Drama
 amelia:Drama

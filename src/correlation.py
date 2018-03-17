@@ -51,61 +51,30 @@ subs5 = os.path.join(BASE_DIR, "data/data_subtitles/", "star-wars-4_subs.xml")
 subs6 = os.path.join(BASE_DIR, "data/data_subtitles/", "the-matrix_subs.xml")
 
 
-def correlation(csv_path: str, column: int, raw=True):
-    with open(csv_path) as csvfile:
-        reader = csv.reader(csvfile)
+def correlation(csv_path: str, x_variable: str, y_variable: str, raw=True):
+    dataframe = pd.read_csv(csv_path)
+    x = dataframe.get(x_variable).values
+    y = dataframe.get(y_variable).values
+    rho = stats.spearmanr(x, y)
+    p = stats.pearsonr(x, y)
+    tau = stats.kendalltau(x, y)
 
-        sentiment = []
-        audio = []
-
-        for row in reader:
-            if row[0] != "Scene Start":
-                if row[column] == "nan":
-                    continue
-
-                sentiment.append(float(row[column]))
-
-                if raw:
-                    audio.append(float(row[5]))
-                else:
-                    if row[-1] == "silent":
-                        audio.append(1)
-                    elif row[-1] == "medium":
-                        audio.append(2)
-                    elif row[-1] == "loud":
-                        audio.append(3)
-                    else:
-                        audio.append(4)
-        # print(sentiment)
-        # rho = stats.mstats.spearmanr(sentiment, audio)
-        rho = stats.spearmanr(sentiment, audio)
-        # p = stats.mstats.pearsonr(sentiment, audio)
-        p = stats.pearsonr(sentiment, audio)
-        # print(p)
-        # tau = stats.mstats.kendalltau(sentiment, audio)
-        tau = stats.kendalltau(sentiment, audio)
-        # print("spearman: ", rho)
-        # print("pearson: ", p)
-        # print("kendall's tau: ", tau, "\n")
-
-        # permutationtest(sentiment, audio, 100000)
-
-        return rho, p, tau, len(sentiment)
+    return rho, p, tau, len(x)
 
 
 def permutationtest(a, b, n_perm):
     rho = stats.spearmanr(a, b)
+    print(rho)
 
     greater = 0
     less = 0
     i = 0
-    # while i < n_perm:
-    for perm in itertools.permutations(a):
+    while i < n_perm:
         if i > n_perm:
             break
         i += 1
-        # np.random.shuffle(a)
-        test = stats.spearmanr(perm, b)
+        np.random.shuffle(a)
+        test = stats.spearmanr(a, b)
         if test[0] >= rho[0]:
             greater += 1
         else:
@@ -191,48 +160,38 @@ def plot_from_csv(csv_path: str, classes: int):
 
 
 def main():
-    directory = os.path.join(BASE_DIR, "data/audiosent_csv_raw/single movies")
+    directory = os.path.join(BASE_DIR, "data/audiosent_csv_raw")
 
-    a =[]
-    v = []
-    d =[]
-    for file in os.listdir(directory):
-        csvfile = os.path.join(directory,file)
-        print(file)
-        test = []
-        indices = [2, 3, 4]
-        # indices = [0,1,2]
-        # indices = [2,3,4,5]
-        # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw", csvfile)
-        for i in indices:
-            test.append(correlation(csvfile, i, raw=True))
-        # test.sort(key=lambda x: x[1])
+    csvfile = os.path.join(directory, "7mv_audiosent_all.csv")
+    df = pd.read_csv(csvfile)
+    energy = df.get("Audio Energy").values
+    arousal = df.get("Arousal").values
+    valence = df.get("Valence").values
+    dominance = df.get("Dominance").values
 
-        for i, t in enumerate(test):
-            if i == 0:
-                print("Valence")
-                v.append(t[0][0])
+    # permutationtest(arousal,energy,1000000)
+    # permutationtest(valence,energy, 1000000)
+    permutationtest(dominance, energy, 1000000)
 
-                # print("neg")
-            elif i == 1:
-                print("Arousal")
-                a.append(t[0][0])
-                # print("neu")
-            elif i ==2:
-                # print("pos")
-                print("Dominance")
-                d.append(t[0][0])
 
-            else:
-                print("compound")
 
-            print("spearman: ", t[0][0], "\np-value: ", t[0][1])
-            # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
-            print("kendall's tau: ", t[2][0], "\np-value: ", t[2][1], "\n")
+    # for file in os.listdir(directory):
+    #     if file =="single movies":
+    #         continue
+    #     csvfile = os.path.join(directory, file)
+    #     print("\n",file,"\n")
+    #     indices = ["Valence", "Arousal", "Dominance"]#, "Vader neg", "Vader pos", "Vader compound"]
+    #     # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw", csvfile)
+    #
+    #     for i in indices:
+    #         print(i)
+    #         t = correlation(csvfile, i, "Audio Energy", raw=True)
+    #         print("spearman: ", "%.3f" %t[0][0], "\np-value: ", t[0][1])
+    #         # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+    #         print("kendall's tau: ", "%.3f" %t[2][0], "\np-value: ", t[2][1], "\n")
 
-    print(np.mean(v))
-    print(np.mean(a))
-    print(np.mean(d))
+
+
 
 if __name__ == '__main__':
     main()

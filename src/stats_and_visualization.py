@@ -18,21 +18,6 @@ from src import data_script, data_fountain, data_subs
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def audio_stufftemp(audio_path):
-    with open(audio_path) as csvfile:
-        reader = csv.reader(csvfile)
-
-        audio = []
-        for row in reader:
-            audio.append(float(row[-1]))
-
-        audio = [np.mean(a) for a in util.split(audio, 5)]
-        # print(audio)
-        # print(audio)
-        plt.plot(audio)
-        plt.show()
-
-
 def section_sentiment(fountain_path):
     fountain_dir = os.path.join(BASE_DIR, "data/moviescripts_fountain")
     last_v_smallest = 0
@@ -185,9 +170,9 @@ def warriner_wordcloud(xml_path):  # , subs_path):
     high = []
     medium = []
     low = []
-    # directory = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually")
+    directory = os.path.join(BASE_DIR, "data/moviescripts_xml_time_manually")
     # directory = os.path.join(BASE_DIR, "data/moviescripts_xml_time")
-    directory = os.path.join(BASE_DIR, "data/moviescripts_xml")
+    # directory = os.path.join(BASE_DIR, "data/moviescripts_xml")
 
     for file in os.listdir(directory):
         xml_path = os.path.join(directory, file)
@@ -197,7 +182,6 @@ def warriner_wordcloud(xml_path):  # , subs_path):
 
         # sentences = subs.get_subtitles(subs_path)
         # text = " ".join([x[-1] for x in sentences])
-
 
         words = []
         sent = "dominance"
@@ -216,13 +200,13 @@ def warriner_wordcloud(xml_path):  # , subs_path):
 
     c = Counter(high)
     print(c)
-    wc1 = WordCloud(background_color="white",width=800, height=450,collocations=False).generate(" ".join(high))
-    wc2 = WordCloud(background_color="white",width=800, height=450,collocations=False).generate(" ".join(medium))
-    wc3 = WordCloud(background_color="white",width=800, height=450,collocations=False).generate(" ".join(low))
+    wc1 = WordCloud(colormap="ocean",background_color="white", width=800, height=450, collocations=False).generate(" ".join(high))
+    wc2 = WordCloud(colormap="ocean",background_color="white", width=800, height=450, collocations=False).generate(" ".join(medium))
+    wc3 = WordCloud(colormap="ocean",background_color="white", width=800, height=450, collocations=False).generate(" ".join(low))
 
-    wc1.to_file("high_"+sent+".png")
-    wc2.to_file("medium_"+sent+".png")
-    wc3.to_file("low_"+sent+".png")
+    # wc1.to_file("high_" + sent + ".png")
+    # wc2.to_file("medium_" + sent + ".png")
+    # wc3.to_file("low_" + sent + ".png")
 
     plt.figure()
     plt.subplot(311)
@@ -301,8 +285,10 @@ def regression_plot(csvfile, x):
 
 def main():
     # histograms()
-    # warriner_wordcloud("/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/blade_manually.xml")
-    regression_plot(os.path.join(BASE_DIR, "data/audiosent_csv_raw/single movies/indiana-jones-3_ger_audiosent_Warriner.csv"), "Arousal")
+    warriner_wordcloud("/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/blade_manually.xml")
+    # regression_plot(
+    #     os.path.join(BASE_DIR, "data/audiosent_csv_raw/single movies/indiana-jones-3_ger_audiosent_Warriner.csv"),
+    #     "Arousal")
 
 
 if __name__ == '__main__':
