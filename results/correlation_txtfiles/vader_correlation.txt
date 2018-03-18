@@ -2,28 +2,28 @@ sample size: 1166
 
 --- 7mv raw Audio Energy Vader Sentiment ---
 neg
-spearman:  0.13572100429332945 
-p-value:  3.303370148972008e-06
-kendall's tau:  0.09497533771364633 
-p-value:  1.8969207858605255e-06 
+spearman:  0.135
+p-value:  3.303e-06
+kendall's tau:  0.094
+p-value:  1.896e-06 
 
 neu
-spearman:  -0.05814895607682198 
-p-value:  0.04712805325476539
-kendall's tau:  -0.03816982127491105 
-p-value:  0.052960768770825895 
+spearman:  -0.058 
+p-value:  0.047
+kendall's tau:  -0.038
+p-value:  0.052
 
 pos
-spearman:  -0.23174942305398835 
-p-value:  1.1071913259926845e-15
-kendall's tau:  -0.16424110233322256 
-p-value:  9.01693589632656e-16 
+spearman:  -0.231 
+p-value:  1.107e-15
+kendall's tau:  -0.164
+p-value:  9.016e-16 
 
 compound
-spearman:  -0.11345976819316972 
-p-value:  0.00010331587865207518
-kendall's tau:  -0.07546787784328343 
-p-value:  0.0001294358130123556 
+spearman:  -0.113 
+p-value:  0.0001
+kendall's tau:  -0.075
+p-value:  0.0001
 
 
 --- 7mv normalized Audio Energy Vader Sentiment ---

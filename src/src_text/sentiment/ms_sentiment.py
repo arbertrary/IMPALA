@@ -53,6 +53,7 @@ def scenesentiment_man_annotated(xml_path: str, sent_method: str = "Warriner") -
 
     sentiment_tuples = []
     for scene in scenes:
+        scene_id = scene[-1]
         starttime_string = scene[0]
         starttime = datetime.strptime(starttime_string, '%H:%M:%S')
         start = (starttime - beginning).total_seconds()
@@ -73,7 +74,7 @@ def scenesentiment_man_annotated(xml_path: str, sent_method: str = "Warriner") -
         if all(score.get(x) == -1 for x in score):
             continue
         else:
-            sentiment_tuples.append((start, end, score, scene[-1]))
+            sentiment_tuples.append((start, end, score, scene_id))
 
     sentiment_tuples.sort(key=lambda tup: tup[0])
 

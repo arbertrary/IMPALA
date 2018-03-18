@@ -46,40 +46,12 @@ def subtitle_sentiment(xml_path: str, sent_method: str = "Warriner") -> List[Tup
     return scores
 
 
-def plot_stuff(path):
-    sentiment = subtitle_sentiment(path, "NRC")
-
-    anger = [score[2].get("anger") for score in sentiment]
-    joy = [score[2].get("joy") for score in sentiment]
-
-    # windows = []
-    # for index, score in enumerate(anger):
-    #     if index+4 <= len(anger):
-    #         temp = anger[index:index+4]
-    #         if index== 0:
-    #             print(len(temp))
-    #         windows.append(np.mean(temp))
-    #     else:
-    #         temp = anger[index:]
-    #         windows.append(np.mean(temp))
-    #
-    # print(len(windows), len(anger))
-
-    plt.subplot(211)
-    plt.plot(anger, ".")
-    plt.subplot(212)
-    plt.plot(joy, ".")
-    plt.tight_layout()
-    plt.show()
-
-
 def main():
     """main function"""
     path = os.path.join(BASE_DIR, "src/testfiles", "hellraiser_subs.xml")
     # subs = get_subtitles(path)
     # print(subs)
     # print(subtitle_sentiment(path, "NRC"))
-    plot_stuff(path)
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-"""Preprocessing/parsing the subtitles in xml format"""
+""""""
 
 import os
 import numpy as np
@@ -85,16 +85,6 @@ def get_subtitles(path: str) -> List[Tuple[float, float, str]]:
                         dialogue = dialogue.strip() + word + " "
                     else:
                         dialogue = dialogue + word + " "
-
-        # if starttime_string == "" or endtime_string == "":
-        # if start == 0 or end == 0:
-        #     continue
-        # else:
-        #     sent_tuple = (start, end, dialogue.strip())
-        #     temp_dialogue.append(sent_tuple)
-        #     # dialogue = ""
-        #     start = 0
-        #     end = 0
 
     subtitles = __same_time_dialogue(temp_dialogue)
     return subtitles

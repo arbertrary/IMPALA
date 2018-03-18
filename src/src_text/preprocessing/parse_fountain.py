@@ -1,4 +1,4 @@
-"""Parsing moviescript from plain text/fountain format to xml """
+"""Parsing plain text fountain movie scripts to custom XML format"""
 
 import os
 import re

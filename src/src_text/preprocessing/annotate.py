@@ -10,10 +10,6 @@ from src.src_text.preprocessing.subtitles import get_subtitles_for_annotating
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
-# PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-# DATA_DIR = "testfiles"
-
-
 def annotate(movie_path: str, subs_path: str, dest_path: str):
     """ Input: xml movie script without times and xml subtitle file
         Output: annotated xml movie script with average time and interpolated time codes @ scenes and
@@ -25,7 +21,9 @@ def annotate(movie_path: str, subs_path: str, dest_path: str):
 
     tree = __write_time(movie_path, avg_scene_times, sentence_times)
 
-    __interpolate_timecodes(tree, dest_path)
+    tree.write(dest_path)
+
+    # __interpolate_timecodes(tree, dest_path)
 
 
 def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
@@ -64,16 +62,13 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     {sentence_id : (timecode, sentence id from subtitle file)}
     """
     subs_dialogue = get_subtitles_for_annotating(subs_path)
-    # [(sentence_id, timecode, sentence), (sentence_id, timecode, sentence) ...]
 
     movie_dialogue = __get_moviedialogue(movie_path)
-    # [(sentence_id, scene_id, sentence), (sentence_id, scene_id, sentence) ...]
 
-    diff = abs(len(movie_dialogue) - len(subs_dialogue))
+    # diff = abs(len(movie_dialogue) - len(subs_dialogue))
+    # print(diff)
+    diff = 0.05 * len(movie_dialogue)
     print(diff)
-    diff = 0.05*len(movie_dialogue)
-    print(diff)
-    # scene_times = {"s1": []}
     scene_times = {}
     sentence_times = {}
     done1 = []
@@ -205,13 +200,20 @@ def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
 
 def main():
     """main function"""
-
-    path = os.path.join(BASE_DIR, "src/testfiles/")
-
     time = datetime.now()
 
-    annotate(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_subs.xml"),
-             os.path.join(path, "test.xml"))
+    scripts = os.path.join(BASE_DIR, "data/moviescripts_xml")
+    subs = os.path.join(BASE_DIR, "data/subtitles_xml")
+    new_folder = os.path.join(BASE_DIR, "data/10perc80ratio")
+
+    for m in os.listdir(scripts):
+        for s in os.listdir(subs):
+            new_file = m.replace(".xml", "")
+            if new_file == s.replace("_subs.xml", ""):
+                new_path = os.path.join(new_folder, new_file + "_annotated.xml")
+
+                print(new_path)
+                annotate(os.path.join(scripts, m), os.path.join(subs, s), new_path)
 
     time2 = datetime.now()
     diff = time2 - time

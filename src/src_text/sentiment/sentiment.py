@@ -55,30 +55,10 @@ class ImpalaSent:
         ld = len(dominance_scores)
         if lv == 0 or la == 0 or ld == 0:
             return {"valence": -1, "arousal": -1, "dominance": -1}
-            # return {"valence": 5.06, "arousal": 4.21, "dominance": 5.18}
-            # return {"valence": 5.0, "arousal": 5.0, "dominance": 5.0}
         else:
-
-            # Variante 1: avg über die gesamte szene
             valence = np.mean(valence_scores)
             arousal = np.mean(arousal_scores)
             dominance = np.mean(dominance_scores)
-
-            # Variante 2: max der gesamten Szene
-            # valence = np.max(valence_scores)
-            # arousal = np.max(arousal_scores)
-            # dominance= np.max(dominance_scores)
-
-            # variante 3: average des 75% percentile
-            # perc = np.percentile(arousal_scores, 75)
-            # temp = [x for x in arousal_scores if x > perc]
-            # arousal = np.mean(temp)
-
-            # variante 4: min der gesamten szene
-            # arousal = np.min(arousal_scores)
-            # valence = np.min(valence_scores)
-            # dominance = np.min(dominance_scores)
-
             sent_dict = {"valence": valence, "arousal": arousal, "dominance": dominance}
             return sent_dict
 
@@ -135,7 +115,6 @@ def warriner_dict():
                 arousal = float(row[5])
                 dominance = float(row[8])
                 score = {"valence": valence, "arousal": arousal, "dominance": dominance}
-                # score = (valence, arousal, dominance)
                 lexicon[word] = score
 
     return lexicon

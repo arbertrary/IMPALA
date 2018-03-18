@@ -4,18 +4,17 @@ Moving files and stuff
 
 import os
 import re
+import sys
 import shutil
 import numpy as np
-import soundfile as sf
 import xml.etree.ElementTree as ET
-from xml.dom import minidom
-from src.src_text.preprocessing.moviescript import get_scenes_auto_annotated
-
+import src.src_text.preprocessing.moviescript as ms
 from datetime import datetime
 from nltk import word_tokenize
+from src.src_text.preprocessing.parse_fountain import moviescript_to_xml
 from src.src_text.preprocessing.subtitles import check_correctness
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir))
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
 # removes movie scripts
@@ -199,6 +198,61 @@ def genre_set():
         print(genreset)
 
 
+def rename_subs():
+    all_subtitles = os.path.join(BASE_DIR, "subtitles_xml")
+    test = os.listdir(all_subtitles)
+    filename = test[0]
+    print(os.path.join(all_subtitles, filename))
+    print(os.path.join(all_subtitles, filename + "_subs.xml"))
+    print(os.path.splitext(filename)[0] + "_subs.xml")
+
+    for filename in os.listdir(all_subtitles):
+        new_filename = os.path.splitext(filename)[0] + "_subs.xml"
+        os.rename(os.path.join(all_subtitles, filename), os.path.join(all_subtitles, new_filename))
+
+
+def parse_all():
+    all_moviescripts = os.path.join(BASE_DIR, "moviescripts_fountain")
+    dest_dir = os.path.join(BASE_DIR, "xml_moviescripts")
+    list_dest_dir = os.listdir(dest_dir)
+    for filename in os.listdir(all_moviescripts):
+        path = os.path.join(all_moviescripts, filename)
+        xml_path = os.path.splitext(filename)[0] + ".xml"
+        try:
+            if xml_path not in list_dest_dir:
+                moviescript_to_xml(path, os.path.join(dest_dir, xml_path))
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            print(filename)
+            raise
+
+        # print(os.path.join(dest_dir, xml_path))
+
+
+def annotate_all():
+    movies = []
+    with open(os.path.join(BASE_DIR, "movies.txt")) as f:
+        movies = f.readlines()
+        movies = [l.strip() for l in movies]
+
+    xml_moviescripts_dir = os.path.join(BASE_DIR, "xml_moviescripts")
+    subtitles_dir = os.path.join(BASE_DIR, "data_subtitles")
+    annotated_dir = os.path.join(BASE_DIR, "xml_moviescripts_annotated")
+    print(os.listdir(annotated_dir)[0])
+    for m in movies:
+        script = os.path.join(xml_moviescripts_dir, m + ".xml")
+        subs = os.path.join(subtitles_dir, m + "_subs.xml")
+
+        new_filename = m + "_annotated.xml"
+        dest = os.path.join(annotated_dir, new_filename)
+
+        if new_filename not in os.listdir(annotated_dir):
+            print(script)
+            print(subs)
+            print(dest)
+            ms.annotate(script, subs, dest)
+
+
 def scene_counter(directory):
     with open("filmliste.txt") as f:
         filme = f.read().splitlines(keepends=False)
@@ -221,17 +275,17 @@ def check_scene_count():
     lengths = []
     time_code_scenes = []
     not_continuous = []
+    folder = "20perc90ratio"
 
-    for filename in os.listdir("data/moviescripts_xml_time"):
+    for filename in os.listdir("data/" + folder):
         times = []
-        tree = ET.parse(os.path.join("data/moviescripts_xml_time", filename))
+        tree = ET.parse(os.path.join("data/" + folder, filename))
         scenes = tree.findall("scene")
         counter = 0
         for s in scenes:
             if s.get("time_avg"):
                 times.append(s.get("time_avg"))
                 counter += 1
-
 
         currenttime = datetime.strptime("00:00:00", '%H:%M:%S')
         for time in times:
@@ -245,9 +299,9 @@ def check_scene_count():
         lengths.append(len(scenes))
         time_code_scenes.append(counter)
 
-    print(np.mean(lengths))
-    print(np.mean(time_code_scenes))
-    print(len(not_continuous))
+    print("avg. # of scenes:\n", np.mean(lengths))
+    print("avg # of annotated scenes:\n", np.mean(time_code_scenes))
+    print("# of scripts without continuous time codes:\n", len(not_continuous))
     print(not_continuous)
 
 
@@ -261,9 +315,6 @@ def main():
     #     durations.append(d)
     #
     # print(np.mean(durations))
-
-
-
 
 
 if __name__ == '__main__':

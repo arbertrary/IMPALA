@@ -1,74 +1,80 @@
 First coefficient:
 
 Valence
-spearman:  -0.26719358072390015 
-p-value:  2.6881668505833223e-18
-kendall's tau:  -0.18249187617023901 
-p-value:  1.7868738163848124e-18 
+spearman:  -0.267
+p-value:  2.688e-18
+kendall's tau:  -0.182
+p-value:  1.786e-18 
 
 Arousal
-spearman:  0.3037595925670514 
-p-value:  1.9907623960454573e-23
-kendall's tau:  0.20580650730692968 
-p-value:  4.588484136293835e-23 
+spearman:  0.303 
+p-value:  1.990e-23
+kendall's tau:  0.205
+p-value:  4.588e-23 
 
 Dominance
-spearman:  -0.2028605785486916 
-p-value:  4.9957481044628534e-11
-kendall's tau:  -0.13862752005832057 
-p-value:  2.703957501763928e-11 
+spearman:  -0.202
+p-value:  4.995e-11
+kendall's tau:  -0.138
+p-value:  2.703e-11 
 ------------------------------------------
 
 Second coefficient:
 
 Valence
-spearman:  -0.028460058483709763 
-p-value:  0.3615256520638048
-kendall's tau:  -0.018921938290253727 
-p-value:  0.36317651031894105 
+spearman:  -0.028
+p-value:  0.361
+kendall's tau:  -0.018 
+p-value:  0.363
 
 Arousal
-spearman:  0.047955386880845254 
-p-value:  0.12402960636867341
-kendall's tau:  0.03177170273633725 
-p-value:  0.12680479320645524 
+spearman:  0.0479 
+p-value:  0.124
+kendall's tau:  0.031
+p-value:  0.126
 
 Dominance
-spearman:  -0.03777769264510203 
-p-value:  0.22574870369122083
-kendall's tau:  -0.02397613147934171 
-p-value:  0.2492423250779544 
+spearman:  -0.037
+p-value:  0.225
+kendall's tau:  -0.023
+p-value:  0.249
 ------------------------------------------
 Third coefficient:
 
-spearman:  0.1269775101106364 
-p-value:  4.374180030111694e-05
-kendall's tau:  0.08375132574645962 
-p-value:  5.701750389686816e-05 
+Valence
+spearman:  0.126
+p-value:  4.374e-05
+kendall's tau:  0.083 
+p-value:  5.701e-05 
 
-spearman:  -0.21852035283056648 
-p-value:  1.3367359727292762e-12
-kendall's tau:  -0.14630533201133014 
-p-value:  2.0526013638889574e-12 
+Arousal
+spearman:  -0.218
+p-value:  1.336e-12
+kendall's tau:  -0.146 
+p-value:  2.052e-12 
 
-spearman:  0.0700462087405267 
-p-value:  0.02457186072270976
-kendall's tau:  0.04631233708260724 
-p-value:  0.026042635427261582 
+Dominance
+spearman:  0.070
+p-value:  0.024
+kendall's tau:  0.046 
+p-value:  0.026
 ------------------------------------------
 Fourth coefficient:
 
-spearman:  -0.0630770328391318 
-p-value:  0.04297762079125708
-kendall's tau:  -0.04188415481721167 
-p-value:  0.044133463700365694 
+Valence
+spearman:  -0.063
+p-value:  0.042
+kendall's tau:  -0.041 
+p-value:  0.044
 
-spearman:  0.11812505400943707 
-p-value:  0.0001448322682020026
-kendall's tau:  0.07913109046923815 
-p-value:  0.000143109619886901 
+Arousal
+spearman:  0.118 
+p-value:  0.0001
+kendall's tau:  0.079
+p-value:  0.0001
 
-spearman:  -0.05237794545730481 
-p-value:  0.09293597974636442
-kendall's tau:  -0.03427614923725175 
-p-value:  0.0995237192344514 
+Dominance
+spearman:  -0.0523
+p-value:  0.092
+kendall's tau:  -0.034
+p-value:  0.099

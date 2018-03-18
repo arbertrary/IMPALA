@@ -1,10 +1,3 @@
-"""TODO:
-- alle annotierten szenen mit start-end + deren Sentiment scores
-- die audio pro sekunde um dann die audio auf die szenen aufzuteilen
-- dann den average nehmen und den average einer klasse zuweisen
-- das ganze dann in eine csv datei mit ["Arousal", "Valence", "Energy"]
-"""
-
 import os
 import csv
 import numpy as np
@@ -160,35 +153,32 @@ def plot_from_csv(csv_path: str, classes: int):
 
 
 def main():
-    directory = os.path.join(BASE_DIR, "data/audiosent_csv_raw")
+    directory = os.path.join(BASE_DIR, "data/audiosentiment_csvfiles/single movies")
 
-    csvfile = os.path.join(directory, "7mv_audiosent_all.csv")
-    df = pd.read_csv(csvfile)
-    energy = df.get("Audio Energy").values
-    arousal = df.get("Arousal").values
-    valence = df.get("Valence").values
-    dominance = df.get("Dominance").values
-
-    # permutationtest(arousal,energy,1000000)
-    # permutationtest(valence,energy, 1000000)
-    permutationtest(dominance, energy, 1000000)
+    # csvfile = os.path.join(directory, "7mv_audiosent_all.csv")
+    # df = pd.read_csv(csvfile)
+    # energy = df.get("Audio Energy").values
+    # arousal = df.get("Arousal").values
+    # valence = df.get("Valence").values
+    # dominance = df.get("Dominance").values
 
 
 
-    # for file in os.listdir(directory):
-    #     if file =="single movies":
-    #         continue
-    #     csvfile = os.path.join(directory, file)
-    #     print("\n",file,"\n")
-    #     indices = ["Valence", "Arousal", "Dominance"]#, "Vader neg", "Vader pos", "Vader compound"]
-    #     # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw", csvfile)
-    #
-    #     for i in indices:
-    #         print(i)
-    #         t = correlation(csvfile, i, "Audio Energy", raw=True)
-    #         print("spearman: ", "%.3f" %t[0][0], "\np-value: ", t[0][1])
-    #         # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
-    #         print("kendall's tau: ", "%.3f" %t[2][0], "\np-value: ", t[2][1], "\n")
+    for file in os.listdir(directory):
+        if file =="Warriner":
+            continue
+        csvfile = os.path.join(directory, file)
+        print("\n",r"\textbf{"+file.replace("_audiosent_all.csv","")+"}","\n")
+        indices = ["Valence", "Arousal", "Dominance"]#, "Vader neg", "Vader pos", "Vader compound"]
+        # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw", csvfile)
+
+        for i in indices:
+            print(r"\textit{"+i+"}",r"\\")
+            t = correlation(csvfile, i, "Audio Energy", raw=True)
+            print("spearman: ", "%.3f" %t[0][0], r"\\","\np-value: ",t[0][1],r"\\")
+            # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+            print("kendall's tau: ", "%.3f" %t[2][0],r"\\", "\np-value: ", t[2][1],r"\\")
+            print(r"\\")
 
 
 
