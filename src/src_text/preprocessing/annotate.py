@@ -70,7 +70,9 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     # [(sentence_id, scene_id, sentence), (sentence_id, scene_id, sentence) ...]
 
     diff = abs(len(movie_dialogue) - len(subs_dialogue))
-
+    print(diff)
+    diff = 0.05*len(movie_dialogue)
+    print(diff)
     # scene_times = {"s1": []}
     scene_times = {}
     sentence_times = {}
@@ -208,8 +210,8 @@ def main():
 
     time = datetime.now()
 
-    # annotate(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_sub.xml"),
-    #          os.path.join(path, "hellraiser_annotated.xml"))
+    annotate(os.path.join(path, "hellraiser.xml"), os.path.join(path, "hellraiser_subs.xml"),
+             os.path.join(path, "test.xml"))
 
     time2 = datetime.now()
     diff = time2 - time
