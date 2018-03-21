@@ -7,7 +7,7 @@ import csv
 import random
 from collections import Counter
 from datetime import datetime
-from src.src_text.sentiment.sentiment import ImpalaSent
+from src.src_text.sentiment.sentiment import SentimentClass
 from src.src_text.preprocessing.moviescript import get_all_sentences
 from nltk import word_tokenize
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
@@ -45,7 +45,7 @@ def write_vader_csv():
 
 def write_nrc_csv():
     directory = os.path.join(BASE_DIR, "data_xml")
-    sentiment = ImpalaSent("NRC")
+    sentiment = SentimentClass("NRC")
     with open("allgenres2.txt") as file:
         films = file.read().splitlines(keepends=False)
         with open("nrc_genres.csv", "w") as csvfile:
@@ -74,7 +74,7 @@ def write_nrc_csv():
 
 def write_warriner_csv():
     directory = os.path.join(BASE_DIR, "data_xml")
-    sentiment = ImpalaSent()
+    sentiment = SentimentClass()
     with open("allgenres2.txt") as file:
         films = file.read().splitlines(keepends=False)
         with open("warriner_genres.csv", "w") as csvfile:
@@ -101,7 +101,7 @@ def write_warriner_csv():
 
 def write_new_csv():
     directory = os.path.join(BASE_DIR, "moviescripts_fountain")
-    sentiment = ImpalaSent()
+    sentiment = SentimentClass()
     with open("allgenres2.txt") as file:
         films = file.read().splitlines(keepends=False)
         with open("new_genres.csv", "w") as csvfile:

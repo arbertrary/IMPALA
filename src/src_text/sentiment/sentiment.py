@@ -1,4 +1,4 @@
-"""The main sentiment class"""
+"""The main sentiment module"""
 import csv
 import os
 import re
@@ -8,7 +8,11 @@ from nltk import word_tokenize
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
-class ImpalaSent:
+class SentimentClass:
+    """The main Sentiment Class. Instantiated with a sentiment method and a lexicon.
+    :param method: The sentiment method. Either Warriner, NRC or SentiWordNet.
+    """
+
     def __init__(self, method="Warriner"):
         if method == "Warriner":
             self.method = "Warriner"
@@ -25,13 +29,11 @@ class ImpalaSent:
     def score(self, text: str, **kwargs):
         """:returns Dict with key= valence, arousal or dominance and value= avg of all values in text
                 if no word in text is found in the Warriner lexicon, return -1 for each value
-            :raises ValueError if used with an ImpalaSent instance with a sentiment lexicon other than Warriner"""
+            :raises ValueError if used with an SentimentClass instance with a sentiment lexicon other than Warriner"""
         if self.method != "Warriner":
-            raise ValueError("Tried to get the Warriner score from an instance of ImpalaSent with a different lexicon")
+            raise ValueError(
+                "Tried getting the Warriner score from an instance of SentimentClass with a different lexicon")
         words = word_tokenize(text)
-
-        if kwargs.get("stopwords"):
-            stop = kwargs.get("stopwords")
 
         valence_scores = []
         arousal_scores = []
@@ -65,10 +67,10 @@ class ImpalaSent:
     def nrc_score(self, text: str):
         """:returns Dict with key= NRC emotion and value= avg of all emotion values in text
         if no word in text is found in NRC lexicon, return -1 for each value
-           :raises ValueError if used with an ImpalaSent instance with a sentiment lexicon other than NRC"""
+           :raises ValueError if used with an SentimentClass instance with a sentiment lexicon other than NRC"""
 
         if self.method != "NRC":
-            raise ValueError("Tried to get the NRC score from an instance of ImpalaSent with a different lexicon")
+            raise ValueError("Tried to get the NRC score from an instance of SentimentClass with a different lexicon")
 
         words = word_tokenize(text)
 
@@ -100,6 +102,7 @@ class ImpalaSent:
 
 
 def warriner_dict():
+    """Parses the Warriner Ratings sentiment lexicon to a dict"""
     path = os.path.join(BASE_DIR, "src/src_text/sentiment/lexicons/", "WarrinerRatings.csv")
 
     lexicon = {}
@@ -121,6 +124,8 @@ def warriner_dict():
 
 
 def nrc_dict():
+    """Parses the NRC EmoLex sentiment lexicon to a dict"""
+
     path = os.path.join(BASE_DIR, "src/src_text/sentiment/lexicons/", "NRC_EmoLex.txt")
 
     lexicon = {}
@@ -143,6 +148,8 @@ def nrc_dict():
 
 
 def sentiwordnet_dict():
+    """Parses the SentiWordNet sentiment lexicon to a dict"""
+
     path = os.path.join(BASE_DIR, "src/src_text/sentiment/lexicons/", "SentiWordNet.txt")
 
     lexicon = {}
@@ -162,12 +169,3 @@ def sentiwordnet_dict():
                 for word in synset:
                     lexicon[word] = temp_dict
     return lexicon
-
-
-def main():
-    test = ImpalaSent()
-    print(test.score("blade"))
-
-
-if __name__ == '__main__':
-    main()

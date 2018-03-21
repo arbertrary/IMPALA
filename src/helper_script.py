@@ -1,6 +1,4 @@
-"""Multi-purpose helper script probably mostly outdated by now (4 Feb 2018)
-Moving files and stuff
-"""
+"""Multi-purpose helper script for several utility functions. Often single-use"""
 
 import os
 import re
@@ -15,20 +13,6 @@ from src.src_text.preprocessing.parse_fountain import moviescript_to_xml
 from src.src_text.preprocessing.subtitles import check_correctness
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
-
-
-# removes movie scripts
-# 1121 scripts at the beginning
-# 29.10.: 974 remaining
-# removed scripts that
-# a) don't use EXT/INT or EXTERIOR/INTERIOR to separate scenes
-# b) have some html tags remaining
-
-# 30.10.17: 953 remaining
-# (removed scripts that don't contain information about author and script at the end)
-
-# 6.11.17: 908 remaining
-# (removed more scripts that don't use EXT./INT. etc to separate scenes)
 
 
 def check_all(directory: str):
@@ -46,16 +30,13 @@ def check_all(directory: str):
 
             if not check1:
                 incorrect_scripts.append(filename)
-                # raise ValueError('Inputfile not in correct format!')
             if check2:
                 incorrect_scripts.append(filename)
     print(incorrect_scripts)
     print(len(incorrect_scripts))
 
-    # testset = set(incorrect_scripts)
     for f in incorrect_scripts:
         print(f)
-        # os.remove(os.path.join(dirpath, f))
 
 
 def check_movieinfo_at_end_of_file(directory: str):
@@ -72,9 +53,6 @@ def check_movieinfo_at_end_of_file(directory: str):
             if not ('writers' in movieinfo.lower() and 'Genres : ' in movieinfo):
                 end.append(filename)
 
-    # for f in end:
-    # os.remove(os.path.join(directory, f))
-
     print(end)
     print(len(end))
 
@@ -89,7 +67,6 @@ def get_all_genres(directory: str):
         with open(path, 'r', encoding='utf-8') as m:
             text = m.read()
             text = text.replace('\xa0', ' ')
-            # print(text)
             text = text.strip()
 
             text = text.split('\n\n')
@@ -127,7 +104,6 @@ def check_all_subs(directory):
 def move_subtitles():
     with open("filmliste.txt") as filme:
         filmliste = filme.read().splitlines(keepends=False)
-        # print(filmliste)
 
     subs_dir = os.path.join(BASE_DIR, "subtitles_xml")
 
@@ -153,9 +129,6 @@ def annotate_genres_to_subs():
             temp = film.split(":")
             genre_dict[temp[0]] = temp[1]
 
-        # for f in genre_dict:
-        #     print(f, genre_dict[f])
-
     for film in os.listdir("data_subtitles"):
         name = re.sub(r"_subs.xml", "", film)
         genres = genre_dict.get(name)
@@ -172,16 +145,6 @@ def annotate_genres_to_subs():
         root.insert(0, test)
 
         tree.write(path)
-
-    # path = os.path.join("subtitles_xml", "blade_subs.xml")
-    # tree = ET.parse(path)
-    # root = tree.getroot()
-    # # test = ET.SubElement(root, "genre").text = "testgenre"
-    # test= ET.Element("genre")
-    # test.text = "testgenre"
-    # root.insert(0, test)
-    #
-    # tree.write(path)
 
 
 def genre_set():
@@ -225,8 +188,6 @@ def parse_all():
             print("Unexpected error:", sys.exc_info()[0])
             print(filename)
             raise
-
-        # print(os.path.join(dest_dir, xml_path))
 
 
 def annotate_all():
@@ -292,7 +253,6 @@ def check_scene_count():
             t = datetime.strptime(time, '%H:%M:%S')
 
             if t < currenttime:
-                # print(currenttime, t)
                 not_continuous.append(filename)
                 break
             currenttime = t
@@ -307,14 +267,6 @@ def check_scene_count():
 
 def main():
     check_scene_count()
-    # dir = "/media/armin/Seagate Expansion Drive/Filme_Audio_NoCredits"
-    # durations = []
-    # for file in os.listdir(dir):
-    #     path = os.path.join(dir, file)
-    #     d = sf.info(path).duration
-    #     durations.append(d)
-    #
-    # print(np.mean(durations))
 
 
 if __name__ == '__main__':

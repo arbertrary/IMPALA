@@ -7,11 +7,9 @@ from typing import List, Tuple
 from nltk import sent_tokenize, word_tokenize
 from xml.dom import minidom
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
-
-def moviescript_to_xml(movie_path: str, dest: str):
-    """Parses movie scripts in fountain plain text format to xml"""
+def moviescript_to_xml(movie_path: str, dest_path: str):
+    """Parses movie scripts from fountain plain text format to xml"""
     root = ET.Element("movie")
     scenelist = __get_scene_tuples(movie_path)
 
@@ -61,33 +59,23 @@ def moviescript_to_xml(movie_path: str, dest: str):
                 if metatext.strip():
                     ET.SubElement(sc, "meta", id=meta_id).text = metatext.strip()
                 character = lines[i].strip()
-                # char = ET.SubElement(sc, "char", name=character)
-
                 dialogue = ""
                 d += 1
                 metatext = ""
                 m += 1
-
-                # Richtig hässlich hardcoded für eine einzelne leerzeile nach Character name
-                # TODO: Sinnvoller machen! Oder rauslassen; eig nur nötig falls eine leerzeile nach dem charakter kommt
 
                 try:
                     if not lines[i + 1].strip():
                         i += 1
                 except IndexError:
                     pass
-                    # print(movie_filename)
-                    # print(lines[i])
 
                 while i + 1 < len(lines) and lines[i + 1].strip() and not re.fullmatch(char_pattern,
                                                                                        lines[i + 1].strip()):
                     dialogue = (dialogue + " " + lines[i + 1].strip()).strip()
                     i += 1
 
-                # Falls dialog an dieser stelle leer ist -> das gefundene war kein Charakter sondern eine Zeile in Großbuchstaben
                 if dialogue.strip():
-                    # char = ET.SubElement(sc, "char", name=character)
-                    # ET.SubElement(char, "dialogue", id=dialogue_id).text = dialogue
                     char = ET.SubElement(sc, "dialogue", name=character, id=dialogue_id).text = dialogue
                 else:
                     metatext = (metatext + " " + character.strip())
@@ -106,10 +94,10 @@ def moviescript_to_xml(movie_path: str, dest: str):
 
     xmlstr = minidom.parseString(ET.tostring(tree.getroot())).toprettyxml(indent="   ")
 
-    with open(dest, "w", encoding="UTF-8") as f:
+    with open(dest_path, "w", encoding="UTF-8") as f:
         f.write(xmlstr)
 
-    return dest
+    return dest_path
 
 
 def __get_scene_tuples(movie_path: str) -> List[Tuple[str, str]]:
@@ -176,19 +164,3 @@ def __sent_tokenize_moviescript(tree: ET.ElementTree) -> ET.ElementTree:
             j = 1
 
     return tree
-
-
-def main():
-    """main"""
-    # path = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.txt")
-    # dest = os.path.join(PAR_DIR, DATA_DIR, "hellraiser.xml")
-    path = os.path.join(BASE_DIR, "src/testfiles/indiana-jones-and-the-last-crusade.txt")
-    dest = os.path.join(BASE_DIR, "src/testfiles/indiana-jones-and-the-last-crusade.xml")
-    # sent_tokenize_moviescript("star-wars-4.xml")
-    # get_scene_tuples("testmovie.txt")
-    moviescript_to_xml(path, dest)
-    # moviescript_to_xml("empty_linesBetweenCharAndDialogue.txt")
-
-
-if __name__ == '__main__':
-    main()

@@ -1,19 +1,21 @@
 """Annotating xml movie scripts with time codes found in subtitle files"""
 
-import os
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
 from typing import List, Tuple, Dict
 from src.src_text.preprocessing.subtitles import get_subtitles_for_annotating
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
+def annotate(movie_path: str, subs_path: str, dest_path: str, interpolate: bool = False):
+    """Walks through all the steps for automatically annotating a movie script with time codes from subtitles.
+    :param movie_path: xml movie script
+    :param subs_path: xml subtitle file
+    :param dest_path: the destination path
+    :param interpolate: if True the scenes in the movie script where no subtitle dialogue was found
+     are annotated with interpolated time codes. Defaults to False
 
-def annotate(movie_path: str, subs_path: str, dest_path: str):
-    """ Input: xml movie script without times and xml subtitle file
-        Output: annotated xml movie script with average time and interpolated time codes @ scenes and
-        time codes @ matched sentences
+     :returns Writes annotated xml movie script
     """
     scene_times, sentence_times = __match_sentences(movie_path, subs_path)
 
@@ -21,16 +23,17 @@ def annotate(movie_path: str, subs_path: str, dest_path: str):
 
     tree = __write_time(movie_path, avg_scene_times, sentence_times)
 
-    tree.write(dest_path)
-
-    # __interpolate_timecodes(tree, dest_path)
+    if interpolate:
+        __interpolate_timecodes(tree, dest_path)
+    else:
+        tree.write(dest_path)
 
 
 def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
     """Adds the timecode to the scenes and sentences in the movie script xml file.
-    :param movie_path string
-    :param list of scene time codes (averaged)
-    :param list of timecodes of matched sentences
+    :param movie_path: xml movie script
+    :param avg_scene_times: list of scene time codes (averaged)
+    :param sentence_times: list of time codes of matched sentences
     :returns xml ElementTree"""
     tree = ET.parse(movie_path)
 
@@ -55,7 +58,9 @@ def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -
 
 def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     Dict[str, List[datetime]], Dict[str, Tuple[datetime, str]]]:
-    """Find closest matching sentences; Return two Dicts
+    """Find closest matching sentences
+    :param movie_path: xml movie script file
+    :param subs_path: xml subtitle file
     :returns Dict of key= scene_id and value=time codes per scene
     {scene_id : [timecode sentence1, timecode sentence2 ...]}
     :returns Dict of key= sentence_id (from xml movie script) and time code
@@ -65,8 +70,6 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
 
     movie_dialogue = __get_moviedialogue(movie_path)
 
-    # diff = abs(len(movie_dialogue) - len(subs_dialogue))
-    # print(diff)
     diff = 0.05 * len(movie_dialogue)
     print(diff)
     scene_times = {}
@@ -119,7 +122,6 @@ def __get_avg_scene_times(scene_timecodes: Dict[str, List[datetime]]) -> List[Tu
         temp = []
 
         for t in times:
-            # asdf = datetime.strptime(t, '%H:%M:%S,%f')
             millis = t.timestamp() * 1000
             temp.append(millis)
 
@@ -149,7 +151,7 @@ def __get_moviedialogue(movie_path) -> List[Tuple[str, str, str]]:
 
 
 def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
-    """Add interpolated time codes to scenes that previously had no annotated time code"""
+    """Adds interpolated time codes to scenes that previously had no annotated time code"""
 
     scenes = tree.findall("scene")
 
@@ -196,29 +198,3 @@ def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
                 scene_xml.set("time_interpolated", scene[1])
 
     tree.write(dest_path)
-
-
-def main():
-    """main function"""
-    time = datetime.now()
-
-    scripts = os.path.join(BASE_DIR, "data/moviescripts_xml")
-    subs = os.path.join(BASE_DIR, "data/subtitles_xml")
-    new_folder = os.path.join(BASE_DIR, "data/10perc80ratio")
-
-    for m in os.listdir(scripts):
-        for s in os.listdir(subs):
-            new_file = m.replace(".xml", "")
-            if new_file == s.replace("_subs.xml", ""):
-                new_path = os.path.join(new_folder, new_file + "_annotated.xml")
-
-                print(new_path)
-                annotate(os.path.join(scripts, m), os.path.join(subs, s), new_path)
-
-    time2 = datetime.now()
-    diff = time2 - time
-    print(diff)
-
-
-if __name__ == '__main__':
-    main()

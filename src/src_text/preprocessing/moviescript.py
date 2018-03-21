@@ -1,46 +1,16 @@
 """
-The main moviescript module
+The main moviescript module.
 Contains functions that return everything that needs to be extracted from fully annotated XML moviescript
 """
-
-import os
-import functools
 import xml.etree.ElementTree as ET
-from datetime import datetime
 from typing import List, Set, Tuple, Dict
-
-from src.src_text.preprocessing.annotate import annotate
-from src.src_text.preprocessing.parse_fountain import moviescript_to_xml
-
-BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
-
-
-# PAR_DIR = os.path.abspath(os.path.join(os.curdir, os.pardir, os.pardir))
-# DATA_DIR = "testfiles"
-
-
-def parse(fountain_path: str, subs_path: str, dest_path: str):
-    """Complete parse-pipeline from fountain movie script + xml subtitles to annotated xml movie script"""
-    unannotated_xml = moviescript_to_xml(fountain_path, dest_path)
-
-    annotate(unannotated_xml, subs_path, dest_path)
-
-
-def main():
-    path = os.path.join(BASE_DIR, "src/testfiles/")
-    # fountain = os.path.join(path, "star-wars-4.txt")
-    # subs_path = os.path.join(path, "star-wars-4_sub.xml")
-    dest_path = os.path.join(path, "star-wars-4_annotated.xml")
-
-    # fountain = os.path.join(path, "hellraiser.txt")
-    # subs_path = os.path.join(path, "hellraiser_sub.xml")
-    # dest_path = os.path.join(path, "hellraiser_annotated.xml")
-
-    print(get_all_sentences(dest_path))
 
 
 def get_scenes_auto_annotated(xml_path: str) -> List[Tuple[str, List[str]]]:
-    """:returns List of all scenes. (List consisting of time code and a list of all sentences in that scene)"""
+    """Get scenes (each scene as a List of sentences) of an automatically annotated xml movie script
+    only scenes with average or annotated time code
+    :param xml_path: path to xml movie script
+    :returns List of all scenes. (List consisting of time code and a list of all sentences in that scene)"""
     tree = ET.parse(xml_path)
     scenes = []
     for scene in tree.findall("scene"):
@@ -55,11 +25,18 @@ def get_scenes_auto_annotated(xml_path: str) -> List[Tuple[str, List[str]]]:
             continue
 
         scenes.append((time, sentences))
+
+    if len(scenes) == 0:
+        raise Warning("The resulting list is empty! It might be that the movie script does not contain time codes "
+                      "or is manually annotated")
+
     return scenes
 
 
-def get_scenes_man_annotated(xml_path: str) -> List[Tuple[str, str, List[str]]]:
-    """:returns List of all scenes. (List consisting of time code and a list of all sentences in that scene)"""
+def get_scenes_man_annotated(xml_path: str) -> List[Tuple[str, str, List[str], str]]:
+    """Get scenes (each scene as a List of sentences) of a manually annotated movie script
+    only scenes with start and end time code
+    :returns List of all scenes. (List consisting of Tuples of start, end, List of Sentences, scene id)"""
     tree = ET.parse(xml_path)
     scenes = []
     for scene in tree.findall("scene"):
@@ -75,10 +52,17 @@ def get_scenes_man_annotated(xml_path: str) -> List[Tuple[str, str, List[str]]]:
             continue
 
         scenes.append((time, end, sentences, scene.get("id")))
+
+    if len(scenes) == 0:
+        raise Warning("The resulting list is empty! It might be that the movie script does not contain time codes "
+                      "or is automatically annotated.")
+
     return scenes
 
 
 def get_scenes(xml_path: str) -> List[List[str]]:
+    """simply returns scenes without time code
+    :returns List of scenes with each scene being a List of sentences"""
     tree = ET.parse(xml_path)
     scenes = []
     for scene in tree.findall("scene"):
@@ -105,7 +89,7 @@ def get_all_sentences(xml_path: str):
 
 
 def get_characters(xml_path: str) -> Set[str]:
-    """:returns the movie characters"""
+    """:returns the movie characters in a Set"""
     tree = ET.parse(xml_path)
 
     characters = set(str(char.get("name")).lower() for char in tree.iter("dialogue"))
@@ -114,7 +98,7 @@ def get_characters(xml_path: str) -> Set[str]:
 
 
 def get_char_dialogue(xml_path: str) -> Dict[str, List[str]]:
-    """:returns Dict of character names and a list of all their sentences"""
+    """:returns Dict of character names and a list of all their dialogue sentences"""
     tree = ET.parse(xml_path)
 
     dialogue = {}
@@ -131,16 +115,24 @@ def get_char_dialogue(xml_path: str) -> Dict[str, List[str]]:
     return dialogue
 
 
-def get_metatext(xml_path) -> List[str]:
-    """Get only the meta text from the moviescript, together with a reference to the scene?"""
+def get_metatext(xml_path) -> List:
+    """Get only the meta text from the movie script"""
     tree = ET.parse(xml_path)
 
     meta_tuples = []
     for scene in tree.findall("scene"):
-        meta_tuples += [(m.get("id"), m.text) for m in scene.findall("meta")]
+        for m in scene.findall("meta"):
+            text = []
+            for child in m:
+                text.append(child.text)
+            meta_tuples.append((m.get("id"), text))
 
     return meta_tuples
 
-
 if __name__ == '__main__':
-    main()
+    import os
+
+    BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
+
+    file = os.path.join(BASE_DIR, "data/moviescripts_xml_time/10perc80ratio/the-matrix_annotated.xml")
+    print(get_scenes_man_annotated(file))

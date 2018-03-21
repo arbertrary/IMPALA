@@ -1,19 +1,16 @@
-""""""
+"""Extracts information from XML subtitle files"""
 
-import os
 import numpy as np
 import xml.etree.ElementTree as ET
 import string
 from typing import List, Tuple
-from datetime import datetime, timedelta
-
-BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
+from datetime import datetime
 
 
-def get_subtitles_for_annotating(path: str) -> List[Tuple[str, str, str]]:
+def get_subtitles_for_annotating(subs_path: str) -> List[Tuple[str, str, str]]:
     """Subtitles only for use in annotate
     :returns subtitles as list of Triples of (sentence_id, start-timecode, sentence)"""
-    tree = ET.parse(path)
+    tree = ET.parse(subs_path)
     root = tree.getroot()
 
     subdialogue = []
@@ -44,10 +41,10 @@ def get_subtitles_for_annotating(path: str) -> List[Tuple[str, str, str]]:
     return subdialogue
 
 
-def get_subtitles(path: str) -> List[Tuple[float, float, str]]:
+def get_subtitles(subs_path: str) -> List[Tuple[float, float, str]]:
     """Reads Subtitles from the xml files
     :returns List of Tuples of Strings as [starttime in s, endtime in s, text]"""
-    tree = ET.parse(path)
+    tree = ET.parse(subs_path)
     root = tree.getroot()
 
     beginning = datetime.strptime("00:00:00,000", '%H:%M:%S,%f')
@@ -116,7 +113,7 @@ def get_avg_duration(subtitles: List):
     for s in subtitles:
         start = s[0]
         end = s[1]
-        temp.append(end - start)  # .total_seconds())
+        temp.append(end - start)
     return np.mean(temp)
 
 
@@ -146,19 +143,3 @@ def check_correctness(path: str):
             currenttime = t
         else:
             continue
-
-
-def main():
-    path = os.path.join(BASE_DIR, "src/testfiles", "star-wars-4_subs.xml")
-    # path = os.path.join(BASE_DIR, "src/testfiles", "blade_subs.xml")
-
-    # print(get_subtitles(path))
-
-    check_correctness(path)
-    test = get_subtitles(path)
-    for t in test:
-        print(t)
-
-
-if __name__ == '__main__':
-    main()

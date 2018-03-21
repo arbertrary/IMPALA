@@ -10,14 +10,14 @@ from sklearn.preprocessing import PolynomialFeatures
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
 
-path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_Warriner.csv")
+path = os.path.join(BASE_DIR, "data/audiosentiment_csvfiles/7mv_audiosent_Warriner.csv")
 # path = os.path.join(BASE_DIR, "src/6mv_mfcc_combined.csv")
 dataframe = pandas.read_csv(path)
 
 # dataframe = pandas.read_csv("6mv_mean_audio_raw_normalized_combined.csv")
 
 dataset = dataframe.values
-X = dataset[:, np.newaxis, 3]
+X = dataset[:, np.newaxis, 4]
 # X = dataset[:,5:9]
 print(X)
 # y = dataset[:,9]
@@ -27,22 +27,7 @@ print(y)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# regr = linear_model.LinearRegression()
-regr = linear_model.Ridge(alpha=.5)
-
-# kf = KFold(n_splits=10)
-# for train_index, test_index in kf.split(X):
-#     # print("TRAIN:", train_index, "TEST:", test_index)
-#     X_train, X_test = X[train_index], X[test_index]
-#     y_train, y_test = y[train_index], y[test_index]
-#     regr.fit(X_train, y_train)
-#     y_pred = regr.predict(X_test)
-#     # The coefficients
-#     print('Coefficients: \n', regr.coef_)
-#     # The mean squared error
-#     print("Mean squared error: %.2f" % mean_squared_error(y_test, y_pred))
-#     # Explained variance score: 1 is perfect prediction
-#     print('R^2 score: %.2f' % r2_score(y_test, y_pred))
+regr = linear_model.LinearRegression()
 
 model = regr.fit(X_train, y_train)
 y_pred = regr.predict(X_test)
@@ -59,9 +44,9 @@ print("Variance: %.2f" % explained_variance_score(y_test, y_pred))
 # Plot outputs
 plt.scatter(X_test, y_test, color='black')
 plt.plot(X_test, y_pred, color='blue', linewidth=3)
-plt.xlabel("Time Code of Scene in Seconds")
+plt.xlabel("Dominance")
 plt.ylabel("Audio Energy")
 # plt.xticks(())
 # plt.yticks(())
-
+plt.tight_layout()
 plt.show()

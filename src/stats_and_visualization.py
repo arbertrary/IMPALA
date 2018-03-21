@@ -1,24 +1,32 @@
+"""Several functions to visualize sentiment and audio.
+Mostly single-use functions"""
+
 import os
 import matplotlib.pyplot as plt
 import src.src_text.preprocessing.moviescript as ms
-import src.src_text.preprocessing.subtitles as subs
 import csv
 import numpy as np
 import pandas as pd
-import seaborn as sns
 import src.utility as util
 from wordcloud import WordCloud
 from collections import Counter
 from nltk import word_tokenize
 from nltk.corpus import stopwords
-from src.src_text.sentiment.sentiment import ImpalaSent
-from src.src_text.sentiment.ms_sentiment import plaintext_sentiment
-from src import data_script, data_fountain, data_subs
+from src.src_text.sentiment.sentiment import SentimentClass
+from src.src_text.sentiment.ms_sentiment import plaintext_sentiment, scenesentiment_man_annotated
+from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def section_sentiment(fountain_path):
+def section_sentiment():
+    """
+    single use function and not really reusable for other things
+    Analyzes all fountain movie scripts split into (currently) 5 sections
+    whether the sentiment in the first section is higher/lower than in the last section.
+    prints the number of movies where either of this is tru
+    and prints a "Counter" Dict of the genres for each case.
+    """
     fountain_dir = os.path.join(BASE_DIR, "data/moviescripts_fountain")
     last_v_smallest = 0
     last_v_not_smallest = 0
@@ -30,7 +38,7 @@ def section_sentiment(fountain_path):
     aro_not = 0
     genre_dict = {}
 
-    with open(os.path.join(BASE_DIR, "allgenres2.txt")) as genrefile:
+    with open(os.path.join(BASE_DIR, "data/allgenres.txt")) as genrefile:
         genres = genrefile.read().splitlines(keepends=False)
         for g in genres:
             temp = g.split(":")
@@ -44,11 +52,7 @@ def section_sentiment(fountain_path):
 
     dom_good_genres = []
     dom_bad_genres = []
-    # i = 1
     for script in os.listdir(fountain_dir):
-        # if i == 10:
-        #     break
-        # i+=1
         path = os.path.join(fountain_dir, script)
         print(path)
         test = plaintext_sentiment(path, 5)
@@ -86,33 +90,28 @@ def section_sentiment(fountain_path):
             for g in genre_dict.get(name):
                 dom_good_genres.append(g)
 
-    print("ende mehr arousal als erste section:", aro_greatest, "filme")
+    print("Last section higher arousal than first section:", aro_greatest, "filme")
     print("Genres:", Counter(aro_bad_genres))
     print("\n")
-    print("ende nicht mehr arousal:", aro_not, "filme")
+    print("Last section lower arousal than first section:", aro_not, "filme")
     print("Genres:", Counter(aro_good_genres))
     print("\n")
-    print("ende weniger valence als erste section:", last_v_smallest, "filme")
+    print("Last section lower valence than first section:", last_v_smallest, "filme")
     print("Genres:", Counter(val_bad_genres))
     print("\n")
-    print("ende nicht weniger valence:", last_v_not_smallest, "filme")
+    print("Last section higher valence than first section:", last_v_not_smallest, "filme")
     print("Genres:", Counter(val_good_genres))
     print("\n")
-    print("ende weniger dominance als erste section:", last_d_smallest, "filme")
+    print("Last section lower dominance than first section:", last_d_smallest, "filme")
     print("Genres:", Counter(dom_bad_genres))
     print("\n")
-    print("ende nicht weniger dominance als erste section:", last_d_not_smallest, "filme")
+    print("Last section higher dominance than first section:", last_d_not_smallest, "filme")
     print("Genres:", Counter(dom_good_genres))
-
-    # test = plaintext_sentiment(fountain_path, 10)
-    # print(len(test))
-    #
-    # arousal = [x.get("arousal") for x in test]
-    # plt.plot(arousal)
-    # plt.show()
 
 
 def section_audio():
+    """Analyzes audio csvfiles (split into 5 sections)
+    whether the audio energy in the last section is higher than in the first section"""
     newdir = os.path.join(BASE_DIR, "data/audio_csvfiles")
     yes = 0
     no = 0
@@ -136,35 +135,11 @@ def section_audio():
     print("audio in last section more silent than in first section: ", no, "filme")
 
 
-def word_count(xml_path):
-    sentiment = ImpalaSent()
-
-    stop = stopwords.words("english")
-    chars = ms.get_characters(xml_path)
-    # sentences = ms.get_all_sentences(xml_path)
-    # text = " ".join(sentences)
-
-    sentences = subs.get_subtitles(data_subs[5][0])
-    text = " ".join([x[-1] for x in sentences])
-
-    test = []
-    for word in word_tokenize(text):
-        score = sentiment.lexicon.get(word.lower())
-        if score and word.lower() not in stop and word.lower() not in chars:
-            # test.append(word.lower())
-            test.append((word.lower(), score.get("arousal")))
-    c = Counter(test)
-
-    print(c)
-    test = set(test)
-
-    temp = [(x[0], c.get(x), x[1]) for x in test]
-    test = sorted(temp, key=lambda x: (-x[1], -x[2]))
-    print(test)
-
-
-def warriner_wordcloud(xml_path):  # , subs_path):
-    sentiment = ImpalaSent()
+def warriner_wordcloud(sentiment_dimension: str):
+    """Prints word clouds for chosen sentiment dimension
+    and the text of xml movie scripts.
+    Currently hard coded for the seven manually annotated movie scripts"""
+    sentiment = SentimentClass()
 
     stop = stopwords.words("english")
     high = []
@@ -180,11 +155,8 @@ def warriner_wordcloud(xml_path):  # , subs_path):
         sentences = ms.get_all_sentences(xml_path)
         text = " ".join(sentences)
 
-        # sentences = subs.get_subtitles(subs_path)
-        # text = " ".join([x[-1] for x in sentences])
-
         words = []
-        sent = "dominance"
+        sent = sentiment_dimension
         for w in word_tokenize(text):
             word = w.lower()
             score = sentiment.lexicon.get(word)
@@ -200,9 +172,12 @@ def warriner_wordcloud(xml_path):  # , subs_path):
 
     c = Counter(high)
     print(c)
-    wc1 = WordCloud(colormap="ocean",background_color="white", width=800, height=450, collocations=False).generate(" ".join(high))
-    wc2 = WordCloud(colormap="ocean",background_color="white", width=800, height=450, collocations=False).generate(" ".join(medium))
-    wc3 = WordCloud(colormap="ocean",background_color="white", width=800, height=450, collocations=False).generate(" ".join(low))
+    wc1 = WordCloud(colormap="ocean", background_color="white", width=800, height=450, collocations=False).generate(
+        " ".join(high))
+    wc2 = WordCloud(colormap="ocean", background_color="white", width=800, height=450, collocations=False).generate(
+        " ".join(medium))
+    wc3 = WordCloud(colormap="ocean", background_color="white", width=800, height=450, collocations=False).generate(
+        " ".join(low))
 
     # wc1.to_file("high_" + sent + ".png")
     # wc2.to_file("medium_" + sent + ".png")
@@ -223,26 +198,18 @@ def warriner_wordcloud(xml_path):  # , subs_path):
 
 
 def histograms():
-    path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/7mv_audiosent_normalized_Warriner.csv")
-    # path = os.path.join(BASE_DIR, "data/audiosent_csv_raw/6mv_raw_mean_audio_Vader.csv")
+    """Shows histograms of Valence, Arousal, Dominance and Audio Energy.
+    Currently hardcoded to one csv file containing sentiment and audio information
+    from 7 movies/1160 scenes"""
+    path = os.path.join(BASE_DIR, "data/audiosentiment_csvfiles/7mv_audiosent_all.csv")
 
-    with open(path) as csvfile:
-        reader = csv.reader(csvfile)
+    df = pd.read_csv(path)
+    valence = df.get("Valence").values
+    arousal = df.get("Arousal").values
+    dominance = df.get("Dominance").values
+    audio = df.get("Audio Energy").values
 
-        valence = []
-        arousal = []
-        dominance = []
-        audio = []
-
-        for row in reader:
-            if row[0] == "Scene Start":
-                continue
-            valence.append(float(row[2]))
-            arousal.append(float(row[3]))
-            dominance.append(float(row[4]))
-            audio.append(float(row[-1]))
-
-    plt.suptitle("Histograms for Sentiment and Audio of 7 movies (1162 scenes)")
+    plt.suptitle("Histograms for Sentiment and Audio of 7 movies (1160 scenes)")
     plt.subplot(221)
     plt.xlabel("Score")
     plt.ylabel("# of data points")
@@ -266,30 +233,53 @@ def histograms():
 
     plt.tight_layout()
     plt.show()
-    # img_path = "histogram.png"
-    # plt.savefig(img_path, dpi=300)
 
 
-def regression_plot(csvfile, x):
-    """In the simplest invocation, both functions draw a scatterplot of two variables, x and y,
-    and then fit the regression model y ~ x
-    and plot the resulting regression line and a 95% confidence interval for that regression:"""
-    dataframe = pd.read_csv(csvfile)
-    # print(dataframe)
-    plt.figure()
-    sns.regplot(y="Audio Energy", x=x, data=dataframe)
-    plt.title("Scatter Plot with Regression line for 1162 scenes from 7 movies")
-    plt.tight_layout()
+def plot_audiosent(audio_csv: str, xml_path: str, sentiment_dimension: str = "arousal", scenelevel=True):
+    """Plots the audio energy from a audio csv file
+    and a sentiment dimension from a xml file (either subtitles or movie script)
+    and plots it in the same figure"""
+    if scenelevel:
+        sentiment = scenesentiment_man_annotated(xml_path, "Warriner")
+    else:
+        sentiment = subtitle_sentiment(xml_path)
+
+    sent_time = [s[0] for s in sentiment]
+    arousal = [s[2].get(sentiment_dimension) for s in sentiment]
+    print(len(sent_time))
+
+    audio_tuples = []
+    with open(audio_csv) as audio_csv:
+        reader = csv.reader(audio_csv)
+        for row in reader:
+            if row[0] == "Time":
+                continue
+            audio_tuples.append((float(row[0]), float(row[1])))
+
+    audio_time = [a[0] for a in audio_tuples]
+    audio = [a[1] for a in audio_tuples]
+    print("Audio time: ", audio_time[-1])
+    print("sentiment time: ", sent_time[-1])
+
+    audio_windows = util.sliding_window(audio, 10)
+
+    if scenelevel:
+        sentiment_windows = arousal
+    else:
+        sentiment_windows = util.sliding_window(arousal, 10)
+
+    fig, ax1 = plt.subplots()
+    color = 'tab:red'
+    ax1.set_xlabel('time (s)')
+    ax1.set_ylabel('Audio Energy', color=color)
+    ax1.semilogy(audio_time, audio_windows, color=color)
+    ax1.tick_params(axis='y', labelcolor=color)
+
+    ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
+
+    color = 'tab:blue'
+    ax2.set_ylabel('Arousal', color=color)  # we already handled the x-label with ax1
+    ax2.plot(sent_time, sentiment_windows, color=color)
+    ax2.tick_params(axis='y', labelcolor=color)
+
     plt.show()
-
-
-def main():
-    # histograms()
-    warriner_wordcloud("/home/armin/Studium/Bachelor/CodeBachelorarbeit/IMPALA/src/testfiles/blade_manually.xml")
-    # regression_plot(
-    #     os.path.join(BASE_DIR, "data/audiosent_csv_raw/single movies/indiana-jones-3_ger_audiosent_Warriner.csv"),
-    #     "Arousal")
-
-
-if __name__ == '__main__':
-    main()

@@ -1,18 +1,16 @@
 """Module for processing audio files.
-Functions for alculating RMS energy or other audio features (mel spectrogram etc)."""
+Functions for calculating RMS energy or other audio features."""
 
 import os
 import csv
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import librosa
 import librosa.display
 import soundfile as sf
-import src.utility as util
-from datetime import datetime
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
+
+# BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir))
 
 
 def get_feature(path: str, feature: str, block_size: int = 2048, **kwargs) -> np.array:
@@ -73,7 +71,7 @@ def partition_feature(path: str, feature: str, interval_seconds: float = 1.0):
     """Partitions the raw values of an audio feature into intervals.
     :param path: audio file path
     :param feature: which audio feature to extract (currently "energy", "centroid", "mfcc" and "tuning
-    :param interval_seconds: duration of intervals in seconds as float. defaults to 1s"""
+    :param interval_seconds: duration of intervals in seconds as float. defaults to 1.0s"""
     file_duration = sf.info(path).duration
 
     feature_data = get_feature(path, feature, n_mfcc=4)
@@ -138,8 +136,13 @@ def partition_feature(path: str, feature: str, interval_seconds: float = 1.0):
         return feature_times
 
 
-def write_audiocsv(audio_path: str, dest_path: str, feature: str):
-    feature_data = partition_feature(audio_path, feature)
+def write_audiocsv(audio_path: str, dest_path: str, feature: str, interval_seconds: float = 1.0):
+    """Extracts the chosen audio feature from the audio file and writes it to a csv file
+    :param audio_path: Path of the audio file
+    :param dest_path: destination of the resulting csv file
+    :param feature: the audio feature to be extracted
+    :param interval_seconds: the length of the audio partitions. defaults to 1.0 seconds"""
+    feature_data = partition_feature(audio_path, feature, interval_seconds)
     with open(dest_path, "w") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
         if feature == "mfcc":
@@ -159,57 +162,3 @@ def write_audiocsv(audio_path: str, dest_path: str, feature: str):
             writer.writerow(["Time", feature])
             for e in feature_data:
                 writer.writerow([e[0], e[1]])
-
-
-def main():
-    audio1 = os.path.join(BASE_DIR, "data/data_audio", "blade.wav")
-    audio2 = os.path.join(BASE_DIR, "data/data_audio", "hellboy.wav")
-    audio3 = os.path.join(BASE_DIR, "data/data_audio", "predator.wav")
-    audio4 = os.path.join(BASE_DIR, "data/data_audio", "scream_ger.wav")
-    audio5 = os.path.join(BASE_DIR, "data/data_audio", "star-wars-4.wav")
-    audio6 = os.path.join(BASE_DIR, "data/data_audio", "the-matrix.wav")
-    audio7 = os.path.join(BASE_DIR, "data/data_audio", "indiana-jones-3_ger.wav")
-    testaudio = os.path.join(BASE_DIR, "data/data_audio", "selfiefromhell.wav")
-    # testaudio = os.path.join(BASE_DIR, "src/testfiles", "220_440_880_1760.wav")
-    # testaudio = os.path.join(BASE_DIR, "src/testfiles", "440_880_1760.wav")
-
-    data = [audio1, audio2, audio3, audio4, audio5, audio6, audio7]
-
-    audio1csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "blade.csv")
-    audio2csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "hellboy.csv")
-    audio3csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "predator.csv")
-    audio4csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "scream_ger.csv")
-    audio5csv = os.path.join(BASE_DIR, "data/audio_csvfiles", "star-wars-4.csv")
-    audio7csv = os.path.join(BASE_DIR, "data/audio_csvfiles/new_partitioning", "indiana-jones-3_ger.csv")
-
-    time = datetime.now()
-    # test = partition_feature(testaudio, feature="mfcc")
-    # print(test)
-    # test = partition_feature(testaudio, feature="mfcc")
-    write_audiocsv(testaudio, "asdf.csv", feature="mfcc")
-    # for d in data:
-    #     newfile = os.path.basename(d).replace(".wav", "_tuning.csv")
-    #     write_audiocsv(d, newfile, feature="tuning")
-
-    # with open(audio7csv) as csvfile:
-    #     reader = csv.reader(csvfile)
-    #     test = []
-    #     for row in reader:
-    #         test.append(float(row[-1]))
-    #
-    #     plt.plot(test)
-    #     plt.show()
-
-    # write_audiocsv(testaudio, "test2.csv", feature="energy")
-    # print(len(test), len(test2))
-    # print(test)
-    # print(test2)
-
-    time2 = datetime.now()
-    diff = time2 - time
-
-    print(diff)
-
-
-if __name__ == '__main__':
-    main()

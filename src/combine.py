@@ -1,24 +1,34 @@
-"""Combines sentiment analysis and audio analysis"""
+"""Combines sentiment analysis and audio analysis into csv files"""
 
 import numpy as np
-from datetime import datetime
 import os
 import pandas as pd
 import csv
-import matplotlib.pyplot as plt
 import librosa
 import src.utility as util
 from src.src_text.sentiment.ms_sentiment import scenesentiment_man_annotated, plaintext_sentiment
 from src.src_text.sentiment.subs_sentiment import subtitle_sentiment
-from src.src_text.sentiment.sentiment import ImpalaSent
+from src.src_text.sentiment.sentiment import SentimentClass
 from src.src_text.preprocessing.moviescript import get_scenes
-from src import data_script, data_fountain, data_subs
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir))
 
 
-def audiosent_csv(script_path: str, audio_csv: str, dest_csv_path: str, feature_column: str,
+def audiosent_csv(xml_path: str, audio_csv: str, dest_csv_path: str, feature_column: str,
                   sent_method: str = "Warriner", subtitles: bool = False, **kwargs):
+    """
+    Creates csv files combining audio and sentiment
+    :param xml_path: the xml file (either subtitles or xml movie script)
+    :param audio_csv: the audio csv file
+    :param dest_csv_path: destination path of the resulting file
+    :param feature_column: which audio feature to write
+    :param sent_method: which sentiment method to use (Warriner, NRC, Vader or combined.
+    "combined" is Vader and Warriner
+    :param subtitles: boolean whether the xml_path input is a subtitle file. defaults to false
+    :param kwargs: currently only "normalized" if normalized is True then the audio feature values will be normalized
+    :return: writes data to csv file
+    """
+
     if sent_method not in {"Warriner", "NRC", "Vader", "combined"}:
         raise ValueError(
             "Incorrect sentiment method. Choose 'Warriner', 'Vader', 'NRC' or 'combined' (Warriner+Vader)!")
@@ -26,8 +36,8 @@ def audiosent_csv(script_path: str, audio_csv: str, dest_csv_path: str, feature_
     if sent_method == "combined":
         if subtitles:
             raise ValueError("Sorry, not yet implemented for subtitles!")
-        ts = scenesentiment_man_annotated(script_path, sent_method="Warriner")
-        ts2 = scenesentiment_man_annotated(script_path, sent_method="Vader")
+        ts = scenesentiment_man_annotated(xml_path, sent_method="Warriner")
+        ts2 = scenesentiment_man_annotated(xml_path, sent_method="Vader")
         temp = []
         for s in ts:
             for t in ts2:
@@ -37,9 +47,9 @@ def audiosent_csv(script_path: str, audio_csv: str, dest_csv_path: str, feature_
 
     else:
         if subtitles:
-            ts = subtitle_sentiment(script_path, sent_method)
+            ts = subtitle_sentiment(xml_path, sent_method)
         else:
-            ts = scenesentiment_man_annotated(script_path, sent_method)
+            ts = scenesentiment_man_annotated(xml_path, sent_method)
 
     df = pd.read_csv(audio_csv)
     time = df.get("Time").values
@@ -100,7 +110,6 @@ def audiosent_csv(script_path: str, audio_csv: str, dest_csv_path: str, feature_
             score = scene_sentiment[i][2]
             if sent_method == "combined":
                 score2 = scene_sentiment2[i][2]
-            # score2 = None
 
             if sent_method == "Warriner":
                 writer.writerow([start, end, score.get("valence"), score.get("arousal"), score.get("dominance"), level])
@@ -119,9 +128,18 @@ def audiosent_csv(script_path: str, audio_csv: str, dest_csv_path: str, feature_
                      score2.get("neu"), score2.get("pos"), score2.get("compound"), level])
 
 
-def fountain_audiosent_csv(fountain_script: str, audio_csv: str,  n_sections: int, dest_path: str,
-                           feature_column: str,sent_method: str = "Warriner"):
-    sent_sections = plaintext_sentiment(fountain_script, n_sections)
+def fountain_audiosent_csv(fountain_script: str, audio_csv: str, n_sections: int, dest_path: str,
+                           feature_column: str, sent_method: str = "Warriner"):
+    """Creates audiosentiment csv file for plain text fountain movie scripts
+    :param fountain_script: the file path
+    :param audio_csv: the audio csv file path
+    :param n_sections: the number of secitons the movie script will be split into
+    :param dest_path: the destination of the resulting csv file
+    :param feature_column: which audio feature to use
+    :param sent_method: which sentiment method to use
+    :return:
+    """
+    sent_sections = plaintext_sentiment(fountain_script, n_sections, sent_method)
 
     df = pd.read_csv(audio_csv)
     try:
@@ -141,8 +159,16 @@ def fountain_audiosent_csv(fountain_script: str, audio_csv: str,  n_sections: in
             writer.writerow([item.get("valence"), item.get("arousal"), item.get("dominance"), partitions[index]])
 
 
-def audiosent_scenes_wo_time(xml_path: str, audio_csv: str, dest_path: str, feature_column:str):
-    sentiment = ImpalaSent()
+def audiosent_scenes_wo_time(xml_path: str, audio_csv: str, dest_path: str, feature_column: str):
+    """
+       Creates csv files combining audio and sentiment without information of the time codes
+       :param xml_path: the xml file (either subtitles or xml movie script)
+       :param audio_csv: the audio csv file
+       :param dest_path: destination path of the resulting file
+       :param feature_column: which audio feature to write
+       :return: writes data to csv file
+       """
+    sentiment = SentimentClass()
 
     scenes = get_scenes(xml_path)
     scene_sentiment = [sentiment.score(" ".join(x)) for x in scenes]
@@ -163,99 +189,3 @@ def audiosent_scenes_wo_time(xml_path: str, audio_csv: str, dest_path: str, feat
 
         for index, item in enumerate(scene_sentiment):
             writer.writerow([item.get("valence"), item.get("arousal"), item.get("dominance"), partitions[index]])
-
-
-def plot_audiosent(audio_csv: str, xml_path: str, scenelevel=True):
-    if scenelevel:
-        sentiment = scenesentiment_man_annotated(xml_path, "Warriner")
-    else:
-        sentiment = subtitle_sentiment(xml_path)
-
-    sent_time = [s[0] for s in sentiment]
-    arousal = [s[2].get("arousal") for s in sentiment]
-    print(len(sent_time))
-
-    audio_tuples = []
-    with open(audio_csv) as audio_csv:
-        reader = csv.reader(audio_csv)
-        for row in reader:
-            audio_tuples.append((float(row[0]), float(row[1])))
-
-    audio_time = [a[0] for a in audio_tuples]
-    audio = [a[1] for a in audio_tuples]
-    print("Audio time: ", audio_time[-1])
-    print("sentiment time: ", sent_time[-1])
-
-    audio_windows = util.sliding_window(audio, 10)
-
-    if scenelevel:
-        sentiment_windows = arousal
-    else:
-        sentiment_windows = util.sliding_window(arousal, 10)
-
-    fig, ax1 = plt.subplots()
-    # fig.set_canvas(plt.gcf().canvas)
-    color = 'tab:red'
-    ax1.set_xlabel('time (s)')
-    ax1.set_ylabel('Audio Energy', color=color)
-    ax1.semilogy(audio_time, audio_windows, color=color)
-    # ax1.plot(audio_time, audio_windows, color=color)
-    ax1.tick_params(axis='y', labelcolor=color)
-
-    ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
-
-    color = 'tab:blue'
-    ax2.set_ylabel('Arousal', color=color)  # we already handled the x-label with ax1
-    ax2.plot(sent_time, sentiment_windows, color=color)
-    ax2.tick_params(axis='y', labelcolor=color)
-    # fig.tight_layout()
-    # plt.figure()
-    # plt.subplot(311)
-    # plt.title('Blade: Audio (RMS Energy)')
-    # plt.xlabel("seconds")
-    # plt.semilogy(times, audio)
-    # # plt.plot(times, audio)
-    # plt.xlim(0, times[-1])
-    #
-    # plt.subplot(312)
-    # # plt.title('Blade: Audio (RMS Energy)')
-    # plt.xlabel("seconds")
-    # plt.semilogy(times, audio_windows)
-    # # plt.plot(times, audio_windows)
-    #
-    # plt.xlim(0, times[-1])
-    #
-    # plt.subplot(313)
-    # plt.xlabel("seconds")
-    # plt.plot(time, sentiment_windows)
-    # plt.xlim(0, time[-1])
-
-    # plt.tight_layout()
-    plt.show()
-    # img_path = os.path.basename(xml_path).replace(".xml", ".png")
-    # fig.savefig(img_path, dpi=300, format="png")
-
-
-def main():
-    time = datetime.now()
-
-    for d in data_subs:
-        base = os.path.basename(d[1])
-        # name = d[1].replace(base, "spectral_centroid/")+ base.replace(".csv", "_centroid.csv")
-        # name = d[1].replace(base, "tuning/")+ base.replace(".csv", "_tuning.csv")
-        name = d[1].replace(base, "energy/" + base)
-        # name = d[1].replace(base, "mfcc/")+base.replace(".csv", "_mfcc.csv")
-        # new_csv = base.replace(".csv", "_sent_vader.csv")
-        new_csv = "test3.csv"
-        audiosent_csv(d[0], name, new_csv, feature_column="Audio Energy", sent_method="combined", subtitles=True)
-        # audiosent_scenes_wo_time(d[0], name, new_csv, feature_column="Audio Energy")
-        # fountain_audiosent_csv(d[0], name, 200, new_csv,feature_column="Audio Energy")
-
-    time2 = datetime.now()
-    diff = time2 - time
-
-    print(diff)
-
-
-if __name__ == '__main__':
-    main()

@@ -1,13 +1,9 @@
 """Sentiment analysis of subtitle files"""
 
 import os
-import matplotlib.pyplot as plt
-import numpy as np
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from matplotlib import dates
 from typing import List, Tuple, Dict
-from datetime import datetime, timedelta
-from src.src_text.sentiment.sentiment import ImpalaSent
+from src.src_text.sentiment.sentiment import SentimentClass
 from src.src_text.preprocessing.subtitles import get_subtitles
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
@@ -20,7 +16,7 @@ def subtitle_sentiment(xml_path: str, sent_method: str = "Warriner") -> List[Tup
     elif sent_method == "Vader":
         sid = SentimentIntensityAnalyzer()
     else:
-        sentiment = ImpalaSent(sent_method)
+        sentiment = SentimentClass(sent_method)
 
     sentences = get_subtitles(xml_path)
     scores = []
@@ -44,15 +40,3 @@ def subtitle_sentiment(xml_path: str, sent_method: str = "Warriner") -> List[Tup
         scores.append((start, end, score))
 
     return scores
-
-
-def main():
-    """main function"""
-    path = os.path.join(BASE_DIR, "src/testfiles", "hellraiser_subs.xml")
-    # subs = get_subtitles(path)
-    # print(subs)
-    # print(subtitle_sentiment(path, "NRC"))
-
-
-if __name__ == '__main__':
-    main()
