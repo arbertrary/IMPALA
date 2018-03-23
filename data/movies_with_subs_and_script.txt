@@ -1,3 +1,4 @@
+# Movies for which subtitles as well as movie script is available
 12-monkeys
 a-perfect-world
 above-the-law
@@ -110,12 +111,10 @@ magnolia
 man-on-fire
 meet-joe-black
 midnight-cowboy
-midnight-express
 mimic
 mission-impossible-ii
 mission-to-mars
 new-york-minute
-o-brother-where-art-thou
 oceans-eleven
 oceans-twelve
 panic-room

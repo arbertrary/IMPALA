@@ -101,7 +101,8 @@ def moviescript_to_xml(movie_path: str, dest_path: str):
 
 
 def __get_scene_tuples(movie_path: str) -> List[Tuple[str, str]]:
-    """Separates movie script into scenes; returns tuples of (scene header, scene text)."""
+    """Separates movie script into scenes;
+    :returns tuples of (scene header, scene text)"""
 
     with open(movie_path, 'r', encoding='utf-8') as movie:
         text = movie.read()

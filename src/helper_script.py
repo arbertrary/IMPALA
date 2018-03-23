@@ -236,11 +236,11 @@ def check_scene_count():
     lengths = []
     time_code_scenes = []
     not_continuous = []
-    folder = "20perc90ratio"
+    folder = os.path.join(BASE_DIR, "data/moviescripts_xml_time/20perc90ratio_new")
 
-    for filename in os.listdir("data/" + folder):
+    for filename in os.listdir(folder):
         times = []
-        tree = ET.parse(os.path.join("data/" + folder, filename))
+        tree = ET.parse(os.path.join(folder, filename))
         scenes = tree.findall("scene")
         counter = 0
         for s in scenes:

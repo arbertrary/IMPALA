@@ -1,10 +1,13 @@
 """Annotating xml movie scripts with time codes found in subtitle files"""
 
 import xml.etree.ElementTree as ET
+import os
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
 from typing import List, Tuple, Dict
 from src.src_text.preprocessing.subtitles import get_subtitles_for_annotating
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, os.pardir, os.pardir))
 
 
 def annotate(movie_path: str, subs_path: str, dest_path: str, interpolate: bool = False):
@@ -32,7 +35,7 @@ def annotate(movie_path: str, subs_path: str, dest_path: str, interpolate: bool 
 def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -> ET.ElementTree:
     """Adds the timecode to the scenes and sentences in the movie script xml file.
     :param movie_path: xml movie script
-    :param avg_scene_times: list of scene time codes (averaged)
+    :param avg_scene_times: list of scene time codes (averaged over all sentences with time in the scene)
     :param sentence_times: list of time codes of matched sentences
     :returns xml ElementTree"""
     tree = ET.parse(movie_path)
@@ -58,7 +61,7 @@ def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -
 
 def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     Dict[str, List[datetime]], Dict[str, Tuple[datetime, str]]]:
-    """Find closest matching sentences
+    """Find closest matching sentences in movie script and subtitles
     :param movie_path: xml movie script file
     :param subs_path: xml subtitle file
     :returns Dict of key= scene_id and value=time codes per scene
@@ -70,18 +73,27 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
 
     movie_dialogue = __get_moviedialogue(movie_path)
 
-    diff = 0.05 * len(movie_dialogue)
-    print(diff)
+    # Only sentences with indices +/- diff are compared
+    # e.g. subtitles from the first 10% of the movie script
+    # are only compared to
+    # diff = 0.05 * len(movie_dialogue)
+    diff = 0.05
     scene_times = {}
     sentence_times = {}
     done1 = []
     done2 = []
     count = 0
     for i, subsent in enumerate(subs_dialogue):
+        perc_i = i/len(subs_dialogue)
         for j, moviesent in enumerate(movie_dialogue):
-            if j < (i - diff):
+            perc_j = j/len(movie_dialogue)
+            # if j < (i - diff):
+            #     continue
+            # elif j > (i + diff):
+            #     break
+            if perc_j < (perc_i - diff):
                 continue
-            elif j > (i + diff):
+            elif perc_j > (perc_i + diff):
                 break
             else:
                 if moviesent[2] not in done2 and subsent[2] not in done1:
@@ -198,3 +210,21 @@ def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
                 scene_xml.set("time_interpolated", scene[1])
 
     tree.write(dest_path)
+
+
+if __name__ == '__main__':
+    file = os.path.join(BASE_DIR, "data/movies_with_subs_and_script.txt")
+    with open(file) as mv_file:
+        movies = mv_file.read().splitlines(keepends=False)
+
+        for m in movies[1:]:
+            print(m)
+            script = os.path.join(BASE_DIR, "data/moviescripts_xml", m+".xml")
+            subs = os.path.join(BASE_DIR, "data/subtitles_xml", m+"_subs.xml")
+
+            dest = os.path.join(BASE_DIR, "data/moviescripts_xml_time/10perc80ratio_new",m+"_annotated.xml")
+
+            # if not(os.path.isfile(script) and os.path.isfile(subs)):
+            #     print(m)
+
+            annotate(script,subs,dest)

@@ -39,26 +39,18 @@ def permutationtest(a, b, n_perm):
 
 
 def main():
-    directory = os.path.join(BASE_DIR, "data/audiosentiment_csvfiles/single movies")
+    directory = os.path.join(BASE_DIR, "src")
 
-    # csvfile = os.path.join(directory, "7mv_audiosent_all.csv")
-    # df = pd.read_csv(csvfile)
-    # energy = df.get("Audio Energy").values
-    # arousal = df.get("Arousal").values
-    # valence = df.get("Valence").values
-    # dominance = df.get("Dominance").values
+    indices = ["Anger", "Anticipation", "Disgust", "Fear", "Joy", "Negative",
+               "Positive", "Sadness", "Surprise", "Trust"]
 
-
-    for file in os.listdir(directory):
-        if file == "Warriner":
-            continue
-        csvfile = os.path.join(directory, file)
-        print("\n", r"\textbf{" + file.replace("_audiosent_all.csv", "") + "}", "\n")
-        indices = ["Valence", "Arousal", "Dominance"]  # , "Vader neg", "Vader pos", "Vader compound"]
-        # csvfile = os.path.join(BASE_DIR, "data/audiosent_csv_raw", csvfile)
-
-        for i in indices:
-            print(r"\textit{" + i + "}", r"\\")
+    for i in indices:
+        print(r"\textbf{" + i + "}", r"\\")
+        for file in os.listdir(directory):
+            if ".csv" not in file:
+                continue
+            csvfile = os.path.join(directory, file)
+            print("\n", r"\textit{" + file.replace("_audiosent_all.csv", "") + "}", "\n")
             t = correlation(csvfile, i, "Audio Energy", raw=True)
             print("spearman: ", "%.3f" % t[0][0], r"\\", "\np-value: ", t[0][1], r"\\")
             # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
