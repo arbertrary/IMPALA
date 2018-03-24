@@ -20,7 +20,7 @@ def annotate(movie_path: str, subs_path: str, dest_path: str, interpolate: bool 
 
      :returns Writes annotated xml movie script
     """
-    scene_times, sentence_times = __match_sentences2(movie_path, subs_path)
+    scene_times, sentence_times = __match_sentences(movie_path, subs_path)
 
     avg_scene_times = __get_avg_scene_times(scene_times)
 
@@ -75,7 +75,7 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
 
     # Only sentences with indices +/- diff are compared
     # e.g. subtitles from the first 10% of the movie script
-    # are only compared to
+    # are only compared totemp
     # diff = 0.05 * len(movie_dialogue)
     diff = 0.05
     scene_times = {}
@@ -145,20 +145,25 @@ def __match_sentences2(movie_path: str, subs_path: str) -> Tuple[
             if perc_j < (perc_i - diff):
                 continue
             elif perc_j > (perc_i + diff):
+                # if no matching sentences have been found: break the loop
+                # and continue with the next subtitle sentence
                 if len(temp) == 0:
                     break
-                s = max(temp, key=lambda x: x[0])[1]
-                print(s)
-                done1.append(s[2])
-                done2.append(moviesent[2])
+
+                # get the moviescript-sentence with the highest matching ratio
+                m = max(temp, key=lambda x: x[0])[1]
+                print(m)
+
+                done1.append(subsent[2])
+                done2.append(m[2])
                 count += 1
 
-                time = datetime.strptime(s[1], '%H:%M:%S,%f')
+                time = datetime.strptime(subsent[1], '%H:%M:%S,%f')
 
-                sentence_id = moviesent[0]
-                sentence_times[sentence_id] = (time, s[0])
+                sentence_id = m[0]
+                sentence_times[sentence_id] = (time, subsent[0])
 
-                scene_id = moviesent[1]
+                scene_id = m[1]
 
                 if scene_id in scene_times:
                     scene_times[scene_id].append(time)
@@ -168,10 +173,12 @@ def __match_sentences2(movie_path: str, subs_path: str) -> Tuple[
                 break
 
             else:
+                # if both sentences haven't been worked with already
                 if moviesent[2] not in done2 and subsent[2] not in done1:
                     ratio = fuzz.ratio(subsent[2].lower(), moviesent[2].lower())
                     if ratio > 80:
-                        temp.append((ratio, subsent))
+                        # append the possible matching sentence from the movie script to a temp list
+                        temp.append((ratio, moviesent))
                     else:
                         continue
 
@@ -271,7 +278,7 @@ def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
 
 
 if __name__ == '__main__':
-    annotate("star-wars-4.xml", "star-wars-4_subs.xml", "star_wars_annotated.xml")
+    annotate("star-wars-4.xml", "star-wars-4_subs.xml", "star_wars_annotated_orig.xml")
     # file = os.path.join(BASE_DIR, "data/movies_with_subs_and_script.txt")
     # with open(file) as mv_file:
     #     movies = mv_file.read().splitlines(keepends=False)
