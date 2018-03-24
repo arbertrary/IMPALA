@@ -39,23 +39,51 @@ def permutationtest(a, b, n_perm):
 
 
 def main():
-    directory = os.path.join(BASE_DIR, "src")
+    csvfile = os.path.join(BASE_DIR, "data/audiosentiment_csvfiles/7mv_audiosent_all.csv")
 
-    indices = ["Anger", "Anticipation", "Disgust", "Fear", "Joy", "Negative",
-               "Positive", "Sadness", "Surprise", "Trust"]
+    df = pd.read_csv(csvfile)
 
-    for i in indices:
-        print(r"\textbf{" + i + "}", r"\\")
-        for file in os.listdir(directory):
-            if ".csv" not in file:
-                continue
-            csvfile = os.path.join(directory, file)
-            print("\n", r"\textit{" + file.replace("_audiosent_all.csv", "") + "}", "\n")
-            t = correlation(csvfile, i, "Audio Energy", raw=True)
-            print("spearman: ", "%.3f" % t[0][0], r"\\", "\np-value: ", t[0][1], r"\\")
-            # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
-            print("kendall's tau: ", "%.3f" % t[2][0], r"\\", "\np-value: ", t[2][1], r"\\")
-            print(r"\\")
+    energy = df.get("Audio Energy").values
+    neg = df.get("Vader neg").values
+    neu = df.get("Vader neu").values
+    pos = df.get("Vader pos").values
+    compound = df.get("Vader compound").values
+
+
+    # test = correlation(csvfile, "Vader neg", "Audio Energy")
+    # print(test[0])
+    # print(test[2])
+    # print()
+    # test = correlation(csvfile, "Vader neu", "Audio Energy")
+    # print(test[0])
+    # print(test[2])
+    # print()
+    # test = correlation(csvfile, "Vader pos", "Audio Energy")
+    # print(test[0])
+    # print(test[2])
+    # print()
+    # test = correlation(csvfile, "Vader compound", "Audio Energy")
+    # print(test[0])
+    # print(test[2])
+    permutationtest(energy, compound, 1000000)
+
+    # directory = os.path.join(BASE_DIR, "src")
+    #
+    # indices = ["Anger", "Anticipation", "Disgust", "Fear", "Joy", "Negative",
+    #            "Positive", "Sadness", "Surprise", "Trust"]
+    #
+    # for i in indices:
+    #     print(r"\textbf{" + i + "}", r"\\")
+    #     for file in os.listdir(directory):
+    #         if ".csv" not in file:
+    #             continue
+    #         csvfile = os.path.join(directory, file)
+    #         print("\n", r"\textit{" + file.replace("_audiosent_all.csv", "") + "}", "\n")
+    #         t = correlation(csvfile, i, "Audio Energy", raw=True)
+    #         print("spearman: ", "%.3f" % t[0][0], r"\\", "\np-value: ", t[0][1], r"\\")
+    #         # print("pearson: ", t[1][0], "\np-value: ", t[1][1])
+    #         print("kendall's tau: ", "%.3f" % t[2][0], r"\\", "\np-value: ", t[2][1], r"\\")
+    #         print(r"\\")
 
 
 if __name__ == '__main__':

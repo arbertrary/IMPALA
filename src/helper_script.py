@@ -236,7 +236,7 @@ def check_scene_count():
     lengths = []
     time_code_scenes = []
     not_continuous = []
-    folder = os.path.join(BASE_DIR, "data/moviescripts_xml_time/20perc90ratio_new")
+    folder = os.path.join(BASE_DIR, "data/moviescripts_xml_time/20perc90ratio")
 
     for filename in os.listdir(folder):
         times = []
@@ -256,11 +256,18 @@ def check_scene_count():
                 not_continuous.append(filename)
                 break
             currenttime = t
-        lengths.append(len(scenes))
+
+        lengths.append((filename, len(scenes), counter))
+        # lengths.append(len(scenes))
         time_code_scenes.append(counter)
 
-    print("avg. # of scenes:\n", np.mean(lengths))
-    print("avg # of annotated scenes:\n", np.mean(time_code_scenes))
+    # print("avg. # of scenes:\n", np.median(lengths))
+    # lengths.sort(key=lambda x: -(x[2]/x[1]))
+    test =[x[2]/x[1] for x in lengths]
+    # print(test)
+    # print(len(test))
+
+    print("avg percentage of annotated scenes:\n", np.mean(test))
     print("# of scripts without continuous time codes:\n", len(not_continuous))
     print(not_continuous)
 

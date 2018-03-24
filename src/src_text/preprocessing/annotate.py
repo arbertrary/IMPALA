@@ -53,13 +53,13 @@ def __write_time(movie_path: str, avg_scene_times: List, sentence_times: Dict) -
             time = sentence_times.get(sentence_time)[0]
             sub_sentence_id = sentence_times.get(sentence_time)[1]
             if s.attrib["id"] == sent_id:
-                s.set("time", time.strftime('%H:%M:%S'))
+                s.set("time", time.strftime("%H:%M:%S"))
                 s.set("subtitle_id", sub_sentence_id)
 
     return tree
 
 
-def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
+def __match_sentences_old(movie_path: str, subs_path: str) -> Tuple[
     Dict[str, List[datetime]], Dict[str, Tuple[datetime, str]]]:
     """Find closest matching sentences in movie script and subtitles
     :param movie_path: xml movie script file
@@ -74,9 +74,9 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     movie_dialogue = __get_moviedialogue(movie_path)
 
     # Only sentences with indices +/- diff are compared
-    # e.g. subtitles from the first 10% of the movie script
-    # are only compared totemp
-    # diff = 0.05 * len(movie_dialogue)
+    # e.g. subtitles from the first 10% of the subtitle file
+    # are only compared to sentences from the first 10% of the movie script
+    # diff = abs(len(movie_dialogue)-len(subs_dialogue))
     diff = 0.05
     scene_times = {}
     sentence_times = {}
@@ -120,16 +120,24 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     return scene_times, sentence_times
 
 
-def __match_sentences2(movie_path: str, subs_path: str) -> Tuple[
+def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     Dict[str, List[datetime]], Dict[str, Tuple[datetime, str]]]:
+    """Find closest matching sentences in movie script and subtitles
+    :param movie_path: xml movie script file
+    :param subs_path: xml subtitle file
+    :returns Dict of key= scene_id and value=time codes per scene
+    {scene_id : [timecode sentence1, timecode sentence2 ...]}
+    :returns Dict of key= sentence_id (from xml movie script) and time code
+    {sentence_id : (timecode, sentence id from subtitle file)}
+    """
     subs_dialogue = get_subtitles_for_annotating(subs_path)
 
     movie_dialogue = __get_moviedialogue(movie_path)
 
     # Only sentences with indices +/- diff are compared
-    # e.g. subtitles from the first 10% of the movie script
-    # are only compared to
-    # diff = 0.05 * len(movie_dialogue)
+    # e.g. subtitles from the first 10% of the subtitle file
+    # are only compared to sentences from the first 10% of the movie script
+    # diff = abs(len(movie_dialogue)-len(subs_dialogue))
     diff = 0.05
     scene_times = {}
     sentence_times = {}
@@ -142,6 +150,9 @@ def __match_sentences2(movie_path: str, subs_path: str) -> Tuple[
         for j, moviesent in enumerate(movie_dialogue):
             perc_j = j / len(movie_dialogue)
 
+            # if j < (i - diff):
+            #     continue
+            # elif j > (i + diff):
             if perc_j < (perc_i - diff):
                 continue
             elif perc_j > (perc_i + diff):
@@ -152,7 +163,6 @@ def __match_sentences2(movie_path: str, subs_path: str) -> Tuple[
 
                 # get the moviescript-sentence with the highest matching ratio
                 m = max(temp, key=lambda x: x[0])[1]
-                print(m)
 
                 done1.append(subsent[2])
                 done2.append(m[2])
@@ -278,19 +288,21 @@ def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
 
 
 if __name__ == '__main__':
-    annotate("star-wars-4.xml", "star-wars-4_subs.xml", "star_wars_annotated_orig.xml")
+    print(fuzz.ratio("They shut down the main reactor.", "This is madness!"))
+
+    # annotate("star-wars-4.xml", "star-wars-4_subs.xml", "star_wars_annotated.xml")
     # file = os.path.join(BASE_DIR, "data/movies_with_subs_and_script.txt")
     # with open(file) as mv_file:
     #     movies = mv_file.read().splitlines(keepends=False)
     #
     #     for m in movies[1:]:
     #         print(m)
-    #         script = os.path.join(BASE_DIR, "data/moviescripts_xml", m+".xml")
-    #         subs = os.path.join(BASE_DIR, "data/subtitles_xml", m+"_subs.xml")
+    #         script = os.path.join(BASE_DIR, "data/moviescripts_xml", m + ".xml")
+    #         subs = os.path.join(BASE_DIR, "data/subtitles_xml", m + "_subs.xml")
     #
-    #         dest = os.path.join(BASE_DIR, "data/moviescripts_xml_time/10perc80ratio_new",m+"_annotated.xml")
+    #         dest = os.path.join(BASE_DIR, "data/moviescripts_xml_time/20perc90ratio_new", m + "_annotated.xml")
     #
     #         # if not(os.path.isfile(script) and os.path.isfile(subs)):
     #         #     print(m)
     #
-    #         annotate(script,subs,dest)
+    #         annotate(script, subs, dest)
