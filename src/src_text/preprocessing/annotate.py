@@ -20,7 +20,7 @@ def annotate(movie_path: str, subs_path: str, dest_path: str, interpolate: bool 
 
      :returns Writes annotated xml movie script
     """
-    scene_times, sentence_times = __match_sentences(movie_path, subs_path)
+    scene_times, sentence_times = __match_sentences2(movie_path, subs_path)
 
     avg_scene_times = __get_avg_scene_times(scene_times)
 
@@ -84,9 +84,9 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
     done2 = []
     count = 0
     for i, subsent in enumerate(subs_dialogue):
-        perc_i = i/len(subs_dialogue)
+        perc_i = i / len(subs_dialogue)
         for j, moviesent in enumerate(movie_dialogue):
-            perc_j = j/len(movie_dialogue)
+            perc_j = j / len(movie_dialogue)
             # if j < (i - diff):
             #     continue
             # elif j > (i + diff):
@@ -114,6 +114,64 @@ def __match_sentences(movie_path: str, subs_path: str) -> Tuple[
                             scene_times[scene_id].append(time)
                         else:
                             scene_times[scene_id] = [time]
+                    else:
+                        continue
+
+    return scene_times, sentence_times
+
+
+def __match_sentences2(movie_path: str, subs_path: str) -> Tuple[
+    Dict[str, List[datetime]], Dict[str, Tuple[datetime, str]]]:
+    subs_dialogue = get_subtitles_for_annotating(subs_path)
+
+    movie_dialogue = __get_moviedialogue(movie_path)
+
+    # Only sentences with indices +/- diff are compared
+    # e.g. subtitles from the first 10% of the movie script
+    # are only compared to
+    # diff = 0.05 * len(movie_dialogue)
+    diff = 0.05
+    scene_times = {}
+    sentence_times = {}
+    done1 = []
+    done2 = []
+    count = 0
+    for i, subsent in enumerate(subs_dialogue):
+        perc_i = i / len(subs_dialogue)
+        temp = []
+        for j, moviesent in enumerate(movie_dialogue):
+            perc_j = j / len(movie_dialogue)
+
+            if perc_j < (perc_i - diff):
+                continue
+            elif perc_j > (perc_i + diff):
+                if len(temp) == 0:
+                    break
+                s = max(temp, key=lambda x: x[0])[1]
+                print(s)
+                done1.append(s[2])
+                done2.append(moviesent[2])
+                count += 1
+
+                time = datetime.strptime(s[1], '%H:%M:%S,%f')
+
+                sentence_id = moviesent[0]
+                sentence_times[sentence_id] = (time, s[0])
+
+                scene_id = moviesent[1]
+
+                if scene_id in scene_times:
+                    scene_times[scene_id].append(time)
+                else:
+                    scene_times[scene_id] = [time]
+
+                break
+
+            else:
+                if moviesent[2] not in done2 and subsent[2] not in done1:
+                    ratio = fuzz.ratio(subsent[2].lower(), moviesent[2].lower())
+                    if ratio > 80:
+                        temp.append((ratio, subsent))
                     else:
                         continue
 
@@ -213,18 +271,19 @@ def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
 
 
 if __name__ == '__main__':
-    file = os.path.join(BASE_DIR, "data/movies_with_subs_and_script.txt")
-    with open(file) as mv_file:
-        movies = mv_file.read().splitlines(keepends=False)
-
-        for m in movies[1:]:
-            print(m)
-            script = os.path.join(BASE_DIR, "data/moviescripts_xml", m+".xml")
-            subs = os.path.join(BASE_DIR, "data/subtitles_xml", m+"_subs.xml")
-
-            dest = os.path.join(BASE_DIR, "data/moviescripts_xml_time/10perc80ratio_new",m+"_annotated.xml")
-
-            # if not(os.path.isfile(script) and os.path.isfile(subs)):
-            #     print(m)
-
-            annotate(script,subs,dest)
+    annotate("star-wars-4.xml", "star-wars-4_subs.xml", "star_wars_annotated.xml")
+    # file = os.path.join(BASE_DIR, "data/movies_with_subs_and_script.txt")
+    # with open(file) as mv_file:
+    #     movies = mv_file.read().splitlines(keepends=False)
+    #
+    #     for m in movies[1:]:
+    #         print(m)
+    #         script = os.path.join(BASE_DIR, "data/moviescripts_xml", m+".xml")
+    #         subs = os.path.join(BASE_DIR, "data/subtitles_xml", m+"_subs.xml")
+    #
+    #         dest = os.path.join(BASE_DIR, "data/moviescripts_xml_time/10perc80ratio_new",m+"_annotated.xml")
+    #
+    #         # if not(os.path.isfile(script) and os.path.isfile(subs)):
+    #         #     print(m)
+    #
+    #         annotate(script,subs,dest)
