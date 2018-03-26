@@ -13,12 +13,11 @@ matplotlib = "*"
 textblob = "*"
 afinn = "*"
 librosa = "*"
-pysoundfile = "*"
+PySoundFile = "*"
 pandas = "*"
 scikit-learn = "*"
 numpy = "*"
 wordcloud = "*"
-seaborn = "*"
 
 
 [dev-packages]

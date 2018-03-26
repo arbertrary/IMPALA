@@ -285,24 +285,3 @@ def __interpolate_timecodes(tree: ET.ElementTree, dest_path: str):
                 scene_xml.set("time_interpolated", scene[1])
 
     tree.write(dest_path)
-
-
-if __name__ == '__main__':
-    print(fuzz.ratio("They shut down the main reactor.", "This is madness!"))
-
-    # annotate("star-wars-4.xml", "star-wars-4_subs.xml", "star_wars_annotated.xml")
-    # file = os.path.join(BASE_DIR, "data/movies_with_subs_and_script.txt")
-    # with open(file) as mv_file:
-    #     movies = mv_file.read().splitlines(keepends=False)
-    #
-    #     for m in movies[1:]:
-    #         print(m)
-    #         script = os.path.join(BASE_DIR, "data/moviescripts_xml", m + ".xml")
-    #         subs = os.path.join(BASE_DIR, "data/subtitles_xml", m + "_subs.xml")
-    #
-    #         dest = os.path.join(BASE_DIR, "data/moviescripts_xml_time/20perc90ratio_new", m + "_annotated.xml")
-    #
-    #         # if not(os.path.isfile(script) and os.path.isfile(subs)):
-    #         #     print(m)
-    #
-    #         annotate(script, subs, dest)

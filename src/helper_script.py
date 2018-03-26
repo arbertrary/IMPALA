@@ -270,11 +270,3 @@ def check_scene_count():
     print("avg percentage of annotated scenes:\n", np.mean(test))
     print("# of scripts without continuous time codes:\n", len(not_continuous))
     print(not_continuous)
-
-
-def main():
-    check_scene_count()
-
-
-if __name__ == '__main__':
-    main()
